@@ -1,0 +1,71 @@
+@charset 'utf-8'
+/*#文件名称：index.css #米拓企业建站系统 #Copyright (C) 长沙米拓信息技术有限公司 (https://www.metinfo.cn). All rights reserved.*/
+$uicss_main.met-content{background:$bodybgcolor$;background:$bgcolor$;position:relative;background-position:top center;background-size:100% auto;word-break:break-all;overflow:hidden;padding:30px 0;}
+@media (min-width:992px){
+	$uicss_main.met-content{padding:50px 0;}
+	$uicss_main .met-cons{float:right;}
+	$uicss_main .met-conx{float:left;}
+}
+$uicss .width-full{width:100%;}
+$uicss .news-headlines{overflow:hidden;padding-bottom:20px;border-bottom:1px solid transparent;border-bottom-color:$bordercolor$;}
+$uicss .news-wrapper{width:1000%;}
+$uicss .news-wrapper:after{display:block;content:'';clear:both;}
+$uicss .news-slide{float:left;width:10%;}
+$uicss .news-slide a{display:block;position:relative;}
+$uicss .news-slide a img{display:block;width:100%;}
+$uicss .news-slide a h3{display:block;margin:0;text-align:center;padding:10px;background:rgba(0,0,0,.5);position:absolute;left:0;right:0;bottom:0;color:$firstcolor$;color:$titlecolor$;color:$headlinescolor$;font-size:16px;}
+$uicss.met-news-list{padding:30px;background:$showcolor$;}
+@media (max-width:767px){
+	$uicss.met-news-list{padding:15px;}
+	$uicss .news-slide a h3{font-size:14px;}
+}
+$uicss.news-lists{}
+$uicss.news-lists ul{display:block;list-style:none;margin:0;padding:0;}
+$uicss.news-lists ul li{display:block;list-style:none;margin:0;padding:20px 0;border-bottom:1px solid transparent;border-bottom-color:$bordercolor$;}
+$uicss.news-lists ul li:after{display:block;content:'';clear:both;}
+$uicss.news-lists ul li h4{font-size:22px;margin:0 0 10px 0;}
+$uicss.news-lists ul li h4 a{color:$firstcolor$;color:$titlecolor$;}
+$uicss.news-lists ul li h4 a:hover{color:$thirdcolor$;color:$hovercolor$;}
+$uicss.news-lists ul li p.info{margin:5px 0 15px 0;font-size:14px;}
+$uicss.news-lists ul li p.info span{margin-right:10px;color:$secondcolor$;color:$desccolor$;color:$datecolor$;}
+$uicss.news-lists ul li p.info span i{margin-right:5px;}
+$uicss.news-lists ul li p.des{margin:0 0 5px 0;color:$secondcolor$;color:$desccolor$;}
+$uicss.news-lists ul li p.more{text-align:right;margin:0;}
+$uicss.news-lists ul li p.more a{color:$firstcolor$;color:$titlecolor$;color:$morecolor$;}
+$uicss.news-lists ul li p.more a:hover{color:$thirdcolor$;color:$hovercolor$;}
+$uicss.news-lists ul li a.img{float:left;margin-right:20px;}
+$uicss.news-lists ul li a.img img{width: 250px;}
+$uicss.news-lists ul li a.ccimg{display:inline-block;margin-bottom:20px;}
+$uicss.news-lists ul li a.ccimg img{max-width:100%;display:block;}
+@media (max-width:480px){
+	$uicss.news-lists ul li a.img1{float:none;margin-right:0;margin-bottom:20px;display:block;}
+	$uicss.news-lists ul li a.img{width:28%;margin-right:10px;}
+}
+$uicss .met-news{padding:30px 0px;}
+@media (max-width:991px){
+	$uicss.news-lists ul li a.img img{width: 200px;}
+}
+@media (max-width:767px){
+	$uicss .met-news{padding:0px;}
+	$uicss.news-lists ul li a.img{width: 100%;margin-right: 0;margin-bottom: 20px;}
+	$uicss.news-lists ul li a.img img{width: auto;max-width: 100%;}
+}
+$uicss .met_pager{margin:20px 0 0 0;text-align:center;}
+$uicss .met_pager .PageText,
+$uicss .met_pager input{display:none;}
+$uicss .met_pager a,
+$uicss .met_pager span{display:inline-block;padding:0 10px;margin:1px;font-size:16px;min-width:40px;height:40px;line-height:40px;text-align:center;background:$pagebgcolor$;color:$secondcolor$;color:$desccolor$;color:$pagetitlecolor$;transition:.3s;-moz-transition:.3s;-ms-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;}
+$uicss .met_pager span{cursor:no-drop;}
+$uicss .met_pager a:hover,
+$uicss .met_pager a.Ahover,
+$uicss .met_pager span:hover{background:$thirdcolor$;background:$hovercolor$;color:$pagehovercolor$;}
+$uicss .page-ajax{display:none;}
+@media(max-width:767px){
+	$uicss .page-box{display:none;}
+	$uicss .page-ajax{display:block;}
+}
+$uicss .met-pager-ajax-link{position:relative;}
+$uicss .met-pager-ajax-link:before{content:'';position:absolute;z-index:1;left:0;top:0;right:0;bottom:0;border:none;transition:.3s;-moz-transition:.3s;-ms-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;background:$pagebgcolor$;}
+$uicss .met-pager-ajax-link .btn-primary{position:relative;z-index:2;display:block;opacity:1!important;background:none!important;border:none!important;color:$secondcolor$;color:$desccolor$;color:$pagetitlecolor$;}
+$uicss .met-pager-ajax-link:hover:before{background:$pagebgcolor$;opacity:1;}
+$uicss .met-pager-ajax-link:hover .btn-primary{color:$secondcolor$;color:$desccolor$;color:$pagetitlecolor$;}

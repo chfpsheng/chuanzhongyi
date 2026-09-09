@@ -1,0 +1,43 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:cover; 
+padding:$paddinglg$px 0;} 
+@media(max-width:1199px){
+$uicss{padding:$paddingsm$px 0;} }
+@media(max-width:767px){
+$uicss{padding:$paddingxs$px 0;} }
+
+
+$uicss .row{position:relative;}
+$uicss .about-title{text-align:left;}
+$uicss .about-title h2{color:$firstcolor$; color:$titlecolor$; margin-top:0;}
+$uicss .about-box{color:$secondcolor$; color:$desccolor$; margin:40px 0;}
+$uicss .about-box *{max-width:100%;}
+
+$uicss .about-link{ }
+$uicss .about-link a{display:inline-block; font-size:18px;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;
+padding:5px 30px; border-radius:4px; color:$firstcolor$; color:$titlecolor$; color:$buttoncolor$; border:1px solid $bordercolor$;}
+$uicss .about-link a i{margin-left:10px; transform:scale(1.2) translateY(1px); -moz-transform:scale(1.2) translateY(1px);
+-ms-transform:scale(1.2) translateY(1px); -o-transform:scale(1.2) translateY(1px); -webkit-transform:scale(1.2) translateY(1px);}
+$uicss .about-link a:hover{
+background:$thirdcolor$; background:$hovercolor$;
+border-color:$thirdcolor$; border-color:$hovercolor$;}
+$uicss .about-video{color:$secondcolor$; color:$desccolor$;}
+$uicss .about-video *{max-width:100%;}
+@media(min-width:992px){
+$uicss .about-video{position:absolute; right:0; top:50%; max-height:100%; overflow:auto;
+transform:translateY(-50%); -moz-transform:translateY(-50%);
+-webkit-transform:translateY(-50%); -o-transform:translateY(-50%); -ms-transform:translateY(-50%);}
+}
+@media(max-width:992px){
+$uicss .about-video{margin-bottom:50px;}
+}
+$uicss .about-video video{display:block;}
+$uicss .about-box *,
+$uicss .about-video *{max-width:100%;}
+$uicss .pointer{cursor:pointer; display:block;}
+@media(max-width:767px){
+$uicss .about-box{margin:10px 0;}
+$uicss .about-title,
+$uicss .about-link{text-align:center; margin:10px 0 20px 0;}
+$uicss .about-video{margin:20px 0;}
+}

@@ -1,0 +1,49 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:100% auto;
+word-break:break-all; overflow:hidden;}
+
+$uicss a:focus, 
+$uicss a:hover{color:$thirdcolor$; color:$hovercolor$;} 
+
+@media (min-width: 992px) {
+$uicss.met-cons { float:right; }
+$uicss.met-conx { float:left; }
+} 
+
+$uicss .met-service{background:$bgcolor$; background:$showcolor$; overflow:hidden;}
+$uicss .met-service h3{display:block; margin:25px 15px 5px 15px; padding:0 0 0 8px; line-height:1; 
+border-left:4px solid $thirdcolor$; border-left-color:$hovercolor$; 
+color:$firstcolor$; color:$titlecolor$;
+font-size:22px; font-weight:normal;}
+$uicss .met-service ul{display:block; list-style:none; margin:0; padding:10px 7.5px 20px 7.5px;}
+$uicss .met-service ul:after{display:block; content:''; clear:both;}
+$uicss .met-service ul li{float:left; width:100%; display:block; list-style:none; margin:0; padding:10px 7.5px;}
+$uicss .met-service ul li a{display:block; text-align:center;}
+$uicss .met-service ul li a span{display:block; overflow:hidden;}
+$uicss .met-service ul li a span img{display:block; width:100%;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;}
+$uicss .met-service ul li a:hover span img{transform:scale(1.1); -moz-transform:scale(1.1); -ms-transform:scale(1.1); 
+-o-transform:scale(1.1); -webkit-transform:scale(1.1);}
+$uicss .met-service ul li a h6{display:block; font-size:16px; margin:10px 0 0 0; overflow:hidden; 
+text-overflow:ellipsis; white-space:nowrap; color:$secondcolor$; color:$desccolor$;}
+$uicss .met-service ul li a:hover h6{color:$thirdcolor$; color:$hovercolor$;}
+@media (max-width: 992px) {
+$uicss .met-service{margin-top:15px;}
+$uicss .met-service ul li{width:25%;} }
+@media (max-width: 767px) {
+$uicss .met-service ul li{width:33.3333%;} }
+@media (max-width: 460px) {
+$uicss .met-service ul li{width:50%;} }
+
+$uicss .met-information{background:$bgcolor$; background:$showcolor$; overflow:hidden; margin-top:15px;}
+$uicss .met-information h3{display:block; margin:25px 15px 0 15px; padding:0 0 0 8px; line-height:1;
+border-left:4px solid $thirdcolor$; border-left-color:$hovercolor$; 
+color:$firstcolor$; color:$titlecolor$;
+font-size:22px; font-weight:normal;}
+$uicss .met-information ul{display:block; list-style:none; margin:0; padding:10px 15px 20px 15px;}
+$uicss .met-information ul li{display:block; list-style:none; margin:0; padding:15px 0; 
+border-bottom:1px solid transparent; border-bottom-color:$bordercolor$;}
+$uicss .met-information ul li h6{display:block; margin:0; font-size:16px;}
+$uicss .met-information ul li a{color:$secondcolor$; color:$desccolor$;}
+$uicss .met-information ul li a:hover{color:$thirdcolor$; color:$hovercolor$;}
+@media (max-width: 992px) {
+$uicss .met-information{margin-top:15px;} }

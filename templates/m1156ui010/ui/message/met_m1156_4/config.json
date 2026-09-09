@@ -1,0 +1,15 @@
+{
+    "css":[
+		"{$metui_url2}vendor/formvalidation/formValidation.min.css",
+    	"ui/css/index.css"
+    ],
+    "js":[
+		"{$metui_url2}vendor/formvalidation/formValidation.min.js",
+		"{$metui_url2}vendor/formvalidation/framework/bootstrap.min.js",
+		"{$metui_url2}vendor/formvalidation/framework/bootstrap4.min.js",
+    	"{$metui_url3}js/form.js",
+    	"{$metui_url3}plugin/jquery.lazyload.min.js",
+    	"{$metui_url3}js/pager.js",
+        "ui/js/index.js"
+    ]
+}

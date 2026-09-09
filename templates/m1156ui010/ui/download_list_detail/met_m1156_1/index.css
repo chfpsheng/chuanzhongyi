@@ -1,0 +1,665 @@
+@charset 'utf-8';
+/*#文件名称：index.css #米拓企业建站系统 #Copyright (C) 长沙米拓信息技术有限公司 (https://www.metinfo.cn). All rights reserved.*/
+/*#index.css#米拓企业建站系统 #Copyright (C) 长沙米拓信息技术有限公司 (http://www.metinfo.cn). All rights reserved.*/
+$uicss {
+  background: $bodybgcolor$;
+  background: $bgcolor$;
+  position: relative;
+  background-position: top center;
+  background-size: 100% auto;
+  word-break: break-all;
+  overflow: hidden;
+  color: $secondcolor$;
+  color: $desccolor$;
+}
+$uicss a {
+  color: $firstcolor$;
+  color: $titlecolor$;
+}
+$uicss a:focus,
+$uicss a:hover {
+  color: $thirdcolor$;
+  color: $hovercolor$;
+}
+$uicss .h1,
+$uicss .h2,
+$uicss .h3,
+$uicss .h4,
+$uicss .h5,
+$uicss .h6,
+$uicss h1,
+$uicss h2,
+$uicss h3,
+$uicss h4,
+$uicss h5,
+$uicss h6 {
+  color: $firstcolor$;
+  color: $titlecolor$;
+}
+$uicss > div > .container:not(.not) {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  position: relative;
+}
+$uicss > div > .container:before {
+  position: absolute;
+  left: -35px;
+  right: -35px;
+  top: -35px;
+  bottom: -35px;
+  z-index: 1;
+  display: block;
+  content: "";
+  background: $showcolor$;
+  opacity: $showopacity$;
+}
+$uicss > div > .container .row {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 1199px) {
+  $uicss > div > .container:not(.not) {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+  $uicss > div > .container:before {
+    left: -25px;
+    right: -25px;
+    top: -25px;
+    bottom: -25px;
+  }
+}
+@media (max-width: 992px) {
+  $uicss > div > .container:not(.not) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  $uicss > div > .container:before {
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+  }
+}
+@media (max-width: 767px) {
+  $uicss > div > .container:before {
+    left: -15px;
+    right: -15px;
+    top: -15px;
+    bottom: -15px;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px) {
+  $uicss > div > .container:not(.not) {
+    width: 708px;
+  }
+}
+@media (max-width: 767px) and (orientation: landscape) {
+  $uicss > div > .container:not(.not) {
+    margin-top: 50px;
+  }
+}
+@media (max-height: 375px) and (orientation: landscape) {
+  $uicss > div > .container:not(.not) {
+    margin-top: 40px;
+  }
+}
+$uicss u {
+  text-decoration: none;
+}
+
+$uicss .location-box {
+  padding: 9px 0;
+  background: $showcolor$ !important;
+  border-bottom: 1px solid $bordercolor$;
+  overflow: auto;
+  width: 100%;
+}
+$uicss .location-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+$uicss .location-box ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+$uicss .location-box ul li {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+$uicss .location-box ul li:before {
+  content: ">";
+  display: inline-block;
+  padding: 0 10px;
+}
+$uicss .location-box ul li:first-child:before {
+  display: none;
+}
+$uicss .location-box ul li i {
+  padding-right: 4px;
+}
+
+$uicss .met-download .met-download-list .list-group-item:first-child {
+  padding-top: 0;
+}
+$uicss .met-download .met-download-list small {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+}
+$uicss .met-shownews .paralist .met-download-btn {
+  margin-top: 20px;
+}
+$uicss .met-shownews-footer .border-top1 {
+  border-top: 1px solid $bordercolor$;
+}
+$uicss .met-editor {
+  color: $secondcolor$;
+  color: $desccolor$;
+  padding: 35px 0;
+  width: 100%;
+  max-width: 100%;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+@media (max-width: 1199px) {
+  $uicss .met-editor {
+    padding: 25px;
+  }
+}
+@media (max-width: 992px) {
+  $uicss .met-editor {
+    padding: 20px;
+  }
+}
+@media (max-width: 767px) {
+  $uicss .met-editor {
+    padding: 15px;
+  }
+}
+
+$uicss .met-download {
+  padding: 0px;
+}
+$uicss .met-download .list-group {
+  margin-bottom: 30px;
+}
+$uicss .met-download .met-download-body {
+}
+$uicss .met-download .met-download-list {
+}
+@media (max-width: 767px) {
+  $uicss .met-download .met-download-list {
+  }
+}
+$uicss .met-download .met-download-list .list-group-item {
+  padding: 30px 0px;
+}
+$uicss .met-download .met-download-list .media-left {
+  padding-right: 5px;
+  padding-left: 10px;
+}
+$uicss .met-download .met-download-list .media-left i {
+  font-size: 38px;
+  color: $thirdcolor$;
+  color: $hovercolor$;
+}
+$uicss .met-download .met-download-list h4 {
+  font-size: inherit !important;
+}
+$uicss .met-download .met-download-list h4.media-heading a {
+  font-size: 18px;
+}
+$uicss .met-download .met-download-list a.btn {
+  margin-right: 10px;
+}
+@media (max-width: 1199px) {
+  $uicss .met-download .met-download-list h4.media-heading a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  $uicss .met-download .met-download-list h4.media-heading a {
+    font-size: 15px;
+  }
+  $uicss .met-download .list-group {
+    margin: 0;
+  }
+  $uicss .met-download .met-download-list {
+    padding: 15px;
+  }
+  $uicss .met-download .met-download-list .list-group-item {
+    padding: 20px 0;
+  }
+}
+$uicss .met-download .met-download-header,
+.met-download .met-download-footer {
+}
+@media (max-width: 767px) {
+  $uicss .met-download .met-download-header,
+  .met-download .met-download-footer {
+    padding: 10px;
+  }
+}
+$uicss .met-download .met-download-header {
+  padding-bottom: 0px;
+}
+$uicss .met-download h1 {
+  margin: 0px;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+$uicss .met-download .info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $bordercolor$;
+}
+$uicss .met-download .info span {
+  padding-right: 10px;
+}
+$uicss .met-download .info span i {
+  color: $thirdcolor$;
+  color: $hovercolor$;
+}
+@media (max-width: 767px) {
+  $uicss .met-download .info {
+    padding-bottom: 20px;
+  }
+}
+$uicss .met-download .paralist {
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+@media (max-width: 767px) {
+  $uicss .met-download .paralist {
+    padding: 10px;
+  }
+}
+$uicss .met-download .paralist dl {
+  margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $bordercolor$;
+}
+$uicss .met-download .paralist dl dd {
+  margin-bottom: 5px;
+}
+@media (min-width: 768px) {
+  $uicss .met-download .paralist dl {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  $uicss .met-download .paralist dl dt {
+    width: 100px;
+    margin-bottom: 5px;
+  }
+  $uicss .met-download .paralist dl dd {
+    margin-left: 120px;
+    margin-bottom: 5px;
+  }
+}
+$uicss .met-download .paralist .met-download-btn {
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  $uicss .met-download {
+    padding: 0px;
+  }
+  $uicss .met-download h1 {
+    font-size: 24px;
+  }
+  $uicss .met-download .met-download-header {
+    padding-top: 20px;
+  }
+}
+
+$uicss .met-download-list .list-group-item .media-heading a {
+  color: $firstcolor$;
+  color: $titlecolor$;
+}
+
+$uicss .btn-outline.btn-primary {
+  background: $thirdcolor$ !important;
+  background: $hovercolor$ !important;
+  background: $btnbgcolor$ !important;
+  color: $firstcolor$ !important;
+  color: $titlecolor$ !important;
+  color: $btncolor$ !important;
+  border: none !important;
+  opacity: 1;
+  transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+}
+$uicss .btn-outline.btn-primary:hover {
+  opacity: 0.8;
+}
+
+$uicss .paralist {
+  background: none !important;
+  padding: 0 !important;
+}
+@media (max-width: 767px) {
+  $uicss .paralist {
+    padding: 0 15px !important;
+  }
+}
+@media (min-width: 768px) {
+  $uicss .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  $uicss .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+$uicss .dl-horizontal dd:after,
+$uicss .dl-horizontal dd:before {
+  display: table;
+  content: " ";
+}
+$uicss .dl-horizontal dd:after {
+  clear: both;
+}
+
+$uicss .met-news-bar {
+  margin: 0;
+  padding: 0 0 0 35px;
+}
+$uicss .met-news .met-news-bar {
+  padding: 0 0 0 20px;
+}
+$uicss .met-news-bar:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+@media (max-width: 1199px) {
+  $uicss .met-news-bar {
+    padding: 0 0 0 25px;
+  }
+  $uicss .met-news .met-news-bar {
+    padding: 0 0 0 15px;
+  }
+}
+@media (max-width: 991px) {
+  $uicss .met-news-bar {
+    padding: 25px 0 0 0;
+  }
+}
+@media (max-width: 767px) {
+  $uicss .met-news-bar {
+    margin: 0;
+    padding: 15px;
+  }
+}
+$uicss .met-news-bar ul.column {
+  padding: 0px;
+  list-style: none;
+}
+$uicss .met-news-bar ul.column li {
+  margin-bottom: 10px;
+}
+$uicss .met-news-bar ul.column li a {
+  font-size: 16px;
+  color: #2a333c;
+}
+$uicss .met-news-bar ul.column li a:hover {
+  color: #4e97d9;
+}
+$uicss .met-news-bar ul.column li a.active {
+  color: #4e97d9;
+}
+$uicss .met-news-bar .recommend {
+  margin: 20px 0px;
+  padding: 20px 0px;
+  border-top: 1px solid #f0f2f5;
+  border-bottom: 1px solid #f0f2f5;
+}
+$uicss .met-news-bar .recommend h3 {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0px;
+}
+$uicss .met-news-bar .recommend .list-group {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+$uicss .met-news-bar .recommend .list-group a {
+  color: #2a333c;
+  font-size: 15px;
+}
+$uicss .met-news-bar .recommend .list-group a:hover {
+  color: #4e97d9;
+}
+
+$uicss .tag-box {
+  padding-bottom: 35px;
+}
+$uicss .tag-box a {
+  display: inline-block;
+  margin-left: 10px;
+}
+@media (max-width: 1199px) {
+  $uicss .tag-box {
+    padding: 0 25px 25px 25px;
+  }
+}
+@media (max-width: 992px) {
+  $uicss .tag-box {
+    padding: 0 20px 20px 20px;
+  }
+}
+@media (max-width: 767px) {
+  $uicss .tag-box {
+    padding: 0 15px 15px 15px;
+  }
+}
+
+$uicss .sidenews-lists h3 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+  font-weight: normal;
+  position: relative;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $desccolor$;
+  border-bottom-color: $bordercolor$;
+}
+$uicss .sidenews-lists h3:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+$uicss .sidenews-lists h3 span {
+  float: left;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $thirdcolor$;
+  border-bottom-color: $hovercolor$;
+  padding-bottom: 10px;
+  margin-bottom: -1px;
+}
+$uicss .sidenews-lists ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+$uicss .sidenews-lists li {
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  float: left;
+}
+$uicss .sidenews-lists li:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+$uicss .sidenews-lists a {
+  display: block;
+}
+$uicss .sidenews-lists img {
+  display: block;
+  float: left;
+  padding-right: 20px;
+  width: 145px;
+  padding: 0 20px 0 0;
+}
+$uicss .sidenews-lists i.img-icon {
+  display: block;
+  float: left;
+  padding-right: 15px;
+  font-size: 38px;
+  color: $thirdcolor$;
+  color: $hovercolor$;
+}
+$uicss .sidenews-lists b {
+  display: block;
+  font-weight: normal;
+  padding: 0;
+  overflow: hidden;
+  max-height: 60px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+$uicss .sidenews-lists p {
+  display: block;
+  margin: 10px 0 0 0;
+  color: $secondcolor$;
+  color: $desccolor$;
+}
+$uicss .sidenews-lists p:before {
+  display: inline-block;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 2px;
+  transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  background: $thirdcolor$;
+  background: $hovercolor$;
+  position: relative;
+  top: -3px;
+  margin-right: 10px;
+}
+@media (max-width: 1599px) {
+  $uicss .sidenews-lists h3 {
+    font-size: 24px;
+  }
+  $uicss .sidenews-lists li {
+    margin: 15px 0 0 0;
+  }
+  $uicss .sidenews-lists b {
+    max-height: 54px;
+  }
+  $uicss .sidenews-lists img {
+    width: 135px;
+  }
+}
+@media (max-width: 1199px) {
+  $uicss .sidenews-lists h3 {
+    font-size: 20px;
+  }
+  $uicss .sidenews-lists li {
+    margin: 15px 0 0 0;
+  }
+  $uicss .sidenews-lists img {
+    width: 115px;
+    padding-right: 15px;
+  }
+  $uicss .sidenews-lists b {
+    max-height: 48px;
+  }
+  $uicss .sidenews-lists p {
+    margin: 5px 0 0 0;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px) {
+  $uicss .sidenews-lists li {
+    width: 50%;
+    padding-right: 15px;
+  }
+  $uicss .sidenews-lists img {
+    width: 100px;
+  }
+  $uicss .sidenews-lists p {
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
+  $uicss .sidenews-lists h3 {
+    font-size: 18px;
+  }
+  $uicss .sidenews-lists i.img-icon {
+    line-height: 50px;
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) and (orientation: landscape) {
+  $uicss .sidenews-lists li {
+    width: 50%;
+    padding-right: 10px;
+  }
+  $uicss .sidenews-lists img {
+    width: 100px;
+    padding-right: 10px;
+  }
+  $uicss .sidenews-lists p {
+    margin: 0;
+  }
+}
+@media (max-width: 767px) and (orientation: portrait) {
+  $uicss .sidenews-lists img {
+    padding-right: 15px;
+    width: 115px;
+  }
+}
+
+$uicss .page-item .page-link {
+  border-radius: 0.215rem;
+}
+
+$uicss .met-page {
+  padding: 0 !important;
+}
+$uicss .met-page .pagination li a {
+  color: $secondcolor$;
+  color: $desccolor$;
+}
+$uicss .met-page .page-link {
+  border: 1px solid $bordercolor$;
+}
+$uicss .met-page .page-link:focus,
+$uicss .met-page .page-link:hover {
+  background: none;
+  border-color: $thirdcolor$;
+  border-color: $hovercolor$;
+}
+$uicss .met-page .pagination li a:focus,
+$uicss .met-page .pagination li a:hover {
+  color: $thirdcolor$;
+  color: $hovercolor$;
+}
+$uicss .met-editor * {
+  word-break: keep-all;
+  word-break: break-word;
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "ui_version": "1.3",
+    "update_time": "20210622",
+    "update_content": "英文站单词换行处理",
+    "update_person": "152"
+  },
+  {
+    "ui_version": "1.4",
+    "update_time": "20210622",
+    "update_content": "升一个版本",
+    "update_person": "152"
+  },
+  {
+    "ui_version": "1.6",
+    "update_time": "20250312",
+    "update_content": "修复：在php8.0下页面报错的问题",
+    "update_person": "07"
+  }
+]

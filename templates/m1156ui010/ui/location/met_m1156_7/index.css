@@ -1,0 +1,145 @@
+$uicss_main{
+background:$bodybgcolor$;
+background:$bgcolor$;
+}
+
+$uicss{
+background:$bodybgcolor$;
+background:$bgcolor$;
+background:$showcolor$;
+position:relative;  
+word-break:break-all; 
+color:$firstcolor$;
+color:$titlecolor$;
+}
+$uicss a{
+color:$firstcolor$;
+color:$titlecolor$;
+}
+$uicss a:focus,
+$uicss a:hover{
+color:$thirdcolor$;
+color:$hovercolor$;
+}
+$uicss .breadcrumb{padding:8px 10px; margin-bottom:22px; list-style:none; background-color:transparent; border-radius:3px}
+$uicss .breadcrumb>li{display:inline-block}
+$uicss .breadcrumb>li+li:before{padding:0 5px; content:"/\00a0"}
+$uicss .breadcrumb li .icon:before{margin-right:10px;}
+$uicss .breadcrumb>.active{
+color:$thirdcolor$;
+color:$hovercolor$;}
+$uicss .dropdown,
+$uicss .dropup{position:relative}
+$uicss .dropdown-toggle:focus{outline:0}
+$uicss .dropdown-menu{position:absolute; top:100%; left:0; z-index:1200; display:none; float:left; min-width:160px; padding:5px 0; margin:2px 0 0; font-size:14px; text-align:left; list-style:none; background-color:$bgcolor$; background-color:$nav2bgcolor$; -webkit-background-clip:padding-box; background-clip:padding-box; border:1px solid transparent; border-color:$nav2bordercolor$; border-radius:3px; -webkit-box-shadow:0 6px 12px rgba(0,0,0,.175); box-shadow:0 6px 12px rgba(0,0,0,.175)}
+$uicss .dropdown-menu.pull-right{right:0; left:auto}
+$uicss .dropdown-menu .divider{height:1px; margin:10px 0; overflow:hidden; background-color:#e4eaec}
+$uicss .dropdown-menu>li>a{display:block; padding:3px 20px; clear:both; font-weight:400; line-height:1.57142857; color:#76838f; white-space:nowrap}
+$uicss .dropdown-menu>li>a:focus,
+$uicss .dropdown-menu>li>a:hover{color:#76838f; text-decoration:none; background-color:#f3f7f9}
+$uicss .dropdown-menu>.active>a,
+$uicss .dropdown-menu>.active>a:focus,
+$uicss .dropdown-menu>.active>a:hover{color:#76838f; text-decoration:none; background-color:#f3f7f9; outline:0}
+$uicss .dropdown-menu>.disabled>a,
+$uicss .dropdown-menu>.disabled>a:focus,
+$uicss .dropdown-menu>.disabled>a:hover{color:#ccd5db}
+$uicss .dropdown-menu>.disabled>a:focus,
+$uicss .dropdown-menu>.disabled>a:hover{text-decoration:none; cursor:not-allowed; background-color:transparent; background-image:none; filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)}
+$uicss .open>.dropdown-menu{display:block}
+$uicss .open>a{outline:0}
+$uicss .dropdown-menu-right{right:0; left:auto}
+$uicss .dropdown-menu-left{right:auto; left:0}
+$uicss .dropdown-header{display:block; padding:3px 20px; font-size:12px; line-height:1.57142857; color:#37474f; white-space:nowrap}
+$uicss .dropdown-backdrop{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1190}
+$uicss .pull-right>.dropdown-menu{right:0; left:auto}
+$uicss .dropup .caret,
+$uicss .navbar-fixed-bottom .dropdown .caret{content:""; border-top:0; border-bottom:4px dashed; border-bottom:4px solid\9}
+$uicss .dropup .dropdown-menu,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu{top:auto; bottom:100%; margin-bottom:2px}
+$uicss .dropdown-menu{margin-top:5px; -webkit-box-shadow:0 3px 12px rgba(0,0,0,.05); box-shadow:0 3px 12px rgba(0,0,0,.05); -webkit-transition:.25s; -o-transition:.25s; transition:.25s}
+$uicss .dropdown-menu .divider{margin:6px 0}
+$uicss .dropdown-menu>li{padding:0 5px; margin:2px 0}
+$uicss .dropdown-menu>li>a{padding:8px 15px; border-radius:3px; -webkit-transition:background-color .25s; -o-transition:background-color .25s; transition:background-color .25s}
+$uicss .dropdown-menu li .icon:first-child,
+$uicss .dropdown-menu li>a .icon:first-child{width:1em; margin-right:.5em; text-align:center}
+$uicss .dropdown-menu.bullet{margin-top:12px}
+$uicss .dropdown-menu.bullet:after,
+$uicss .dropdown-menu.bullet:before{position:absolute; left:10px; display:inline-block; width:0; height:0; content:''; border:7px solid transparent; border-top-width:0}
+$uicss .dropdown-menu.bullet:before{top:-7px; border-bottom-color:$nav2bordercolor$}
+$uicss .dropdown-menu.bullet:after{top:-6px; border-bottom-color:$nav2bgcolor$}
+$uicss .dropdown-menu-right.bullet:after,
+$uicss .dropdown-menu-right.bullet:before{right:10px; left:auto}
+$uicss .dropdown-menu.animate{overflow:hidden}
+$uicss .dropdown-menu.animate>li{-webkit-animation-name:slide-left; -o-animation-name:slide-left; animation-name:slide-left; -webkit-animation-duration:.5s; -o-animation-duration:.5s; animation-duration:.5s; -webkit-animation-fill-mode:both; -o-animation-fill-mode:both; animation-fill-mode:both}
+$uicss .dropdown-menu.animate>li:nth-child(1){-webkit-animation-delay:.02s; -o-animation-delay:.02s; animation-delay:.02s}
+$uicss .dropdown-menu.animate>li:nth-child(2){-webkit-animation-delay:.04s; -o-animation-delay:.04s; animation-delay:.04s}
+$uicss .dropdown-menu.animate>li:nth-child(3){-webkit-animation-delay:.06s; -o-animation-delay:.06s; animation-delay:.06s}
+$uicss .dropdown-menu.animate>li:nth-child(4){-webkit-animation-delay:.08s; -o-animation-delay:.08s; animation-delay:.08s}
+$uicss .dropdown-menu.animate>li:nth-child(5){-webkit-animation-delay:.1s; -o-animation-delay:.1s; animation-delay:.1s}
+$uicss .dropdown-menu.animate>li:nth-child(6){-webkit-animation-delay:.12s; -o-animation-delay:.12s; animation-delay:.12s}
+$uicss .dropdown-menu.animate>li:nth-child(7){-webkit-animation-delay:.14s; -o-animation-delay:.14s; animation-delay:.14s}
+$uicss .dropdown-menu.animate>li:nth-child(8){-webkit-animation-delay:.16s; -o-animation-delay:.16s; animation-delay:.16s}
+$uicss .dropdown-menu.animate>li:nth-child(9){-webkit-animation-delay:.18s; -o-animation-delay:.18s; animation-delay:.18s}
+$uicss .dropdown-menu.animate>li:nth-child(10){-webkit-animation-delay:.2s; -o-animation-delay:.2s; animation-delay:.2s}
+$uicss .dropdown-menu.animate>li.divider{-webkit-animation-name:none; -o-animation-name:none; animation-name:none}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(1){-webkit-animation-delay:.02s; -o-animation-delay:.02s; animation-delay:.02s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(2){-webkit-animation-delay:.04s; -o-animation-delay:.04s; animation-delay:.04s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(3){-webkit-animation-delay:.06s; -o-animation-delay:.06s; animation-delay:.06s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(4){-webkit-animation-delay:.08s; -o-animation-delay:.08s; animation-delay:.08s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(5){-webkit-animation-delay:.1s; -o-animation-delay:.1s; animation-delay:.1s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(6){-webkit-animation-delay:.12s; -o-animation-delay:.12s; animation-delay:.12s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(7){-webkit-animation-delay:.14s; -o-animation-delay:.14s; animation-delay:.14s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(8){-webkit-animation-delay:.16s; -o-animation-delay:.16s; animation-delay:.16s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(9){-webkit-animation-delay:.18s; -o-animation-delay:.18s; animation-delay:.18s}
+$uicss .dropdown-menu.animate.animate-reverse>li:nth-last-child(10){-webkit-animation-delay:.2s; -o-animation-delay:.2s; animation-delay:.2s}
+$uicss .dropup .dropdown-menu,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu{margin-bottom:6px; 
+-webkit-box-shadow:0 -3px 12px rgba(0,0,0,.05); box-shadow:0 -3px 12px rgba(0,0,0,.05)}
+$uicss .dropup .dropdown-menu.bullet,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu.bullet{margin-bottom:12px}
+$uicss .dropup .dropdown-menu.bullet:after,
+$uicss .dropup .dropdown-menu.bullet:before,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu.bullet:after,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu.bullet:before{top:auto; border-top-width:7px; border-bottom-width:0}
+$uicss .dropup .dropdown-menu.bullet:before,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu.bullet:before{bottom:-7px; border-top-color:#e4eaec}
+$uicss .dropup .dropdown-menu.bullet:after,
+$uicss .navbar-fixed-bottom .dropdown .dropdown-menu.bullet:after{bottom:-6px; border-top-color:#fff}
+$uicss .dropdown-menu>.dropdown-header{padding:8px 20px 6px; font-size:14px; font-weight:500; cursor:default}
+$uicss .dropdown-menu>.dropdown-submenu{position:relative}
+$uicss .dropdown-menu>.dropdown-submenu>a{position:relative}
+$uicss .dropdown-menu>.dropdown-submenu>a:after{position:absolute; right:10px; display:inline-block; width:0; height:0; margin-top:6px; vertical-align:middle; content:''; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:4px dashed}
+$uicss .dropdown-menu>.dropdown-submenu .dropdown-menu{left:100%; margin:0}
+$uicss .dropdown-menu>.dropdown-submenu.dropdown-menu-left .dropdown-menu{left:-100%}
+$uicss .dropdown-menu>.dropdown-submenu:hover .dropdown-menu{display:block}
+$uicss .dropdown .dropdown-submenu .dropdown-menu{top:0}
+$uicss .dropup .dropdown-submenu .dropdown-menu{bottom:0}
+
+
+$uicss .dropdown-menu,
+$uicss .dropdown-menu>li>a{-o-border-radius:0px; border-radius:0px; font-weight:normal;}
+$uicss .dropdown-menu>li{padding:0px;}
+$uicss .dropdown-menu>li>a{color:$firstcolor$; color:$titlecolor$; color:$nav2titlecolor$; transition:color 0.5s; -webkit-transition:color 0.5s; transition:background 0.5s; -moz-transition:background 0.5s; -webkit-transition:background 0.5s; -o-transition:background 0.5s;}
+$uicss .dropdown-menu>li>a:hover{color:$thirdcolor$; color:$hovercolor$; color:$nav2hovercolor$; background:$nav2hoverbgcolor$;}
+$uicss .dropdown-menu>li>a:hover i{color:$thirdcolor$; color:$hovercolor$; color:$nav2hovercolor$;}
+$uicss .dropdown-menu>li>a{font-weight:100}
+
+$uicss_main.met-content { padding: 30px 0; }
+
+@media (min-width: 992px) {
+$uicss_main.met-content { padding: 50px 0; }
+$uicss_main .met-cons{float:right;}
+$uicss_main .met-conx{float:left;}
+}
+$uicss.met-position.pattern-show{margin-bottom:1px; padding:20px 30px;}
+$uicss.met-position.pattern-show .breadcrumb{padding:0 !important;}
+$uicss.met-position.pattern-show .breadcrumb>li+li:before{ }
+@media (min-width:1200px){
+$uicss.met-position.pattern-show .breadcrumb{}
+}
+@media (max-width:1199px){
+$uicss.met-position.pattern-show{padding:15px 30px;}
+}
+@media (max-width:767px){
+$uicss.met-position.pattern-show{padding:15px;}
+}

@@ -1,0 +1,129 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:100% auto;
+word-break:break-all; overflow:hidden; color:$secondcolor$; color:$desccolor$;}
+$uicss a{color:$firstcolor$; color:$titlecolor$;}
+$uicss a:focus, $uicss a:hover{color:$thirdcolor$; color:$hovercolor$;}
+$uicss .h1, $uicss .h2, $uicss .h3, $uicss .h4, $uicss .h5, $uicss .h6,
+$uicss h1, $uicss h2, $uicss h3, $uicss h4, $uicss h5, $uicss h6{color:$firstcolor$; color:$titlecolor$;}
+
+
+$uicss .met-job-list{padding:10px 0; padding:$paddinglg$px 0; margin-bottom:0; list-style:none;}
+@media (max-width: 1199px){
+$uicss .met-job-list{padding:$paddingsm$px 0;}
+}
+@media (max-width: 767px){
+$uicss .met-job-list{padding:$paddingxs$px 0;}
+}
+$uicss .met-job-list:after{display:block; content:''; clear:both;}
+$uicss .met-job-list li{list-style:none;}
+
+$uicss .widget{background:$showcolor$; overflow:hidden; border:1px solid transparent; border-color:$bordercolor$; 
+border-radius:5px !important; padding:30px 25px;}
+$uicss .widget-body p.widget-metas{color:$datacolor$;}
+
+$uicss .met-job .widget .widget-title{margin:0 0 10px 0; margin-bottom:$marginbottom$px; text-shadow:none !important;}
+
+$uicss .met-job img{border-radius:3px;}
+
+$uicss .met-job .widget .widget-title,
+$uicss .met-news.type-3 .widget .widget-title a,
+$uicss .met-news ul.met-page-ajax li h4 a{font-size:24px; color:$firstcolor$; color:$titlecolor$;} 
+@media (max-width: 1599px){
+$uicss .met-job .widget .widget-title,
+$uicss .met-news.type-3 .widget .widget-title a,
+$uicss .met-news ul.met-page-ajax li h4 a{font-size:22px;} }
+@media (max-width: 1199px){
+$uicss .met-job .widget .widget-title,
+$uicss .met-news.type-3 .widget .widget-title a,
+$uicss .met-news ul.met-page-ajax li h4 a{font-size:20px;} }
+@media (max-width: 992px){.met-news-bar{margin:30px 0 0 0;}}
+@media (max-width: 767px){.met-news-bar{margin:15px 0 0 0;}
+$uicss .met-news.type-3 .widget .widget-title a,
+$uicss .met-news ul.met-page-ajax li h4 a{font-size:19px;}
+$uicss .widget{padding:0; margin:0 0 10px 0 !important;} }
+
+$uicss .btn-outline.btn-primary,
+$uicss .btn-outline.btn-primary:hover {background:$thirdcolor$; background:$hovercolor$;
+border:none; color:$secondcolor$; color:$desccolor$; color:$focuscolor$ !important; border-radius:5px;}
+ 
+
+$uicss .modal-primary .modal-header{background:$thirdcolor$; background:$hovercolor$; color:$secondcolor$; color:$desccolor$;}
+
+$uicss .met-job .widget { margin-bottom:10px !important; -webkit-border-radius: 0; -moz-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; }
+$uicss .met-job .widget:last-child { margin-bottom: 0; }
+$uicss .met-job .widget .widget-body { padding: 0; }
+$uicss .met-job .widget .widget-body:last-child { -webkit-border-radius: 0; -moz-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; }
+
+$uicss .modal-primary .modal-header *{color:$secondcolor$; color:$desccolor$;}
+
+$uicss .modal-content{background:$showcolor$; }
+$uicss .input-group-file input[type=text],
+$uicss .form-control{background:$borderbgcolor$; border-color:$bordercolor$; color:$secondcolor$; color:$desccolor$;}
+
+$uicss .radio-primary input[type=radio]:checked+label::before,
+$uicss .checkbox-primary input[type=radio]:checked+label::before{border-color:$thirdcolor$; border-color:$hovercolor$;}
+
+$uicss .radio-custom label::before,
+$uicss .checkbox-custom label::before{background:none; border-color:$bordercolor$;}
+
+$uicss .btn-default{background:$borderbgcolor$ !important; border:none !important; color:$secondcolor$ !important; color:$desccolor$ !important;}
+$uicss .btn-default:hover{opacity:.8;}
+
+$uicss .btn-primary{border-color:$thirdcolor$ !important; border-color:$hovercolor$ !important; 
+background:$thirdcolor$ !important; background:$hovercolor$ !important; 
+color:$secondcolor$ !important; color:$desccolor$ !important; color:$focuscolor$ !important;}
+$uicss .btn-primary:hover{opacity:.8;}
+
+
+
+
+$uicss .form-control::-webkit-input-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;} 
+$uicss .form-control:-moz-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;}
+$uicss .form-control::-moz-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;} 
+$uicss .form-control:-ms-input-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;}
+
+
+
+
+
+$uicss .met-job .widget hr {border-top-color:$bordercolor$;}
+$uicss .met-job .widget .widget-metas span { margin-right: 10px; }
+$uicss .met-job .widget .met-editor { padding: 0; color:$secondcolor$; color:$desccolor$; }
+@media (max-width: 767px) {
+$uicss .met-job .widget { margin: 15px 10px; }
+$uicss .met-job .widget .widget-body { padding: 15px 10px; }
+$uicss .met-job .widget .met-editor { padding: 0px; }
+$uicss .met-job .widget hr { margin-top: 15px; margin-bottom: 15px; }
+}
+$uicss #met-job-cv .modal-header { border-radius: 0px; }
+@media (max-width: 767px) {
+$uicss #met-job-cv .modal-body { padding: 15px; }
+}
+
+
+
+$uicss .met_pager{margin:0 0 15px 0; text-align: center;}
+$uicss .met_pager .PageText,
+$uicss .met_pager input{display:none;}
+$uicss .met_pager a,
+$uicss .met_pager span{display:inline-block; padding:0 10px; margin:1px; font-size:16px;
+min-width:50px; height:50px; line-height:50px; text-align:center; 
+border:1px solid transparent; border-color:$bordercolor$;
+background:$pagebgcolor$; color:$secondcolor$; color:$desccolor$; color:$pagetitlecolor$;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;}
+$uicss .met_pager span{cursor:no-drop;}
+$uicss .met_pager a:hover,
+$uicss .met_pager a.Ahover,
+$uicss .met_pager span:hover{background:$thirdcolor$; background:$hovercolor$; color:$pagehovercolor$; border-color:$hovercolor$;}
+$uicss .page-ajax{display:none;}
+@media(max-width:767px){
+$uicss .page-box{display:none;}
+$uicss .page-ajax{display:block;} }
+$uicss .met-pager-ajax-link{position:relative;}
+$uicss .met-pager-ajax-link:before{content:''; position:absolute; z-index:1; left:0; top:0; right:0; bottom:0; border:none;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;
+background:$showcolor$; background:$pagebgcolor$;}
+$uicss .met-pager-ajax-link .btn-primary{position:relative; z-index:2; display:block;
+opacity:1 !important; background:none !important; border:none !important; 
+color:$secondcolor$; color:$desccolor$; color:$pagetitlecolor$;}
+$uicss .met-pager-ajax-link:hover:before{background:$thirdcolor$; background:$hovercolor$; opacity:1;}
+$uicss .met-pager-ajax-link:hover .btn-primary{color:$pagehovercolor$;}

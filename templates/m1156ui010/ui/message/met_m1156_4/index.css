@@ -1,0 +1,91 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:100% auto;
+word-break:break-all; overflow:hidden; color:$secondcolor$; color:$desccolor$; padding: 30px 0px; }
+@media (max-width: 767px){
+$uicss{padding:0;}}
+$uicss a:focus, $uicss a:hover{color:$thirdcolor$; color:$hovercolor$;}
+$uicss .h1, $uicss .h2, $uicss .h3, $uicss .h4, $uicss .h5, $uicss .h6,
+$uicss h1, $uicss h2, $uicss h3, $uicss h4, $uicss h5, $uicss h6{color:$firstcolor$; color:$titlecolor$;}
+
+
+
+
+ 
+$uicss h4 small{color:$secondcolor$; color:$desccolor$; opacity:.9;}
+$uicss .met-message .col-md-6 { float: none; margin: auto; }
+$uicss .met-message .met-message-body, .met-message .met-message-submit { padding: 30px; background: $showcolor$; }
+@media (max-width: 767px) {
+$uicss .met-message .met-message-body,  .met-message .met-message-submit { padding: 10px; }
+}
+$uicss .met-message .met-message-body .media-left { padding-right: 0px; display: block; float: left; }
+$uicss .met-message .met-message-body .media-left i { font-size: 36px; color: $headcolor$; }
+$uicss .met-message .met-message-body .media-body { width: 86%; word-wrap: break-word; display: block; float: left; }
+$uicss .met-message .met-message-body .media-body p { font-size: 14px; color:$secondcolor$; color:$desccolor$;}
+@media (min-width: 992px) {
+$uicss .met-message .met-message-submit { margin-left: 30px; }
+}
+@media (max-width: 767px) {
+$uicss .met-message .met-message-submit { padding-bottom: 20px; }
+}
+
+
+$uicss .list-group-item{background:$showcolor$; border:none; margin:0;}
+
+
+
+
+$uicss .met-message-submit .btn-primary {border-color:$thirdcolor$; border-color:$hovercolor$;
+background:$thirdcolor$; background:$hovercolor$;}
+$uicss .met-message-submit .radio-primary input[type="radio"]:checked+label::before{border-color:$thirdcolor$; border-color:$hovercolor$;}
+$uicss .met-message-submit .radio-custom label::before, .checkbox-custom label::before, .form-control {
+border-color:$bordercolor$; background:$borderbgcolor$;}
+$uicss .met-message-submit .checkbox-custom label::before {border: 1px solid $bordercolor$;}
+$uicss .met-message-submit .checkbox-primary input[type="checkbox"]:checked+label::before,
+$uicss .met-message-submit .checkbox-primary input[type="radio"]:checked+label::before {background:$thirdcolor$; background:$hovercolor$;
+border-color:$thirdcolor$; border-color:$hovercolor$;}
+$uicss .met-message-submit textarea{background:$borderbgcolor$; border:1px solid $bordercolor$;}
+$uicss .met-message-submit select{background:$borderbgcolor$; border:1px solid $bordercolor$;;
+color:$secondcolor$; color:$desccolor$;}
+$uicss .met-message-submit option{background:$borderbgcolor$; }
+$uicss .met-message-submit .input-group-file input[type=text]{background:$borderbgcolor$; border:1px solid $bordercolor$;}
+$uicss .met-message-submit input[type=text]{background:$borderbgcolor$; border:1px solid $bordercolor$;}
+$uicss .met-message-submit button[type=submit]{background:$thirdcolor$; background:$hovercolor$; border:none;}
+$uicss .met-message-submit button[type=submit]:hover{background:$firstcolor$; background:$titlecolor$;}
+$uicss .met-message-submit label{color:$secondcolor$; color:$desccolor$;}
+$uicss .met-message-submit .input-group-addon{background:$listbgcolor$; border:1px solid $bordercolor$; border-left:0;}
+$uicss .met-message-submit .form-control{color:$secondcolor$; color:$desccolor$;}
+$uicss .met-message-submit *::-webkit-input-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;} 
+$uicss .met-message-submit *:-moz-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;}
+$uicss .met-message-submit *::-moz-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;} 
+$uicss .met-message-submit *:-ms-input-placeholder{color:$secondcolor$; color:$desccolor$; opacity:.9;}
+
+    
+$uicss .message-list .list-group-item .icon{color:$thirdcolor$; color:$hovercolor$;}
+$uicss .message-list .well{background:$listbgcolor$; border:1px solid $bordercolor$; color:$firstcolor$; color:$titlecolor$;}
+$uicss .message-list .list-group-dividered .list-group-item {border-bottom:1px solid $bordercolor$ !important;}
+
+
+$uicss .met_pager{margin:0 0 30px 0; text-align: center;}
+$uicss .met_pager .PageText,
+$uicss .met_pager input{display:none;}
+$uicss .met_pager a,
+$uicss .met_pager span{display:inline-block; padding:0 10px; margin:1px; font-size:18px;
+min-width:50px; height:50px; line-height:50px; text-align:center; 
+background:$pagebgcolor$; color:$secondcolor$; color:$desccolor$; color:$pagetitlecolor$;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;}
+$uicss .met_pager span{cursor:no-drop;}
+$uicss .met_pager a:hover,
+$uicss .met_pager a.Ahover,
+$uicss .met_pager span:hover{background:$thirdcolor$; background:$hovercolor$; color:$pagehovercolor$;}
+$uicss .page-ajax{display:none;}
+@media(max-width:767px){
+$uicss .page-box{display:none;}
+$uicss .page-ajax{display:block;} }
+$uicss .met-pager-ajax-link{position:relative;}
+$uicss .met-pager-ajax-link:before{content:''; position:absolute; z-index:1; left:0; top:0; right:0; bottom:0; border:none;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;
+background:$showcolor$; background:$pagebgcolor$;}
+$uicss .met-pager-ajax-link .btn-primary{position:relative; z-index:2; display:block;
+opacity:1 !important; background:none !important; border:none !important; 
+color:$secondcolor$; color:$desccolor$; color:$pagetitlecolor$;}
+$uicss .met-pager-ajax-link:hover:before{background:$thirdcolor$; background:$hovercolor$; opacity:1;}
+$uicss .met-pager-ajax-link:hover .btn-primary{color:$pagehovercolor$;}

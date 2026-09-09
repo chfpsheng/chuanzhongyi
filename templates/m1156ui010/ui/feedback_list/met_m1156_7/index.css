@@ -1,0 +1,142 @@
+/*#文件名称：index.css #米拓企业建站系统 #Copyright (C) 长沙米拓信息技术有限公司 (http://www.metinfo.cn). All rights reserved.*/
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:cover; 
+text-align:center; padding:$paddinglg$px 0; font-size:16px;} 
+@media(max-width:1199px){
+$uicss{padding:$paddingsm$px 0;} }
+@media(max-width:767px){
+$uicss{padding:$paddingxs$px 0; text-align:left;} }
+
+$uicss .title-box{ text-align:center;}
+$uicss .title-box h2{font-size:28px; margin-top:0; font-weight:normal; color:$firstcolor$; color:$namecolor$;} 
+$uicss .title-box p{font-size:16px; color:$secondcolor$; color:$desccolor$;} 
+
+
+
+
+$uicss .feedback-box{text-align:center;}
+$uicss .feedback-cut{background:$showcolor$; background-clip:content-box; margin:40px 0 0 0; overflow:hidden; position:relative; padding:1px 0 0 1px;}
+$uicss .feedback-tag{position:absolute; left:0; top:0; }
+$uicss .feedback-tag font,
+$uicss .feedback-tag span{color:$biaocolor$; font-size:18px; line-height:40px; display:block; position:relative;}
+$uicss .feedback-tag span:before{width:300px; height:40px; content:''; position:absolute; left:50%; margin-left:-150px; top:0;
+background:$biaobgcolor$; z-index:1;}
+$uicss .feedback-tag font{margin-top:-40px; visibility:hidden; opacity:0;}
+$uicss .feedback-tag span{position:absolute; top:50%; left:0; margin-top:-20px; transform:rotate(-45deg); -moz-transform:rotate(-45deg);
+-webkit-transform:rotate(-45deg); -o-transform:rotate(-45deg); -ms-transform:rotate(-45deg);}
+$uicss .feedback-tag span i{font-style:normal; position:relative; z-index:2;}
+$uicss .feedback-tag img{width:100%; display:block;}
+$uicss .feedback-title{text-align:left; padding:40px 0 0 80px;}
+$uicss .feedback-title>b{display:inline-block; font-size:24px; font-weight:normal; margin:0 20px 0 0; color:$hintcolor$;}
+$uicss .feedback-title p{display:inline-block; color:$hintscolor$;} 
+$uicss .feedback-title p b{font-weight:normal;}
+$uicss .feedback-form{display:inline-block; padding:40px 15px 40px 15px;}
+$uicss .feedback-form .form-control{border:1px solid transparent; border-color:$bordercolor$; background:$inputbgcolor$; 
+padding:13px 15px; color:$inputcolor$;}
+$uicss .feedback-form input.form-control,
+$uicss .feedback-form select.form-control{width:360px; height:48px;}
+$uicss .feedback-form select{cursor:pointer;}
+$uicss .feedback-form textarea.form-control{width:580px;}
+$uicss .feedback-form .form-group{position:relative; margin-bottom:30px;}
+$uicss .feedback-form .form-group:after{display:block; content:''; clear:both;}
+$uicss .feedback-form .form-group>label{float:left; color:$titlecolor$; margin:0; text-align:right; width:200px; padding-right:15px;}
+$uicss .feedback-form .form-group>label:not(.ftype_checkbox):not(.ftype_radio){line-height:48px;}
+$uicss .feedback-form .form-group>label:before{content:'：'; float:right;}
+$uicss .feedback-form .form-group.ftype_button>label:before{display:none;}
+$uicss .feedback-form .form-group>label+div,
+$uicss .feedback-form .form-group .small-fixed{ padding-left:200px; }
+$uicss .feedback-form .form-group>label+div+small{font-size:0; color:#fff; position:absolute; top:0; margin:0;}
+$uicss .feedback-form .form-group>label.ftype_upload+div+small,
+$uicss .feedback-form .form-group>label.ftype_select+div+small,
+$uicss .feedback-form .form-group>label.ftype_input+div+small,
+$uicss .feedback-form .form-group>label.ftype_code+div+small{left:560px;}
+$uicss .feedback-form .form-group>label.ftype_textarea+div+small{left:780px;}
+$uicss .feedback-form .form-group>label+div+small:before{content:'*'; color:#f00; line-height:48px; float:left; 
+margin-left:15px; font-size:16px;}
+$uicss .feedback-form .radio-custom label::before,
+$uicss .feedback-form .checkbox-custom label:before{border:1px solid transparent; border-color:$bordercolor$; background:$inputbgcolor$; 
+color:$inputcolor$; margin-top:14px; outline:none;}
+$uicss .feedback-form .checkbox-primary input[type="checkbox"]:checked + label::after, 
+$uicss .feedback-form .checkbox-primary input[type="radio"]:checked + label::after,
+$uicss .feedback-form .radio-primary input[type="radio"]:checked + label::after{ margin-top:14px; outline:none;}
+$uicss .feedback-form .radio-custom,
+$uicss .feedback-form .checkbox-custom{margin:0 30px 0 0; float:left; line-height:48px;}
+$uicss .feedback-form .radio-custom label,
+$uicss .feedback-form .checkbox-custom label{color:$firstcolor$; color:$titlecolor$;}
+$uicss .feedback-form .checkbox-custom input[type="checkbox"],
+$uicss .feedback-form .checkbox-custom input[type="radio"]{ }
+$uicss .feedback-form b{color:#f00;}
+$uicss .feedback-form .btn-primary,
+$uicss .feedback-form .radio-primary input[type=radio]:checked+label::before,
+$uicss .feedback-form .checkbox-primary input[type=checkbox]:checked+label::before{
+border-color:$thirdcolor$; border-color:$buttonbgcolor$ !important;
+background:$thirdcolor$; background:$buttonbgcolor$ !important;
+color:$buttoncolor$;}
+$uicss .feedback-form .btn-primary:hover,
+$uicss .feedback-form .radio-primary input[type=radio]:checked+label:hover::before,
+$uicss .feedback-form .checkbox-primary input[type=checkbox]:checked+label:hover::before{
+border-color:$thirdcolor$; border-color:$hovercolor$ !important;
+background:$thirdcolor$; background:$hovercolor$ !important;}
+$uicss .feedback-form .btn-primary:hover{
+border-color:$biaocolor$; background:$biaocolor$;}
+$uicss input[type='number']::-webkit-outer-spin-button,
+$uicss input[type='number']::-webkit-inner-spin-button{-webkit-appearance:none !important; margin:0;}
+$uicss input[type="number"]{-moz-appearance:textfield;}
+$uicss .feedback-form .form-group>label+div.input-group{display:block;}
+$uicss .feedback-form .form-group>label+div.input-group-icon{position:relative;}
+$uicss .feedback-form .input-group-addon:last-child{position:absolute; left:360px; top:0; bottom:0; z-index:99; cursor:pointer;
+padding:0 10px 0 15px !important; line-height:46px; height:48px; vertical-align:middle; width:auto; 
+border-color:transparent; border-color:$bordercolor$; background:$inputbgcolor$; color:$inputcolor$;
+transform:translateX(-100%); -moz-transform:translateX(-100%); -ms-transform:translateX(-100%); 
+-o-transform:translateX(-100%); -webkit-transform:translateX(-100%);}
+
+$uicss .feedback-form .input-group-addon:last-child{
+    transform: unset;
+    left: unset;
+    right: 0;
+}
+
+$uicss .feedback-form .ftype_button{margin:0;}
+$uicss .feedback-form .ftype_button button{width:360px; border-radius:3px; padding-top:11px; padding-bottom:11px;}
+$uicss .feedback-form .ftype_upload{position:relative;}
+$uicss .feedback-form .input-group-btn{position:absolute; width:50px; z-index:11; cursor:pointer !important;
+left:-1px; border-radius:0; top:0;}
+$uicss .feedback-form .input-group-file{display:block;}
+$uicss .feedback-form .input-group-file > input[type=text]{padding-left:60px;}
+$uicss .feedback-form .input-group-file .btn-file>.icon{margin:0 5px;}
+$uicss .feedback-form .input-group-btn .btn-file{line-height:34px; width:100%;}
+@media(max-width:992px){
+$uicss .feedback-form .form-group>label{width:160px;}
+$uicss .feedback-form .form-group>label+div,
+$uicss .feedback-form .form-group .small-fixed{ padding-left:160px; }
+$uicss .feedback-form textarea.form-control{width:460px;}
+$uicss .feedback-form .input-group-addon:last-child{left:520px;}
+$uicss .feedback-form .form-group>label.ftype_upload+div+small,
+$uicss .feedback-form .form-group>label.ftype_select+div+small,
+$uicss .feedback-form .form-group>label.ftype_input+div+small,
+$uicss .feedback-form .form-group>label.ftype_code+div+small{left:520px;}
+$uicss .feedback-form .form-group>label.ftype_textarea+div+small{left:620px;}
+}
+@media(max-width:640px){
+$uicss .feedback-box{text-align:left;}
+$uicss .feedback-cut{margin:15px 0;}
+$uicss .feedback-title{padding-bottom:0;}
+$uicss .feedback-form{width:100%;}
+$uicss .feedback-form .form-group>label{line-height:48px;}
+$uicss .feedback-form .form-group{margin:0;}
+$uicss .feedback-form .form-group>label{float:none; width:auto;}
+$uicss .feedback-form .form-group>label+div,
+$uicss .feedback-form .form-group .small-fixed{ padding-left:0; }
+$uicss .feedback-form textarea.form-control,
+$uicss .feedback-form input.form-control,
+$uicss .feedback-form select.form-control{width:100%;}
+$uicss .feedback-form .input-group-addon:last-child{left:100%;}
+$uicss .feedback-form .form-group.ftype_button>label{display:none;}
+$uicss .feedback-form .ftype_button button{width:auto; margin-top:15px;}
+$uicss .feedback-form .has-error label{padding-left:15px;}
+$uicss .feedback-form .form-group>label.ftype_upload+div+small,
+$uicss .feedback-form .form-group>label.ftype_select+div+small,
+$uicss .feedback-form .form-group>label.ftype_input+div+small,
+$uicss .feedback-form .form-group>label.ftype_code+div+small,
+$uicss .feedback-form .form-group>label.ftype_textarea+div+small{left:0;}
+$uicss .feedback-form .form-group>label+div+small:before{margin:0;}
+}

@@ -1,0 +1,60 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; background-position:top center; background-size:cover;
+padding:$paddinglg$px 0;} 
+@media(max-width:1199px){
+$uicss{padding:$paddingsm$px 0;} }
+@media(max-width:767px){
+$uicss{padding:$paddingxs$px 0;} }
+
+$uicss .title-box{ text-align:center;}
+$uicss .title-box h2{font-size:28px; margin-top:0; font-weight:normal; color:$firstcolor$; color:$namecolor$;} 
+$uicss .title-box p{font-size:16px; color:$secondcolor$; color:$desccolor$;} 
+ 
+ 
+$uicss .info-cut{}
+$uicss .info-box{overflow:hidden; margin:40px 0 0 0; }
+$uicss .info-wraper{width:10000%; list-style:none; padding:0; margin:0;}
+$uicss .info-wraper:after{display:block; content:''; clear:both;}
+$uicss .info-slide{float:left; list-style:none; margin:0; width:.5%; padding:0 25px;}
+$uicss .info-slide span{display:block;}
+$uicss .info-slide span:after{display:block; content:''; clear:both;}
+$uicss .info-slide span h3{float:left; font-size:22px; font-weight:normal; padding:10px 25px; margin:0; 
+position:relative; background:$thirdcolor$; background:$hovercolor$; background:$columnbgcolor$; color:$columncolor$;}
+$uicss .info-slide span a{float:right; margin:10px 0 0 0;}
+$uicss .info-slide span a hr{display:block; width:6px; height:6px; border-radius:6px; margin:12px 0 12px 4px; 
+padding:0; background:$secondcolor$; background:$desccolor$; border:none; float:left;}
+$uicss .info-slide span a:hover hr{background:$thirdcolor$; background:$hovercolor$;}
+$uicss .info-slide ol{list-style:none; margin:0; padding:0; background:$showcolor$;}
+$uicss .info-slide li{list-style:none; margin:0; padding:25px 30px 20px 30px; border-top:1px solid transparent; border-top-color:$bordercolor$;}
+$uicss .info-slide li:first-child{border-top:none;}
+$uicss .info-slide li h4{display:block; white-space:nowrap; margin:0; font-size:22px; line-height:30px;  overflow:hidden;
+color:$firstcolor$; color:$titlecolor$; text-overflow:ellipsis;}
+$uicss .info-slide li a{color:$firstcolor$; color:$titlecolor$;}
+$uicss .info-slide li h4:hover,
+$uicss .info-slide li a:hover{color:$thirdcolor$; color:$hovercolor$;}
+$uicss .info-slide li p{
+color:$secondcolor$; color:$desccolor$; margin:10px 0 15px 0; height:52px; line-height:26px; overflow:hidden;
+display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;}
+$uicss .info-slide li b{display:block; font-weight:normal; font-size:14px;}
+$uicss .info-slide li b:after{display:block; content:''; clear:both;}
+$uicss .info-slide li b em{float:left; color:$secondcolor$; color:$tagcolor$;}
+$uicss .info-slide li b strong{font-weight:normal; float:left; margin:0 10px; color:$secondcolor$; color:$tagcolor$;}
+$uicss .info-slide li b a{float:left; margin-right:10px; color:$secondcolor$; color:$tagcolor$;}
+$uicss .info-slide li b a:hover{color:$thirdcolor$; color:$hovercolor$;}
+$uicss .info-slide li b i{float:right; font-style:normal; margin:0 5px 0 0; color:$secondcolor$; color:$tagcolor$;}
+@media(max-width:1199px) and (min-width:992px){
+$uicss .info-slide{width:.5%; padding:0 15px;}
+$uicss .info-slide li p{margin:10px 0;}
+$uicss .info-slide li b i{float:none; display:block; clear:both; margin-bottom:5px;}
+}
+@media(max-width:992px){
+$uicss .info-slide{width:1%;}
+}
+@media(max-width:767px){
+$uicss .info-box{margin:10px 0 0 0;}
+$uicss .info-slide{width:1%; padding:0 15px;}
+$uicss .info-slide span{padding-top:15px;}
+}
+@media(max-width:480px){
+$uicss .info-slide li p{margin:10px 0;}
+$uicss .info-slide li b i{float:none; display:block; clear:both; margin-bottom:5px;}
+}

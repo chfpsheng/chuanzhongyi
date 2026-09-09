@@ -1,0 +1,34 @@
+$uicss{background:$bodybgcolor$; background:$bgcolor$; position:relative; z-index:996; 
+background-position:top center; background-size:cover; padding:10px 0 0 0;}
+$uicss .column-box{background:$showcolor$; border:1px solid transparent; border-color:$bordercolor$; padding:10px; border-radius:5px;}
+$uicss .column-nav{display:block; width:100%; overflow:hidden; position:relative; margin:0 auto; border-radius:3px; background:$navbgcolor$;}
+$uicss .column-nav ol{display:block; margin:0; padding:0; list-style:none; width:3999px;}
+$uicss .column-nav ol:after{display:block; clear:both; content:'';}
+$uicss .column-nav ol li{float:left; margin:0; display:block; padding:0; list-style:none; border-radius:3px; position:relative;}
+$uicss .column-nav ol li.navs a:after{display:inline-block; content:''; border-color:transparent; border-style:solid; opacity:.95;
+border-top-color:$firstcolor$; border-top-color:$titlecolor$; border-width:5px 4px 0 4px; margin-left:4px; position:relative; top:-2px;}
+$uicss .column-nav ol li.navs.not a:after{display:none;}
+$uicss .column-nav ol li a{padding:5px 20px; font-size:15px; display:block; 
+line-height:1.75; cursor:pointer; color:$firstcolor$; color:$titlecolor$;
+transition:.2s; -moz-transition:.2s; -ms-transition:.2s; -o-transition:.2s; -webkit-transition:.2s;}
+$uicss .column-nav ol li.active a{background:$thirdcolor$; background:$hovercolor$; color:$focuscolor$;}
+$uicss .column-nav ol li.navs.active a:after{border-top-color:$thirdcolor$; border-top-color:$hovercolor$;}
+$uicss .column-hover{position:relative;}
+$uicss .column-hover ul{display:block; list-style:none; margin:0; padding:10px 0 10px 0; position:absolute; top:0; 
+transition:.2s; -moz-transition:.2s; -ms-transition:.2s; -o-transition:.2s; -webkit-transition:.2s; 
+border:1px solid transparent; border-color:$navsonbordercolor$;
+box-shadow:0 4px 8px rgba(0,0,0,.05); background:$navsonbgcolor$; visibility:hidden; opacity:0; position:absolute; display:none;}
+$uicss .column-hover ul:after{content:''; width:12px; height:12px; border:1px solid transparent; 
+border-color:$navsonbordercolor$; border-right:0; border-bottom:0; 
+background:$navsonbgcolor$; position:absolute; top:-7px; left:50%; margin-left:-7px; 
+transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg);
+-o-transform:rotate(45deg); -webkit-transform:rotate(45deg); display:none;}
+$uicss .column-hover ul.active{visibility:visible; opacity:1;}
+$uicss .column-hover ul.has,
+$uicss .column-hover ul.has:after{display:block;}
+$uicss .column-hover ul li{display:block; list-style:none; margin:0; padding:0;}
+$uicss .column-hover ul li a{display:block; padding:0 20px; line-height:35px; color:$firstcolor$; color:$titlecolor$; color:$navsontitlecolor$;}
+$uicss .column-hover ul li a:hover{background:$thirdcolor$; background:$hovercolor$; color:$focuscolor$;}
+@media(min-width:1200px){
+$uicss .column-hover li.all{display:none;}   }
+

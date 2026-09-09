@@ -1,0 +1,8 @@
+$uicss{position:fixed; bottom:$bottom$px; right:$right$px; width:$width$px; height:$width$px; border:none; cursor:pointer;
+border-radius:3px; outline:none; background:#F00; background:$bgcolor$;
+transition:.3s; -moz-transition:.3s; -ms-transition:.3s; -o-transition:.3s; -webkit-transition:.3s;
+z-index:999; visibility:hidden; opacity:0; box-shadow:2px 0 8px rgba(0,0,0,.25);}
+$uicss.active{visibility:visible; opacity:.85;}
+$uicss.active:hover{opacity:1; background:$thirdcolor$; background:$hovercolor$;}
+$uicss:before{display:inline-block; border-width:0 8px 13px 8px; border-style:solid; border-color:transparent; 
+border-bottom-color:$firstcolor$; border-bottom-color:$titlecolor$; content:'';}

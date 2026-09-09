@@ -1,0 +1,8 @@
+[
+  {
+    "ui_version": "1.8",
+    "update_time": "20250312",
+    "update_content": "修复：在php8.0下页面报错的问题",
+    "update_person": "07"
+  }
+]
