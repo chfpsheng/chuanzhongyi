@@ -3651,5 +3651,65 @@ $cache = array (
     'flashid' => '0',
     'lang' => 'cn',
   ),
+  365 => 
+  array (
+    'id' => '4749',
+    'name' => 'met_doctorimg_x',
+    'value' => '800',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
+  366 => 
+  array (
+    'id' => '4750',
+    'name' => 'met_doctorimg_y',
+    'value' => '500',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
+  367 => 
+  array (
+    'id' => '4751',
+    'name' => 'met_doctor_list',
+    'value' => '8',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
+  368 => 
+  array (
+    'id' => '4752',
+    'name' => 'met_activityimg_x',
+    'value' => '800',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
+  369 => 
+  array (
+    'id' => '4753',
+    'name' => 'met_activityimg_y',
+    'value' => '500',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
+  370 => 
+  array (
+    'id' => '4754',
+    'name' => 'met_activity_list',
+    'value' => '8',
+    'mobile_value' => '',
+    'columnid' => '0',
+    'flashid' => '0',
+    'lang' => 'cn',
+  ),
 );
 ?>

@@ -393,10 +393,24 @@ $cache = array (
     ),
     27 => 
     array (
-      'aid' => '138',
+      'aid' => '140',
       'type' => 'c',
       'access' => 2,
       'info' => '中医师',
+    ),
+    28 => 
+    array (
+      'aid' => '139',
+      'type' => 'c',
+      'access' => 2,
+      'info' => '测试医生栏目',
+    ),
+    29 => 
+    array (
+      'aid' => '141',
+      'type' => 'c',
+      'access' => 2,
+      'info' => '中医活动',
     ),
   ),
   'a' => 

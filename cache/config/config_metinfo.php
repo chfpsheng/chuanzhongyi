@@ -625,7 +625,7 @@ $cache = array (
   array (
     'id' => '534',
     'name' => 'met_tablename',
-    'value' => 'admin_array|admin_column|admin_has_permissions|admin_logs|admin_menus|admin_permissions|admin_roles|admin_table|app|app_config|app_plugin|applist|column|config|cv|download|feedback|files|flash|flash_button|flist|history|history_plist|history_relation|ifcolumn|ifcolumn_addfile|ifmember_left|img|infoprompt|job|label|lang|lang_admin|language|link|list|menu|message|met_weixin_reply_log|mlist|news|online|otherinfo|para|parameter|pay_api|pay_config|pay_order|plist|product|relation|shopv2_favorite|shopv2_tracking|skin_table|sms|style_config|style_list|tags|templates|ui|ui_config|ui_list|user|user_group|user_group_pay|user_list|user_other|visit_day|visit_detail|visit_summary|wapmenu|weixin_article|weixin_keywords|weixin_reply|weixin_reply_log',
+    'value' => 'admin_array|admin_column|admin_has_permissions|admin_logs|admin_menus|admin_permissions|admin_roles|admin_table|app|app_config|app_plugin|applist|column|config|cv|download|feedback|files|flash|flash_button|flist|history|history_plist|history_relation|ifcolumn|ifcolumn_addfile|ifmember_left|img|infoprompt|job|label|lang|lang_admin|language|link|list|menu|message|met_weixin_reply_log|mlist|news|online|otherinfo|para|parameter|pay_api|pay_config|pay_order|plist|product|relation|shopv2_favorite|shopv2_tracking|skin_table|sms|style_config|style_list|tags|templates|ui|ui_config|ui_list|user|user_group|user_group_pay|user_list|user_other|visit_day|visit_detail|visit_summary|wapmenu|weixin_article|weixin_keywords|weixin_reply|weixin_reply_log|doctor|activity',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',

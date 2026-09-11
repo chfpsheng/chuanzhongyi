@@ -85,7 +85,7 @@ $colspan=$data['module']=='message'?5:6;
 									</list>
 								</select>
 							</td>
-							<if value="!in_array($data['module_value'], array(2,3,4,5))">
+							<if value="in_array($data['module_value'], array(6,7,8))">
 							<td class="text-center">
 								<select name="wr_ok" class="form-control w-a d-inline-block">
 									<option value="1">{$word.yes}</option>

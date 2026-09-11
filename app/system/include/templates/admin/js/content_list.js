@@ -171,10 +171,14 @@
 	M.component.modal_options['.img-details-modal']=
 	M.component.modal_options['.download-details-modal']=
 	M.component.modal_options['.job-position-details-modal']=
+	M.component.modal_options['.doctor-details-modal']=
+	M.component.modal_options['.activity-details-modal']=
 	M.component.modal_options['.news-add-modal']=
 	M.component.modal_options['.product-add-modal']=
 	M.component.modal_options['.img-add-modal']=
 	M.component.modal_options['.download-add-modal']=
+	M.component.modal_options['.doctor-add-modal']=
+	M.component.modal_options['.activity-add-modal']=
 	M.component.modal_options['.job-add-modal']={
 		modalOtherclass:'content-details-modal',
 		modalFullheight: 1,

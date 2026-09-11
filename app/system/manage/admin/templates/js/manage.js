@@ -177,7 +177,7 @@
 			},
 			view_type=$content_btn_group.find('button.active').data('view_type'),
 			filename='',
-			is_listmodule=$.inArray(options.module, ['news','product','img','download'])>=0?1:0,
+			is_listmodule=$.inArray(options.module, ['news','product','img','download','activity','doctor'])>=0?1:0,
 			loadFun=function(){
 				if(is_listmodule || options.module=='job'){
 					M.loadedList=0;

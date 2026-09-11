@@ -3,6 +3,94 @@ defined('IN_MET') or exit('No permission');
 $cache = array (
   0 => 
   array (
+    'id' => '141',
+    'name' => '中医活动',
+    'foldername' => 'huodong',
+    'filename' => '',
+    'bigclass' => '0',
+    'samefile' => '0',
+    'module' => '15',
+    'no_order' => '0',
+    'wap_ok' => '0',
+    'wap_nav_ok' => '0',
+    'if_in' => '0',
+    'nav' => '1',
+    'ctitle' => '',
+    'keywords' => '',
+    'content' => '',
+    'description' => '',
+    'list_order' => '1',
+    'new_windows' => '0',
+    'classtype' => '1',
+    'out_url' => '',
+    'index_num' => '0',
+    'access' => '0',
+    'indeximg' => '',
+    'columnimg' => '',
+    'isshow' => '1',
+    'lang' => 'cn',
+    'namemark' => '',
+    'releclass' => '0',
+    'display' => '0',
+    'icon' => '',
+    'nofollow' => '0',
+    'other_info' => '',
+    'custom_info' => '',
+    'text_size' => '0',
+    'text_color' => '',
+    'thumb_list' => '',
+    'thumb_detail' => '',
+    'list_length' => '0',
+    'tab_num' => '0',
+    'tab_name' => '',
+    'style_type' => '',
+  ),
+  1 => 
+  array (
+    'id' => '140',
+    'name' => '中医师',
+    'foldername' => 'zhongyishi',
+    'filename' => '',
+    'bigclass' => '0',
+    'samefile' => '0',
+    'module' => '14',
+    'no_order' => '0',
+    'wap_ok' => '0',
+    'wap_nav_ok' => '0',
+    'if_in' => '0',
+    'nav' => '1',
+    'ctitle' => '',
+    'keywords' => '',
+    'content' => '',
+    'description' => '',
+    'list_order' => '1',
+    'new_windows' => '0',
+    'classtype' => '1',
+    'out_url' => '',
+    'index_num' => '0',
+    'access' => '0',
+    'indeximg' => '',
+    'columnimg' => '',
+    'isshow' => '1',
+    'lang' => 'cn',
+    'namemark' => '',
+    'releclass' => '0',
+    'display' => '0',
+    'icon' => '',
+    'nofollow' => '0',
+    'other_info' => '',
+    'custom_info' => '',
+    'text_size' => '0',
+    'text_color' => '',
+    'thumb_list' => '',
+    'thumb_detail' => '',
+    'list_length' => '0',
+    'tab_num' => '0',
+    'tab_name' => '',
+    'style_type' => '',
+  ),
+  2 => 
+  array (
     'id' => '120',
     'name' => '在线留言',
     'foldername' => 'message',
@@ -45,7 +133,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  1 => 
+  3 => 
   array (
     'id' => '100',
     'name' => '关于我们',
@@ -89,7 +177,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  2 => 
+  4 => 
   array (
     'id' => '131',
     'name' => 'QQ',
@@ -133,7 +221,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  3 => 
+  5 => 
   array (
     'id' => '119',
     'name' => '教练招聘',
@@ -177,7 +265,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  4 => 
+  6 => 
   array (
     'id' => '111',
     'name' => '塑形美体',
@@ -221,7 +309,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  5 => 
+  7 => 
   array (
     'id' => '106',
     'name' => '会馆活动',
@@ -265,7 +353,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  6 => 
+  8 => 
   array (
     'id' => '101',
     'name' => '新闻资讯',
@@ -309,7 +397,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  7 => 
+  9 => 
   array (
     'id' => '132',
     'name' => '微信',
@@ -353,7 +441,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  8 => 
+  10 => 
   array (
     'id' => '129',
     'name' => '瑜伽课程',
@@ -397,7 +485,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  9 => 
+  11 => 
   array (
     'id' => '112',
     'name' => '经典纯粹',
@@ -441,7 +529,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  10 => 
+  12 => 
   array (
     'id' => '107',
     'name' => '瑜伽资讯',
@@ -485,7 +573,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  11 => 
+  13 => 
   array (
     'id' => '104',
     'name' => '中医馆',
@@ -529,51 +617,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  12 => 
-  array (
-    'id' => '138',
-    'name' => '中医师',
-    'foldername' => 'zhongyishi',
-    'filename' => '',
-    'bigclass' => '0',
-    'samefile' => '0',
-    'module' => '3',
-    'no_order' => '3',
-    'wap_ok' => '0',
-    'wap_nav_ok' => '0',
-    'if_in' => '0',
-    'nav' => '1',
-    'ctitle' => '',
-    'keywords' => '',
-    'content' => '',
-    'description' => '',
-    'list_order' => '1',
-    'new_windows' => '0',
-    'classtype' => '1',
-    'out_url' => '',
-    'index_num' => '0',
-    'access' => '0',
-    'indeximg' => '',
-    'columnimg' => '',
-    'isshow' => '1',
-    'lang' => 'cn',
-    'namemark' => '',
-    'releclass' => '0',
-    'display' => '0',
-    'icon' => '',
-    'nofollow' => '0',
-    'other_info' => '',
-    'custom_info' => '',
-    'text_size' => '0',
-    'text_color' => '',
-    'thumb_list' => '',
-    'thumb_detail' => '',
-    'list_length' => '0',
-    'tab_num' => '0',
-    'tab_name' => '',
-    'style_type' => '',
-  ),
-  13 => 
+  14 => 
   array (
     'id' => '134',
     'name' => '立即报名',
@@ -617,7 +661,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  14 => 
+  15 => 
   array (
     'id' => '133',
     'name' => '微博',
@@ -661,7 +705,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  15 => 
+  16 => 
   array (
     'id' => '113',
     'name' => '理疗修复',
@@ -705,7 +749,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  16 => 
+  17 => 
   array (
     'id' => '108',
     'name' => '常见问题',
@@ -749,7 +793,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  17 => 
+  18 => 
   array (
     'id' => '105',
     'name' => '教练团队',
@@ -793,7 +837,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  18 => 
+  19 => 
   array (
     'id' => '114',
     'name' => '情绪释放',
@@ -837,7 +881,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  19 => 
+  20 => 
   array (
     'id' => '109',
     'name' => '会馆环境',
@@ -881,7 +925,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  20 => 
+  21 => 
   array (
     'id' => '118',
     'name' => '联系我们',
@@ -925,7 +969,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  21 => 
+  22 => 
   array (
     'id' => '115',
     'name' => '职业老师',
@@ -969,7 +1013,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  22 => 
+  23 => 
   array (
     'id' => '121',
     'name' => '会馆信息',
@@ -1013,7 +1057,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  23 => 
+  24 => 
   array (
     'id' => '117',
     'name' => '更多关注',
@@ -1057,7 +1101,51 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  24 => 
+  25 => 
+  array (
+    'id' => '139',
+    'name' => '测试医生栏目',
+    'foldername' => 'doctors',
+    'filename' => '',
+    'bigclass' => '0',
+    'samefile' => '0',
+    'module' => '14',
+    'no_order' => '99',
+    'wap_ok' => '0',
+    'wap_nav_ok' => '0',
+    'if_in' => '0',
+    'nav' => '0',
+    'ctitle' => '',
+    'keywords' => '',
+    'content' => NULL,
+    'description' => NULL,
+    'list_order' => '1',
+    'new_windows' => '',
+    'classtype' => '1',
+    'out_url' => '',
+    'index_num' => '0',
+    'access' => NULL,
+    'indeximg' => '',
+    'columnimg' => '',
+    'isshow' => '1',
+    'lang' => 'cn',
+    'namemark' => '',
+    'releclass' => '0',
+    'display' => '0',
+    'icon' => '',
+    'nofollow' => '0',
+    'other_info' => NULL,
+    'custom_info' => NULL,
+    'text_size' => '0',
+    'text_color' => '',
+    'thumb_list' => '',
+    'thumb_detail' => '',
+    'list_length' => '0',
+    'tab_num' => '0',
+    'tab_name' => '',
+    'style_type' => '',
+  ),
+  26 => 
   array (
     'id' => '130',
     'name' => '图标',
@@ -1101,7 +1189,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  25 => 
+  27 => 
   array (
     'id' => '137',
     'name' => '会员中心',
@@ -1145,7 +1233,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  26 => 
+  28 => 
   array (
     'id' => '136',
     'name' => '网站地图',
@@ -1189,7 +1277,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  27 => 
+  29 => 
   array (
     'id' => '135',
     'name' => '站内搜索',

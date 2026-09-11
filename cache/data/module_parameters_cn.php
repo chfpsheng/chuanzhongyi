@@ -1,22 +1,44 @@
 <?php
 defined('IN_MET') or exit('No permission');
 $cache = array (
-  3 => 
+  14 => 
   array (
     0 => 
     array (
-      'id' => '180',
-      'name' => '是否名老中医',
-      'options' => '[{"id":7,"order":"0","value":"是"},{"id":8,"order":"1","value":"否"}]',
+      'id' => '182',
+      'name' => '坐诊医馆',
+      'options' => '[{"id":9,"order":"0","value":"医馆1"},{"id":10,"order":"1","value":"医馆2"}]',
       'description' => '',
       'no_order' => '0',
       'type' => '2',
       'access' => '0',
       'wr_ok' => '0',
-      'class1' => '138',
+      'class1' => '140',
       'class2' => '0',
       'class3' => '0',
-      'module' => '3',
+      'module' => '14',
+      'lang' => 'cn',
+      'wr_oks' => '1',
+      'related' => '',
+      'edit_ok' => '1',
+    ),
+  ),
+  15 => 
+  array (
+    0 => 
+    array (
+      'id' => '181',
+      'name' => '时间',
+      'options' => '',
+      'description' => '',
+      'no_order' => '0',
+      'type' => '1',
+      'access' => '0',
+      'wr_ok' => '1',
+      'class1' => '141',
+      'class2' => '0',
+      'class3' => '0',
+      'module' => '15',
       'lang' => 'cn',
       'wr_oks' => '1',
       'related' => '',

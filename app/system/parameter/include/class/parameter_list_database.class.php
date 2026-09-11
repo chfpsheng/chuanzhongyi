@@ -48,6 +48,14 @@ class parameter_list_database extends database
                 parent::construct($_M['table']['flist']);
                 $this->module = 8;
                 break;
+            case '14'://doctor
+                parent::construct($_M['table']['plist']);
+                $this->module = 14;
+                break;
+            case '15'://activity
+                parent::construct($_M['table']['plist']);
+                $this->module = 15;
+                break;
            /* case '10':
                 parent::construct($_M['table']['user_list']);
                 $this->module = 10;

@@ -432,6 +432,12 @@ class sys_column
             case '13':
                 $module = $_M['word']['tag'];
                 break;
+            case '14':
+                $module = $_M['word']['mod14'];
+                break;
+            case '15':
+                $module = $_M['word']['mod15'];
+                break;
             case '100':
                 $module = $_M['word']['mod100'];
                 break;

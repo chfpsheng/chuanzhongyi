@@ -15,7 +15,7 @@ class handle
      */
     public function sys_folders()
     {
-        $modfile = array('app', 'admin', 'about', 'news', 'product', 'download', 'img', 'job', 'cache', 'config', 'install', 'feedback', 'include', 'lang', 'link', 'member', 'message', 'public', 'search', 'sitemap', 'templates', 'upload', 'wap', 'online', 'hits', 'shop', 'pay', 'tags', 'tag', '');
+        $modfile = array('app', 'admin', 'about', 'news', 'product', 'download', 'img', 'job', 'cache', 'config', 'install', 'feedback', 'include', 'lang', 'link', 'member', 'message', 'public', 'search', 'sitemap', 'templates', 'upload', 'wap', 'online', 'hits', 'shop', 'pay', 'tags', 'tag', 'doctor', 'activity', '');
         return $modfile;
     }
 
@@ -66,6 +66,12 @@ class handle
                 break;
             case '13':
                 $name = 'tags';
+                break;
+            case '14':
+                $name = 'doctor';
+                break;
+            case '15':
+                $name = 'activity';
                 break;
             default:
                 $name = '';
@@ -123,6 +129,12 @@ class handle
             case '13':
                 $name = 'tags';
                 break;
+            case '14':
+                $name = 'doctor';
+                break;
+            case '15':
+                $name = 'activity';
+                break;
             default:
                 $name = '';
                 break;
@@ -178,6 +190,12 @@ class handle
                 break;
             case 'tags':
                 $mod = '13';
+                break;
+            case 'doctor':
+                $mod = '14';
+                break;
+            case 'activity':
+                $mod = '15';
                 break;
             default:
                 $mod = '';

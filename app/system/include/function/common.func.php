@@ -565,6 +565,12 @@ function modname($module = '')
         case 101:
             $metmodname = $_M['word']['mod101'];
             break;
+        case 14:
+            $metmodname = $_M['word']['mod14'];
+            break;
+        case 15:
+            $metmodname = $_M['word']['mod15'];
+            break;
         default:
             $query = "SELECT * FROM {$_M['table']['applist']} WHERE no = '{$module}'";
             $app = DB::get_one($query);

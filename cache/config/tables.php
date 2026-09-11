@@ -76,5 +76,7 @@ $cache = array (
   'weixin_keywords' => 'met_weixin_keywords',
   'weixin_reply' => 'met_weixin_reply',
   'weixin_reply_log' => 'met_weixin_reply_log',
+  'doctor' => 'met_doctor',
+  'activity' => 'met_activity',
 );
 ?>
