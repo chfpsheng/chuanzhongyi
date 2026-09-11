@@ -614,7 +614,7 @@ $cache = array (
     'thumb_detail' => '',
     'list_length' => '12',
     'tab_num' => '0',
-    'tab_name' => '',
+    'tab_name' => '医馆详情|医馆优势|医馆医生|课程日期|选项卡五',
     'style_type' => '',
   ),
   14 => 

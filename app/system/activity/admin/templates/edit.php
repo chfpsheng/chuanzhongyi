@@ -4,6 +4,46 @@
 defined('IN_MET') or exit('No permission');
 ?>
 <include file="pub/content_details/head"/>
+<dl>
+	<dt>
+		<label class='form-control-label'>活动时间</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<input type="text" name="start_time" value="{$data.list.start_time}" placeholder="点击选择开始时间" class="form-control d-inline-block" style="width:190px;" data-plugin='datetimepicker' data-day-type="2">
+			<span class="mx-2">至</span>
+			<input type="text" name="end_time" value="{$data.list.end_time}" placeholder="点击选择结束时间" class="form-control d-inline-block" style="width:190px;" data-plugin='datetimepicker' data-day-type="2">
+		</div>
+		<span class="text-help">点击输入框分别选择活动的开始时间和结束时间，留空则不显示。</span>
+	</dd>
+</dl>
+<dl>
+	<dt>
+		<label class='form-control-label'>活动地点</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<input type="text" class="form-control" name="location" value="{$data.list.location}" placeholder="如：XX市中医院门诊楼三楼会议室">
+		</div>
+	</dd>
+</dl>
+<dl>
+	<dt>
+		<label class='form-control-label'>是否免费</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="is_free1" name="is_free" value="1" data-checked='{$data.list.is_free}' class="custom-control-input">
+				<label class="custom-control-label" for="is_free1">免费</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="is_free0" name="is_free" value="0" data-checked='{$data.list.is_free}' class="custom-control-input">
+				<label class="custom-control-label" for="is_free0">收费</label>
+			</div>
+		</div>
+	</dd>
+</dl>
 <input type="hidden" name="imgurl_l" value="{$data.list.imgurl}">
 <input type="hidden" name="imgurls_l" value="{$data.list.imgurls}">
 <include file="pub/content_details/content_seo_other"/>

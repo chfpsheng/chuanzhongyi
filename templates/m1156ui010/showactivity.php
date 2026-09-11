@@ -9,6 +9,13 @@
                     <div class="info">
                         <span><i class="fa fa-calendar"></i>{$data.updatetime}</span>
                         <span><i class="icon wb-eye"></i>{$data.hits}</span>
+                        <if value="$data['activity_time']">
+                        <span><i class="fa fa-clock-o"></i>活动时间：{$data.activity_time}</span>
+                        </if>
+                        <if value="$data['location']">
+                        <span><i class="fa fa-map-marker"></i>活动地点：{$data.location}</span>
+                        </if>
+                        <span><i class="fa fa-ticket"></i>是否免费：{$data.is_free_text}</span>
                     </div>
                 </div>
                 <div class="met-editor lazyload clearfix">

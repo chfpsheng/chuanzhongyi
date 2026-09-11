@@ -35,6 +35,25 @@ class activity_admin extends base_admin
     }
 
     /**
+     * 活动扩展字段处理
+     * 时间字段统一为 Y-m-d H:i:s 格式，未填写时存空字符串
+     *
+     * @param array $list 表单数据
+     * @return array
+     */
+    private function format_extend_para($list = array())
+    {
+        foreach (array('start_time', 'end_time') as $field) {
+            $time = isset($list[$field]) ? trim($list[$field]) : '';
+            $list[$field] = ($time && strtotime($time)) ? date('Y-m-d H:i:s', strtotime($time)) : '';
+        }
+        $list['location'] = isset($list['location']) ? trim($list['location']) : '';
+        //是否免费：1免费 0收费，默认免费
+        $list['is_free'] = (isset($list['is_free']) && $list['is_free'] == 0) ? 0 : 1;
+        return $list;
+    }
+
+    /**
      * 新增内容
      */
     public function doadd()
@@ -45,6 +64,11 @@ class activity_admin extends base_admin
         $list['class1'] = $_M['form']['class1'];
         $list['class2'] = $_M['form']['class2'];
         $list['class3'] = $_M['form']['class3'];
+        //扩展字段默认值
+        $list['start_time'] = '';
+        $list['end_time'] = '';
+        $list['location'] = '';
+        $list['is_free'] = 1;
         $access_option = $this->access_option($list['access']);
         $column_list = $this->_columnjson();
         $redata['list'] = $list;
@@ -67,6 +91,7 @@ class activity_admin extends base_admin
         $_M['form']['addtime'] = $_M['form']['addtype'] == 2 ? $_M['form']['addtime'] : $_M['form']['updatetime'];
         $_M['form']['issue'] = $this->admin_member['admin_id'];
         $_M['form']['hits'] = intval($_M['form']['hits']);
+        $_M['form'] = $this->format_extend_para($_M['form']);
         $id = $this->insert_list($_M['form']);
         if ($id && is_numeric($id)) {
             //plugin
@@ -135,6 +160,7 @@ class activity_admin extends base_admin
     {
         global $_M;
         $list = $_M['form'];
+        $list = $this->format_extend_para($list);
         $id = $_M['form']['id'] ? intval($_M['form']['id']) : null;
 
         if (!$id){

@@ -14,6 +14,12 @@ class doctor_admin extends base_admin
     public $plist_database;
 
     /**
+     * 「中医馆」栏目ID（“所属医馆”下拉框的数据来源）
+     * 如果中医馆栏目的ID有变动，只需修改此处的数字
+     */
+    public $yiguan_column = 104;
+
+    /**
      * doctor_admin constructor.
      */
     public function __construct()
@@ -35,6 +41,52 @@ class doctor_admin extends base_admin
     }
 
     /**
+     * “所属医馆”下拉框选项
+     * 数据来源：「中医馆」栏目下的内容(met_product)
+     *
+     * @param int $choice 当前已选中的医馆内容ID
+     * @return array
+     */
+    public function yiguan_option($choice = '')
+    {
+        global $_M;
+        $option = array();
+        $query = "SELECT id,title FROM {$_M['table']['product']} WHERE class1 = '{$this->yiguan_column}' AND lang = '{$_M['lang']}' AND recycle = 0 AND displaytype != -1 ORDER BY no_order ASC, id ASC";
+        $list = DB::get_all($query);
+        foreach ($list as $val) {
+            $title = trim($val['title']);
+            if ($title === '') {
+                continue;
+            }
+            $option[] = array(
+                'name' => $title,
+                'val' => $val['id'],
+                'checked' => ($choice && $choice == $val['id']) ? 1 : 0,
+            );
+        }
+        return $option;
+    }
+
+    /**
+     * 挂号费格式化
+     * 空值或非数字统一按 0 保存，避免 MySQL 严格模式下写入空字符串报错
+     *
+     * @param mixed $fee 表单提交的挂号费
+     * @return float
+     */
+    private function format_fee($fee = '')
+    {
+        if (!is_scalar($fee)) {
+            return 0;
+        }
+        $fee = trim($fee);
+        if ($fee === '' || !is_numeric($fee)) {
+            return 0;
+        }
+        return round(floatval($fee), 2);
+    }
+
+    /**
      * 新增内容
      */
     public function doadd()
@@ -49,6 +101,7 @@ class doctor_admin extends base_admin
         $column_list = $this->_columnjson();
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
         $redata = array_merge($redata, $column_list);
         if (is_mobile()) {
             $this->success($redata);
@@ -67,6 +120,7 @@ class doctor_admin extends base_admin
         $_M['form']['addtime'] = $_M['form']['addtype'] == 2 ? $_M['form']['addtime'] : $_M['form']['updatetime'];
         $_M['form']['issue'] = $this->admin_member['admin_id'];
         $_M['form']['hits'] = intval($_M['form']['hits']);
+        $_M['form']['fee'] = $this->format_fee($_M['form']['fee']);
         $id = $this->insert_list($_M['form']);
         if ($id && is_numeric($id)) {
             //plugin
@@ -121,6 +175,7 @@ class doctor_admin extends base_admin
         $redata = array();
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
         $redata = array_merge($redata, $column_list);
 
         return is_mobile() ? $this->success($redata) : $redata;
@@ -135,6 +190,7 @@ class doctor_admin extends base_admin
     {
         global $_M;
         $list = $_M['form'];
+        $list['fee'] = $this->format_fee($list['fee']);
         $id = $_M['form']['id'] ? intval($_M['form']['id']) : null;
 
         if (!$id){
