@@ -68,6 +68,45 @@ class doctor_admin extends base_admin
     }
 
     /**
+     * AJAX 搜索「中医馆」栏目下的内容，用于医生编辑页「所属医馆」下拉框。
+     * GET 参数:
+     *   keyword  关键字（模糊匹配 title），留空返回前 limit 条
+     *   limit    返回条数上限，默认 50，最大 100
+     * 返回 JSON 数组: [{id: int, name: string}, ...]
+     */
+    public function doyiguan_search()
+    {
+        global $_M;
+        $keyword = isset($_M['form']['keyword']) ? trim($_M['form']['keyword']) : '';
+        $limit = isset($_M['form']['limit']) ? max(1, min(100, (int)$_M['form']['limit'])) : 50;
+
+        $where = "class1 = '{$this->yiguan_column}' AND lang = '{$_M['lang']}' AND recycle = 0 AND displaytype != -1";
+
+        if ($keyword !== '') {
+            // 转义 LIKE 通配符，避免用户输入 % / _ 影响匹配语义
+            $kw = str_replace(array('\\', '%', '_'), array('\\\\', '\\%', '\\_'), $keyword);
+            $where .= " AND title LIKE '%{$kw}%'";
+        }
+
+        $query = "SELECT id, title FROM {$_M['table']['product']} WHERE {$where} ORDER BY no_order ASC, id ASC LIMIT {$limit}";
+        $list = DB::get_all($query);
+
+        $result = array();
+        foreach ($list as $val) {
+            $title = trim($val['title']);
+            if ($title === '') {
+                continue;
+            }
+            $result[] = array(
+                'id' => (int)$val['id'],
+                'name' => $title,
+            );
+        }
+
+        $this->ajaxReturn($result);
+    }
+
+    /**
      * 挂号费格式化
      * 空值或非数字统一按 0 保存，避免 MySQL 严格模式下写入空字符串报错
      *

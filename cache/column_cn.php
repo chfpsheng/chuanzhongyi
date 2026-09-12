@@ -312,7 +312,7 @@ $cache = array (
   7 => 
   array (
     'id' => '106',
-    'name' => '会馆活动',
+    'name' => '中医养生',
     'foldername' => 'news',
     'filename' => '',
     'bigclass' => '101',
@@ -356,7 +356,7 @@ $cache = array (
   8 => 
   array (
     'id' => '101',
-    'name' => '新闻资讯',
+    'name' => '中医资讯',
     'foldername' => 'news',
     'filename' => '',
     'bigclass' => '0',
@@ -532,7 +532,7 @@ $cache = array (
   12 => 
   array (
     'id' => '107',
-    'name' => '瑜伽资讯',
+    'name' => '药食同源',
     'foldername' => 'news',
     'filename' => '',
     'bigclass' => '101',
@@ -1103,50 +1103,6 @@ $cache = array (
   ),
   25 => 
   array (
-    'id' => '139',
-    'name' => '测试医生栏目',
-    'foldername' => 'doctors',
-    'filename' => '',
-    'bigclass' => '0',
-    'samefile' => '0',
-    'module' => '14',
-    'no_order' => '99',
-    'wap_ok' => '0',
-    'wap_nav_ok' => '0',
-    'if_in' => '0',
-    'nav' => '0',
-    'ctitle' => '',
-    'keywords' => '',
-    'content' => NULL,
-    'description' => NULL,
-    'list_order' => '1',
-    'new_windows' => '',
-    'classtype' => '1',
-    'out_url' => '',
-    'index_num' => '0',
-    'access' => NULL,
-    'indeximg' => '',
-    'columnimg' => '',
-    'isshow' => '1',
-    'lang' => 'cn',
-    'namemark' => '',
-    'releclass' => '0',
-    'display' => '0',
-    'icon' => '',
-    'nofollow' => '0',
-    'other_info' => NULL,
-    'custom_info' => NULL,
-    'text_size' => '0',
-    'text_color' => '',
-    'thumb_list' => '',
-    'thumb_detail' => '',
-    'list_length' => '0',
-    'tab_num' => '0',
-    'tab_name' => '',
-    'style_type' => '',
-  ),
-  26 => 
-  array (
     'id' => '130',
     'name' => '图标',
     'foldername' => 'icon',
@@ -1189,7 +1145,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  27 => 
+  26 => 
   array (
     'id' => '137',
     'name' => '会员中心',
@@ -1233,7 +1189,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  28 => 
+  27 => 
   array (
     'id' => '136',
     'name' => '网站地图',
@@ -1277,7 +1233,7 @@ $cache = array (
     'tab_name' => '',
     'style_type' => '',
   ),
-  29 => 
+  28 => 
   array (
     'id' => '135',
     'name' => '站内搜索',

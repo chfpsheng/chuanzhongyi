@@ -55,7 +55,7 @@ $cache = array (
   array (
     'id' => '4628',
     'name' => 'met_mobile_logo',
-    'value' => '',
+    'value' => '../upload/202609/1789136558.png',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',
@@ -335,7 +335,7 @@ $cache = array (
   array (
     'id' => '84',
     'name' => 'met_webname',
-    'value' => '瑜伽馆响应式网站模板',
+    'value' => '四川中医馆',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',
@@ -345,7 +345,7 @@ $cache = array (
   array (
     'id' => '85',
     'name' => 'met_logo',
-    'value' => '../upload/201711/1510501857.png',
+    'value' => '../upload/202609/1789136444.png',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',
@@ -575,7 +575,7 @@ $cache = array (
   array (
     'id' => '109',
     'name' => 'met_keywords',
-    'value' => '瑜伽馆网站模板,瑜伽馆网页模板,响应式模板,网站制作,网站建站',
+    'value' => '四川中医网-汇集特色中医馆，名老好中医，中医活动，少儿中医研学培训',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',
@@ -585,7 +585,7 @@ $cache = array (
   array (
     'id' => '110',
     'name' => 'met_description',
-    'value' => '米拓建站专注于为中小企业提供高质量的建站服务，海量模板请登录 www.mituo.cn，本站为瑜伽馆响应式网站模板演示站',
+    'value' => '四川中医网致力于搜集四川省内主要成都市内的特色中医馆，名老好中医，中医活动，少儿中医研学培训',
     'mobile_value' => '',
     'columnid' => '0',
     'flashid' => '0',

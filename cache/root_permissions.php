@@ -277,7 +277,7 @@ $cache = array (
       'aid' => '107',
       'type' => 'c',
       'access' => 2,
-      'info' => '瑜伽资讯',
+      'info' => '药食同源',
     ),
     11 => 
     array (
@@ -312,7 +312,7 @@ $cache = array (
       'aid' => '106',
       'type' => 'c',
       'access' => 2,
-      'info' => '会馆活动',
+      'info' => '中医养生',
     ),
     16 => 
     array (
@@ -326,7 +326,7 @@ $cache = array (
       'aid' => '101',
       'type' => 'c',
       'access' => 2,
-      'info' => '新闻资讯',
+      'info' => '中医资讯',
     ),
     18 => 
     array (
@@ -399,13 +399,6 @@ $cache = array (
       'info' => '中医师',
     ),
     28 => 
-    array (
-      'aid' => '139',
-      'type' => 'c',
-      'access' => 2,
-      'info' => '测试医生栏目',
-    ),
-    29 => 
     array (
       'aid' => '141',
       'type' => 'c',

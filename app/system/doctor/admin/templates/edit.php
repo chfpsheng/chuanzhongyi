@@ -9,7 +9,7 @@ defined('IN_MET') or exit('No permission');
 		<label class='form-control-label'>所属医馆</label>
 	</dt>
 	<dd>
-		<div class="form-group clearfix">
+		<div class="form-group clearfix" data-yiguan-box data-yiguan-url="{$url.own_form}a=doyiguan_search">
 			<input type="text" class="form-control mb-2" data-yiguan-search placeholder="输入医馆名称关键字筛选" autocomplete="off">
 			<select class="form-control" name="yiguan" data-yiguan-select>
 				<option value="">请选择所属医馆</option>

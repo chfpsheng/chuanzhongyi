@@ -215,35 +215,25 @@ $cache = array (
     ),
     21 => 
     array (
-      'id' => '157',
-      'listid' => '32',
-      'paraid' => '172',
-      'info' => '58天',
+      'id' => '167',
+      'listid' => '40',
+      'paraid' => '184',
+      'info' => '11',
       'lang' => 'cn',
-      'imgname' => '',
+      'imgname' => '支持医保',
       'module' => '3',
     ),
     22 => 
     array (
-      'id' => '158',
-      'listid' => '32',
-      'paraid' => '173',
-      'info' => '包食宿用餐',
+      'id' => '166',
+      'listid' => '40',
+      'paraid' => '183',
+      'info' => '成都市金牛区蜀兴南街8号10-13号',
       'lang' => 'cn',
-      'imgname' => '',
+      'imgname' => '地点',
       'module' => '3',
     ),
     23 => 
-    array (
-      'id' => '159',
-      'listid' => '32',
-      'paraid' => '174',
-      'info' => '<big class=red>￥14900</big>',
-      'lang' => 'cn',
-      'imgname' => '',
-      'module' => '3',
-    ),
-    24 => 
     array (
       'id' => '150',
       'listid' => '33',
@@ -253,7 +243,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    25 => 
+    24 => 
     array (
       'id' => '149',
       'listid' => '33',
@@ -263,7 +253,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    26 => 
+    25 => 
     array (
       'id' => '148',
       'listid' => '33',
@@ -273,7 +263,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    27 => 
+    26 => 
     array (
       'id' => '127',
       'listid' => '34',
@@ -283,7 +273,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    28 => 
+    27 => 
     array (
       'id' => '128',
       'listid' => '34',
@@ -293,7 +283,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    29 => 
+    28 => 
     array (
       'id' => '129',
       'listid' => '34',
@@ -303,7 +293,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    30 => 
+    29 => 
     array (
       'id' => '130',
       'listid' => '35',
@@ -313,7 +303,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    31 => 
+    30 => 
     array (
       'id' => '131',
       'listid' => '35',
@@ -323,7 +313,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    32 => 
+    31 => 
     array (
       'id' => '132',
       'listid' => '35',
@@ -333,7 +323,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    33 => 
+    32 => 
     array (
       'id' => '133',
       'listid' => '36',
@@ -343,7 +333,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    34 => 
+    33 => 
     array (
       'id' => '134',
       'listid' => '36',
@@ -353,7 +343,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    35 => 
+    34 => 
     array (
       'id' => '135',
       'listid' => '36',
@@ -363,7 +353,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    36 => 
+    35 => 
     array (
       'id' => '136',
       'listid' => '37',
@@ -373,7 +363,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    37 => 
+    36 => 
     array (
       'id' => '137',
       'listid' => '37',
@@ -383,7 +373,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    38 => 
+    37 => 
     array (
       'id' => '138',
       'listid' => '37',
@@ -393,7 +383,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    39 => 
+    38 => 
     array (
       'id' => '139',
       'listid' => '38',
@@ -403,7 +393,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    40 => 
+    39 => 
     array (
       'id' => '140',
       'listid' => '38',
@@ -413,7 +403,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    41 => 
+    40 => 
     array (
       'id' => '141',
       'listid' => '38',
@@ -423,7 +413,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    42 => 
+    41 => 
     array (
       'id' => '142',
       'listid' => '39',
@@ -433,7 +423,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    43 => 
+    42 => 
     array (
       'id' => '143',
       'listid' => '39',
@@ -443,7 +433,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    44 => 
+    43 => 
     array (
       'id' => '144',
       'listid' => '39',
@@ -453,7 +443,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    45 => 
+    44 => 
     array (
       'id' => '154',
       'listid' => '40',
@@ -463,7 +453,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    46 => 
+    45 => 
     array (
       'id' => '155',
       'listid' => '40',
@@ -473,7 +463,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    47 => 
+    46 => 
     array (
       'id' => '156',
       'listid' => '40',
@@ -483,7 +473,7 @@ $cache = array (
       'imgname' => '',
       'module' => '3',
     ),
-    48 => 
+    47 => 
     array (
       'id' => '160',
       'listid' => '41',
@@ -493,7 +483,7 @@ $cache = array (
       'imgname' => '所属地区',
       'module' => '3',
     ),
-    49 => 
+    48 => 
     array (
       'id' => '161',
       'listid' => '41',
@@ -503,7 +493,7 @@ $cache = array (
       'imgname' => '是否支持医保',
       'module' => '3',
     ),
-    50 => 
+    49 => 
     array (
       'id' => '162',
       'listid' => '41',
@@ -511,6 +501,106 @@ $cache = array (
       'info' => '5',
       'lang' => 'cn',
       'imgname' => '是否支持统筹',
+      'module' => '3',
+    ),
+    50 => 
+    array (
+      'id' => '163',
+      'listid' => '42',
+      'paraid' => '183',
+      'info' => '成都市青羊区鼓楼北二街36号',
+      'lang' => 'cn',
+      'imgname' => '地点',
+      'module' => '3',
+    ),
+    51 => 
+    array (
+      'id' => '164',
+      'listid' => '42',
+      'paraid' => '184',
+      'info' => '11',
+      'lang' => 'cn',
+      'imgname' => '支持医保',
+      'module' => '3',
+    ),
+    52 => 
+    array (
+      'id' => '165',
+      'listid' => '42',
+      'paraid' => '185',
+      'info' => '13',
+      'lang' => 'cn',
+      'imgname' => '支持统筹',
+      'module' => '3',
+    ),
+    53 => 
+    array (
+      'id' => '168',
+      'listid' => '40',
+      'paraid' => '185',
+      'info' => '13',
+      'lang' => 'cn',
+      'imgname' => '支持统筹',
+      'module' => '3',
+    ),
+    54 => 
+    array (
+      'id' => '169',
+      'listid' => '40',
+      'paraid' => '186',
+      'info' => '028-87342345',
+      'lang' => 'cn',
+      'imgname' => '电话',
+      'module' => '3',
+    ),
+    55 => 
+    array (
+      'id' => '170',
+      'listid' => '33',
+      'paraid' => '183',
+      'info' => '成都市金牛区蜀兴南街8号1-2号',
+      'lang' => 'cn',
+      'imgname' => '地点',
+      'module' => '3',
+    ),
+    56 => 
+    array (
+      'id' => '171',
+      'listid' => '33',
+      'paraid' => '184',
+      'info' => '11',
+      'lang' => 'cn',
+      'imgname' => '支持医保',
+      'module' => '3',
+    ),
+    57 => 
+    array (
+      'id' => '172',
+      'listid' => '33',
+      'paraid' => '185',
+      'info' => '13',
+      'lang' => 'cn',
+      'imgname' => '支持统筹',
+      'module' => '3',
+    ),
+    58 => 
+    array (
+      'id' => '173',
+      'listid' => '33',
+      'paraid' => '186',
+      'info' => '028-89644112',
+      'lang' => 'cn',
+      'imgname' => '电话',
+      'module' => '3',
+    ),
+    59 => 
+    array (
+      'id' => '174',
+      'listid' => '33',
+      'paraid' => '187',
+      'info' => '2015年11月',
+      'lang' => 'cn',
+      'imgname' => '成立时间',
       'module' => '3',
     ),
   ),

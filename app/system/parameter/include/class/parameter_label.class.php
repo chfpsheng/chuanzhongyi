@@ -143,6 +143,11 @@ class parameter_label
                     $para['value'] = $val['access'] ? ($value != '' ? $userclass->check_power_script($value, $val['access']) : '') : $value;
                 }
 
+                // 详情页：未填值的参数整行不显示（去掉空白后为空视为未填）
+                if (trim((string)$para['value']) === '') {
+                    continue;
+                }
+
                 $relist[] = $para;
             }
         }
