@@ -15,6 +15,13 @@ class product_admin extends base_admin
     public $specification_admin;
 
     /**
+     * 「中医馆」栏目 ID（产品表 class1 的值）。
+     * 与 app/system/doctor/admin/doctor_admin.class.php 中的 $yiguan_column 保持一致。
+     * 若栏目调整，请同步修改此处。
+     */
+    public $yiguan_column = 104;
+
+    /**
      * product_admin constructor.
      */
     function __construct()
@@ -24,6 +31,59 @@ class product_admin extends base_admin
         $this->module = 3;
         $this->database = load::mod_class('product/product_database', 'new');
         self::shopIni();
+    }
+
+    /**
+     * 「所属地区」二级联动数据（四川省 21 个地级行政区 → 区/县/县级市）。
+     * 仅供中医馆栏目（class1 = 104）使用，在添加/编辑页面渲染二级下拉框。
+     *
+     * 输出结构为系统内置 select-linkage（jquery.cityselect）所需的层级：
+     *   '[{"p":"四川省","c":[{"n":"成都市","a":[{"s":"锦江区"}]}]}]'
+     * 与 job 模块 position_edit.php、content_details/head.php 中的用法完全一致。
+     *
+     * @return array{ province: string, citylist_json: string }
+     */
+    public function sichuan_region_options()
+    {
+        $data_file = __DIR__ . '/../include/data/sichuan_region.php';
+        $regions = array();
+        if (is_file($data_file)) {
+            $regions = include $data_file;
+        }
+        if (!is_array($regions) || !$regions) {
+            return array();
+        }
+
+        $cities = array();
+        foreach ($regions as $city_name => $districts) {
+            $district_list = array();
+            foreach ((array)$districts as $district_name) {
+                $district_list[] = array('s' => $district_name);
+            }
+            $cities[] = array('n' => (string)$city_name, 'a' => $district_list);
+        }
+
+        $province = '四川省';
+        $province_list = array(
+            array('p' => $province, 'c' => $cities),
+        );
+
+        return array(
+            'province'      => $province,
+            'citylist_json' => json_encode($province_list, JSON_UNESCAPED_UNICODE),
+        );
+    }
+
+    /**
+     * 当前表单是否属于中医馆栏目（class1 = 104）。
+     * 用于条件渲染「所属地区」字段。
+     *
+     * @param mixed $class1
+     * @return bool
+     */
+    public function is_yiguan_column($class1 = 0)
+    {
+        return intval($class1) === intval($this->yiguan_column);
     }
 
     protected function shopIni()
@@ -203,8 +263,11 @@ class product_admin extends base_admin
         $column_list = $this->_columnjson();
         $access_option = $this->access_option($list['access']);
 
+        // 中医馆栏目才需要「所属地区」二级下拉数据
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['is_yiguan'] = $this->is_yiguan_column($list['class1']);
+        $redata['sichuan_region'] = $this->sichuan_region_options();
         $redata = array_merge($redata, $column_list);
 
         if (is_mobile()) {
@@ -329,6 +392,8 @@ class product_admin extends base_admin
         $redata = array();
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['is_yiguan'] = $this->is_yiguan_column($list['class1']);
+        $redata['sichuan_region'] = $this->sichuan_region_options();
         $redata = array_merge($redata, $column_list);
 
         if (is_mobile()) {
