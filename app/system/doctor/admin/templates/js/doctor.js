@@ -1,164 +1,109 @@
 /**
- * 中医师模块后台：所属医馆下拉框 AJAX 搜索
- * - 后台地址：data-yiguan-url 必填
- * - 搜索框：data-yiguan-search
- * - 下拉框：data-yiguan-select
- * - 外层容器：data-yiguan-box
- * 使用 document 事件委托，兼容后台 SPA 异步载入的表单
+ * 中医师模块后台：「所属医馆」下拉框增加顶部搜索框。
+ *
+ * 适配 MetInfo 后台自动注入的 met-select 皮肤：
+ *   - <select data-yiguan-select> 被包裹在 <div class="met-select"> 内；
+ *   - 下拉菜单为 <div class="dropdown-menu">；
+ *   - 每个选项为 <a class="dropdown-item" data-name="名称">名称</a>。
+ *
+ * met-select 的菜单 HTML 是 wrap 时一次性生成的静态结构，不会随原生 <select>
+ * 的 option 变化而刷新。因此，传统的「下拉外置一个搜索框 + AJAX 改 option」方案
+ * 在这里无效 —— 哪怕 <select> 的 option 被替换，下拉菜单里看到的还是旧快照。
+ *
+ * 本脚本改为：等 met-select 把 select 包好之后，把搜索框直接插入到下拉菜单顶部，
+ * 输入时按 data-name（即显示文本）做大小写不敏感的子串过滤，通过 d-none 隐藏
+ * 不匹配的 .dropdown-item。
+ *
+ * 加载方式：本文件位于 app/system/doctor/admin/templates/js/doctor.js，
+ * 由 app/system/include/templates/admin/foot.php 自动加载到中医师列表页，
+ * 通过 setInterval 持续扫描，确保弹窗 innerHTML 注入的表单也能被处理。
  */
 (function () {
-	'use strict';
+    'use strict';
 
-	if (window.metDoctorYiguanInit) {
-		return;
-	}
-	window.metDoctorYiguanInit = 1;
+    if (window.metYiguanSelectInit) {
+        return;
+    }
+    window.metYiguanSelectInit = 1;
 
-	var DEBOUNCE_MS = 300;
+    // 医馆标题里可能带 HTML 实体（如 &middot;），data-name 是原始 HTML，
+    // 而 textContent 是浏览器解码后的可见文本。两者都参与匹配，避免漏搜。
+    function haystack(item) {
+        var name = item.getAttribute('data-name') || '';
+        var text = item.textContent || '';
+        return (name + ' ' + text).toLowerCase();
+    }
 
-	/**
-	 * 首次使用时缓存下拉框的初始选项，便于恢复"当前选中"项的显示文本
-	 */
-	function cache_source_options(select) {
-		if (select.met_source_options) {
-			return select.met_source_options;
-		}
-		var options = [];
-		for (var i = 0; i < select.options.length; i++) {
-			options.push({
-				value: select.options[i].value,
-				text: select.options[i].text
-			});
-		}
-		select.met_source_options = options;
-		return options;
-	}
+    function stopBubble(e) {
+        e.stopPropagation();
+    }
 
-	function find_cached_text(select, value) {
-		if (!value) {
-			return '';
-		}
-		var opts = select.met_source_options || [];
-		for (var i = 0; i < opts.length; i++) {
-			if (opts[i].value === value) {
-				return opts[i].text;
-			}
-		}
-		return '';
-	}
+    function initOne(select) {
+        if (!select || select.nodeType !== 1) return;
+        // 已被 met-select 包装过的判断：父元素是 .met-select 且包含 .dropdown-menu
+        var wrap = select.closest && select.closest('.met-select');
+        if (!wrap) return;
 
-	function clear_options(select) {
-		while (select.options.length > 0) {
-			select.remove(0);
-		}
-	}
+        var menu = wrap.querySelector('.dropdown-menu');
+        if (!menu) return;
 
-	function append_option(select, value, text) {
-		var opt = document.createElement('option');
-		opt.value = value;
-		opt.text = text;
-		select.add(opt);
-	}
+        // 避免重复初始化（每次扫描都会进到这里）
+        if (select.getAttribute('data-yiguan-search-inited') === '1') return;
+        select.setAttribute('data-yiguan-search-inited', '1');
 
-	/**
-	 * 用 AJAX 结果重建下拉框，并始终保留当前选中医馆（即使不在新结果里）
-	 */
-	function render_options(select, items, currentValue) {
-		cache_source_options(select);
-		clear_options(select);
-		append_option(select, '', '请选择所属医馆');
+        // 构造搜索框。注意：input 没有 name 属性，不参与表单提交与 formValidation。
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control form-control-sm mx-2 mt-2 mb-1';
+        input.placeholder = '输入医馆名称关键字筛选';
+        input.autocomplete = 'off';
+        input.setAttribute('data-yiguan-search-input', '1');
 
-		var seen = { '': 1 };
-		if (currentValue) {
-			seen[currentValue] = 1;
-		}
+        // Bootstrap dropdown 只在点击 .dropdown-item 时关闭，搜索框不是 .dropdown-item，
+        // 理论上点击不会关闭。但为了避免某些情况下 dropdown 自动收起，做一次兜底。
+        input.addEventListener('click', stopBubble);
+        input.addEventListener('mousedown', stopBubble);
+        input.addEventListener('keydown', function (e) {
+            // 在表单内的输入框按回车会触发表单提交，必须阻止
+            if (e.key === 'Enter') e.preventDefault();
+            stopBubble(e);
+        });
 
-		if (items && items.length) {
-			for (var i = 0; i < items.length; i++) {
-				var v = String(items[i].id);
-				if (seen[v]) {
-					continue;
-				}
-				seen[v] = 1;
-				append_option(select, v, items[i].name || ('#' + v));
-			}
-		}
+        menu.insertBefore(input, menu.firstChild);
 
-		// 当前选中的医馆若不在新结果中，回填到列表末尾（保留表单提交值）
-		if (currentValue && !seen[currentValue]) {
-			var cachedText = find_cached_text(select, currentValue);
-			append_option(select, currentValue, cachedText || ('#' + currentValue));
-		}
+        var items = menu.querySelectorAll('.dropdown-item');
 
-		select.value = currentValue || '';
-	}
+        input.addEventListener('input', function () {
+            var kw = (input.value || '').trim().toLowerCase();
+            var current = select.value || '';
+            for (var i = 0; i < items.length; i++) {
+                var it = items[i];
+                var dv = it.getAttribute('data-value');
+                // 1) "请选择所属医馆"（value 为空）始终可见
+                // 2) 当前已选项始终可见，避免编辑模式下被自己的关键字过滤掉
+                if (dv === '' || dv === null || dv === current) {
+                    it.classList.remove('d-none');
+                    continue;
+                }
+                var match = kw === '' || haystack(it).indexOf(kw) >= 0;
+                if (match) {
+                    it.classList.remove('d-none');
+                } else {
+                    it.classList.add('d-none');
+                }
+            }
+        });
+    }
 
-	/**
-	 * 向服务端请求医馆数据并更新下拉框
-	 */
-	function search_yiguan(select, keyword, url) {
-		var currentValue = select.value;
-		var sep = url.indexOf('?') >= 0 ? '&' : '?';
-		var fullUrl = url + sep + 'keyword=' + encodeURIComponent(keyword || '');
+    function scan() {
+        var nodes = document.querySelectorAll('select[data-yiguan-select]:not([data-yiguan-search-inited])');
+        for (var i = 0; i < nodes.length; i++) {
+            initOne(nodes[i]);
+        }
+    }
 
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', fullUrl, true);
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState !== 4) {
-				return;
-			}
-			if (xhr.status !== 200) {
-				if (window.console && window.console.warn) {
-					window.console.warn('metDoctorYiguan AJAX 失败', xhr.status);
-				}
-				return;
-			}
-			var data;
-			try {
-				data = JSON.parse(xhr.responseText);
-			} catch (e) {
-				return;
-			}
-			render_options(select, data, currentValue);
-		};
-		xhr.send();
-	}
-
-	function find_container(element) {
-		if (element.closest) {
-			return element.closest('[data-yiguan-box]');
-		}
-		var node = element.parentNode;
-		while (node && node.nodeType === 1) {
-			if (node.getAttribute('data-yiguan-box') !== null) {
-				return node;
-			}
-			node = node.parentNode;
-		}
-		return null;
-	}
-
-	document.addEventListener('input', function (event) {
-		var target = event.target;
-		if (!target || !target.getAttribute || target.getAttribute('data-yiguan-search') === null) {
-			return;
-		}
-		var box = find_container(target);
-		if (!box) {
-			return;
-		}
-		var select = box.querySelector('[data-yiguan-select]');
-		var url = box.getAttribute('data-yiguan-url') || '';
-		if (!select || !url) {
-			return;
-		}
-
-		// 防抖：300ms 内连续输入只发一次请求
-		if (select._metTimer) {
-			clearTimeout(select._metTimer);
-		}
-		select._metTimer = setTimeout(function () {
-			search_yiguan(select, target.value, url);
-		}, DEBOUNCE_MS);
-	}, true);
+    // 持续扫描：met-select 在 select 第一次 mouseover 时才异步包好，
+    // 而弹窗可能在页面打开很久之后才被点开，所以需要持续观察。
+    setInterval(scan, 200);
+    scan();
 })();

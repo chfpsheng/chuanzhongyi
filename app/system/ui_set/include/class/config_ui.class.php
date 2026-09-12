@@ -305,11 +305,23 @@ class config_ui
                     break;
                 case 2://所有栏目列表
                 case 4://所有栏目列表
+                    // 需展示哪些模块的栏目：
+                    // - module <= 8 ：MetInfo 内置模块（关于、新闻、产品、图片、下载、招聘、留言、反馈）
+                    // - module > 100：自定义应用模块
+                    // - module 14/15：本项目自建的中医师、中医活动模块
+                    //   （这两个模块 id 落在 9-99 的空白区间，按原条件会被错误过滤掉，
+                    //   但它们确实是带内容列表的栏目，应在「栏目选择」下拉里出现。
+                    //   下游 <tag action="list"> 会通过 mod_to_file() 自动加载对应标签类，
+                    //   渲染不需要额外改动。）
+                    // met_column.module 在数据库里以字符串返回，统一转 int 再比较，避免
+                    // "15" == 15 之类在不同 PHP 版本下行为不一致。
                     foreach ($met_class1 as $key => $val2) {
-                        if ($val2['module'] <= 8 || $val2['module']>100) {
+                        $m = isset($val2['module']) ? (int)$val2['module'] : 0;
+                        if ($m <= 8 || $m > 100 || in_array($m, array(14, 15), true)) {
                             $selectd .= '==' . $val2['name'] . '==' . '$T$' . $val2['id'] . '$M$';
                             foreach ($met_class2[$val2['id']] as $key => $val3) {
-                                if ($val3['module'] <= 8) {
+                                $m3 = isset($val3['module']) ? (int)$val3['module'] : 0;
+                                if ($m3 <= 8 || in_array($m3, array(14, 15), true)) {
                                     $selectd .= $val3['name'] . '$T$' . $val3['id'] . '$M$';
                                     foreach ($met_class3[$val3['id']] as $key => $val4) {
                                         $selectd .= '+' . $val4['name'] . '$T$' . $val4['id'] . '$M$';

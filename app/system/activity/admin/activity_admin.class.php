@@ -14,6 +14,12 @@ class activity_admin extends base_admin
     public $plist_database;
 
     /**
+     * 「中医馆」栏目ID（“所属医馆”下拉框的数据来源）
+     * 如果中医馆栏目的ID有变动，只需修改此处的数字
+     */
+    public $yiguan_column = 104;
+
+    /**
      * activity_admin constructor.
      */
     public function __construct()
@@ -50,7 +56,36 @@ class activity_admin extends base_admin
         $list['location'] = isset($list['location']) ? trim($list['location']) : '';
         //是否免费：1免费 0收费，默认免费
         $list['is_free'] = (isset($list['is_free']) && $list['is_free'] == 0) ? 0 : 1;
+        //所属医馆：中医馆栏目的内容ID，未选择存 0
+        $list['yiguan'] = (isset($list['yiguan']) && is_numeric($list['yiguan'])) ? intval($list['yiguan']) : 0;
         return $list;
+    }
+
+    /**
+     * “所属医馆”下拉框选项
+     * 数据来源：「中医馆」栏目下的内容(met_product)
+     *
+     * @param int $choice 当前已选中的医馆内容ID
+     * @return array
+     */
+    public function yiguan_option($choice = '')
+    {
+        global $_M;
+        $option = array();
+        $query = "SELECT id,title FROM {$_M['table']['product']} WHERE class1 = '{$this->yiguan_column}' AND lang = '{$_M['lang']}' AND recycle = 0 AND displaytype != -1 ORDER BY no_order ASC, id ASC";
+        $list = DB::get_all($query);
+        foreach ($list as $val) {
+            $title = trim($val['title']);
+            if ($title === '') {
+                continue;
+            }
+            $option[] = array(
+                'name' => $title,
+                'val' => $val['id'],
+                'checked' => ($choice && $choice == $val['id']) ? 1 : 0,
+            );
+        }
+        return $option;
     }
 
     /**
@@ -69,10 +104,12 @@ class activity_admin extends base_admin
         $list['end_time'] = '';
         $list['location'] = '';
         $list['is_free'] = 1;
+        $list['yiguan'] = 0;
         $access_option = $this->access_option($list['access']);
         $column_list = $this->_columnjson();
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
         $redata = array_merge($redata, $column_list);
         if (is_mobile()) {
             $this->success($redata);
@@ -146,6 +183,7 @@ class activity_admin extends base_admin
         $redata = array();
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
+        $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
         $redata = array_merge($redata, $column_list);
 
         return is_mobile() ? $this->success($redata) : $redata;

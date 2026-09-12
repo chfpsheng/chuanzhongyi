@@ -44,6 +44,22 @@ defined('IN_MET') or exit('No permission');
 		</div>
 	</dd>
 </dl>
+<dl>
+	<dt>
+		<label class='form-control-label'>所属医馆</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<select class="form-control" name="yiguan" data-yiguan-select>
+				<option value="">请选择所属医馆</option>
+				<list data="$data['yiguan_option']" name="$ygu">
+				<option value="{$ygu.val}" <if value="$ygu['checked']">selected</if>>{$ygu.name}</option>
+				</list>
+			</select>
+		</div>
+		<span class="text-help">选项来自「中医馆」栏目的内容；打开下拉后可在顶部输入关键字按名称筛选。如无选项请先到中医馆栏目添加内容。</span>
+	</dd>
+</dl>
 <input type="hidden" name="imgurl_l" value="{$data.list.imgurl}">
 <input type="hidden" name="imgurls_l" value="{$data.list.imgurls}">
 <include file="pub/content_details/content_seo_other"/>
