@@ -113,6 +113,7 @@ class index extends admin
         $array[] = array('name' => $_M['word']['mod8'], 'mod' => 8);//反馈
         $array[] = array('name' => $_M['word']['mod14'], 'mod' => 14);//医生
         $array[] = array('name' => $_M['word']['mod15'], 'mod' => 15);//活动
+        $array[] = array('name' => $_M['word']['mod16'], 'mod' => 16);//少儿中医
         ##$array[] = array('name'=>$_M['word']['mod9'],'mod'=>9);//友情链接
         if (!$disabled_10) {
             $array[] = array('name' => $_M['word']['mod10'], 'mod' => 10, 'num' => $mod10_num);//会员   member
@@ -493,7 +494,7 @@ class index extends admin
         $class3 = $column_class123['class3']['id'] ?: 0;
 
         if ($column) {
-            if (in_array($column['module'], array(2, 3, 4, 5, 14, 15))) {
+            if (in_array($column['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                 //更新内容权限
                 $module = $_M['class']['handle']->mod_to_name($column['module']);
                 $module_op = load::mod_class("{$module}/{$module}_op", 'new');
@@ -643,7 +644,7 @@ class index extends admin
                 }
 
                 if (!$now_column['releclass']) {
-                    if (in_array($now_column['module'], array(1, 2, 3, 4, 5, 14, 15))) {
+                    if (in_array($now_column['module'], array(1, 2, 3, 4, 5, 14, 15, 16))) {
                         if (!$this->is_foldername_ok($foldername, $now_column['module'])) {
                             $this->error[] = $_M['word']['column_descript1_v6'];
                             return false;
@@ -653,13 +654,13 @@ class index extends admin
 
                 //升为一级栏目
                 //移动内容
-                if (in_array($now_column['module'], array(2, 3, 4, 5, 14, 15))) {
+                if (in_array($now_column['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                     $module = $handle->mod_to_name($now_column['module']);
                     load::mod_class("{$module}/{$module}_op", 'new')->list_move($now_column_class123['class1']['id'], $now_column_class123['class2']['id'], $now_column_class123['class3']['id'], $now_column['id'], 0, 0);
                     if ($now_column['classtype'] == 2) {
                         $son = $column_label->get_column_son($now_id);
                         foreach ($son as $key => $val) {
-                            if (in_array($val['module'], array(2, 3, 4, 5, 14, 15))) {
+                            if (in_array($val['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                                 $module_son = $module = $handle->mod_to_name($val['module']);
                                 $son123 = $column_label->get_class123_reclass($val['id']);
                                 load::mod_class("{$module_son}/{$module_son}_op", 'new')->list_move($son123['class1']['id'], $son123['class2']['id'], $son123['class3']['id'], $now_column['id'], $val['id'], 0);
@@ -702,7 +703,7 @@ class index extends admin
                 //同模块移动
                 if ($now_column['module'] == $to_column['module']) {
                     //移动内容
-                    if (in_array($now_column['module'], array(2, 3, 4, 5, 14, 15))) {
+                    if (in_array($now_column['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                         $module = $handle->mod_to_name($now_column['module']);
 
                         //移动到一级栏目
@@ -712,7 +713,7 @@ class index extends admin
                                 load::mod_class("{$module}/{$module}_op", 'new')->list_move($now_column_class123['class1']['id'], $now_column_class123['class2']['id'], $now_column_class123['class3']['id'], $to_column_class123['class1']['id'], $now_id, 0);
                                 $son = $column_label->get_column_son($now_id);
                                 foreach ($son as $key => $val) {
-                                    if (in_array($val['module'], array(2, 3, 4, 5, 14, 15))) {
+                                    if (in_array($val['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                                         $module_son = $module = $handle->mod_to_name($val['module']);
                                         $son123 = $column_label->get_class123_reclass($val['id']);
                                         load::mod_class("{$module_son}/{$module_son}_op", 'new')->list_move($son123['class1']['id'], $son123['class2']['id'], $son123['class3']['id'], $to_column_class123['class1']['id'], $son123['class1']['id'], $son123['class2']['id']);
@@ -727,7 +728,7 @@ class index extends admin
                                     load::mod_class("{$module}/{$module}_op", 'new')->list_move($now_column_class123['class1']['id'], $now_column_class123['class2']['id'], $now_column_class123['class3']['id'], $to_column_class123['class1']['id'], $now_column_class123['class1']['id'], $now_column_class123['class2']['id']);
                                     $son = $column_label->get_column_son($now_id);
                                     foreach ($son as $key => $val) {
-                                        if (in_array($val['module'], array(2, 3, 4, 5, 14, 15))) {
+                                        if (in_array($val['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                                             $son123 = $column_label->get_class123_no_reclass($val['id']);
                                             $module_son = $module = $handle->mod_to_name($val['module']);
                                             load::mod_class("{$module_son}/{$module_son}_op", 'new')->list_move($son123['class1']['id'], $son123['class2']['id'], $son123['class3']['id'], $to_column_class123['class1']['id'], $son123['class1']['id'], $son123['class2']['id']);
@@ -738,7 +739,7 @@ class index extends admin
                                     load::mod_class("{$module}/{$module}_op", 'new')->list_move($now_column_class123['class1']['id'], $now_column_class123['class2']['id'], $now_column_class123['class3']['id'], $to_column_class123['class1']['id'], $now_id, 0);
                                     $son = $column_label->get_column_son($now_id);
                                     foreach ($son as $key => $val) {
-                                        if (in_array($val['module'], array(2, 3, 4, 5, 14, 15))) {
+                                        if (in_array($val['module'], array(2, 3, 4, 5, 14, 15, 16))) {
                                             $module_son = $module = $handle->mod_to_name($val['module']);
                                             $son123 = $column_label->get_class123_reclass($val['id']);
                                             load::mod_class("{$module_son}/{$module_son}_op", 'new')->list_move($son123['class1']['id'], $son123['class2']['id'], $son123['class3']['id'], $to_column_class123['class1']['id'], $son123['class2']['id'], $son123['class3']['id']);
@@ -1132,6 +1133,15 @@ class index extends admin
                 $this->makeFolder($address, $newfile);
                 $newfile = PATH_WEB . $foldername . "/showactivity.php";
                 $address = "../activity/showactivity.php";
+                $this->makeFolder($address, $newfile);
+                break;
+            case 16://少儿中医
+                $indexaddress = "../shaoer/index.php";
+                $newfile = PATH_WEB . $foldername . "/shaoer.php";
+                $address = "../shaoer/shaoer.php";
+                $this->makeFolder($address, $newfile);
+                $newfile = PATH_WEB . $foldername . "/showshaoer.php";
+                $address = "../shaoer/showshaoer.php";
                 $this->makeFolder($address, $newfile);
                 break;
             default :

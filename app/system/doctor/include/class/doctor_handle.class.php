@@ -32,16 +32,65 @@ class doctor_handle extends base_handle
             $content['school'] = isset($content['school']) ? htmlspecialchars($content['school'], ENT_QUOTES, 'UTF-8') : '';
         }
 
-        if ($content && $content['yiguan']) {
-            $yiguan = $this->get_yiguan($content['yiguan']);
-            if ($yiguan) {
-                $content['yiguan_id'] = $yiguan['id'];
-                $content['yiguan_name'] = $yiguan['title'];
-                $content['yiguan_url'] = $yiguan['url'];
+        //数据异常时直接返回，避免对非数组内容赋值
+        if (!is_array($content) || !$content) {
+            return $content;
+        }
+
+        //“坐诊医馆”为多选，字段存逗号分隔的医馆内容ID（如 42,43）
+        $content['yiguan_list'] = array();
+        $content['yiguan_ids'] = '';
+        $content['yiguan_names'] = '';
+        $content['yiguan_links_html'] = '';
+
+        if (isset($content['yiguan']) && $content['yiguan'] !== '' && $content['yiguan'] !== null) {
+            $names = array();
+            $links = array();
+            foreach (self::parse_yiguan_ids($content['yiguan']) as $id) {
+                $yiguan = $this->get_yiguan($id);
+                if (!$yiguan) {
+                    continue;
+                }
+                $content['yiguan_list'][] = array(
+                    'id' => $id,
+                    'name' => $yiguan['title'],
+                    'url' => $yiguan['url'],
+                );
+                $names[] = $yiguan['title'];
+                //医馆名称与链接均已由系统生成/已做实体编码，直接拼接输出
+                $links[] = '<a href="' . $yiguan['url'] . '" title="' . $yiguan['title'] . '" target="_blank" rel="noopener">' . $yiguan['title'] . '</a>';
+            }
+            if ($content['yiguan_list']) {
+                $content['yiguan_ids'] = implode(',', array_column($content['yiguan_list'], 'id'));
+                $content['yiguan_names'] = implode('、', $names);
+                $content['yiguan_links_html'] = implode('、', $links);
+                //兼容只使用单个医馆的旧模板/旧调用：默认取第一个
+                $first = reset($content['yiguan_list']);
+                $content['yiguan_id'] = $first['id'];
+                $content['yiguan_name'] = $first['name'];
+                $content['yiguan_url'] = $first['url'];
             }
         }
 
         return $content;
+    }
+
+    /**
+     * 解析“坐诊医馆”的多选值，返回医馆内容ID数组
+     *
+     * @param mixed $value 逗号分隔字符串（如 "42,43"）或数组
+     * @return array
+     */
+    public static function parse_yiguan_ids($value = '')
+    {
+        if (is_array($value)) {
+            $ids = $value;
+        } else {
+            $ids = explode(',', (string)$value);
+        }
+        $ids = array_map('intval', $ids);
+        $ids = array_filter($ids); //去掉 0 与空值
+        return array_values(array_unique($ids));
     }
 
     /**

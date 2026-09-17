@@ -41,16 +41,47 @@ class doctor_admin extends base_admin
     }
 
     /**
-     * “所属医馆”下拉框选项
+     * 解析“坐诊医馆”的多选值，返回医馆内容ID数组
+     *
+     * @param mixed $value 逗号分隔字符串（如 "42,43"）或数组
+     * @return array
+     */
+    public function yiguan_ids($value = '')
+    {
+        if (is_array($value)) {
+            $ids = $value;
+        } else {
+            $ids = explode(',', (string)$value);
+        }
+        $ids = array_map('intval', $ids);
+        $ids = array_filter($ids); //去掉 0 与空值
+        return array_values(array_unique($ids));
+    }
+
+    /**
+     * 规范化“坐诊医馆”多选值，落库统一为逗号分隔字符串
+     * 未选择任何医馆时存空字符串
+     *
+     * @param mixed $value 表单提交值（逗号分隔字符串或数组）
+     * @return string
+     */
+    private function format_yiguan($value = '')
+    {
+        return implode(',', $this->yiguan_ids($value));
+    }
+
+    /**
+     * “坐诊医馆”多选框选项（支持多选）
      * 数据来源：「中医馆」栏目下的内容(met_product)
      *
-     * @param int $choice 当前已选中的医馆内容ID
+     * @param mixed $choice 当前已选中的医馆内容ID，多个用逗号分隔
      * @return array
      */
     public function yiguan_option($choice = '')
     {
         global $_M;
         $option = array();
+        $selected = $this->yiguan_ids($choice);
         $query = "SELECT id,title FROM {$_M['table']['product']} WHERE class1 = '{$this->yiguan_column}' AND lang = '{$_M['lang']}' AND recycle = 0 AND displaytype != -1 ORDER BY no_order ASC, id ASC";
         $list = DB::get_all($query);
         foreach ($list as $val) {
@@ -61,7 +92,7 @@ class doctor_admin extends base_admin
             $option[] = array(
                 'name' => $title,
                 'val' => $val['id'],
-                'checked' => ($choice && $choice == $val['id']) ? 1 : 0,
+                'checked' => in_array(intval($val['id']), $selected) ? 1 : 0,
             );
         }
         return $option;
@@ -133,6 +164,7 @@ class doctor_admin extends base_admin
         global $_M;
         $redata = array();
         $list = $this->add();
+        $list['yiguan'] = isset($list['yiguan']) ? $list['yiguan'] : '';
         $list['class1'] = $_M['form']['class1'];
         $list['class2'] = $_M['form']['class2'];
         $list['class3'] = $_M['form']['class3'];
@@ -160,6 +192,7 @@ class doctor_admin extends base_admin
         $_M['form']['issue'] = $this->admin_member['admin_id'];
         $_M['form']['hits'] = intval($_M['form']['hits']);
         $_M['form']['fee'] = $this->format_fee($_M['form']['fee']);
+        $_M['form']['yiguan'] = $this->format_yiguan(isset($_M['form']['yiguan']) ? $_M['form']['yiguan'] : '');
         $id = $this->insert_list($_M['form']);
         if ($id && is_numeric($id)) {
             //plugin
@@ -230,6 +263,7 @@ class doctor_admin extends base_admin
         global $_M;
         $list = $_M['form'];
         $list['fee'] = $this->format_fee($list['fee']);
+        $list['yiguan'] = $this->format_yiguan(isset($list['yiguan']) ? $list['yiguan'] : '');
         $id = $_M['form']['id'] ? intval($_M['form']['id']) : null;
 
         if (!$id){

@@ -76,11 +76,11 @@
                     +'</div>'
                     +'</div>';
                 }
-                var is_list_module=[2,3,4,5,14,15].includes(val.module);
+                var is_list_module=[2,3,4,5,14,15,16].includes(val.module);
                 if(!is_list_module && val.subcolumn){
                     var handle=(list)=>{
                             $.each(list, function(index, value) {
-                                if(!is_list_module && [2,3,4,5,14,15].includes(parseInt(value.module))) is_list_module=1;
+                                if(!is_list_module && [2,3,4,5,14,15,16].includes(parseInt(value.module))) is_list_module=1;
                                 if(!is_list_module && value.subcolumn) handle(value.subcolumn);
                             });
                         };

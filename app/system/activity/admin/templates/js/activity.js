@@ -1,5 +1,5 @@
 /**
- * 中医师模块后台：「所属医馆」下拉框增加顶部搜索框。
+ * 中医活动模块后台：「所属医馆」下拉框增加顶部搜索框。
  *
  * 适配 MetInfo 后台自动注入的 met-select 皮肤：
  *   - <select data-yiguan-select> 被包裹在 <div class="met-select"> 内；
@@ -7,16 +7,18 @@
  *   - 每个选项为 <a class="dropdown-item" data-name="名称">名称</a>。
  *
  * met-select 的菜单 HTML 是 wrap 时一次性生成的静态结构，不会随原生 <select>
- * 的 option 变化而刷新。因此，传统的「下拉外置一个搜索框 + AJAX 改 option」方案
+ * 的 option 变化而刷新。因此传统的「下拉外置一个搜索框 + AJAX 改 option」方案
  * 在这里无效 —— 哪怕 <select> 的 option 被替换，下拉菜单里看到的还是旧快照。
  *
  * 本脚本改为：等 met-select 把 select 包好之后，把搜索框直接插入到下拉菜单顶部，
- * 输入时按 data-name（即显示文本）做大小写不敏感的子串过滤，通过 d-none 隐藏
- * 不匹配的 .dropdown-item。
+ * 输入时按选项文本做大小写不敏感的子串过滤，通过 d-none 隐藏不匹配的项。
  *
- * 加载方式：本文件位于 app/system/doctor/admin/templates/js/doctor.js，
- * 由 app/system/include/templates/admin/foot.php 自动加载到中医师列表页，
+ * 加载方式：本文件位于 app/system/activity/admin/templates/js/activity.js，
+ * 由 app/system/include/templates/admin/foot.php 自动加载到中医活动列表页，
  * 通过 setInterval 持续扫描，确保弹窗 innerHTML 注入的表单也能被处理。
+ *
+ * 注意：app/system/doctor/admin/templates/js/doctor.js 与本文件逻辑相同，
+ * 如需调整搜索行为请同步修改两个文件。
  */
 (function () {
     'use strict';
@@ -40,8 +42,8 @@
 
     function initOne(select) {
         if (!select || select.nodeType !== 1) return;
-        // 已被 met-select 包装过的判断：父元素是 .met-select 且包含 .dropdown-menu
-        var wrap = select.closest && select.closest('.met-select');
+        // 已被 met-select 包装过的判断：祖先存在 .met-select 且包含 .dropdown-menu
+        var wrap = select.closest ? select.closest('.met-select') : null;
         if (!wrap) return;
 
         var menu = wrap.querySelector('.dropdown-menu');

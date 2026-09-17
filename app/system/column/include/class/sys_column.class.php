@@ -438,6 +438,9 @@ class sys_column
             case '15':
                 $module = $_M['word']['mod15'];
                 break;
+            case '16':
+                $module = $_M['word']['mod16'];
+                break;
             case '100':
                 $module = $_M['word']['mod100'];
                 break;

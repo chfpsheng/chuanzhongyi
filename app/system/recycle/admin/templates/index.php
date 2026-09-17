@@ -16,6 +16,7 @@ $foot_submit_type='restore';
         <option value="img">{$word.mod5}</option>
         <option value="doctor">{$word.mod14}</option>
         <option value="activity">{$word.mod15}</option>
+        <option value="shaoer">{$word.mod16}</option>
     </select>
     <div class="input-group w-a float-right">
         <input type="search" name="title" placeholder="{$word.title}" class="form-control" data-table-search="#{$table_order}">

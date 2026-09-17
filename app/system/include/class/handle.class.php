@@ -73,6 +73,9 @@ class handle
             case '15':
                 $name = 'activity';
                 break;
+            case '16':
+                $name = 'shaoer';
+                break;
             default:
                 $name = '';
                 break;
@@ -135,6 +138,9 @@ class handle
             case '15':
                 $name = 'activity';
                 break;
+            case '16':
+                $name = 'shaoer';
+                break;
             default:
                 $name = '';
                 break;
@@ -196,6 +202,9 @@ class handle
                 break;
             case 'activity':
                 $mod = '15';
+                break;
+            case 'shaoer':
+                $mod = '16';
                 break;
             default:
                 $mod = '';

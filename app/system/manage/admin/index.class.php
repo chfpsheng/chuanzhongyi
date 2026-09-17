@@ -42,13 +42,13 @@ class index extends base_admin
         $columns = load::mod_class('column/column_database', 'new')->get_all_column_by_lang($_M['lang']);
 
         foreach ($columns as $column) {
-            if (($column['classtype'] == 1 or ($column['releclass'] > 0 and (in_array($column['module'], array(1, 2, 3, 4, 5, 6, 7, 8, 14, 15))))) or $column['module'] == 6 and $column['if_in'] == 0) {
+            if (($column['classtype'] == 1 or ($column['releclass'] > 0 and (in_array($column['module'], array(1, 2, 3, 4, 5, 6, 7, 8, 14, 15, 16))))) or $column['module'] == 6 and $column['if_in'] == 0) {
                 $met_classindex[$column['module']][] = $column;
             }
         }
 
         foreach ($met_classindex as $mod => $column) {
-            if (($mod > 0 && $mod <= 8) || in_array($mod, array(14, 15))) {
+            if (($mod > 0 && $mod <= 8) || in_array($mod, array(14, 15, 16))) {
                 $content_list[$mod]['name'] = modname($mod);
                 $content_list[$mod]['classtype'] = 1;
                 $content_list[$mod]['url'] = self::getModContentLink($column[0], 'mod');
@@ -98,7 +98,7 @@ class index extends base_admin
         $sys_column = load::mod_class('column/sys_column', 'new');
 
         foreach ($array['class1'] as $key1 => $col_v1) {
-            if ($col_v1['module'] == 0 || ($col_v1['module'] > 8 && !in_array($col_v1['module'], array(14, 15)))) continue;
+            if ($col_v1['module'] == 0 || ($col_v1['module'] > 8 && !in_array($col_v1['module'], array(14, 15, 16)))) continue;
             $col_v1['module_name'] = $sys_column->module($col_v1['module']);
             $col_v1['url'] = self::getModContentLink($col_v1);
             if ($class2 = $array['class2'][$col_v1['id']]) {
@@ -194,7 +194,7 @@ class index extends base_admin
     private function _search($search_contnet = '')
     {
         global $_M;
-        $query = "select * from {$_M['table']['column']} where name like '%{$search_contnet}%' and lang='{$this->lang}' and (module <= 8 or module in (14, 15))";
+        $query = "select * from {$_M['table']['column']} where name like '%{$search_contnet}%' and lang='{$this->lang}' and (module <= 8 or module in (14, 15, 16))";
         $column_list = DB::get_all($query);
 
         $list = array();
@@ -230,7 +230,7 @@ class index extends base_admin
         $list['citylist'] = array();
         $columnlist = column_sorting();
         foreach ($columnlist['class1'] as $key => $value) {
-            if (($value['module'] >= 2 && $value['module'] <= 6) || in_array($value['module'], array(14, 15))) {
+            if (($value['module'] >= 2 && $value['module'] <= 6) || in_array($value['module'], array(14, 15, 16))) {
                 $column_json = parent::column_json($value['module'], 1, $value['id']);
                 $list['citylist'] = array_merge($list['citylist'], $column_json['citylist']);
             }

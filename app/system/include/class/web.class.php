@@ -334,7 +334,7 @@ class web extends common
                 if(!$mod){
                     abort(404);
                 }
-                if (in_array($mod, array(2, 3, 4, 5, 14, 15))) {
+                if (in_array($mod, array(2, 3, 4, 5, 14, 15, 16))) {
                     $column = $column_lable->get_first_column_by_module($mod, $_M['lang']);
                     $cid = $column['id'];
                 }
@@ -364,7 +364,7 @@ class web extends common
         $column = $column_lable->get_column_id($classnow);
 
         //额外栏目信息
-        if (in_array($column['module'], array(2, 3, 4, 5, 6, 7, 11, 14, 15))) {
+        if (in_array($column['module'], array(2, 3, 4, 5, 6, 7, 11, 14, 15, 16))) {
             self::classExt($column);
         }
 

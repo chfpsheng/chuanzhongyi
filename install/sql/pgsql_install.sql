@@ -693,7 +693,9 @@ CREATE TABLE met_product  (
   "text_size" INT  DEFAULT '0',
   "text_color" VARCHAR(100) DEFAULT '',
   "other_info" TEXT,
-  "custom_info" TEXT
+  "custom_info" TEXT,
+  "region_city" VARCHAR(50) DEFAULT '',
+  "region_district" VARCHAR(50) DEFAULT ''
 );
 
 DROP TABLE IF EXISTS met_relation;

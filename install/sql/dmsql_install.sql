@@ -736,6 +736,8 @@ CREATE TABLE "met_product"
 "text_color" VARCHAR(100),
 "other_info" TEXT,
 "custom_info" TEXT,
+"region_city" VARCHAR(50),
+"region_district" VARCHAR(50),
 NOT CLUSTER PRIMARY KEY("id")) STORAGE(ON "MAIN", CLUSTERBTR) ;
 
 DROP TABLE IF EXISTS met_relation;

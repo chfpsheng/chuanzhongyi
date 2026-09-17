@@ -27,7 +27,7 @@ class recycle extends admin
 
         $table = load::sys_class('tabledata', 'new'); //加载表格数据获取类
         $fields = 'id,title,class1,class2,class3,updatetime,recycle';
-        $modules = array('news', 'product', 'download', 'img', 'doctor', 'activity');
+        $modules = array('news', 'product', 'download', 'img', 'doctor', 'activity', 'shaoer');
         $searchsql = $search ? $searchsql = "AND title LIKE '%{$search}%'" : $searchsql = '';
         $where = "recycle > 0 AND lang='{$lang}' {$searchsql}";
         $order = 'updatetime desc,id desc';
@@ -42,6 +42,7 @@ class recycle extends admin
             $query .= " UNION SELECT {$fields},'5' AS mod_num FROM {$_M['table']['img']} WHERE $where";
             $query .= " UNION SELECT {$fields},'14' AS mod_num FROM {$_M['table']['doctor']} WHERE $where";
             $query .= " UNION SELECT {$fields},'15' AS mod_num FROM {$_M['table']['activity']} WHERE $where";
+            $query .= " UNION SELECT {$fields},'16' AS mod_num FROM {$_M['table']['shaoer']} WHERE $where";
             $data = $table->getdata($_M['table'][$module], '*', $where, $order, $query); //获取数据
         }
 

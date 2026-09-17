@@ -732,6 +732,8 @@ CREATE TABLE `met_product` (
   `text_color` varchar(100) DEFAULT '',
   `other_info` text,
   `custom_info` text,
+  `region_city` varchar(50) DEFAULT '',
+  `region_district` varchar(50) DEFAULT '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 

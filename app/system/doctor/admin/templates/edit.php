@@ -10,14 +10,19 @@ defined('IN_MET') or exit('No permission');
 	</dt>
 	<dd>
 		<div class="form-group clearfix">
-			<select class="form-control" name="yiguan" data-yiguan-select>
-				<option value="">请选择坐诊医馆</option>
+			<div style="max-width:640px;max-height:260px;overflow-y:auto;border:1px solid #e4eaec;border-radius:4px;background:#fff;padding:10px 14px;">
 				<list data="$data['yiguan_option']" name="$ygu">
-				<option value="{$ygu.val}" <if value="$ygu['checked']">selected</if>>{$ygu.name}</option>
+				<label class="d-block mb-2" style="cursor:pointer;font-weight:400;">
+					<input type="checkbox" name="yiguan[]" value="{$ygu.val}" <if value="$ygu['checked']">checked</if>>
+					<span class="ml-1 align-middle">{$ygu.name}</span>
+				</label>
 				</list>
-			</select>
+				<if value="!$data['yiguan_option']">
+				<span class="text-help">暂无选项，请先到「中医馆」栏目添加内容。</span>
+				</if>
+			</div>
 		</div>
-		<span class="text-help">选项来自「中医馆」栏目的内容；打开下拉后可在顶部输入关键字按名称筛选。如无选项请先到中医馆栏目添加内容。</span>
+		<span class="text-help">可多选：勾选该医师坐诊的全部医馆，前台按此处医馆的顺序依次展示。选项来自「中医馆」栏目的内容。</span>
 	</dd>
 </dl>
 <dl>

@@ -1,279 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>http://localhost/index.php</loc>
-<priority>1</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/huodong/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/zhongyishi/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/message/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/job/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/show.php?id=111</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/news.php?class2=106</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost//</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/show.php?id=112</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/news.php?class2=107</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/product/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/feedback/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/show.php?id=113</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/news.php?class2=108</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/img/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/show.php?id=114</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/img1/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about1/show.php?id=118</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about/show.php?id=115</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about1/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/about2/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/icon/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/member/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/sitemap/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/search/</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=51</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=50</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=45</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=46</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=48</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=49</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=52</loc>
-<priority>0.5</priority>
-<lastmod>2018-11-05</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=53</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=54</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=57</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=55</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/news/shownews.php?id=56</loc>
-<priority>0.5</priority>
-<lastmod>2017-11-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/product/showproduct.php?id=33</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/product/showproduct.php?id=40</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/product/showproduct.php?id=42</loc>
-<priority>0.5</priority>
-<lastmod>2026-09-12</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/job/showjob.php?id=29</loc>
-<priority>0.5</priority>
-<lastmod>-0001-11-30</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/job/showjob.php?id=27</loc>
-<priority>0.5</priority>
-<lastmod>-0001-11-30</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/job/showjob.php?id=28</loc>
-<priority>0.5</priority>
-<lastmod>-0001-11-30</lastmod>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>http://localhost/job/showjob.php?id=26</loc>
-<priority>0.5</priority>
-<lastmod>-0001-11-30</lastmod>
-<changefreq>weekly</changefreq>
-</url>
+  <url>
+    <loc>http://test.mb.mituo.cn/</loc>
+    <priority>1.0</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/huodong/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/zhongyishi/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/show.php?id=111</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/news.php?class2=108</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/show.php?id=112</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/news.php?class2=106</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/news.php?class2=107</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/shaoerzhongyi/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/show.php?id=113</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/show.php?id=114</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about1/show.php?id=118</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/about/show.php?id=115</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/sitemap/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/shownews.php?id=58</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/news/shownews.php?id=54</loc>
+    <priority>0.6</priority>
+    <lastmod>2017-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/zhongyishi/showdoctor.php?id=30</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/zhongyishi/showdoctor.php?id=3</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/huodong/showactivity.php?id=1</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/shaoerzhongyi/showshaoer.php?id=1</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

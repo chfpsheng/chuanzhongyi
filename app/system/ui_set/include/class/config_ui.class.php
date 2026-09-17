@@ -317,11 +317,11 @@ class config_ui
                     // "15" == 15 之类在不同 PHP 版本下行为不一致。
                     foreach ($met_class1 as $key => $val2) {
                         $m = isset($val2['module']) ? (int)$val2['module'] : 0;
-                        if ($m <= 8 || $m > 100 || in_array($m, array(14, 15), true)) {
+                        if ($m <= 8 || $m > 100 || in_array($m, array(14, 15, 16), true)) {
                             $selectd .= '==' . $val2['name'] . '==' . '$T$' . $val2['id'] . '$M$';
                             foreach ($met_class2[$val2['id']] as $key => $val3) {
                                 $m3 = isset($val3['module']) ? (int)$val3['module'] : 0;
-                                if ($m3 <= 8 || in_array($m3, array(14, 15), true)) {
+                                if ($m3 <= 8 || in_array($m3, array(14, 15, 16), true)) {
                                     $selectd .= $val3['name'] . '$T$' . $val3['id'] . '$M$';
                                     foreach ($met_class3[$val3['id']] as $key => $val4) {
                                         $selectd .= '+' . $val4['name'] . '$T$' . $val4['id'] . '$M$';

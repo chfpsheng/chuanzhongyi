@@ -72,7 +72,8 @@ class doctor_database extends base_database
             return '';
         }
         $time = date('Y-m-d H:i');
-        return " AND (recycle='0' or recycle='-1') AND displaytype='1' AND addtime < '{$time}' AND (links = '' OR links is null) AND yiguan = '{$yiguan}' ";
+        //“坐诊医馆”为多选，字段存逗号分隔的医馆内容ID（如 42,43），用 FIND_IN_SET 精确匹配单个ID
+        return " AND (recycle='0' or recycle='-1') AND displaytype='1' AND addtime < '{$time}' AND (links = '' OR links is null) AND FIND_IN_SET('{$yiguan}', yiguan) ";
     }
 
 }

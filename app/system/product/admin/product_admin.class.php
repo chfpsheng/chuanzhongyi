@@ -341,6 +341,420 @@ class product_admin extends base_admin
     }
 
     /**
+     * 中医馆（class1 = 104）批量导入接口：数据一律以草稿形式入库。
+     *
+     * 后台接口地址：?n=product&c=product_admin&a=doimportsave
+     * 入参（二选一）：
+     *   rows : JSON 数组字符串，元素键支持
+     *          title/name(名称)、cover(门头照)、insurance(支持医保)、pool(支持统筹)、
+     *          phone(电话)、address(地点)、intro(简介)、city(城市)、district(区县)
+     *   csv  : CSV 文本，首行表头（名字,门头照,是否支持医保,是否支持统筹,电话,地址（代表门店）,医馆简介）
+     *
+     * 返回：{status:1, msg:..., data:{created:[], skipped:[], failed:[]}}
+     *
+     * 说明：
+     *   1. displaytype 固定为 -1（草稿），需在后台人工确认后发布；
+     *   2. 按「归一化标题」与现有中医馆内容去重，重名的跳过；
+     *   3. 自定义字段按 paraint（183 地点 / 184 支持医保 / 185 支持统筹 / 186 电话 / 187 成立时间）写入。
+     *
+     * @return void
+     */
+    public function doimportsave()
+    {
+        global $_M;
+
+        $rows = $this->yiguan_import_parse_input();
+        if (!$rows) {
+            $this->error('没有可导入的数据：请提交 rows(JSON) 或 csv 文本');
+        }
+
+        $created = array();
+        $skipped = array();
+        $failed = array();
+        $exists = $this->yiguan_import_exist_map();
+        $now = date('Y-m-d H:i:s');
+
+        foreach ($rows as $i => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $rowno = $i + 1;
+            $title = $this->yiguan_import_text(isset($row['title']) ? $row['title'] : '');
+            if ($title === '') {
+                $failed[] = array('row' => $rowno, 'title' => '', 'reason' => '缺少医馆名称');
+                continue;
+            }
+
+            $key = $this->yiguan_import_title_key($title);
+            if ($key !== '' && isset($exists[$key])) {
+                $skipped[] = array('row' => $rowno, 'title' => $title, 'reason' => '同名医馆已存在(id=' . $exists[$key] . ')');
+                continue;
+            }
+
+            $intro = $this->yiguan_import_text(isset($row['intro']) ? $row['intro'] : '');
+            $address = $this->yiguan_import_text(isset($row['address']) ? $row['address'] : '');
+            $phone = $this->yiguan_import_text(isset($row['phone']) ? $row['phone'] : '');
+            $region = $this->yiguan_import_region(
+                $address,
+                $title,
+                isset($row['city']) ? $row['city'] : '',
+                isset($row['district']) ? $row['district'] : ''
+            );
+
+            $list = array(
+                'title' => $title,
+                'ctitle' => $title,
+                'keywords' => $title,
+                'description' => mb_substr(strip_tags(str_replace('；', '，', $intro)), 0, 190),
+                'content' => $this->yiguan_import_intro_html($intro),
+                'class1' => $this->yiguan_column,
+                'class2' => 0,
+                'class3' => 0,
+                'region_city' => $region['city'],
+                'region_district' => $region['district'],
+                'imgurl' => '',
+                'no_order' => 0,
+                'access' => 0,
+                'com_ok' => 0,
+                'top_ok' => 0,
+                'new_ok' => 0,
+                'wap_ok' => 0,
+                // -1 = 草稿（后台内容列表「草稿」筛选值）
+                'displaytype' => -1,
+                'addtime' => $now,
+                'updatetime' => $now,
+                'lang' => $_M['lang'],
+                'issue' => $this->admin_member['admin_id'],
+                // 系统属性（参数名格式 para-字段ID，由 parameter_op 自动写入 met_plist）
+                'para-183' => $address,          // 地点
+                'para-184' => $this->yiguan_import_yes_no(isset($row['insurance']) ? $row['insurance'] : '', 11, 12), // 支持医保
+                'para-185' => $this->yiguan_import_yes_no(isset($row['pool']) ? $row['pool'] : '', 13, 14),          // 支持统筹
+                'para-186' => $phone,            // 电话
+                'para-187' => $this->yiguan_import_found_year($intro), // 成立时间
+            );
+
+            $pid = $this->insert_list($list);
+            if ($pid) {
+                if ($key !== '') {
+                    $exists[$key] = $pid;
+                }
+                $created[] = array(
+                    'row' => $rowno,
+                    'id' => $pid,
+                    'title' => $title,
+                    'region' => trim($region['city'] . ' ' . $region['district']),
+                    'cover_url' => isset($row['cover']) ? $this->yiguan_import_text($row['cover']) : '',
+                );
+            } else {
+                $failed[] = array(
+                    'row' => $rowno,
+                    'title' => $title,
+                    'reason' => implode(' / ', (array)$this->error),
+                );
+            }
+        }
+
+        $this->ajaxReturn(array(
+            'status' => 1,
+            'msg' => '导入完成：新增草稿 ' . count($created) . ' 条，跳过 ' . count($skipped) . ' 条，失败 ' . count($failed) . ' 条',
+            'data' => array(
+                'created' => $created,
+                'skipped' => $skipped,
+                'failed' => $failed,
+            ),
+        ));
+    }
+
+    /**
+     * 解析导入入参：rows(JSON 数组) 优先，其次 csv 文本
+     *
+     * @return array
+     */
+    protected function yiguan_import_parse_input()
+    {
+        global $_M;
+        $rows = array();
+
+        $json = isset($_M['form']['rows']) ? $_M['form']['rows'] : '';
+        if (is_array($json)) {
+            $rows = $json;
+        } elseif (is_string($json) && trim($json) !== '') {
+            // 后台表单变量经过 daddslashes，先还原再解析
+            $data = json_decode(stripslashes(trim($json)), true);
+            if (is_array($data)) {
+                $rows = $data;
+            }
+        }
+
+        if (!$rows && !empty($_M['form']['csv'])) {
+            $rows = $this->yiguan_import_parse_csv(stripslashes((string)$_M['form']['csv']));
+        }
+
+        return $rows;
+    }
+
+    /**
+     * 解析 CSV 文本为导入数组（自动处理 BOM / GBK 编码）
+     *
+     * @param string $csv
+     * @return array
+     */
+    protected function yiguan_import_parse_csv($csv)
+    {
+        $csv = str_replace(array("\r\n", "\r"), "\n", trim((string)$csv));
+        if (substr($csv, 0, 3) === "\xEF\xBB\xBF") {
+            $csv = substr($csv, 3);
+        }
+        if (!mb_check_encoding($csv, 'UTF-8')) {
+            $csv = mb_convert_encoding($csv, 'UTF-8', 'GBK');
+        }
+
+        $handle = fopen('php://temp', 'r+');
+        fwrite($handle, $csv);
+        rewind($handle);
+
+        $head = array();
+        $rows = array();
+        while (($line = fgetcsv($handle, 0, ',', '"', '')) !== false) {
+            if ($line === array(null)) {
+                continue; // 空行
+            }
+            $line = array_map(function ($val) {
+                return is_string($val) ? trim($val) : '';
+            }, $line);
+
+            if (!$head) {
+                foreach ($line as $col) {
+                    $head[] = $this->yiguan_import_head_map($col);
+                }
+                continue;
+            }
+
+            $row = array();
+            foreach ($line as $i => $val) {
+                $name = isset($head[$i]) ? $head[$i] : '';
+                if ($name !== '') {
+                    $row[$name] = $val;
+                }
+            }
+            if ($row) {
+                $rows[] = $row;
+            }
+        }
+        fclose($handle);
+
+        return $rows;
+    }
+
+    /**
+     * CSV 表头 → 内部字段名
+     *
+     * @param string $name
+     * @return string
+     */
+    protected function yiguan_import_head_map($name)
+    {
+        $name = str_replace(array(' ', '　', '(', ')', '（', '）', ':', '：', '*'), '', (string)$name);
+        $map = array(
+            '名字' => 'title', '名称' => 'title', '医馆名称' => 'title', 'title' => 'title', 'name' => 'title',
+            '门头照' => 'cover', 'cover' => 'cover',
+            '是否支持医保' => 'insurance', '支持医保' => 'insurance', 'insurance' => 'insurance',
+            '是否支持统筹' => 'pool', '支持统筹' => 'pool', 'pool' => 'pool',
+            '电话' => 'phone', '联系电话' => 'phone', 'phone' => 'phone',
+            '地址代表门店' => 'address', '地址' => 'address', '地点' => 'address', 'address' => 'address',
+            '医馆简介' => 'intro', '简介' => 'intro', 'intro' => 'intro', 'description' => 'intro',
+            '城市' => 'city', 'city' => 'city',
+            '区县' => 'district', 'district' => 'district',
+        );
+        return isset($map[$name]) ? $map[$name] : '';
+    }
+
+    /**
+     * 文本清理：数组转空、合并多余空白
+     *
+     * @param mixed $value
+     * @return string
+     */
+    protected function yiguan_import_text($value)
+    {
+        if (is_array($value) || is_object($value)) {
+            return '';
+        }
+        $value = str_replace(array("\r\n", "\r", "\n", "\t"), ' ', (string)$value);
+        $value = preg_replace('/\s{2,}/u', ' ', $value);
+        return trim($value);
+    }
+
+    /**
+     * 标题去重键：去掉括号注释、空格与常见标点后比较
+     *
+     * @param string $title
+     * @return string
+     */
+    protected function yiguan_import_title_key($title)
+    {
+        $title = $this->yiguan_import_text($title);
+        $title = html_entity_decode($title, ENT_QUOTES, 'UTF-8');
+        $title = preg_replace('/[\(（\[【][^\)）\]】]*[\)）\]】]/u', '', $title);
+        $title = preg_replace('/[\s\x{3000}·・、，,。\.\-—_]+/u', '', $title);
+        return mb_strtolower((string)$title);
+    }
+
+    /**
+     * 现有中医馆内容（去重键 → id）
+     *
+     * @return array
+     */
+    protected function yiguan_import_exist_map()
+    {
+        global $_M;
+        $map = array();
+        $query = "SELECT id,title FROM {$_M['table']['product']} WHERE class1='{$this->yiguan_column}' AND lang='{$_M['lang']}' AND recycle=0";
+        foreach ((array)DB::get_all($query) as $one) {
+            $key = $this->yiguan_import_title_key($one['title']);
+            if ($key !== '' && !isset($map[$key])) {
+                $map[$key] = $one['id'];
+            }
+        }
+        return $map;
+    }
+
+    /**
+     * 简介文本 → 段落 HTML（按分号/句号分段）
+     *
+     * @param string $intro
+     * @return string
+     */
+    protected function yiguan_import_intro_html($intro)
+    {
+        $intro = trim((string)$intro);
+        if ($intro === '') {
+            return '';
+        }
+        $html = '';
+        foreach (preg_split('/[；;]+/u', $intro) as $part) {
+            $part = $this->yiguan_import_text($part);
+            if ($part === '') {
+                continue;
+            }
+            $html .= '<p>' . htmlspecialchars($part, ENT_QUOTES, 'UTF-8') . '</p>';
+        }
+        return $html;
+    }
+
+    /**
+     * 「是/否」类字段值转换
+     *
+     * 说明：源数据里的「未公开确认 / 建议致电 / 以门店为准 / 未核实 / 自费为主」等一律留空，
+     * 交由人工在后台确认，避免写入错误结论。
+     *
+     * @param string $value  源值
+     * @param int    $yes_id 选项「是」的ID
+     * @param int    $no_id  选项「否」的ID
+     * @return string
+     */
+    protected function yiguan_import_yes_no($value, $yes_id, $no_id)
+    {
+        $value = $this->yiguan_import_text($value);
+        if ($value === '') {
+            return '';
+        }
+        if (mb_strpos($value, '不支持') === 0 || mb_strpos($value, '否') === 0) {
+            return (string)$no_id;
+        }
+        if (mb_strpos($value, '支持') === 0 || mb_strpos($value, '已开通') === 0 || mb_strpos($value, '是') === 0) {
+            return (string)$yes_id;
+        }
+        return '';
+    }
+
+    /**
+     * 从简介中提取成立年份（如「源于1924年」→「1924年」）
+     *
+     * @param string $intro
+     * @return string
+     */
+    protected function yiguan_import_found_year($intro)
+    {
+        if (preg_match('/((?:18|19|20)\d{2})\s*年/u', (string)$intro, $out)) {
+            return $out[1] . '年';
+        }
+        return '';
+    }
+
+    /**
+     * 匹配「所属地区」：区县优先，其次城市；使用四川省行政区划数据
+     *
+     * @param string $address  地点/地址
+     * @param string $title    医馆名称
+     * @param string $city     显式传入的城市
+     * @param string $district 显式传入的区县
+     * @return array{city:string,district:string}
+     */
+    protected function yiguan_import_region($address = '', $title = '', $city = '', $district = '')
+    {
+        $regions = $this->yiguan_import_regions();
+        $result = array('city' => '', 'district' => '');
+
+        $city = $this->yiguan_import_text($city);
+        $district = $this->yiguan_import_text($district);
+        $text = $this->yiguan_import_text($city . ' ' . $district . ' ' . $address . ' ' . $title);
+
+        if (!$text || !$regions) {
+            return $result;
+        }
+
+        // 1) 显式区县
+        if ($district !== '') {
+            foreach ($regions as $city_name => $districts) {
+                if (in_array($district, (array)$districts, true)) {
+                    return array('city' => $city_name, 'district' => $district);
+                }
+            }
+        }
+        // 2) 文本里匹配区县
+        foreach ($regions as $city_name => $districts) {
+            foreach ((array)$districts as $district_name) {
+                if ($district_name !== '' && mb_strpos($text, $district_name) !== false) {
+                    return array('city' => $city_name, 'district' => $district_name);
+                }
+            }
+        }
+        // 3) 只匹配到城市（如「成都市」），区县留空
+        if ($city !== '' && isset($regions[$city])) {
+            return array('city' => $city, 'district' => '');
+        }
+        foreach ($regions as $city_name => $districts) {
+            if (mb_strpos($text, $city_name) !== false) {
+                return array('city' => $city_name, 'district' => '');
+            }
+        }
+        // 4) 仅出现「成都」字样时默认成都市
+        if (mb_strpos($text, '成都') !== false) {
+            $result['city'] = '成都市';
+        }
+        return $result;
+    }
+
+    /**
+     * 四川省行政区划数据（市 → 区/县）
+     *
+     * @return array
+     */
+    protected function yiguan_import_regions()
+    {
+        static $regions = null;
+        if ($regions === null) {
+            $file = PATH_SYS . 'product/include/data/sichuan_region.php';
+            $regions = is_file($file) ? include $file : array();
+            if (!is_array($regions)) {
+                $regions = array();
+            }
+        }
+        return $regions;
+    }
+
+    /**
      * 产品编辑
      */
     public function doeditor()
