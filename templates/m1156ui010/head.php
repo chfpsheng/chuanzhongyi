@@ -25,6 +25,22 @@ $_seo_abs = function ($u) use ($_seo_site) {
     return $_seo_site . str_replace('../', '', (string)$u);
 };
 ?>
+<?php
+// canonical：统一规范链接，避免 / 与 /index.php?lang=cn 等重复内容被分别收录
+$_seo_can_mark = isset($_M['html_plugin']['head_script']) ? $_M['html_plugin']['head_script'] : '';
+if (strpos($_seo_can_mark, 'canonical') === false) {
+    $_seo_can = isset($data['url']) ? str_replace('../', '', (string)$data['url']) : '';
+    if ($_seo_can === '' || strpos($_seo_can, 'index.php') !== false) {
+        $_seo_can = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '/';
+    }
+    if (strpos($_seo_can, '?') !== false && strpos($_seo_can, 'id=') === false) {
+        $_seo_can = strtok($_seo_can, '?');
+    }
+    $_seo_can = str_replace('index.php', '', $_seo_can);
+    $_seo_can = '/' . ltrim($_seo_can, '/');
+    echo '<link rel="canonical" href="' . htmlspecialchars(rtrim($_seo_site, '/') . $_seo_can, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
+}
+?>
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="<?php echo htmlspecialchars($_seo_title, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="twitter:description" content="<?php echo htmlspecialchars($_seo_clean($_seo_pdesc), ENT_QUOTES, 'UTF-8'); ?>" />
@@ -45,15 +61,23 @@ $_seo_graph[] = array(
     'publisher'   => array('@id' => $_seo_site . '#organization'),
 );
 
-// 机构（站点主体）
+// 机构（站点主体）：中医医疗信息平台，使用 MedicalOrganization 便于 AI 识别行业属性
 $_seo_org = array(
-    '@type'       => 'Organization',
+    '@type'       => array('Organization', 'MedicalOrganization'),
     '@id'         => $_seo_site . '#organization',
     'name'        => $_seo_name,
     'url'         => $_seo_site,
     'description' => $_seo_clean($_seo_desc),
     'areaServed'  => array('@type' => 'AdministrativeArea', 'name' => '四川省成都市'),
     'knowsAbout'  => array('中医馆', '名老中医', '中医养生', '药食同源', '少儿中医研学', '中医活动', '中医针灸'),
+    'medicalSpecialty' => '中医',
+    'telephone'   => '18026954495',
+    'address'     => array(
+        '@type'           => 'PostalAddress',
+        'addressCountry'  => 'CN',
+        'addressRegion'   => '四川省',
+        'addressLocality' => '成都市',
+    ),
 );
 if ($_seo_img) {
     $_seo_org['logo'] = array('@type' => 'ImageObject', 'url' => $_seo_img);
@@ -126,6 +150,8 @@ if ($_seo_is_detail) {
                 'name'        => $_seo_clean($data['title']),
                 'url'         => $_seo_cur,
                 'description' => $_seo_clean($_seo_pdesc),
+                'medicalSpecialty' => '中医',
+                'knowsAbout'  => array('中医', '中医内科', '针灸', '推拿', '中药调理'),
             );
             if (!empty($data['hospital'])) {
                 $_seo_entity['worksFor'] = array('@type' => 'MedicalOrganization', 'name' => $_seo_clean($data['hospital']));
@@ -229,6 +255,49 @@ if ($_seo_is_detail) {
         $_seo_page['@type'] = 'AboutPage';
     }
 }
+// FAQ：GEO 最易被 AI 直接引用的结构化内容（首页输出）
+$_seo_is_home = (isset($data['classnow']) && intval($data['classnow']) === 10001)
+    || (empty($data['id']) && empty($_seo_module));
+if ($_seo_is_home) {
+    $_seo_faq = array(
+        array(
+            'q' => '四川中医馆（四川中医网）是做什么的？',
+            'a' => '四川中医馆（四川中医网）是面向四川及成都地区的中医信息服务平台，收录特色中医馆、名老中医、中医活动与少儿中医研学信息，帮助用户查找可查证的中医就医与养生资源。',
+        ),
+        array(
+            'q' => '如何在四川中医网上查找成都附近的中医馆？',
+            'a' => '进入中医馆栏目，按城市与区县筛选，可查看中医馆的擅长项目、地址与联系方式；就诊前建议先电话确认出诊时间。',
+        ),
+        array(
+            'q' => '网站上的中医师与中医馆信息是否经过审核？',
+            'a' => '平台信息来源于公开渠道整理，仅作就医参考，不构成医疗推荐。就诊前请核验机构执业许可与医师的医师资格证、医师执业证，并以医疗机构现场公示信息为准。',
+        ),
+        array(
+            'q' => '少儿中医研学活动适合多大年龄的孩子？',
+            'a' => '各期活动的年龄要求不同，一般适合 6 至 15 岁儿童，具体以活动详情页说明为准，参加时需家长陪同。',
+        ),
+        array(
+            'q' => '网站上的中医养生内容可以替代医生诊疗吗？',
+            'a' => '不可以。站内养生与科普内容仅供健康参考，不能替代执业医师的面诊诊断与处方，身体不适请及时到正规医疗机构就诊。',
+        ),
+    );
+    $_seo_faq_items = array();
+    foreach ($_seo_faq as $_seo_qa) {
+        $_seo_faq_items[] = array(
+            '@type'          => 'Question',
+            'name'           => $_seo_qa['q'],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $_seo_qa['a']),
+        );
+    }
+    $_seo_graph[] = array(
+        '@type'          => 'FAQPage',
+        '@id'            => $_seo_site . '#faq',
+        'url'            => $_seo_site,
+        'inLanguage'     => 'zh-CN',
+        'mainEntity'     => $_seo_faq_items,
+    );
+}
+
 $_seo_graph[] = $_seo_page;
 
 $_seo_json = json_encode(

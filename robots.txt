@@ -6,24 +6,10 @@ Allow: /
 Disallow: /admin/
 Disallow: /app/
 Disallow: /cache/
-Disallow: /config/
+Disallow: /templates/
 Disallow: /install/
-Disallow: /member/
-Disallow: /member
-Disallow: /search/
+Disallow: /config/
+Disallow: /*?lang=
 
-# 表单与低价值页面（无内容、易产生重复收录）
-Disallow: /message/
-Disallow: /feedback/
-Disallow: /job/
-
-# 搜索结果页（避免重复收录）
-Disallow: /*searchword=
-Disallow: /*?search=
-
-# 允许抓取前端静态资源，保证搜索引擎正常渲染页面
-Allow: /public/
-Allow: /upload/
-Allow: /templates/m1156ui010/cache/
-
+# 站点地图
 Sitemap: http://test.mb.mituo.cn/sitemap.xml
