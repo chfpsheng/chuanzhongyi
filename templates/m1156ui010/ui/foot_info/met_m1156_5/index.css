@@ -1,51 +1,103 @@
 @charset 'utf-8';
 /*#文件名称：index.css #米拓企业建站系统 #Copyright (C) 长沙米拓信息技术有限公司 (https://www.metinfo.cn). All rights reserved.*/
-$uicss{background:$bodybgcolor$;background:$bgcolor$;position:relative;background-position:top center;background-size:cover;display:block;width:100%;border:none;padding:10px 0;color:$secondcolor$;color:$desccolor$;text-align:center;line-height:1.75;}
-$uicss p{margin-bottom:0;}
-$uicss:after{display:block;clear:both;content:'';}
-$uicss a{color:$firstcolor$;color:$titlecolor$;transition:color .3s;-moz-transition:color .3s;-ms-transition:color .3s;-o-transition:color .3s;-webkit-transition:color .3s;}
-$uicss a:hover{color:$thirdcolor$;color:$hovercolor$;}
-$uicss.lr .foot-left{float:left;text-align:left;}
-$uicss .foot-nav{margin-bottom:5px;}
-$uicss .foot-nav:after{display:block;clear:both;content:'';}
-$uicss .foot-nav a{display:inline-block;}
-$uicss .foot-nav a:after{content:'/';color:$firstcolor$;color:$titlecolor$;opacity:.3;display:inline-block;margin:0 5px 0 10px;}
-$uicss .foot-nav a:last-child:after{display:none;}
-$uicss.lr .foot-right{float:right;text-align:right;}
-$uicss .foot-text u{text-decoration:none;opacity:.75;}
-$uicss .text-link{}
-$uicss .text-link:after{display:block;clear:both;content:'';}
-$uicss .text-link ul{display:block;list-style:none;padding:0;margin:0;}
-$uicss .text-link ul li{display:inline-block;list-style:none;margin:0;}
-$uicss .text-link ul li:first-child{padding:0;}
-$uicss .text-link ul li a{}
-$uicss .text-link ul li a:before{display:inline-block;content:'/';padding:0 5px;}
-$uicss .text-link ul li a img{display:inline-block;max-height:45px;margin:7.5px 0;}
-$uicss .foot-lang{line-height:30px;margin:5px 0;}
-$uicss .foot-lang a{background:$buttonbgcolor$;color:$firstcolor$;color:$buttontitlecolor$;transition:.3s;-moz-transition:.3s;-ms-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;}
-$uicss .foot-lang a:hover{background:$thirdcolor$;background:$hovercolor$;}
-$uicss .foot-lang a.simplified{display:inline-block;width:36px;height:36px;line-height:36px;border-radius:99px;text-align:center;}
-$uicss .foot-lang a.simplified i{font-style:normal;}
-$uicss .foot-lang a.lang{display:inline-block;padding:0 10px;line-height:30px;margin:3px 0;}
-$uicss .foot-lang a.simplified + a.lang{margin-left:8px;}
-$uicss .foot-lang a.lang b{font-weight:normal;}
-@media (max-width:992px) and (min-width:768px),(max-width:767px){
-    $uicss .foot-left{float:none;text-align:center;}
-    $uicss .foot-nav{margin-bottom:0px;}
-    $uicss .foot-right{float:none;text-align:center;}
-    $uicss .foot-text{margin-bottom:0px;}
-}
-$uicss .hasbottom{height:60px;clear:both;display:none;}
-$uicss .hasbottom.iskeshi{display:block;}
-$uicss_bottom{overflow:hidden;position:fixed;bottom:0;left:0;z-index:999;width:100%;line-height:1.65;}
-$uicss_bottom a.item{color:$bottomiconc$;padding:5px 0;display:inline-block;}
-$uicss_bottom a.item i{font-size:16px;display:block;}
-$uicss_bottom a.item span{color:$bottomicontc$;font-size:14px;}
-$uicss_bottom{display:none;}
-$uicss_bottom.iskeshi{display:block;}
-$uicss_bottom .main{display:flex;}
-$uicss_bottom .main>div{flex:1;}
-@media (max-width:767px){
-    $uicss .hasbottom{display:block;}
-    $uicss_bottom{display:block;}
+$uicss{background:$bodybgcolor$;background:$bgcolor$;position:relative;background-position:top center;background-size:cover;display:block;width:100%;border:none;padding:10px 0;color:$secondcolor$;color:$desccolor$;text-align:center;line-height:1.75;}
+
+$uicss p{margin-bottom:0;}
+
+$uicss:after{display:block;clear:both;content:'';}
+
+$uicss a{color:$firstcolor$;color:$titlecolor$;transition:color .3s;-moz-transition:color .3s;-ms-transition:color .3s;-o-transition:color .3s;-webkit-transition:color .3s;}
+
+$uicss a:hover{color:$thirdcolor$;color:$hovercolor$;}
+
+$uicss.lr .foot-left{float:left;text-align:left;}
+
+$uicss .foot-nav{margin-bottom:5px;}
+
+$uicss .foot-nav:after{display:block;clear:both;content:'';}
+
+$uicss .foot-nav a{display:inline-block;}
+
+$uicss .foot-nav a:after{content:'/';color:$firstcolor$;color:$titlecolor$;opacity:.3;display:inline-block;margin:0 5px 0 10px;}
+
+$uicss .foot-nav a:last-child:after{display:none;}
+
+$uicss.lr .foot-right{float:right;text-align:right;}
+
+$uicss .foot-text u{text-decoration:none;opacity:.75;}
+
+$uicss .foot-copyright{clear:both;width:100%;padding-top:10px;text-align:center;}
+
+$uicss .foot-copyright p{white-space:normal;word-break:keep-all;line-height:1.8;margin:0;}
+
+$uicss .text-link{}
+
+$uicss .text-link:after{display:block;clear:both;content:'';}
+
+$uicss .text-link ul{display:block;list-style:none;padding:0;margin:0;}
+
+$uicss .text-link ul li{display:inline-block;list-style:none;margin:0;}
+
+$uicss .text-link ul li:first-child{padding:0;}
+
+$uicss .text-link ul li a{}
+
+$uicss .text-link ul li a:before{display:inline-block;content:'/';padding:0 5px;}
+
+$uicss .text-link ul li a img{display:inline-block;max-height:45px;margin:7.5px 0;}
+
+$uicss .foot-lang{line-height:30px;margin:5px 0;}
+
+$uicss .foot-lang a{background:$buttonbgcolor$;color:$firstcolor$;color:$buttontitlecolor$;transition:.3s;-moz-transition:.3s;-ms-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;}
+
+$uicss .foot-lang a:hover{background:$thirdcolor$;background:$hovercolor$;}
+
+$uicss .foot-lang a.simplified{display:inline-block;width:36px;height:36px;line-height:36px;border-radius:99px;text-align:center;}
+
+$uicss .foot-lang a.simplified i{font-style:normal;}
+
+$uicss .foot-lang a.lang{display:inline-block;padding:0 10px;line-height:30px;margin:3px 0;}
+
+$uicss .foot-lang a.simplified + a.lang{margin-left:8px;}
+
+$uicss .foot-lang a.lang b{font-weight:normal;}
+
+@media (max-width:992px) and (min-width:768px),(max-width:767px){
+
+    $uicss .foot-left{float:none;text-align:center;}
+
+    $uicss .foot-nav{margin-bottom:0px;}
+
+    $uicss .foot-right{float:none;text-align:center;}
+
+    $uicss .foot-text{margin-bottom:0px;}
+
+}
+
+$uicss .hasbottom{height:60px;clear:both;display:none;}
+
+$uicss .hasbottom.iskeshi{display:block;}
+
+$uicss_bottom{overflow:hidden;position:fixed;bottom:0;left:0;z-index:999;width:100%;line-height:1.65;}
+
+$uicss_bottom a.item{color:$bottomiconc$;padding:5px 0;display:inline-block;}
+
+$uicss_bottom a.item i{font-size:16px;display:block;}
+
+$uicss_bottom a.item span{color:$bottomicontc$;font-size:14px;}
+
+$uicss_bottom{display:none;}
+
+$uicss_bottom.iskeshi{display:block;}
+
+$uicss_bottom .main{display:flex;}
+
+$uicss_bottom .main>div{flex:1;}
+
+@media (max-width:767px){
+
+    $uicss .hasbottom{display:block;}
+
+    $uicss_bottom{display:block;}
+
 }
