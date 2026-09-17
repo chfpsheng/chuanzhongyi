@@ -24,11 +24,7 @@
 
       <div class="met-feedback-contact text-center">
         <div class="row">
-          <div class="col-md-6 contact-phone">
-            <h4>联系电话</h4>
-            <p><a href="tel:18026954495">18026954495</a></p>
-          </div>
-          <div class="col-md-6 contact-wechat">
+          <div class="col-md-12 contact-wechat">
             <h4>微信咨询</h4>
             <img src="{$c.met_weburl}upload/file/wechat_qrcode.jpg" alt="微信二维码" class="img-responsive center-block">
           </div>

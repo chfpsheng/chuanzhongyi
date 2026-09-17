@@ -262,14 +262,7 @@ $uicss .met-feedback-contact a:hover{opacity:.8;}
 
 $uicss .met-feedback-contact img{max-width:160px; border:1px solid $bordercolor$; padding:6px; background:#fff; border-radius:4px;}
 
-$uicss .contact-phone,
-
 $uicss .contact-wechat{margin-bottom:20px;}
 
 @media (min-width:992px){
-
-$uicss .contact-phone{border-right:1px solid $bordercolor$;}
-
-$uicss .contact-wechat{padding-left:30px;}
-
-$uicss .contact-phone{padding-right:30px;}}
+$uicss .contact-wechat{padding:0 30px;}}

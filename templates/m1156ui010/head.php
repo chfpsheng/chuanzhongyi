@@ -71,7 +71,6 @@ $_seo_org = array(
     'areaServed'  => array('@type' => 'AdministrativeArea', 'name' => '四川省成都市'),
     'knowsAbout'  => array('中医馆', '名老中医', '中医养生', '药食同源', '少儿中医研学', '中医活动', '中医针灸'),
     'medicalSpecialty' => '中医',
-    'telephone'   => '18026954495',
     'address'     => array(
         '@type'           => 'PostalAddress',
         'addressCountry'  => 'CN',
