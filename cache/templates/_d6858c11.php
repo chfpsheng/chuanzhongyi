@@ -1,2 +1,0 @@
-<?php defined('IN_MET') or exit('No permission'); ?>
-<button class="$uicss   <?php if($_GET["pageset"]){ ?>active<?php } ?>" number="<?php echo $ui['number'];?>" m-id="<?php echo $ui['mid'];?>" m-type="nocontent"></button>
