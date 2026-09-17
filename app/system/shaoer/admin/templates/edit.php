@@ -17,6 +17,37 @@ defined('IN_MET') or exit('No permission');
 		<span class="text-help">点击输入框分别选择活动的开始时间和结束时间，留空则不显示。</span>
 	</dd>
 </dl>
+<?php
+// 「所属地区」二级下拉（四川省 → 市/州 → 区/县），与中医馆模块保持一致的用法。
+// 数据由 shaoer_admin::sichuan_region_options() 注入 $data['sichuan_region']，
+// 保存到 met_shaoer.region_city / met_shaoer.region_district。
+// 使用系统内置 select-linkage 组件，后台 metCommon() 会自动初始化，无需额外引入 JS。
+if (!empty($data['sichuan_region']['citylist_json'])) {
+    $met_region = $data['sichuan_region'];
+    $met_region_city = isset($data['list']['region_city']) ? (string)$data['list']['region_city'] : '';
+    $met_region_district = isset($data['list']['region_district']) ? (string)$data['list']['region_district'] : '';
+?>
+<dl>
+    <dt>
+        <label class='form-control-label'>所属地区</label>
+    </dt>
+    <dd>
+        <div class='form-group clearfix'>
+            <div data-plugin='select-linkage' data-select-url="json" data-required="0" data-value_key="value" class="clearfix float-left mr-3">
+                <textarea class="select-linkage-data" hidden><?php echo htmlspecialchars($met_region['citylist_json'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+                <?php // 省份固定为四川省，隐藏该级下拉，只保留 市 → 区 两级 ?>
+                <span style="display:none"><select class="prov" data-checked="<?php echo htmlspecialchars($met_region['province'], ENT_QUOTES, 'UTF-8'); ?>"></select></span>
+                <?php // 同名隐藏域兜底：下拉被置为 disabled 时仍能提交空值，保证可清空 ?>
+                <input type="hidden" name="region_city" value="">
+                <select name="region_city" class="form-control mr-1 w-a city" data-checked="<?php echo htmlspecialchars($met_region_city, ENT_QUOTES, 'UTF-8'); ?>"></select>
+                <input type="hidden" name="region_district" value="">
+                <select name="region_district" class="form-control mr-1 w-a dist" data-checked="<?php echo htmlspecialchars($met_region_district, ENT_QUOTES, 'UTF-8'); ?>"></select>
+            </div>
+            <span class="text-help">仅限四川省内 21 个地级行政区及其对应区/县/县级市，用于按地区检索活动。</span>
+        </div>
+    </dd>
+</dl>
+<?php } ?>
 <dl>
 	<dt>
 		<label class='form-control-label'>活动地点</label>

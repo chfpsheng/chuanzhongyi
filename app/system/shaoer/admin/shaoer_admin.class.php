@@ -54,6 +54,9 @@ class shaoer_admin extends base_admin
             $list[$field] = ($time && strtotime($time)) ? date('Y-m-d H:i:s', strtotime($time)) : '';
         }
         $list['location'] = isset($list['location']) ? trim($list['location']) : '';
+        //所属地区：四川省内二级联动（市/州 → 区/县），未选择存空字符串
+        $list['region_city'] = isset($list['region_city']) ? trim($list['region_city']) : '';
+        $list['region_district'] = isset($list['region_district']) ? trim($list['region_district']) : '';
         //是否免费：1免费 0收费，默认免费
         $list['is_free'] = (isset($list['is_free']) && $list['is_free'] == 0) ? 0 : 1;
         //所属医馆：中医馆栏目的内容ID，未选择存 0
@@ -89,6 +92,56 @@ class shaoer_admin extends base_admin
     }
 
     /**
+     * 「所属地区」二级联动数据（四川省 21 个地级行政区 → 区/县/县级市）。
+     * 与中医馆模块（product_admin::sichuan_region_options）完全一致：
+     * 共用同一份地区数据文件 app/system/product/include/data/sichuan_region.php，避免两处维护。
+     *
+     * 输出结构为系统内置 select-linkage（jquery.cityselect）所需的层级：
+     *   '[{"p":"四川省","c":[{"n":"成都市","a":[{"s":"锦江区"}]}]}]'
+     *
+     * @return array{ province: string, citylist_json: string }
+     */
+    public function sichuan_region_options()
+    {
+        // 与中医馆模块共用地区数据，回退到本模块自己的数据文件（若存在）
+        $data_files = array(
+            __DIR__ . '/../../product/include/data/sichuan_region.php',
+            __DIR__ . '/../include/data/sichuan_region.php',
+        );
+        $regions = array();
+        foreach ($data_files as $data_file) {
+            if (is_file($data_file)) {
+                $regions = include $data_file;
+                if (is_array($regions) && $regions) {
+                    break;
+                }
+            }
+        }
+        if (!is_array($regions) || !$regions) {
+            return array();
+        }
+
+        $cities = array();
+        foreach ($regions as $city_name => $districts) {
+            $district_list = array();
+            foreach ((array)$districts as $district_name) {
+                $district_list[] = array('s' => $district_name);
+            }
+            $cities[] = array('n' => (string)$city_name, 'a' => $district_list);
+        }
+
+        $province = '四川省';
+        $province_list = array(
+            array('p' => $province, 'c' => $cities),
+        );
+
+        return array(
+            'province'      => $province,
+            'citylist_json' => json_encode($province_list, JSON_UNESCAPED_UNICODE),
+        );
+    }
+
+    /**
      * 新增内容
      */
     public function doadd()
@@ -103,6 +156,8 @@ class shaoer_admin extends base_admin
         $list['start_time'] = '';
         $list['end_time'] = '';
         $list['location'] = '';
+        $list['region_city'] = '';
+        $list['region_district'] = '';
         $list['is_free'] = 1;
         $list['yiguan'] = 0;
         $access_option = $this->access_option($list['access']);
@@ -110,6 +165,7 @@ class shaoer_admin extends base_admin
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
         $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
+        $redata['sichuan_region'] = $this->sichuan_region_options();
         $redata = array_merge($redata, $column_list);
         if (is_mobile()) {
             $this->success($redata);
@@ -184,6 +240,7 @@ class shaoer_admin extends base_admin
         $redata['list'] = $list;
         $redata['access_option'] = $access_option;
         $redata['yiguan_option'] = $this->yiguan_option(isset($list['yiguan']) ? $list['yiguan'] : '');
+        $redata['sichuan_region'] = $this->sichuan_region_options();
         $redata = array_merge($redata, $column_list);
 
         return is_mobile() ? $this->success($redata) : $redata;

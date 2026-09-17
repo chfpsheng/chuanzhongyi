@@ -15,6 +15,9 @@
                         <if value="$data['location']">
                         <span><i class="fa fa-map-marker"></i>活动地点：{$data.location}</span>
                         </if>
+                        <if value="$data['region_text']">
+                        <span><i class="fa fa-map-signs"></i>所属地区：{$data.region_text}</span>
+                        </if>
                         <span><i class="fa fa-ticket"></i>是否免费：{$data.is_free_text}</span>
                     </div>
                 </div>
