@@ -4,3 +4,6 @@
 
 # 自动生成的缩略图
 /upload/thumb_src/
+
+# 编辑器本地数据
+/.codebuddy/
