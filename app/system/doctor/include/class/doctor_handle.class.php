@@ -72,7 +72,62 @@ class doctor_handle extends base_handle
             }
         }
 
+        // 详情页 FAQ：供前台展示与 head.php 输出 FAQPage 结构化数据
+        $content['faq_list'] = $this->build_faq($content);
+
         return $content;
+    }
+
+    /**
+     * 生成中医师详情页 FAQ（3~5 组）
+     * 说明：问答由已有字段推导，无需额外录入；字段缺失时自动跳过对应问题。
+     */
+    protected function build_faq($content = array())
+    {
+        $name = isset($content['title']) ? trim(html_entity_decode(strip_tags($content['title']), ENT_QUOTES, 'UTF-8')) : '';
+        if ($name === '') {
+            return array();
+        }
+        $desc = isset($content['description']) ? trim(preg_replace('/\s+/', ' ', html_entity_decode(strip_tags($content['description']), ENT_QUOTES, 'UTF-8'))) : '';
+        $hospital = isset($content['hospital']) ? trim($content['hospital']) : '';
+        $fee = isset($content['fee']) ? floatval($content['fee']) : 0;
+        $yiguan = isset($content['yiguan_names']) ? trim($content['yiguan_names']) : '';
+
+        $faq = array();
+        if ($desc) {
+            $faq[] = array(
+                'q' => $name . '医生擅长什么？',
+                'a' => $desc,
+            );
+        }
+        if ($yiguan) {
+            $faq[] = array(
+                'q' => $name . '医生在哪里坐诊？',
+                'a' => $name . '医生目前在' . $yiguan . '坐诊，出诊时间以医馆排班为准，建议提前电话确认。',
+            );
+        }
+        if ($fee > 0) {
+            $faq[] = array(
+                'q' => $name . '医生的挂号费是多少？',
+                'a' => $name . '医生挂号费约 ' . $fee . ' 元，实际以医馆现场公示为准。',
+            );
+        }
+        if ($hospital) {
+            $faq[] = array(
+                'q' => $name . '医生属于哪家医院？',
+                'a' => $name . '医生所属医院为' . $hospital . '。',
+            );
+        }
+        $faq[] = array(
+            'q' => '怎么预约' . $name . '医生的号？',
+            'a' => '可通过所在医馆电话预约或到馆现场挂号，名老中医号源紧张，建议提前确认出诊时间。',
+        );
+        $faq[] = array(
+            'q' => '如何核验' . $name . '医生的资质？',
+            'a' => '就诊前请核验医师的医师资格证与医师执业证，信息以医疗机构现场公示为准。',
+        );
+
+        return array_slice($faq, 0, 5);
     }
 
     /**

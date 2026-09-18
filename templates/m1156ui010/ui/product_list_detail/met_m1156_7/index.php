@@ -46,7 +46,7 @@
 
                     <div class="shownews-slide <if value='$val["_first"]'>slick-current</if>">
 
-                      <img class="shownews-lazy" <if value='$val["_first"]'>src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}"</if> data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$val.title}" />
+                      <img class="shownews-lazy" <if value='$val["_first"]'>src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}"</if> data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$data.img_alt}" />
 
                     </div>
 
@@ -70,7 +70,7 @@
 
                     <div class="shownews-slide-small <if value='$val["_first"]'>active</if>">
 
-                      <img class="shownews-lazy" src="{$c['met_agents_img']|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$val.title}" />
+                      <img class="shownews-lazy" src="{$c['met_agents_img']|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$data.img_alt}" />
 
                     </div>
 
@@ -150,6 +150,22 @@
                       $met_doctor_list = array('list' => array(), 'total' => 0, 'pages' => 0, 'page' => 1);
                       if ($data['id']) {
                       $met_doctor_list = load::mod_class('doctor/doctor_label', 'new')->get_list_by_yiguan($data['id'], $met_dpage > 0 ? $met_dpage : 1, 12);
+                      }
+                      // 双向关联：本医馆的近期活动与少儿中医课程（各取 6 条）
+                      $met_rel_activity = array();
+                      $met_rel_shaoer = array();
+                      if ($data['id']) {
+                          $met_rel_id = intval($data['id']);
+                          $met_rel_activity = DB::get_all("SELECT * FROM " . $_M['table']['activity'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND yiguan='" . $met_rel_id . "' ORDER BY start_time DESC, id DESC LIMIT 6");
+                          foreach ((array)$met_rel_activity as $_rel_k => $_rel_v) {
+                              $met_rel_activity[$_rel_k]['original_addtime'] = $_rel_v['addtime'];
+                              $met_rel_activity[$_rel_k]['url'] = load::mod_class('activity/activity_handle', 'new')->get_content_url($met_rel_activity[$_rel_k]);
+                          }
+                          $met_rel_shaoer = DB::get_all("SELECT * FROM " . $_M['table']['shaoer'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND yiguan='" . $met_rel_id . "' ORDER BY start_time DESC, id DESC LIMIT 6");
+                          foreach ((array)$met_rel_shaoer as $_rel_k => $_rel_v) {
+                              $met_rel_shaoer[$_rel_k]['original_addtime'] = $_rel_v['addtime'];
+                              $met_rel_shaoer[$_rel_k]['url'] = load::mod_class('shaoer/shaoer_handle', 'new')->get_content_url($met_rel_shaoer[$_rel_k]);
+                          }
                       }
                       ?>
 
@@ -324,6 +340,65 @@
 
                         </if>
 
+                        <?php if ($met_rel_activity || $met_rel_shaoer) { ?>
+                        <style type="text/css">
+                        .met-yiguan-rel{margin:25px 0 0 0;padding:20px 0 0 0;border-top:1px solid #eee;}
+                        .met-yiguan-rel h4{font-size:17px;margin:0 0 12px 0;padding-left:10px;border-left:4px solid #8a6d3b;}
+                        .met-yiguan-rel ul{margin:0;padding:0;list-style:none;}
+                        .met-yiguan-rel li{padding:6px 0;font-size:14px;border-bottom:1px dashed #f0f0f0;}
+                        .met-yiguan-rel li a{color:#333;text-decoration:none;}
+                        .met-yiguan-rel li a:hover{color:#8a6d3b;}
+                        .met-yiguan-rel li span{float:right;color:#999;font-size:13px;}
+                        </style>
+                        <?php } ?>
+
+                        <if value="$met_rel_activity">
+                        <div class="met-yiguan-rel">
+                          <h4>本院近期活动</h4>
+                          <ul>
+                            <list data="$met_rel_activity" name="$rel">
+                            <li>
+                              <a href="{$rel.url}" title="{$rel.title}">{$rel.title}</a>
+                              <span><if value="$rel['start_time']">{$rel.start_time}</if></span>
+                            </li>
+                            </list>
+                          </ul>
+                        </div>
+                        </if>
+
+                        <if value="$met_rel_shaoer">
+                        <div class="met-yiguan-rel">
+                          <h4>本院少儿中医课程</h4>
+                          <ul>
+                            <list data="$met_rel_shaoer" name="$rel">
+                            <li>
+                              <a href="{$rel.url}" title="{$rel.title}">{$rel.title}</a>
+                              <span><if value="$rel['start_time']">{$rel.start_time}</if></span>
+                            </li>
+                            </list>
+                          </ul>
+                        </div>
+                        </if>
+
+                        <if value="$data['faq_list']">
+                        <style type="text/css">
+                        .met-yiguan-faq{margin:25px 0 0 0;padding:20px 0 0 0;border-top:1px solid #eee;}
+                        .met-yiguan-faq h4{font-size:17px;margin:0 0 12px 0;padding-left:10px;border-left:4px solid #8a6d3b;}
+                        .met-yiguan-faq .faq-item{margin-bottom:14px;}
+                        .met-yiguan-faq .faq-item h5{font-size:15px;font-weight:600;margin:0 0 6px 0;}
+                        .met-yiguan-faq .faq-item p{margin:0;font-size:14px;line-height:1.8;color:#666;}
+                        </style>
+                        <div class="met-yiguan-faq">
+                          <h4>常见问题</h4>
+                          <list data="$data['faq_list']" name="$faq">
+                          <div class="faq-item">
+                            <h5>{$faq.q}</h5>
+                            <p>{$faq.a}</p>
+                          </div>
+                          </list>
+                        </div>
+                        </if>
+
                         <div class="showproduct-pager"><pagination /></div>
 
                       </div>
@@ -480,7 +555,7 @@
 
                 <div class="shownews-slide <if value='$val["_first"]'>slick-current</if>">
 
-                  <img class="shownews-lazy" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$val.title}" />
+                  <img class="shownews-lazy" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$data.img_alt}" />
 
                 </div>
 
@@ -504,7 +579,7 @@
 
                 <div class="shownews-slide-small <if value='$val["_first"]'>active</if>">
 
-                  <img class="shownews-lazy" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$val.title}" />
+                  <img class="shownews-lazy" data-src="{$val.img|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$val.img}" alt="{$data.img_alt}" />
 
                 </div>
 

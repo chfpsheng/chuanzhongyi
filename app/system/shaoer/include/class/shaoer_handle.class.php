@@ -45,6 +45,17 @@ class shaoer_handle extends base_handle
             //是否免费：1免费 0收费，默认免费
             $content['is_free'] = (isset($content['is_free']) && $content['is_free'] == 0) ? 0 : 1;
             $content['is_free_text'] = $content['is_free'] ? '免费' : '收费';
+
+            //所属医馆：中医馆内容ID，输出名称与详情链接（双向关联用）
+            $content['yiguan_name'] = '';
+            $content['yiguan_url'] = '';
+            if (!empty($content['yiguan'])) {
+                $yiguan = load::mod_class('doctor/doctor_handle', 'new')->get_yiguan($content['yiguan']);
+                if ($yiguan) {
+                    $content['yiguan_name'] = $yiguan['title'];
+                    $content['yiguan_url'] = $yiguan['url'];
+                }
+            }
         }
 
         return $content;

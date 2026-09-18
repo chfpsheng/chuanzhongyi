@@ -344,6 +344,30 @@ if ($_seo_is_home) {
     );
 }
 
+// 详情页 FAQ（中医馆 / 中医师）：由对应模块的 handle 生成，AI 搜索最易直接引用
+if (!$_seo_is_home && !empty($data['faq_list']) && is_array($data['faq_list'])) {
+    $_seo_qa = array();
+    foreach ($data['faq_list'] as $_seo_row) {
+        if (empty($_seo_row['q']) || empty($_seo_row['a'])) {
+            continue;
+        }
+        $_seo_qa[] = array(
+            '@type'          => 'Question',
+            'name'           => $_seo_clean($_seo_row['q']),
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $_seo_clean($_seo_row['a'])),
+        );
+    }
+    if ($_seo_qa) {
+        $_seo_graph[] = array(
+            '@type'      => 'FAQPage',
+            '@id'        => $_seo_cur . '#faq',
+            'url'        => $_seo_cur,
+            'inLanguage' => 'zh-CN',
+            'mainEntity' => $_seo_qa,
+        );
+    }
+}
+
 // 聚合页（地区聚合等）：页面类型升级为 CollectionPage，并输出条目列表 ItemList
 if (!empty($data['schema_page_type'])) {
     $_seo_page['@type'] = (string)$data['schema_page_type'];

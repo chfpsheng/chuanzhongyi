@@ -31,7 +31,7 @@
               <tag action="product.list">
               <li class="parent-slide shown page1">
                 <a href="{$v.url}" title="{$v.title}" {$g.urlnew}>
-                  <span><img data-original="{$v.imgurl|thumb:$c['met_productimg_x'],$c['met_productimg_y']}" alt="{$v.title}"></span>
+                  <span><img data-original="{$v.imgurl|thumb:$c['met_productimg_x'],$c['met_productimg_y']}" alt="{$v.img_alt}"></span>
                   <if value="($ui['listtype'] eq 1 && $data['index_num'] neq 2 && $data['index_num'] neq 3) || $data['index_num'] eq 1">
                   <h4 class="on">
                     {$v.title}

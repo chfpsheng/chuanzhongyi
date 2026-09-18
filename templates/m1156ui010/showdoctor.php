@@ -92,6 +92,24 @@
                           </div>
                         </div>
                         <div class="showproduct-pager"><pagination /></div>
+                        <if value="$data['faq_list']">
+                        <style type="text/css">
+                        .met-doctor-faq{margin:25px 0 0 0;padding:20px 0 0 0;border-top:1px solid #eee;}
+                        .met-doctor-faq h4{font-size:17px;margin:0 0 12px 0;padding-left:10px;border-left:4px solid #8a6d3b;}
+                        .met-doctor-faq .faq-item{margin-bottom:14px;}
+                        .met-doctor-faq .faq-item h5{font-size:15px;font-weight:600;margin:0 0 6px 0;}
+                        .met-doctor-faq .faq-item p{margin:0;font-size:14px;line-height:1.8;color:#666;}
+                        </style>
+                        <div class="met-doctor-faq">
+                          <h4>常见问题</h4>
+                          <list data="$data['faq_list']" name="$faq">
+                          <div class="faq-item">
+                            <h5>{$faq.q}</h5>
+                            <p>{$faq.a}</p>
+                          </div>
+                          </list>
+                        </div>
+                        </if>
                       </div>
                     </div>
                   </div>

@@ -16,6 +16,9 @@
                         <span><i class="fa fa-map-marker"></i>活动地点：{$data.location}</span>
                         </if>
                         <span><i class="fa fa-ticket"></i>是否免费：{$data.is_free_text}</span>
+                        <if value="$data['yiguan_url']">
+                        <span><i class="fa fa-hospital-o"></i>主办医馆：<a href="{$data.yiguan_url}" title="{$data.yiguan_name}">{$data.yiguan_name}</a></span>
+                        </if>
                     </div>
                 </div>
                 <div class="met-editor lazyload clearfix">
