@@ -38,7 +38,7 @@ class product_database extends base_database
 
     public function table_para()
     {
-        return 'id|title|ctitle|keywords|description|content|content1|content2|content3|content4|class1|class2|class3|no_order|wap_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|displayimg|classother|imgsize|text_size|text_color|other_info|custom_info|video|region_city|region_district';
+        return 'id|title|ctitle|keywords|description|content|content1|content2|content3|content4|class1|class2|class3|no_order|wap_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|displayimg|classother|imgsize|text_size|text_color|other_info|custom_info|video|region_city|region_district|specialty|visit_time|insurance|booking';
     }
 
     /**

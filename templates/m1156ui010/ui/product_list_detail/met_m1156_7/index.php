@@ -88,6 +88,32 @@
 
                 </if>
 
+                <if value="$data['specialty_text'] || $data['visit_time'] || $data['booking'] || $data['insurance_ok'] gt -1">
+                <style type="text/css">
+                .clinic-meta{margin:14px 0 0 0;padding:0;list-style:none;}
+                .clinic-meta li{padding:5px 0;font-size:14px;line-height:1.7;color:#555;border-bottom:1px dashed #f0f0f0;}
+                .clinic-meta li:last-child{border-bottom:none;}
+                .clinic-meta li strong{color:#333;font-weight:600;margin-right:6px;}
+                .clinic-meta li em{font-style:normal;display:inline-block;margin:0 6px 0 0;padding:1px 8px;background:#f7f3ec;color:#8a6d3b;border-radius:3px;font-size:13px;}
+                </style>
+                <ul class="clinic-meta">
+                    <if value="$data['specialty_list']">
+                    <li><strong>擅长项目：</strong>
+                        <list data="$data['specialty_list']" name="$sp"><em>{$sp}</em></list>
+                    </li>
+                    </if>
+                    <if value="$data['visit_time']">
+                    <li><strong>出诊时间：</strong>{$data.visit_time}</li>
+                    </if>
+                    <if value="$data['insurance_ok'] gt -1">
+                    <li><strong>医保情况：</strong>{$data.insurance_text}</li>
+                    </if>
+                    <if value="$data['booking']">
+                    <li><strong>预约方式：</strong>{$data.booking}</li>
+                    </if>
+                </ul>
+                </if>
+
                 <if value="$data['para'] && $ui['paranum'] lt count($data['para'])">
 
                 <ul class="para blocks-2">

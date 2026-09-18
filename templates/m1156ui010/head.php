@@ -302,6 +302,24 @@ if ($_seo_is_detail) {
                 $_seo_addr['addressLocality'] = $_seo_clean($data['region_district']);
             }
             $_seo_entity['address'] = $_seo_addr;
+            // 结构化字段：擅长项目 / 出诊时间（营业时间）
+            if (!empty($data['specialty_list']) && is_array($data['specialty_list'])) {
+                $_seo_spec = array();
+                foreach ($data['specialty_list'] as $_seo_sp) {
+                    $_seo_sp = $_seo_clean($_seo_sp);
+                    if ($_seo_sp !== '') {
+                        $_seo_spec[] = $_seo_sp;
+                    }
+                }
+                if ($_seo_spec) {
+                    $_seo_entity['medicalSpecialty'] = $_seo_spec;
+                }
+            } elseif (!empty($data['specialty_text'])) {
+                $_seo_entity['medicalSpecialty'] = $_seo_clean($data['specialty_text']);
+            }
+            if (!empty($data['visit_time'])) {
+                $_seo_entity['openingHours'] = $_seo_clean($data['visit_time']);
+            }
             break;
         case 2: // 中医资讯
             $_seo_entity = array(

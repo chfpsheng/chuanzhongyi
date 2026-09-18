@@ -253,6 +253,11 @@ class product_admin extends base_admin
         $list['class3'] = $_M['form']['class3'] ? $_M['form']['class3'] : 0;
         $list['lnvoice'] = 0;
         $list['auto_sent'] = 0;
+        //中医馆结构化字段默认值
+        $list['specialty'] = '';
+        $list['visit_time'] = '';
+        $list['insurance'] = 2;
+        $list['booking'] = '';
 
         if ($this->shop_open) {
             $list = $this->shop->default_value($list);
