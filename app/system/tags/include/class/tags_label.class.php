@@ -243,6 +243,10 @@ class tags_label extends base_label
             }
             $data = array();
             $table = $this->getTableName($cid);
+            // 不在标签支持范围内的模块（如自定义的中医师/活动/少儿中医）：返回空，避免模块名解析失败导致页面报错
+            if (!$table) {
+                return array();
+            }
             $news = load::sys_class('label', 'new')->get($table);
 
             $list_id = array();
@@ -260,7 +264,11 @@ class tags_label extends base_label
 
             return $data;
         } else {
-            $modules = array(2 => 'news', 3 => 'product', 4 => 'download', 5 => 'img');
+            $modules = self::tag_modules();
+            // 自定义模块（中医师/中医活动/少儿中医等）不在标签关联支持范围内，直接返回空，避免模块名解析失败导致页面报错
+            if (!isset($modules[$module]) || !$modules[$module]) {
+                return array();
+            }
             if (!$_M['form']['search']) {
                 $_M['form']['search'] = 'search';   //强行开启搜索 拼装搜索sql语句
             }
@@ -364,7 +372,11 @@ class tags_label extends base_label
             if (!$module) {
                 return $site . 'search/' . $url;
             } else {
-                $modules = array(2 => 'news', 3 => 'product', 4 => 'download', 5 => 'img');
+                $modules = self::tag_modules();
+                if (!isset($modules[$module]) || !$modules[$module]) {
+                    // 不在标签支持范围内的模块，退回到全站标签聚合地址，避免空模块名
+                    return $site . 'search/' . $url;
+                }
                 $folder = $modules[$module];
                 return $site . $folder . '/' . $url;
             }
@@ -479,9 +491,19 @@ class tags_label extends base_label
         ##$category = $column->get_column_id($cid); //得到当前栏目
         $column_db = load::mod_class('column/column_database', 'new');
         $category = $column_db->get_column_by_id($cid); //得到当前栏目
-     
-        $modules = array(2 => 'news', 3 => 'product', 4 => 'img', 5 => 'download');
-        return $modules[$category['module']]; //得到表名
+
+        $modules = self::tag_modules();
+        return isset($modules[$category['module']]) ? $modules[$category['module']] : ''; //得到表名
+    }
+
+    /**
+     * 支持标签功能的模块映射（模块ID => 模块名）
+     * 说明：米拓原生只支持 news/product/download/img；自定义模块（14 中医师、15 中医活动、16 少儿中医）
+     *       不在标签关联范围内，单独放开需要同步处理标签表与搜索标签类，这里保持不支持但不报错。
+     */
+    public static function tag_modules()
+    {
+        return array(2 => 'news', 3 => 'product', 4 => 'download', 5 => 'img');
     }
 
     public function get_module_list($id = '', $rows = '', $type = '', $order = '', $para = 0)
