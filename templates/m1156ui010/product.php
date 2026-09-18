@@ -8,6 +8,8 @@ ul#met-grid{position:static!important;height:auto!important}
 ul#met-grid>li{position:static!important;left:auto!important;top:auto!important}
 </style>
 <ui name="location" style="met_m1156_7" id="16" />
+<?php $_rl_force = 1; ?>
+<include file="region_links.php" />
 <ui name="para_search" style="met_16_1" id="58" />
 <ui name="product_list_page" style="met_m1156_7" id="22" />
 <ui name="sidebar" style="met_m1156_7" id="13" />

@@ -145,6 +145,73 @@ foreach ($contentMap as $m) {
     }
 }
 
+// 地区聚合页（/region/）：索引页 + 市级页 + 区/县级页
+// 只收录条目数达到 2 条及以上的地区，避免薄内容进入 sitemap
+$regionTable = $pre . 'product';
+$res = @$db->query("SHOW TABLES LIKE '{$regionTable}'");
+if ($res && $res->num_rows) {
+    $hasRegion = false;
+    $rc = $db->query("SHOW COLUMNS FROM {$regionTable} LIKE 'region_city'");
+    if ($rc && $rc->num_rows) {
+        $hasRegion = true;
+    }
+    $hasDisplay = false;
+    $rc2 = $db->query("SHOW COLUMNS FROM {$regionTable} LIKE 'displaytype'");
+    if ($rc2 && $rc2->num_rows) {
+        $hasDisplay = true;
+    }
+    if ($hasRegion) {
+        $where = "WHERE lang='cn' AND recycle=0 AND region_city<>''";
+        if ($hasDisplay) {
+            $where .= " AND displaytype!=-1";
+        }
+        $sql = "SELECT region_city, region_district, COUNT(*) AS cnt, MAX(updatetime) AS lastmod FROM {$regionTable} {$where} GROUP BY region_city, region_district ORDER BY region_city ASC, cnt DESC";
+        $rr = @$db->query($sql);
+        $cities = array();   // city => array('total' => n, 'last' => date)
+        $districts = array(); // city => array(district => array('cnt' => n, 'last' => date))
+        if ($rr) {
+            while ($x = $rr->fetch_assoc()) {
+                $c = trim($x['region_city']);
+                if ($c === '') {
+                    continue;
+                }
+                $d = trim($x['region_district']);
+                $cnt = intval($x['cnt']);
+                $last = !empty($x['lastmod']) ? date('Y-m-d', strtotime($x['lastmod'])) : date('Y-m-d');
+                if (!isset($cities[$c])) {
+                    $cities[$c] = array('total' => 0, 'last' => $last);
+                }
+                $cities[$c]['total'] += $cnt;
+                if (strtotime($last) > strtotime($cities[$c]['last'])) {
+                    $cities[$c]['last'] = $last;
+                }
+                if ($d !== '') {
+                    $districts[$c][$d] = array('cnt' => $cnt, 'last' => $last);
+                }
+            }
+        }
+        $regionCount = 0;
+        foreach ($cities as $c => $info) {
+            if ($info['total'] >= 2) {
+                $add($domain . 'region/?city=' . rawurlencode($c), '0.7', $info['last']);
+                $regionCount++;
+            }
+            if (isset($districts[$c])) {
+                foreach ($districts[$c] as $d => $di) {
+                    if ($di['cnt'] >= 2) {
+                        $add($domain . 'region/?city=' . rawurlencode($c) . '&district=' . rawurlencode($d), '0.6', $di['last']);
+                        $regionCount++;
+                    }
+                }
+            }
+        }
+        if ($regionCount) {
+            $add($domain . 'region/', '0.7');
+            echo "地区聚合页：{$regionCount} 个（含索引页）\n";
+        }
+    }
+}
+
 // 3. 生成 sitemap.xml
 $xml = '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

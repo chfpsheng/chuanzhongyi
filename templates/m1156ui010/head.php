@@ -11,6 +11,11 @@ $_seo_desc   = isset($c['met_description']) ? $c['met_description'] : '';
 $_seo_title  = isset($data['page_title']) ? $data['page_title'] : '';
 $_seo_pdesc  = isset($data['page_description']) && $data['page_description'] ? $data['page_description'] : $_seo_desc;
 $_seo_cur    = $_seo_site . (isset($data['url']) ? str_replace('../', '', $data['url']) : '');
+// 机构对外信息：如需调整电话或社交账号主页，只改这里即可
+$_seo_tel    = '18026954495'; // 咨询电话（不需要对外展示时置为空字符串）
+$_seo_sameas = array(         // 微信公众号主页 / 微博主页 / 其他官方主页，没有就留空数组
+    // 'https://weibo.com/你的微博主页',
+);
 $_seo_img    = '';
 if (!empty($data['imgurl'])) {
     $_seo_img = $_seo_site . str_replace('../', '', $data['imgurl']);
@@ -29,18 +34,29 @@ $_seo_abs = function ($u) use ($_seo_site) {
 // canonical：统一规范链接，避免 / 与 /index.php?lang=cn 等重复内容被分别收录
 $_seo_can_mark = isset($_M['html_plugin']['head_script']) ? $_M['html_plugin']['head_script'] : '';
 if (strpos($_seo_can_mark, 'canonical') === false) {
-    $_seo_can = isset($data['url']) ? str_replace('../', '', (string)$data['url']) : '';
-    if ($_seo_can === '' || strpos($_seo_can, 'index.php') !== false) {
-        $_seo_can = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '/';
+    if (!empty($data['canonical'])) {
+        // 地区聚合页等自定义页面：带查询参数的地址需要保留参数，避免全部归一到同一 URL
+        $_seo_can_abs = strpos($data['canonical'], 'http') === 0
+            ? (string)$data['canonical']
+            : rtrim($_seo_site, '/') . '/' . ltrim(str_replace('../', '', (string)$data['canonical']), '/');
+        echo '<link rel="canonical" href="' . htmlspecialchars($_seo_can_abs, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
+    } else {
+        $_seo_can = isset($data['url']) ? str_replace('../', '', (string)$data['url']) : '';
+        if ($_seo_can === '' || strpos($_seo_can, 'index.php') !== false) {
+            $_seo_can = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '/';
+        }
+        if (strpos($_seo_can, '?') !== false && strpos($_seo_can, 'id=') === false) {
+            $_seo_can = strtok($_seo_can, '?');
+        }
+        $_seo_can = str_replace('index.php', '', $_seo_can);
+        $_seo_can = '/' . ltrim($_seo_can, '/');
+        echo '<link rel="canonical" href="' . htmlspecialchars(rtrim($_seo_site, '/') . $_seo_can, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
     }
-    if (strpos($_seo_can, '?') !== false && strpos($_seo_can, 'id=') === false) {
-        $_seo_can = strtok($_seo_can, '?');
-    }
-    $_seo_can = str_replace('index.php', '', $_seo_can);
-    $_seo_can = '/' . ltrim($_seo_can, '/');
-    echo '<link rel="canonical" href="' . htmlspecialchars(rtrim($_seo_site, '/') . $_seo_can, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
 }
 ?>
+<?php if (!empty($data['noindex'])) { ?>
+<meta name="robots" content="noindex,follow" />
+<?php } ?>
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="<?php echo htmlspecialchars($_seo_title, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta name="twitter:description" content="<?php echo htmlspecialchars($_seo_clean($_seo_pdesc), ENT_QUOTES, 'UTF-8'); ?>" />
@@ -59,6 +75,15 @@ $_seo_graph[] = array(
     'description' => $_seo_clean($_seo_desc),
     'inLanguage'  => 'zh-CN',
     'publisher'   => array('@id' => $_seo_site . '#organization'),
+    // 站内搜索：米拓搜索页真实地址为 search/index.php?lang=xx&searchword=关键词
+    'potentialAction' => array(
+        '@type'       => 'SearchAction',
+        'target'      => array(
+            '@type'       => 'EntryPoint',
+            'urlTemplate' => rtrim($_seo_site, '/') . '/search/index.php?lang=' . (isset($_M['lang']) ? $_M['lang'] : 'cn') . '&searchword={search_term_string}',
+        ),
+        'query-input' => 'required name=search_term_string',
+    ),
 );
 
 // 机构（站点主体）：中医医疗信息平台，使用 MedicalOrganization 便于 AI 识别行业属性
@@ -68,9 +93,12 @@ $_seo_org = array(
     'name'        => $_seo_name,
     'url'         => $_seo_site,
     'description' => $_seo_clean($_seo_desc),
-    'areaServed'  => array('@type' => 'AdministrativeArea', 'name' => '四川省成都市'),
+    'areaServed'  => array(
+        array('@type' => 'City', 'name' => '成都市'),
+        array('@type' => 'State', 'name' => '四川省'),
+    ),
     'knowsAbout'  => array('中医馆', '名老中医', '中医养生', '药食同源', '少儿中医研学', '中医活动', '中医针灸'),
-    'medicalSpecialty' => '中医',
+    'medicalSpecialty' => array('中医儿科', '针灸推拿', '中医养生', '少儿中医研学', '药食同源'),
     'address'     => array(
         '@type'           => 'PostalAddress',
         'addressCountry'  => 'CN',
@@ -78,6 +106,12 @@ $_seo_org = array(
         'addressLocality' => '成都市',
     ),
 );
+if ($_seo_tel) {
+    $_seo_org['telephone'] = $_seo_tel;
+}
+if ($_seo_sameas) {
+    $_seo_org['sameAs'] = array_values($_seo_sameas);
+}
 if ($_seo_img) {
     $_seo_org['logo'] = array('@type' => 'ImageObject', 'url' => $_seo_img);
 }
@@ -110,6 +144,19 @@ if (!empty($_seo_col['name'])) {
     }
     $_seo_pos++;
     $_seo_items[] = array('@type' => 'ListItem', 'position' => $_seo_pos, 'name' => $_seo_col['name'], 'item' => $_seo_abs($_seo_col['url']));
+}
+// 地区聚合页：市/州、区/县 两级追加到面包屑（由 region 模块传入）
+if (!empty($data['region_breadcrumb']) && is_array($data['region_breadcrumb'])) {
+    foreach ($data['region_breadcrumb'] as $_seo_rb) {
+        if (empty($_seo_rb['name']) || $_seo_rb['name'] === '首页') {
+            continue;
+        }
+        if (!empty($_seo_col['name']) && $_seo_rb['name'] === $_seo_col['name']) {
+            continue;
+        }
+        $_seo_pos++;
+        $_seo_items[] = array('@type' => 'ListItem', 'position' => $_seo_pos, 'name' => $_seo_clean($_seo_rb['name']), 'item' => isset($_seo_rb['url']) ? (string)$_seo_rb['url'] : '');
+    }
 }
 $_seo_is_detail = !empty($data['id']) && !empty($data['module']) && in_array($data['module'], array(2, 3, 14, 15, 16));
 if ($_seo_is_detail) {
@@ -295,6 +342,36 @@ if ($_seo_is_home) {
         'inLanguage'     => 'zh-CN',
         'mainEntity'     => $_seo_faq_items,
     );
+}
+
+// 聚合页（地区聚合等）：页面类型升级为 CollectionPage，并输出条目列表 ItemList
+if (!empty($data['schema_page_type'])) {
+    $_seo_page['@type'] = (string)$data['schema_page_type'];
+}
+if (!empty($data['schema_item_list']) && is_array($data['schema_item_list'])) {
+    $_seo_il = array();
+    $_seo_il_pos = 0;
+    foreach ($data['schema_item_list'] as $_seo_it) {
+        if (empty($_seo_it['name'])) {
+            continue;
+        }
+        $_seo_il_pos++;
+        $_seo_il[] = array(
+            '@type'    => 'ListItem',
+            'position' => $_seo_il_pos,
+            'name'     => $_seo_clean($_seo_it['name']),
+            'url'      => isset($_seo_it['url']) ? (string)$_seo_it['url'] : '',
+        );
+    }
+    if ($_seo_il) {
+        $_seo_graph[] = array(
+            '@type'           => 'ItemList',
+            '@id'             => $_seo_cur . '#itemlist',
+            'numberOfItems'   => $_seo_il_pos,
+            'itemListElement' => $_seo_il,
+        );
+        $_seo_page['mainEntity'] = array('@id' => $_seo_cur . '#itemlist');
+    }
 }
 
 $_seo_graph[] = $_seo_page;

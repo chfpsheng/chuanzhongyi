@@ -3,82 +3,82 @@
   <url>
     <loc>http://test.mb.mituo.cn/</loc>
     <priority>1.0</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=100</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/zhongyishi/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/huodong/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/news/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=111</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/job/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=112</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/img/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=113</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/shaoerzhongyi/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/img1/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=114</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about/show.php?id=115</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/about1/show.php?id=118</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/icon/show.php?id=130</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
   </url>
   <url>
     <loc>http://test.mb.mituo.cn/news/shownews.php?id=58</loc>
@@ -104,5 +104,15 @@
     <loc>http://test.mb.mituo.cn/shaoerzhongyi/showshaoer.php?id=1</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-17</lastmod>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>http://test.mb.mituo.cn/region/</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-09-18</lastmod>
   </url>
 </urlset>
