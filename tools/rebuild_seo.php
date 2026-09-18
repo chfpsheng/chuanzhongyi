@@ -61,13 +61,19 @@ $add($domain, '1.0');
 
 // 栏目（排除表单、会员、搜索、外部链接等无收录价值栏目）
 $skipModule = array(0, 7, 8, 10, 11, 12);
-$r = $db->query("SELECT id,name,foldername,module,bigclass FROM {$pre}column WHERE lang='cn' AND isshow=1 ORDER BY no_order,id");
+// 说明：isshow 只用于单页(module=1)的显示判断，不能作为收录过滤条件，
+// 否则会把「中医馆(104)」这类 isshow=0 的一级栏目及其全部内容排除在 sitemap 之外。
+// display=1 为已隐藏栏目（内容待补），不进 sitemap
+$r = $db->query("SELECT id,name,foldername,module,bigclass,display FROM {$pre}column WHERE lang='cn' ORDER BY no_order,id");
 $columns = array();
 while ($x = $r->fetch_assoc()) {
     $columns[$x['id']] = $x;
 }
 foreach ($columns as $id => $c) {
     if (in_array(intval($c['module']), $skipModule)) {
+        continue;
+    }
+    if (isset($c['display']) && intval($c['display']) === 1) {
         continue;
     }
     if (empty($c['foldername'])) {
@@ -121,6 +127,12 @@ foreach ($contentMap as $m) {
     if ($hasUpdatetime) {
         $fields[] = 'updatetime';
     }
+    $hasContent = false;
+    $rc3 = $db->query("SHOW COLUMNS FROM {$m['table']} LIKE 'content'");
+    if ($rc3 && $rc3->num_rows) {
+        $hasContent = true;
+        $fields[] = 'content';
+    }
     $sql = 'SELECT ' . implode(',', $fields) . " FROM {$m['table']} WHERE lang='cn'";
     $rr = @$db->query($sql);
     if (!$rr) {
@@ -129,6 +141,14 @@ foreach ($contentMap as $m) {
     while ($x = $rr->fetch_assoc()) {
         if ($hasRecycle && intval($x['recycle']) > 0) {
             continue;
+        }
+        // 薄内容（正文不足 300 字）暂不提交给搜索引擎，正文补全后自动纳入
+        if ($hasContent) {
+            $plain = trim(strip_tags(isset($x['content']) ? (string)$x['content'] : ''));
+            $len = function_exists('mb_strlen') ? mb_strlen($plain, 'UTF-8') : strlen($plain);
+            if ($len < 300) {
+                continue;
+            }
         }
         $cid = intval($x['class1']);
         // 内容归属栏目：优先一级栏目

@@ -29,6 +29,11 @@ if (!empty($data['id'])) {
                         <if value="$data['yiguan_url']">
                         <span><i class="fa fa-hospital-o"></i>所属医馆：<a href="{$data.yiguan_url}" title="{$data.yiguan_name}">{$data.yiguan_name}</a></span>
                         </if>
+                        <if value="$data['taglist']">
+                        <span><i class="fa fa-tag"></i>
+                            <list data="$data['taglist']" name="$tg"><a href="{$tg.url}" title="{$tg.name}">{$tg.name}</a> </list>
+                        </span>
+                        </if>
                     </div>
                     <if value="$_shaoer_para">
                     <div class="info" style="margin-top:8px;">

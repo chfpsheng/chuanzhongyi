@@ -54,7 +54,56 @@ if (strpos($_seo_can_mark, 'canonical') === false) {
     }
 }
 ?>
-<?php if (!empty($data['noindex'])) { ?>
+<?php
+// 已隐藏栏目（内容待补）：从导航/网站地图移除后，仍可能通过直接地址访问，这里补 noindex
+// 米拓栏目表 display=1 即不出现在导航与栏目循环；栏目ID 见后台「栏目管理」
+$_seo_hidden_columns = array(105, 109); // 105 医师团队、109 医馆环境
+$_seo_hide = !empty($data['noindex']);
+if (!$_seo_hide && !empty($data['classnow']) && in_array(intval($data['classnow']), $_seo_hidden_columns, true)) {
+    $_seo_hide = true;
+}
+if (!$_seo_hide && !empty($data['class1']) && in_array(intval($data['class1']), $_seo_hidden_columns, true)) {
+    $_seo_hide = true;
+}
+// 薄内容（正文不足 300 字）暂不参与索引，正文补全后自动放开
+if (!$_seo_hide && !empty($data['id'])) {
+    $_seo_plain = '';
+    if (!empty($data['content'])) {
+        $_seo_plain .= (string)$data['content'];
+    }
+    if (!empty($data['contents']) && is_array($data['contents'])) {
+        foreach ($data['contents'] as $_seo_c) {
+            if (!empty($_seo_c['content'])) {
+                $_seo_plain .= (string)$_seo_c['content'];
+            }
+        }
+    }
+    $_seo_plain = trim(strip_tags(html_entity_decode($_seo_plain, ENT_QUOTES, 'UTF-8')));
+    $_seo_plain_len = function_exists('mb_strlen') ? mb_strlen($_seo_plain, 'UTF-8') : strlen($_seo_plain);
+    if ($_seo_plain_len < 300) {
+        $_seo_hide = true;
+    }
+}
+// 站内搜索页：结果由查询词动态生成，不参与索引
+if (!$_seo_hide && isset($_SERVER['REQUEST_URI']) && strpos((string)$_SERVER['REQUEST_URI'], '/search/') !== false) {
+    $_seo_hide = true;
+}
+// 参数筛选页 / 标签聚合页：参数组合无限、内容高度重复，统一 noindex
+// 放行：分页(page/dpage)、内容 id、栏目 class1-3、可视化 pageset、语言 lang
+// 地区聚合页等自定义页面自带 canonical，已在下方判断中跳过
+if (!$_seo_hide && empty($data['canonical'])) {
+    $_seo_qs = isset($_SERVER['QUERY_STRING']) ? trim((string)$_SERVER['QUERY_STRING']) : '';
+    if ($_seo_qs !== '') {
+        parse_str($_seo_qs, $_seo_query);
+        foreach (array('lang', 'page', 'dpage', 'pageset', 'id', 'class1', 'class2', 'class3') as $_seo_allow) {
+            unset($_seo_query[$_seo_allow]);
+        }
+        if ($_seo_query) {
+            $_seo_hide = true;
+        }
+    }
+}
+if ($_seo_hide) { ?>
 <meta name="robots" content="noindex,follow" />
 <?php } ?>
 <meta name="twitter:card" content="summary_large_image" />

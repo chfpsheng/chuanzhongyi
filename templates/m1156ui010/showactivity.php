@@ -19,6 +19,11 @@
                         <if value="$data['yiguan_url']">
                         <span><i class="fa fa-hospital-o"></i>主办医馆：<a href="{$data.yiguan_url}" title="{$data.yiguan_name}">{$data.yiguan_name}</a></span>
                         </if>
+                        <if value="$data['taglist']">
+                        <span><i class="fa fa-tag"></i>
+                            <list data="$data['taglist']" name="$tg"><a href="{$tg.url}" title="{$tg.name}">{$tg.name}</a> </list>
+                        </span>
+                        </if>
                     </div>
                 </div>
                 <div class="met-editor lazyload clearfix">
