@@ -68,6 +68,26 @@
                   <div class="txt">{$data.specialty_html}</div>
                 </div>
                 </if>
+                <if value="$data['taglist']">
+                <style type="text/css">
+                .met-doctor-tags{margin:14px 0 0 0;font-size:14px;line-height:1.9;}
+                .met-doctor-tags strong{color:#8a6d3b;margin-right:4px;}
+                .met-doctor-tags a,.met-doctor-tags i{display:inline-block;margin:0 8px 8px 0;padding:2px 12px;border-radius:14px;font-style:normal;transition:.3s;}
+                .met-doctor-tags a{background:#faf7f2;border:1px solid #e8dcc8;color:#8a6d3b;}
+                .met-doctor-tags a:hover{background:#8a6d3b;border-color:#8a6d3b;color:#ffffff;}
+                .met-doctor-tags i{background:#f5f5f5;border:1px solid #eeeeee;color:#888888;}
+                </style>
+                <div class="met-doctor-tags">
+                  <strong>标签：</strong>
+                  <list data="$data['taglist']" name="$doctag">
+                  <if value="$doctag['url']">
+                  <a href="{$doctag.url}" title="{$doctag.name}">{$doctag.name}</a>
+                  <else/>
+                  <i>{$doctag.name}</i>
+                  </if>
+                  </list>
+                </div>
+                </if>
                 <if value="$data['yiguan_names']||$data['hospital']||$data['school']||$data['fee']">
                 <ul class="para blocks-2">
                   <if value="$data['yiguan_names']">
@@ -132,7 +152,7 @@
       </div>
       <div class="met-detail-side col-lg-3 met-conx" m-id="noset">
         <div class="met-service">
-          <h3>推荐医师</h3>
+          <h3>推荐中医师</h3>
           <ul>
             <tag action="doctor.list" num="4">
             <li>

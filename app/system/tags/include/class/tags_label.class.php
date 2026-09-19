@@ -232,6 +232,14 @@ class tags_label extends base_label
         $module = $column['module'];
         $limit = $_M['config']['tag_show_number'];
 
+        // 不在标签支持范围内的模块（自定义模块：14 中医师、15 中医活动、16 少儿中医等）直接返回空。
+        // 这些模块没有标签表映射，继续执行会因模块名解析失败报错；同时若内容里手工填了未在
+        // 标签库登记的关键词，关联查询取不到数据（DB::get_all 返回 null）会抛 TypeError 导致页面 500。
+        $modules = self::tag_modules();
+        if (!isset($modules[$module]) || !$modules[$module]) {
+            return array();
+        }
+
         $tags = array();
 
         if ($_M['config']['tag_show_range']) {
@@ -239,7 +247,8 @@ class tags_label extends base_label
             foreach (explode('|', $tag_name) as $val) {
                 $query = "SELECT * FROM {$_M['table']['tags']} WHERE list_id like '%|{$list_id}|%' AND tag_name = '{$val}' AND lang = '{$_M['lang']}' order by rand()";
                 $tag = DB::get_all($query);
-                $tags = array_merge($tags, $tag);
+                // DB::get_all 在无匹配数据时返回 null，PHP 8 下 array_merge(array, null) 会抛 TypeError
+                $tags = array_merge($tags, (array)$tag);
             }
             $data = array();
             $table = $this->getTableName($cid);
@@ -264,11 +273,7 @@ class tags_label extends base_label
 
             return $data;
         } else {
-            $modules = self::tag_modules();
-            // 自定义模块（中医师/中医活动/少儿中医等）不在标签关联支持范围内，直接返回空，避免模块名解析失败导致页面报错
-            if (!isset($modules[$module]) || !$modules[$module]) {
-                return array();
-            }
+            // 模块是否支持标签已在方法开头统一判断，这里无需重复
             if (!$_M['form']['search']) {
                 $_M['form']['search'] = 'search';   //强行开启搜索 拼装搜索sql语句
             }
@@ -378,6 +383,14 @@ class tags_label extends base_label
                     return $site . 'search/' . $url;
                 }
                 $folder = $modules[$module];
+                // 自定义模块（如 14 中医师）的模块名与栏目目录名不一致（doctor ≠ zhongyishi），
+                // 优先取标签所属栏目的目录名，保证标签页地址正确
+                if ($cid) {
+                    $tag_column = $_M['class']['column_label']->get_column_id($cid);
+                    if ($tag_column && !empty($tag_column['foldername'])) {
+                        $folder = $tag_column['foldername'];
+                    }
+                }
                 return $site . $folder . '/' . $url;
             }
         } else {
@@ -424,7 +437,8 @@ class tags_label extends base_label
         foreach (explode('|', $tagStr) as $key => $val) {
             $query = "SELECT * FROM {$_M['table']['tags']} WHERE tag_name = '{$val}' AND list_id like '%|{$id}|%' AND lang = '{$_M['lang']}'";
             $tag = DB::get_one($query);
-            $data[$key]['url'] = $this->getTagUrl($tag);
+            // 标签尚未登记到 met_tags 时（内容手填了关键词但没走标签保存流程）不生成链接，避免产出空地址
+            $data[$key]['url'] = $tag ? $this->getTagUrl($tag) : '';
             $data[$key]['name'] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
         }
 
@@ -498,12 +512,14 @@ class tags_label extends base_label
 
     /**
      * 支持标签功能的模块映射（模块ID => 模块名）
-     * 说明：米拓原生只支持 news/product/download/img；自定义模块（14 中医师、15 中医活动、16 少儿中医）
-     *       不在标签关联范围内，单独放开需要同步处理标签表与搜索标签类，这里保持不支持但不报错。
+     * 说明：米拓原生只支持 news(2)/product(3)/download(4)/img(5)；
+     *       本站自定义的 doctor(14 中医师) 已接入：保存内容时会把标签写入 met_tags，
+     *       详情页可显示标签并链接到该栏目下的标签聚合页（/zhongyishi/index.php?search=tag...）。
+     *       15 中医活动、16 少儿中医暂未接入（接入方式与此一致，把模块号加进来即可）。
      */
     public static function tag_modules()
     {
-        return array(2 => 'news', 3 => 'product', 4 => 'download', 5 => 'img');
+        return array(2 => 'news', 3 => 'product', 4 => 'download', 5 => 'img', 14 => 'doctor');
     }
 
     public function get_module_list($id = '', $rows = '', $type = '', $order = '', $para = 0)
