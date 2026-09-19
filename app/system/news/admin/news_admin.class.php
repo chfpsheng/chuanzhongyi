@@ -29,6 +29,34 @@ class news_admin extends base_admin
         return parent::paramentList();
     }
 
+    /**
+     * 来源信息格式化（转载标注用）
+     * - publisher：来源/作者名称
+     * - source_url：原文链接，限制为 http/https，其他协议一律丢弃
+     *
+     * 注意：表单字段用 news_publisher / news_source_url 命名，避免与「其他设置」里的同名项冲突，
+     * 这里再映射回数据库字段。
+     *
+     * @param array $form 表单数据
+     * @return array array('publisher' => string, 'source_url' => string)
+     */
+    private function format_source($form = array())
+    {
+        $result = array();
+        if (array_key_exists('news_publisher', $form)) {
+            $result['publisher'] = is_scalar($form['news_publisher']) ? trim((string)$form['news_publisher']) : '';
+        }
+        if (array_key_exists('news_source_url', $form)) {
+            $url = is_scalar($form['news_source_url']) ? trim((string)$form['news_source_url']) : '';
+            if ($url !== '' && !preg_match('#^https?://#i', $url)) {
+                // 只接受 http/https，避免 javascript: 等协议被写入前台链接
+                $url = '';
+            }
+            $result['source_url'] = $url;
+        }
+        return $result;
+    }
+
     public function docolumnjson()
     {
         return parent::docolumnjson();
@@ -67,6 +95,8 @@ class news_admin extends base_admin
         $_M['form']['addtime'] = $_M['form']['addtype'] == 2 ? $_M['form']['addtime'] : $_M['form']['updatetime'];
         $_M['form']['issue'] = $this->admin_member['admin_id'];
         $_M['form']['hits'] = intval($_M['form']['hits']);
+        //来源/作者、来源链接
+        $_M['form'] = array_merge($_M['form'], $this->format_source($_M['form']));
         $id = $this->insert_list($_M['form']);
         if ($id && is_numeric($id)) {
             //plugin
@@ -135,6 +165,8 @@ class news_admin extends base_admin
     {
         global $_M;
         $list = $_M['form'];
+        //来源/作者、来源链接
+        $list = array_merge($list, $this->format_source($list));
         $id = $_M['form']['id'] ? intval($_M['form']['id']) : null;
 
         if (!$id){

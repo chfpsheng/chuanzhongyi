@@ -6,18 +6,8 @@ $checkbox_time=time();
 ?>
 <h3 class='example-title clearfix'><span class="my-1 d-inline-block" role="button" data-toggle="collapse" data-target=".{$data.n}-details-other">{$word.unitytxt_15}<i class="icon fa-angle-right ml-2"></i></span></h3>
 <div class="collapse {$data.n}-details-other">
-	<if value="$data['n'] eq 'news'">
-	<dl>
-		<dt>
-			<label class='form-control-label'>{$word.modpublish}</label>
-		</dt>
-		<dd>
-			<div class='form-group clearfix'>
-				<input type="text" name="publisher" value="{$data.list.publisher}" class="form-control">
-			</div>
-		</dd>
-	</dl>
-	</if>
+	<!-- 资讯的「发布者」已改为「来源 / 作者」并移到内容编辑页顶部（同时支持来源链接 source_url），此处不再重复显示 -->
+
 	<dl>
 		<dt>
 			<label class='form-control-label'>{$word.js79}</label>

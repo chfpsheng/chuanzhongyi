@@ -354,12 +354,23 @@ if ($_seo_is_detail) {
                 'publisher'      => array('@id' => $_seo_site . '#organization'),
                 'mainEntityOfPage' => array('@id' => $_seo_cur . '#webpage'),
             );
+            //发布时间取 addtime（转载时可填原文发布时间），修改时间取 updatetime；统一输出 ISO 8601（北京时间）
+            if (!empty($data['addtime'])) {
+                $_seo_entity['datePublished'] = str_replace(' ', 'T', trim($data['addtime'])) . '+08:00';
+            }
             if (!empty($data['updatetime'])) {
-                $_seo_entity['datePublished'] = $_seo_clean($data['updatetime']);
-                $_seo_entity['dateModified']  = $_seo_clean($data['updatetime']);
+                $_seo_entity['dateModified'] = str_replace(' ', 'T', trim($data['updatetime'])) . '+08:00';
             }
             if (!empty($_seo_col['name'])) {
                 $_seo_entity['articleSection'] = $_seo_col['name'];
+            }
+            //转载标注：来源署名（creditText）与原文地址（isBasedOn）
+            if (!empty($data['publisher'])) {
+                $_seo_entity['creditText'] = $_seo_clean($data['publisher']);
+                $_seo_entity['copyrightNotice'] = '来源：' . $_seo_clean($data['publisher']);
+            }
+            if (!empty($data['source_url'])) {
+                $_seo_entity['isBasedOn'] = $_seo_clean($data['source_url']);
             }
             break;
         case 16: // 少儿中医
