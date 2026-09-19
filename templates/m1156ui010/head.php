@@ -411,6 +411,38 @@ if ($_seo_is_home) {
     );
 }
 
+// 医保问答以「参数管理 → 支持医保」为准（参数在 handle 之后由 systemPara 挂到 $data['para']）
+// 这样后台只需在参数管理维护一处，前台 FAQ 与结构化数据自动跟随
+if (!empty($data['para']) && is_array($data['para']) && !empty($data['faq_list']) && is_array($data['faq_list'])) {
+    $_seo_ins_found = false;
+    $_seo_ins_val = '';
+    foreach ($data['para'] as $_seo_p) {
+        if (!empty($_seo_p['name']) && mb_strpos((string)$_seo_p['name'], '医保', 0, 'UTF-8') !== false) {
+            $_seo_ins_found = true;
+            $_seo_ins_val = trim(strip_tags((string)$_seo_p['value']));
+            break;
+        }
+    }
+    // 只要参数里存在「医保」字段，就以它为准（未填写时给「尚未确认」的通用答复）
+    if ($_seo_ins_found) {
+        $_seo_ins_title = isset($data['title']) ? trim(html_entity_decode(strip_tags($data['title']), ENT_QUOTES, 'UTF-8')) : '';
+        $_seo_ins_text = '该医馆的医保与门诊统筹信息尚未确认，是否可就地结算建议就诊前电话咨询，可报销项目各馆不同。';
+        if ($_seo_ins_val === '是' || $_seo_ins_val === '支持') {
+            $_seo_ins_text = $_seo_ins_title . '支持医保结算。可报销项目（饮片、针灸、推拿等）与门诊统筹比例以医馆现场公示及当地医保政策为准。';
+        } elseif ($_seo_ins_val === '否' || $_seo_ins_val === '不支持') {
+            $_seo_ins_text = $_seo_ins_title . '暂不支持医保结算，就诊费用以自费为主，具体收费项目请以医馆现场公示为准。';
+        }
+        foreach ($data['faq_list'] as $_seo_k => $_seo_f) {
+            if (empty($_seo_f['q'])) {
+                continue;
+            }
+            if (mb_strpos((string)$_seo_f['q'], '医保', 0, 'UTF-8') !== false) {
+                $data['faq_list'][$_seo_k]['a'] = $_seo_ins_text;
+            }
+        }
+    }
+}
+
 // 详情页 FAQ（中医馆 / 中医师）：由对应模块的 handle 生成，AI 搜索最易直接引用
 if (!$_seo_is_home && !empty($data['faq_list']) && is_array($data['faq_list'])) {
     $_seo_qa = array();

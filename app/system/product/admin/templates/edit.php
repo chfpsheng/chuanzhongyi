@@ -44,7 +44,6 @@ if (!empty($data['is_yiguan']) && !empty($data['sichuan_region']['citylist_json'
 // 保存到 met_product.specialty / visit_time / insurance / booking，前台用于信息栏展示与结构化数据
 $met_specialty  = isset($data['list']['specialty']) ? (string)$data['list']['specialty'] : '';
 $met_visit_time = isset($data['list']['visit_time']) ? (string)$data['list']['visit_time'] : '';
-$met_insurance  = isset($data['list']['insurance']) ? intval($data['list']['insurance']) : 2;
 $met_booking    = isset($data['list']['booking']) ? (string)$data['list']['booking'] : '';
 ?>
 <dl>
@@ -67,21 +66,6 @@ $met_booking    = isset($data['list']['booking']) ? (string)$data['list']['booki
             <input type="text" class="form-control" name="visit_time" value="<?php echo htmlspecialchars($met_visit_time, ENT_QUOTES, 'UTF-8'); ?>" placeholder="如：周一至周日 09:00-18:00（节假日不休）">
         </div>
         <span class="text-help">填写门急诊/挂号时间，会输出为结构化数据中的营业时间。</span>
-    </dd>
-</dl>
-<dl>
-    <dt>
-        <label class='form-control-label'>是否医保</label>
-    </dt>
-    <dd>
-        <div class="form-group clearfix">
-            <select class="form-control" name="insurance">
-                <option value="2" <?php echo $met_insurance === 2 ? 'selected' : ''; ?>>未标注</option>
-                <option value="1" <?php echo $met_insurance === 1 ? 'selected' : ''; ?>>支持医保</option>
-                <option value="0" <?php echo $met_insurance === 0 ? 'selected' : ''; ?>>不支持医保</option>
-            </select>
-        </div>
-        <span class="text-help">选择后前台会明确显示，并用于详情页 FAQ 与结构化数据。</span>
     </dd>
 </dl>
 <dl>

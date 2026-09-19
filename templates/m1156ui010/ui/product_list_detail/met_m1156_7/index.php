@@ -105,10 +105,7 @@
                     <if value="$data['visit_time']">
                     <li><strong>出诊时间：</strong>{$data.visit_time}</li>
                     </if>
-                    <if value="$data['insurance_ok'] gt -1">
-                    <li><strong>医保情况：</strong>{$data.insurance_text}</li>
-                    </if>
-                    <if value="$data['booking']">
+                    <?php // 医保情况由「参数管理 → 支持医保」统一维护并在参数列表中展示，这里不再重复输出 ?>                    <if value="$data['booking']">
                     <li><strong>预约方式：</strong>{$data.booking}</li>
                     </if>
                 </ul>
