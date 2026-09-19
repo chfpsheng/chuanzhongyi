@@ -27,6 +27,17 @@ defined('IN_MET') or exit('No permission');
 </dl>
 <dl>
 	<dt>
+		<label class='form-control-label'>擅长</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<textarea class="form-control" name="specialty" rows="6" placeholder="如：擅长中医内科常见病、多发病的辨证论治，尤以脾胃病、失眠、慢性咳嗽见长；针灸治疗颈肩腰腿痛。"><?php echo htmlspecialchars(isset($data['list']['specialty']) ? (string)$data['list']['specialty'] : '', ENT_QUOTES, 'UTF-8'); ?></textarea>
+		</div>
+		<span class="text-help">支持长文本，可分段换行。前台在医师详情页显示「擅长领域」区块，并用于详情页 FAQ 与结构化数据。</span>
+	</dd>
+</dl>
+<dl>
+	<dt>
 		<label class='form-control-label'>所属医院</label>
 	</dt>
 	<dd>

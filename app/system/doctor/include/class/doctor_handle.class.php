@@ -30,6 +30,13 @@ class doctor_handle extends base_handle
             //所属医院、毕业院校为纯文本，输出前转义
             $content['hospital'] = isset($content['hospital']) ? htmlspecialchars($content['hospital'], ENT_QUOTES, 'UTF-8') : '';
             $content['school'] = isset($content['school']) ? htmlspecialchars($content['school'], ENT_QUOTES, 'UTF-8') : '';
+
+            //擅长：长文本。specialty_text 为纯文本（用于 FAQ 与结构化数据），specialty_html 保留换行用于展示
+            $specialty = isset($content['specialty']) ? trim((string)$content['specialty']) : '';
+            $specialty = str_replace(array("\r\n", "\r"), "\n", $specialty);
+            $specialty_plain = trim(preg_replace('/\s+/', ' ', strip_tags(html_entity_decode($specialty, ENT_QUOTES, 'UTF-8'))));
+            $content['specialty_text'] = $specialty_plain;
+            $content['specialty_html'] = $specialty_plain === '' ? '' : nl2br(htmlspecialchars($specialty, ENT_QUOTES, 'UTF-8'));
         }
 
         //数据异常时直接返回，避免对非数组内容赋值
@@ -94,7 +101,15 @@ class doctor_handle extends base_handle
         $yiguan = isset($content['yiguan_names']) ? trim($content['yiguan_names']) : '';
 
         $faq = array();
-        if ($desc) {
+        //擅长优先取「擅长」字段，其次用简介
+        $specialty = isset($content['specialty_text']) ? trim($content['specialty_text']) : '';
+        if ($specialty) {
+            $faq[] = array(
+                'q' => $name . '医生擅长什么？',
+                'a' => $specialty,
+            );
+        } elseif ($desc && mb_strpos($desc, '擅长', 0, 'UTF-8') !== false) {
+            //未单独填写「擅长」时，仅当简介本身写了擅长方向才用于回答，避免答非所问
             $faq[] = array(
                 'q' => $name . '医生擅长什么？',
                 'a' => $desc,

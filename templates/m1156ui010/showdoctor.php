@@ -57,6 +57,17 @@
                 <if value="$data['description']">
                 <p class="description">{$data.description}</p>
                 </if>
+                <if value="$data['specialty_html']">
+                <style type="text/css">
+                .met-doctor-specialty{margin:14px 0 0 0;padding:12px 14px;background:#faf7f2;border-left:4px solid #8a6d3b;border-radius:4px;}
+                .met-doctor-specialty h4{margin:0 0 8px 0;font-size:15px;font-weight:600;color:#8a6d3b;}
+                .met-doctor-specialty .txt{font-size:14px;line-height:1.9;color:#555;}
+                </style>
+                <div class="met-doctor-specialty">
+                  <h4>擅长领域</h4>
+                  <div class="txt">{$data.specialty_html}</div>
+                </div>
+                </if>
                 <if value="$data['yiguan_names']||$data['hospital']||$data['school']||$data['fee']">
                 <ul class="para blocks-2">
                   <if value="$data['yiguan_names']">

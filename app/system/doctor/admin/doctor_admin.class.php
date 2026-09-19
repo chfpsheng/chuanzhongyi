@@ -168,6 +168,8 @@ class doctor_admin extends base_admin
         $list['class1'] = $_M['form']['class1'];
         $list['class2'] = $_M['form']['class2'];
         $list['class3'] = $_M['form']['class3'];
+        //擅长：长文本默认值
+        $list['specialty'] = isset($list['specialty']) ? $list['specialty'] : '';
         $access_option = $this->access_option($list['access']);
         $column_list = $this->_columnjson();
         $redata['list'] = $list;

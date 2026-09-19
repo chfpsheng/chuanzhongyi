@@ -23,7 +23,7 @@ class doctor_database extends base_database
     //字段注册
     public function table_para()
     {
-        return 'id|title|yiguan|hospital|fee|school|ctitle|keywords|description|content|class1|class2|class3|no_order|wap_ok|img_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|text_size|text_color|other_info|custom_info|publisher';
+        return 'id|title|yiguan|hospital|fee|school|specialty|ctitle|keywords|description|content|class1|class2|class3|no_order|wap_ok|img_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|text_size|text_color|other_info|custom_info|publisher';
     }
 
     /**

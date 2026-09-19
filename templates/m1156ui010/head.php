@@ -248,6 +248,27 @@ if ($_seo_is_detail) {
                 'medicalSpecialty' => '中医',
                 'knowsAbout'  => array('中医', '中医内科', '针灸', '推拿', '中药调理'),
             );
+            //医师「擅长」长文本：拆成短语输出到 knowsAbout（过长或无有效短语时保留默认值）
+            if (!empty($data['specialty_text'])) {
+                $_seo_spec_items = preg_split('/[、，,；;\/\|\n\r]+/u', (string)$data['specialty_text']);
+                $_seo_spec_ok = array();
+                foreach ((array)$_seo_spec_items as $_seo_si) {
+                    $_seo_si = $_seo_clean($_seo_si);
+                    if ($_seo_si === '') {
+                        continue;
+                    }
+                    $_seo_len = function_exists('mb_strlen') ? mb_strlen($_seo_si, 'UTF-8') : strlen($_seo_si);
+                    if ($_seo_len >= 2 && $_seo_len <= 20) {
+                        $_seo_spec_ok[] = $_seo_si;
+                    }
+                    if (count($_seo_spec_ok) >= 10) {
+                        break;
+                    }
+                }
+                if ($_seo_spec_ok) {
+                    $_seo_entity['knowsAbout'] = array_values(array_unique($_seo_spec_ok));
+                }
+            }
             if (!empty($data['hospital'])) {
                 $_seo_entity['worksFor'] = array('@type' => 'MedicalOrganization', 'name' => $_seo_clean($data['hospital']));
             }
