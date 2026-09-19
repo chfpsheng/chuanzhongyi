@@ -1,218 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://test.mb.mituo.cn/</loc>
+    <loc>http://www.chuanzhongyi.com/</loc>
     <priority>1.0</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=100</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=100</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/zhongyishi/</loc>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/huodong/</loc>
+    <loc>http://www.chuanzhongyi.com/huodong/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/news/</loc>
+    <loc>http://www.chuanzhongyi.com/news/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=111</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=111</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/job/</loc>
+    <loc>http://www.chuanzhongyi.com/job/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/</loc>
+    <loc>http://www.chuanzhongyi.com/product/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=112</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=112</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=113</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=113</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/shaoerzhongyi/</loc>
+    <loc>http://www.chuanzhongyi.com/shaoerzhongyi/</loc>
     <priority>0.8</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=114</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=114</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about/show.php?id=115</loc>
+    <loc>http://www.chuanzhongyi.com/about/show.php?id=115</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about1/show.php?id=118</loc>
+    <loc>http://www.chuanzhongyi.com/about1/show.php?id=118</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about1/show.php?id=121</loc>
+    <loc>http://www.chuanzhongyi.com/about1/show.php?id=121</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/about2/show.php?id=117</loc>
+    <loc>http://www.chuanzhongyi.com/about2/show.php?id=117</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/icon/show.php?id=130</loc>
+    <loc>http://www.chuanzhongyi.com/icon/show.php?id=130</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/news/shownews.php?id=58</loc>
+    <loc>http://www.chuanzhongyi.com/news/shownews.php?id=58</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=33</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=33</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=40</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=40</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=42</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=42</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=43</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=43</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=44</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=44</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=45</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=45</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=46</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=46</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=47</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=47</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=48</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=48</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=49</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=49</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=50</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=50</loc>
     <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=51</loc>
+    <loc>http://www.chuanzhongyi.com/product/showproduct.php?id=55</loc>
     <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=52</loc>
-    <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=53</loc>
-    <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=54</loc>
-    <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
-    <loc>http://test.mb.mituo.cn/product/showproduct.php?id=55</loc>
-    <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
-    <loc>http://test.mb.mituo.cn/zhongyishi/showdoctor.php?id=3</loc>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=3</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/zhongyishi/showdoctor.php?id=30</loc>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=30</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/huodong/showactivity.php?id=1</loc>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=31</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=32</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=33</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=34</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=35</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=36</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=37</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=38</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=39</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=40</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=41</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=42</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=43</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=44</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=45</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=46</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=47</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=48</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=49</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=50</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=51</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=52</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=53</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=54</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=55</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=56</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=57</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=58</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=59</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/huodong/showactivity.php?id=1</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-12</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82</loc>
+    <loc>http://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E6%AD%A6%E4%BE%AF%E5%8C%BA</loc>
+    <loc>http://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E9%9D%92%E7%BE%8A%E5%8C%BA</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E9%87%91%E7%89%9B%E5%8C%BA</loc>
+    <loc>http://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E6%AD%A6%E4%BE%AF%E5%8C%BA</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>http://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E9%87%91%E7%89%9B%E5%8C%BA</loc>
     <priority>0.6</priority>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E9%9D%92%E7%BE%8A%E5%8C%BA</loc>
+    <loc>http://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E9%94%A6%E6%B1%9F%E5%8C%BA</loc>
     <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
-    <loc>http://test.mb.mituo.cn/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&amp;district=%E6%88%90%E5%8D%8E%E5%8C%BA</loc>
-    <priority>0.6</priority>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
-    <loc>http://test.mb.mituo.cn/region/</loc>
+    <loc>http://www.chuanzhongyi.com/region/</loc>
     <priority>0.7</priority>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
 </urlset>
