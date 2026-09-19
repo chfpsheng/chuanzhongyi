@@ -12,4 +12,4 @@ Disallow: /config/
 Disallow: /*?lang=
 
 # 站点地图
-Sitemap: http://test.mb.mituo.cn/sitemap.xml
+Sitemap: http://www.chuanzhongyi.com/sitemap.xml
