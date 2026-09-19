@@ -4,6 +4,43 @@
 defined('IN_MET') or exit('No permission');
 ?>
 <include file="pub/content_details/head"/>
+<?php
+// 重点推荐：1=是，0=否（默认否）
+$doctor_tuijian = (isset($data['list']['tuijian']) && intval($data['list']['tuijian'])) ? 1 : 0;
+// 排序号：数字越小越靠前；新增时（无值）默认 4（与 doctor_admin::DEFAULT_NO_ORDER、数据库列默认值一致）
+$doctor_no_order = (isset($data['list']['no_order']) && $data['list']['no_order'] !== '') ? intval($data['list']['no_order']) : 4;
+// 表单元素 id 后缀（新增时为 new），避免 id 重复
+$doctor_uid = (isset($data['list']['id']) && intval($data['list']['id'])) ? intval($data['list']['id']) : 'new';
+?>
+<dl>
+	<dt>
+		<label class='form-control-label'>重点推荐</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="doctor_tuijian1-{$doctor_uid}" name="doctor_tuijian" value="1" data-checked='{$doctor_tuijian}' class="custom-control-input"/>
+				<label class="custom-control-label" for="doctor_tuijian1-{$doctor_uid}">是</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="doctor_tuijian0-{$doctor_uid}" name="doctor_tuijian" value="0" class="custom-control-input"/>
+				<label class="custom-control-label" for="doctor_tuijian0-{$doctor_uid}">否</label>
+			</div>
+			<span class="text-help">选择「是」的医师在列表最前面优先展示，<strong>优先级高于「排序」</strong>。</span>
+		</div>
+	</dd>
+</dl>
+<dl>
+	<dt>
+		<label class='form-control-label'>排序</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<input type="number" class="form-control" name="doctor_no_order" value="{$doctor_no_order}" step="1" placeholder="数字越小越靠前">
+			<span class="text-help"><strong>数字越小排得越靠前</strong>（可填负数，如 -10 会排在 4 前面）；默认 4，留空按 4 保存。序号相同的医师按更新时间排序。</span>
+		</div>
+	</dd>
+</dl>
 <dl>
 	<dt>
 		<label class='form-control-label'>坐诊医馆</label>

@@ -23,7 +23,27 @@ class doctor_database extends base_database
     //字段注册
     public function table_para()
     {
-        return 'id|title|yiguan|hospital|fee|school|specialty|ctitle|keywords|description|content|class1|class2|class3|no_order|wap_ok|img_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|text_size|text_color|other_info|custom_info|publisher';
+        return 'id|title|yiguan|hospital|fee|school|specialty|tuijian|ctitle|keywords|description|content|class1|class2|class3|no_order|wap_ok|img_ok|imgurl|imgurls|com_ok|issue|hits|updatetime|addtime|access|top_ok|filename|lang|recycle|displaytype|tag|links|text_size|text_color|other_info|custom_info|publisher';
+    }
+
+    /**
+     * 列表排序（覆盖系统默认）
+     *
+     * 中医师的排序规则，优先级从高到低：
+     *   1. tuijian   重点推荐：选“是”的排最前
+     *   2. top_ok    置顶
+     *   3. com_ok    推荐
+     *   4. no_order  排序号：数字越小越靠前（后台填写的序号）
+     *   5. updatetime / id：序号相同时，新更新的在前
+     *
+     * 系统默认是 no_order DESC（数字越大越靠前），这里改为 ASC 以符合“序号越小越靠前”的习惯。
+     *
+     * @param string $order 栏目设置的排序方式（本模块统一按上述规则，不使用该参数）
+     * @return string 排序 SQL
+     */
+    public function get_column_order($order = '')
+    {
+        return ' ORDER BY tuijian DESC, top_ok DESC, com_ok DESC, no_order ASC, updatetime DESC, id DESC ';
     }
 
     /**
@@ -41,7 +61,7 @@ class doctor_database extends base_database
         }
         $offset = intval($offset);
         $length = intval($length);
-        $sql = " {$cond} ORDER BY top_ok DESC, com_ok DESC, no_order DESC, updatetime DESC, id DESC LIMIT {$offset} , {$length} ";
+        $sql = " {$cond} ORDER BY tuijian DESC, top_ok DESC, com_ok DESC, no_order ASC, updatetime DESC, id DESC LIMIT {$offset} , {$length} ";
         $data = $this->get_all($sql);
         return $data ? $data : array();
     }

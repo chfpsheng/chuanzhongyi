@@ -20,6 +20,13 @@ class doctor_admin extends base_admin
     public $yiguan_column = 104;
 
     /**
+     * 默认排序号
+     * 新增医师或排序留空时使用（越小越靠前，即默认排在同为 4 的医师之前/之后按更新时间）
+     * 与 met_doctor.no_order 的列默认值、编辑页表单默认值保持一致
+     */
+    const DEFAULT_NO_ORDER = 4;
+
+    /**
      * doctor_admin constructor.
      */
     public function __construct()
@@ -157,6 +164,35 @@ class doctor_admin extends base_admin
     }
 
     /**
+     * 排序与重点推荐格式化
+     * - no_order：排序号，数字越小越靠前（允许负数）；留空或非法值按默认值 4 保存
+     * - tuijian：重点推荐，1=是 0=否，列表中优先级最高
+     *
+     * 注意：表单字段用 doctor_no_order / doctor_tuijian 命名。
+     * 系统的内容编辑表单 action 上自带 no_order=旧值 查询参数，而框架的 load_form()
+     * 是先读 POST 再读 GET（GET 会覆盖 POST），直接用 no_order 命名会被旧值覆盖，
+     * 因此这里用带前缀的字段名，再映射回数据库字段。
+     *
+     * @param array $form 表单数据（$_M['form']）
+     * @return array array('no_order' => int, 'tuijian' => int)
+     */
+    private function format_sort($form = array())
+    {
+        $no_order = isset($form['doctor_no_order']) ? $form['doctor_no_order'] : '';
+        $tuijian = isset($form['doctor_tuijian']) ? $form['doctor_tuijian'] : '';
+
+        if (!is_scalar($no_order) || trim((string)$no_order) === '' || !is_numeric($no_order)) {
+            //默认排序号
+            $no_order = self::DEFAULT_NO_ORDER;
+        } else {
+            $no_order = intval($no_order);
+        }
+        $tuijian = (!is_scalar($tuijian) || !intval($tuijian)) ? 0 : 1;
+
+        return array('no_order' => $no_order, 'tuijian' => $tuijian);
+    }
+
+    /**
      * 新增内容
      */
     public function doadd()
@@ -195,6 +231,10 @@ class doctor_admin extends base_admin
         $_M['form']['hits'] = intval($_M['form']['hits']);
         $_M['form']['fee'] = $this->format_fee($_M['form']['fee']);
         $_M['form']['yiguan'] = $this->format_yiguan(isset($_M['form']['yiguan']) ? $_M['form']['yiguan'] : '');
+        //排序号与重点推荐
+        $doctor_sort = $this->format_sort($_M['form']);
+        $_M['form']['no_order'] = $doctor_sort['no_order'];
+        $_M['form']['tuijian'] = $doctor_sort['tuijian'];
         $id = $this->insert_list($_M['form']);
         if ($id && is_numeric($id)) {
             //plugin
@@ -266,6 +306,10 @@ class doctor_admin extends base_admin
         $list = $_M['form'];
         $list['fee'] = $this->format_fee($list['fee']);
         $list['yiguan'] = $this->format_yiguan(isset($list['yiguan']) ? $list['yiguan'] : '');
+        //排序号与重点推荐
+        $doctor_sort = $this->format_sort($list);
+        $list['no_order'] = $doctor_sort['no_order'];
+        $list['tuijian'] = $doctor_sort['tuijian'];
         $id = $_M['form']['id'] ? intval($_M['form']['id']) : null;
 
         if (!$id){

@@ -49,7 +49,7 @@
                 <div class="shownews-container">
                   <div class="shownews-wrapper">
                     <div class="shownews-slide slick-current">
-                      <img src="{$data.imgurl|thumb:$c['met_productdetail_x'],$c['met_productdetail_y']}" data-gallery="{$data.imgurl}" alt="{$data.title}" style="display:block;width:60%;height:auto;margin:0 auto;" />
+                      <img src="{$data.imgurl|thumb:$c['met_doctordetail_x'],$c['met_doctordetail_y']}" data-gallery="{$data.imgurl}" alt="{$data.title}" style="display:block;width:60%;height:auto;margin:0 auto;" />
                     </div>
                   </div>
                 </div>
@@ -137,7 +137,7 @@
             <tag action="doctor.list" num="4">
             <li>
               <a href="{$v.url}" title="{$v.title}" {$g.urlnew}>
-                <span><img src="{$v.imgurl|thumb:300,200}" alt="{$v.title}"></span>
+                <span><img src="{$v.imgurl|thumb:300,300}" alt="{$v.title}"></span>
                 <h6>{$v.title}</h6>
               </a>
             </li>
