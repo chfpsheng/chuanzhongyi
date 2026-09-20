@@ -33,12 +33,13 @@ class news_admin extends base_admin
      * 来源信息格式化（转载标注用）
      * - publisher：来源/作者名称
      * - source_url：原文链接，限制为 http/https，其他协议一律丢弃
+     * - is_original：是否原创，1=是 0=否（默认 0=转载）
      *
-     * 注意：表单字段用 news_publisher / news_source_url 命名，避免与「其他设置」里的同名项冲突，
+     * 注意：表单字段用 news_ 前缀命名，避免与「其他设置」里的同名项冲突，
      * 这里再映射回数据库字段。
      *
      * @param array $form 表单数据
-     * @return array array('publisher' => string, 'source_url' => string)
+     * @return array array('publisher' => string, 'source_url' => string, 'is_original' => int)
      */
     private function format_source($form = array())
     {
@@ -46,12 +47,16 @@ class news_admin extends base_admin
         if (array_key_exists('news_publisher', $form)) {
             $result['publisher'] = is_scalar($form['news_publisher']) ? trim((string)$form['news_publisher']) : '';
         }
+        if (array_key_exists('news_is_original', $form)) {
+            $result['is_original'] = (!is_scalar($form['news_is_original']) || !intval($form['news_is_original'])) ? 0 : 1;
+        }
         if (array_key_exists('news_source_url', $form)) {
             $url = is_scalar($form['news_source_url']) ? trim((string)$form['news_source_url']) : '';
             if ($url !== '' && !preg_match('#^https?://#i', $url)) {
                 // 只接受 http/https，避免 javascript: 等协议被写入前台链接
                 $url = '';
             }
+            // 原创时链接照旧保存（不丢失），前台与结构化数据都不会输出，见 shownews 模板与 head.php
             $result['source_url'] = $url;
         }
         return $result;

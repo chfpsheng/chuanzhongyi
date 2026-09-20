@@ -31,6 +31,8 @@ $uicss .met-shownews-header .info{margin:0; padding-bottom:10px; text-align:cent
 $uicss .met-shownews-header .info span{margin-right:10px; color:$secondcolor$; color:$desccolor$; color:$datecolor$;}
 $uicss .met-shownews-header .info span i{margin-right:5px;}
 $uicss .met-shownews-header .info a{color:$firstcolor$; color:$hovercolor$; transition:.3s;}
+$uicss .met-news-cover{margin:10px 0 25px 0;text-align:center;}
+$uicss .met-news-cover img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;}
 $uicss .met-shownews-header .info a:hover{text-decoration:underline;}
 
 $uicss .met-shownews { padding: 50px 0px;  }

@@ -1,5 +1,34 @@
+# ============================================================
+# 伪静态规则（米拓后台生成，修改 URL 设置时会被重新生成，请勿删除）
+# ============================================================
+RewriteEngine on
+# 是否显示根目录下文件列表
+Options -Indexes
+RewriteBase /
+RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ 404.html [L]
+RewriteRule index\.php/\w+ 404.html [L]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule (.+) $1 [L,QSA]
+RewriteRule ^index-([a-zA-Z0-9_^\x00-\xff]+).html$ index.php?lang=$1&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/list-([a-zA-Z0-9_^\x00-\xff]+)-([0-9_]+)-([a-zA-Z0-9_^\x00-\xff]+).html$ $1/index.php?lang=$4&metid=$2&list=1&page=$3&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/list-([a-zA-Z0-9_^\x00-\xff]+)-([a-zA-Z0-9_^\x00-\xff]+).html$ $1/index.php?lang=$3&metid=$2&list=1&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/list-([a-zA-Z0-9_^\x00-\xff]+)-([0-9_]+).html$ $1/index.php?metid=$2&list=1&page=$3&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/list-([a-zA-Z0-9_^\x00-\xff]+).html$ $1/index.php?metid=$2&list=1&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/([a-zA-Z0-9_^\x00-\xff^\x00-\xff]+)-([a-zA-Z0-9_^\x00-\xff]+).html$ $1/index.php?lang=$3&metid=$2&pseudo_jump=1
+RewriteRule ^([a-zA-Z0-9_^\x00-\xff]+)/([a-zA-Z0-9_^\x00-\xff]+).html$ $1/index.php?metid=$2&pseudo_jump=1
+RewriteRule ^search/tag/([a-zA-Z0-9_^\x00-\xff]+)-([a-zA-Z]+)-([0-9]+)$ search/search.php?class1=&class2=&class3=&search=tag&searchword=$1&lang=$2&page=$3
+RewriteRule ^search/tag/([a-zA-Z0-9_^\x00-\xff]+)-([a-zA-Z]+)$ search/search.php?class1=&class2=&class3=&search=tag&searchword=$1&lang=$2
+RewriteRule ^search/tag/([a-zA-Z0-9_^\x00-\xff]+)-([0-9]+)$ search/search.php?class1=&class2=&class3=&search=tag&searchword=$1&page=$2
+RewriteRule ^search/tag/([a-zA-Z0-9_^\x00-\xff]+)$ search/search.php?class1=&class2=&class3=&search=tag&searchword=$1
+RewriteRule ^([a-zA-Z0-9]+)/tag/([a-zA-Z0-9_^\x00-\xff]+)-([a-zA-Z]+)-([0-9]+)$ $1/index.php?search=tag&content=$2&lang=$3&page=$4
+RewriteRule ^([a-zA-Z0-9]+)/tag/([a-zA-Z0-9_^\x00-\xff]+)-([a-zA-Z]+)$ $1/index.php?search=tag&content=$2&lang=$3
+RewriteRule ^([a-zA-Z0-9]+)/tag/([a-zA-Z0-9_^\x00-\xff]+)-([0-9]+)$ $1/index.php?search=tag&content=$2&page=$3
+RewriteRule ^([a-zA-Z0-9]+)/tag/([a-zA-Z0-9_^\x00-\xff]+)$ $1/index.php?search=tag&content=$2
+
+# ============================================================
 # 性能与 Core Web Vitals：压缩 / 浏览器缓存 / 安全头
 # 如服务器未启用对应模块，以下配置会被自动忽略，不影响站点运行
+# ============================================================
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml image/svg+xml

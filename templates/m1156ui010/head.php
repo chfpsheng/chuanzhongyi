@@ -364,12 +364,17 @@ if ($_seo_is_detail) {
             if (!empty($_seo_col['name'])) {
                 $_seo_entity['articleSection'] = $_seo_col['name'];
             }
-            //转载标注：来源署名（creditText）与原文地址（isBasedOn）
+            //原创：作者署名；转载：来源署名（creditText）与原文地址（isBasedOn）
+            $_seo_original = !empty($data['is_original']);
             if (!empty($data['publisher'])) {
-                $_seo_entity['creditText'] = $_seo_clean($data['publisher']);
-                $_seo_entity['copyrightNotice'] = '来源：' . $_seo_clean($data['publisher']);
+                if ($_seo_original) {
+                    $_seo_entity['author'] = array('@type' => 'Person', 'name' => $_seo_clean($data['publisher']));
+                } else {
+                    $_seo_entity['creditText'] = $_seo_clean($data['publisher']);
+                    $_seo_entity['copyrightNotice'] = '来源：' . $_seo_clean($data['publisher']);
+                }
             }
-            if (!empty($data['source_url'])) {
+            if (!$_seo_original && !empty($data['source_url'])) {
                 $_seo_entity['isBasedOn'] = $_seo_clean($data['source_url']);
             }
             break;

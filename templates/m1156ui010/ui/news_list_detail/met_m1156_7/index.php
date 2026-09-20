@@ -26,7 +26,13 @@
 
               <span><i class="fa fa-calendar"></i>{$data.updatetime}</span>
 
-              <if value="$data['publisher']">
+              <if value="$data['publisher']&&$data['is_original']">
+
+              <span class="met-news-source"><i class="fa fa-user-o"></i>作者：{$data.publisher}</span>
+
+              </if>
+
+              <if value="$data['publisher']&&!$data['is_original']">
 
               <span class="met-news-source"><i class="fa fa-bookmark-o"></i>来源：<if value="$data['source_url']"><a href="{$data.source_url}" target="_blank" rel="noopener" title="{$data.publisher}">{$data.publisher}</a><else/>{$data.publisher}</if></span>
 
@@ -37,6 +43,12 @@
             </div>
 
           </div>
+
+          <if value="$data['imgurl']">
+
+          <div class="met-news-cover"><img src="{$data.imgurl}" alt="{$data.title}"></div>
+
+          </if>
 
           <div class="met-editor lazyload clearfix">
 

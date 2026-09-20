@@ -5,9 +5,12 @@ defined('IN_MET') or exit('No permission');
 ?>
 <include file="pub/content_details/head"/>
 <?php
-// 来源 / 作者 与 来源链接（转载标注出处用；原创可只填作者名，留空则不显示）
-$news_publisher  = isset($data['list']['publisher']) ? (string)$data['list']['publisher'] : '';
-$news_source_url = isset($data['list']['source_url']) ? (string)$data['list']['source_url'] : '';
+// 来源 / 作者、是否原创、来源链接（转载标注出处用；原创只填作者名，链接不显示）
+$news_publisher     = isset($data['list']['publisher']) ? (string)$data['list']['publisher'] : '';
+$news_source_url    = isset($data['list']['source_url']) ? (string)$data['list']['source_url'] : '';
+$news_is_original   = (isset($data['list']['is_original']) && intval($data['list']['is_original'])) ? 1 : 0;
+// 表单元素 id 后缀（新增时为 new），避免 id 重复
+$news_uid = (isset($data['list']['id']) && intval($data['list']['id'])) ? intval($data['list']['id']) : 'new';
 ?>
 <dl>
 	<dt>
@@ -22,12 +25,30 @@ $news_source_url = isset($data['list']['source_url']) ? (string)$data['list']['s
 </dl>
 <dl>
 	<dt>
+		<label class='form-control-label'>是否原创</label>
+	</dt>
+	<dd>
+		<div class="form-group clearfix">
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="news_is_original1-{$news_uid}" name="news_is_original" value="1" data-checked='{$news_is_original}' class="custom-control-input"/>
+				<label class="custom-control-label" for="news_is_original1-{$news_uid}">是</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+				<input type="radio" id="news_is_original0-{$news_uid}" name="news_is_original" value="0" class="custom-control-input"/>
+				<label class="custom-control-label" for="news_is_original0-{$news_uid}">否</label>
+			</div>
+			<span class="text-help">默认「否」（转载）。选「是」时：<strong>前台不显示「来源链接」</strong>，只显示作者名，结构化数据按原创署名（<code>author</code>），不写 <code>isBasedOn</code>。</span>
+		</div>
+	</dd>
+</dl>
+<dl>
+	<dt>
 		<label class='form-control-label'>来源链接</label>
 	</dt>
 	<dd>
 		<div class="form-group clearfix">
-			<input type="text" name="news_source_url" value="{$news_source_url}" class="form-control" placeholder="https://原文地址">
-			<span class="text-help">转载文章请填原文地址：前台「来源」会显示为可点击链接，并写入结构化数据 <code>isBasedOn</code>；留空只显示来源名称、不带链接。仅支持 http/https。</span>
+			<input type="text" name="news_source_url" value="{$news_source_url}" class="form-control" placeholder="https://原文地址（原创请留空）">
+			<span class="text-help">转载文章请填原文地址：前台「来源」会显示为可点击链接，并写入结构化数据 <code>isBasedOn</code>；留空只显示来源名称、不带链接。仅支持 http/https。<strong>「是否原创」选「是」时，前台与结构化数据都不输出此链接（值仍会保存，改回「否」即可再次生效）。</strong></span>
 		</div>
 	</dd>
 </dl>
