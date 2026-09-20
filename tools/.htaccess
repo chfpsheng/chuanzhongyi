@@ -1,0 +1,22 @@
+# tools/ 目录：脚本禁止通过网站直接访问
+# 唯一例外：内容入库接口 api_add_news.php（接口自带 token 鉴权 + IP 白名单 + 频率限制）
+# 若要收紧：把下面的 Require all granted 换成 Require local，
+# 并在 api_add_news.config.php 的 ip_allow 里填上允许的来源 IP。
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+<Files "api_add_news.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</Files>

@@ -1,0 +1,10 @@
+# 生成的稿件
+output/
+
+# 本地配置（含 API Key，不要提交）
+config.local.json
+*.local.json
+
+# Python 缓存
+__pycache__/
+*.pyc

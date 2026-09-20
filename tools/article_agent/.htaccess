@@ -1,0 +1,8 @@
+# 本目录仅用于本地/服务器命令行运行，禁止通过网站访问
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
