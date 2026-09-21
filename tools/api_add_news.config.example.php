@@ -36,7 +36,7 @@ return array(
     // ================= 其它 =================
 
     'admin_dir'      => 'admin',                 // 后台目录名（若改过名字请同步修改）
-    'web_url'        => 'http://www.chuanzhongyi.com',  // 站点地址，用于拼后台编辑链接
+    'web_url'        => 'https://www.chuanzhongyi.com',  // 站点地址，用于拼后台编辑链接
     'rate_per_hour'  => 60,                      // 每小时最多写入篇数（防失控）
     'max_content_kb' => 200,                     // 单篇正文大小上限（KB）
 

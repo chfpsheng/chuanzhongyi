@@ -67,24 +67,39 @@ JINA_PREFIX = "https://r.jina.ai/"
 # ---------------------------------------------------------------- 抓取
 
 def fetch_html(url, timeout=30, verbose=True):
-    """三级兜底抓取：requests → trafilatura.fetch_url → Jina Reader"""
+    """三级兜底抓取：requests（先代理后直连）→ trafilatura.fetch_url → Jina Reader"""
     errors = []
+    challenged = False
+    headers = {
+        "User-Agent": UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+    }
 
-    # 1) requests
-    try:
-        r = requests.get(url, headers={
-            "User-Agent": UA,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-        }, timeout=timeout)
-        if r.status_code == 200 and len(r.content) > 500:
-            r.encoding = r.apparent_encoding or r.encoding
-            if verbose:
-                print(f"  [抓取] requests 成功（{len(r.content)} 字节）")
-            return r.text, url
-        errors.append(f"requests 状态码 {r.status_code}，长度 {len(r.content)}")
-    except Exception as e:  # noqa
-        errors.append(f"requests 失败：{e}")
+    # 1) requests：先按环境变量走代理；被网关挡掉（502/403/超时）时自动改直连再试一次
+    for tag, use_proxy in (("", True), ("（直连）", False)):
+        try:
+            if use_proxy:
+                r = requests.get(url, headers=headers, timeout=timeout)
+            else:
+                s = requests.Session()
+                s.trust_env = False        # 忽略 HTTP_PROXY/HTTPS_PROXY，直接连接
+                r = s.get(url, headers=headers, timeout=timeout)
+            if r.status_code == 200 and len(r.content) > 500:
+                r.encoding = r.apparent_encoding or r.encoding
+                if verbose:
+                    print(f"  [抓取] requests 成功{tag}（{len(r.content)} 字节）")
+                return r.text, url
+            # 加速乐类反爬：返回一段设置 __jsl_clearance cookie 的 JS 挑战页
+            if "document.cookie" in r.text and "location.href" in r.text:
+                challenged = True
+            errors.append(f"requests{tag} 状态码 {r.status_code}，长度 {len(r.content)}")
+        except Exception as e:  # noqa
+            errors.append(f"requests{tag} 失败：{e}")
+
+    if challenged:
+        errors.append("该站是 JS 反爬挑战页（加速乐类 __jsl_clearance），纯 HTTP 抓取过不去："
+                      "请改用同一内容的转载镜像，或把正文存成 txt 后用 --file")
 
     # 2) trafilatura 自带抓取
     if trafilatura is not None:
@@ -493,9 +508,24 @@ def safe_name(url, title):
 # ---------------------------------------------------------------- 主流程
 
 def run_one(url, args):
-    print(f"\n=== 处理：{url}")
-    html, used_url = fetch_html(url, timeout=args.timeout)
-    meta, content = extract_article(html, used_url)
+    if args.file:
+        # 本地文件模式：跳过抓取，直接把文件当原文（站点反爬抓不到时的兜底）
+        print(f"\n=== 处理本地文件：{args.file}")
+        if not os.path.isfile(args.file):
+            raise RuntimeError(f"文件不存在：{args.file}")
+        raw = open(args.file, encoding="utf-8", errors="replace").read()
+        html, used_url = raw, (args.source_url or args.file)
+        meta, content = extract_article(html, used_url)
+        # 没有 <title> 时，用首行当标题（人工粘贴的正文通常首行就是标题）
+        if not meta.get("title"):
+            lines = content.strip().splitlines()
+            if lines and 4 <= len(lines[0].strip()) <= 60:
+                meta["title"] = lines[0].strip()
+                content = "\n".join(lines[1:]).strip()
+    else:
+        print(f"\n=== 处理：{url}")
+        html, used_url = fetch_html(url, timeout=args.timeout)
+        meta, content = extract_article(html, used_url)
 
     if len(content) < 300:
         raise RuntimeError(f"正文过短（{len(content)} 字符），可能没抓到正文，请人工打开确认")
@@ -567,7 +597,7 @@ def run_one(url, args):
         "content_html": content_html,
         "tag": "|".join(result.get("tags", []) or []),
         "publisher": publisher,
-        "source_url": "" if args.original else url,
+        "source_url": "" if args.original else (url or args.source_url or ""),
         "is_original": 1 if args.original else 0,
         # 参考信息
         "_meta": {
@@ -709,7 +739,9 @@ def load_local_config():
 def main():
     local_cfg = load_local_config()
     ap = argparse.ArgumentParser(description="URL → 中医资讯稿（trafilatura + DeepSeek）")
-    ap.add_argument("--url", required=True, help="文章网址，多个用逗号分隔")
+    ap.add_argument("--url", required=False, default="", help="文章网址，多个用逗号分隔")
+    ap.add_argument("--file", default="", help="本地文件（txt/html）：跳过抓取直接当原文；配合 --source-url 记录出处")
+    ap.add_argument("--source-url", default="", help="原文链接（与 --file 搭配，用于转载标注与查重）")
     ap.add_argument("--words", type=int, default=DEFAULT_WORDS, help="目标字数，默认 500")
     ap.add_argument("--source-name", default="", help="来源名称，如“健康时报”")
     ap.add_argument("--original", action="store_true", help="标记为原创（不输出转载链接）")
@@ -787,8 +819,13 @@ def main():
     if args.dry_run:
         print("[服务商] dry-run：只抓取，不调用大模型")
 
+    if not args.url and not args.file:
+        ap.error("请用 --url 指定网址，或用 --file 指定本地文件（配合 --source-url 记录原文链接）")
+
     args._local_cfg = local_cfg          # 供 --push 读取 site_api 配置
     urls = [u.strip() for u in re.split(r"[,，\s]+", args.url) if u.strip()]
+    if not urls:                          # --file 模式：没有 url，用来源链接或文件名占位
+        urls = [args.source_url or args.file]
     ok, fail = 0, 0
     for u in urls:
         try:

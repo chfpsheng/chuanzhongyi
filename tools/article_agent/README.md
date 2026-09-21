@@ -112,7 +112,9 @@ python article_agent.py --url "url1,url2,url3" --out "D:\workbuddy\drafts"
 
 | 参数 | 说明 |
 |---|---|
-| `--url` | 必填，支持逗号分隔多个 |
+| `--url` | 文章网址，支持逗号分隔多个（与 `--file` 二选一） |
+| `--file` | 本地文件（txt/html）：跳过抓取直接当原文，用于站点反爬抓不到时人工粘贴 |
+| `--source-url` | 原文链接（配合 `--file`，用于转载标注与入库查重） |
 | `--provider` | 服务商，默认 `deepseek`（也可写在配置文件里） |
 | `--words` | 目标字数，默认 500（允许 ±12%） |
 | `--source-name` | 来源名称，不填则由模型从原文判断 |
@@ -174,6 +176,29 @@ JSON 字段与后台对应关系：
 
 ## 七、常见问题
 
+**Q：报错「该站是 JS 反爬挑战页（加速乐类 __jsl_clearance）」怎么办？**
+
+这类站点（不少政府站、部分新闻站）第一次请求返回 521 + 一段 JS，要求浏览器执行脚本拿到
+`__jsl_clearance` cookie 再来。第一段挑战有工具能算，但第二段是重度混淆代码，**纯 HTTP 抓取
+过不去**。三条出路，从省事到费事：
+
+1. **换同一内容的转载镜像**（推荐）—— 发布会/政策稿几乎都会被转载，
+   实测可抓的有：中国中医药网 `cntcm.com.cn`、国家中医药局 `natcm.gov.cn`、
+   新浪、搜狐、中国网等
+2. **人工复制正文 → `--file`**：浏览器能正常打开，把正文存成 txt（首行放标题），
+   然后 `--file 正文.txt --source-url 原网址` 照常跑完改写与入库
+3. 用浏览器渲染方案（Playwright/Selenium）—— 重，且无反爬绕过保证，一般不值得
+
+**Q：报错里出现「502，长度 0」和「521」两条？**
+
+说明本机有代理（`HTTP_PROXY`/系统代理），代理先返回 502，脚本自动改直连后又拿到站点的真实响应。
+脚本已内置「代理失败自动直连重试」，日志里会同时打印两条，便于判断是网络问题还是站点拦截。
+
+**Q：抓取一直超时？**
+
+检查 `HTTP_PROXY` / `HTTPS_PROXY` 环境变量：如果代理节点访问某些站点不稳定，
+可以临时清空让脚本直连 —— `$env:HTTP_PROXY=''; $env:HTTPS_PROXY=''`。
+
 **Q：报错 401「令牌已过期或验证不正确」，但密钥明明是对的？**
 
 密钥读错来源了。脚本按这个优先级取密钥：
@@ -232,7 +257,7 @@ vi api_add_news.config.php                    # 改 token；核对 class1/class2
 
 ```json
 "site_api": {
-  "url": "http://www.chuanzhongyi.com/tools/api_add_news.php",
+  "url": "https://www.chuanzhongyi.com/tools/api_add_news.php",
   "token": "刚生成的那个令牌",
   "class1": 101,
   "class2": 106
@@ -242,7 +267,7 @@ vi api_add_news.config.php                    # 改 token；核对 class1/class2
 自检（返回 `"code":0` 即通）：
 
 ```bash
-curl -s -X POST http://www.chuanzhongyi.com/tools/api_add_news.php -d "token=令牌&action=ping"
+curl -s -X POST https://www.chuanzhongyi.com/tools/api_add_news.php -d "token=令牌&action=ping"
 ```
 
 **服务器还没部署时**，可以先用本机地址跑（两边是同一个库，写入效果相同）：
