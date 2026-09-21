@@ -177,7 +177,9 @@ foreach ($contentMap as $m) {
             continue;
         }
         $last = ($hasUpdatetime && !empty($x['updatetime'])) ? date('Y-m-d', strtotime($x['updatetime'])) : date('Y-m-d');
-        $add($domain . $folderMap[$cid] . '/' . $m['file'] . '?id=' . intval($x['id']), '0.6', $last);
+        // 用伪静态规范地址 /{folder}/{id}.html
+        // 原来的 show*.php?id= 会 301 跳到这个地址；百度明确要求「若链接存在跳转关系，请直接提交跳转后的链接」
+        $add($domain . $folderMap[$cid] . '/' . intval($x['id']) . '.html', '0.6', $last);
     }
 }
 

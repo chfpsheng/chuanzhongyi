@@ -1,5 +1,6 @@
 # 接口令牌：绝不进版本库
 api_add_news.config.php
+baidu_push.config.php
 
 # 入库审计日志与运行产物
 logs/
