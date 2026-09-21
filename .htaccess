@@ -5,6 +5,22 @@ RewriteEngine on
 # 是否显示根目录下文件列表
 Options -Indexes
 RewriteBase /
+
+# ============================================================
+# 统一规范地址（只对本站域名生效，本地 localhost 调试不受影响）
+#   ① 裸域 chuanzhongyi.com → https://www.chuanzhongyi.com
+#   ② http → https
+# 目的：避免 http/https 与 裸域/www 两两组合出 4 个版本被分别收录
+# 注意：裸域证书需包含 chuanzhongyi.com，否则 https://裸域 在 TLS
+#       握手阶段就失败，规则来不及生效（需在主机面板补证书）
+# ============================================================
+RewriteCond %{HTTP_HOST} ^chuanzhongyi\.com$ [NC]
+RewriteRule ^ https://www.chuanzhongyi.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?chuanzhongyi\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://www.chuanzhongyi.com%{REQUEST_URI} [R=301,L]
 RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ 404.html [L]
 RewriteRule index\.php/\w+ 404.html [L]
 RewriteCond %{REQUEST_FILENAME} -f
