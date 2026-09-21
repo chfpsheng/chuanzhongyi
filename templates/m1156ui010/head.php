@@ -95,7 +95,10 @@ if (!$_seo_hide && empty($data['canonical'])) {
     $_seo_qs = isset($_SERVER['QUERY_STRING']) ? trim((string)$_SERVER['QUERY_STRING']) : '';
     if ($_seo_qs !== '') {
         parse_str($_seo_qs, $_seo_query);
-        foreach (array('lang', 'page', 'dpage', 'pageset', 'id', 'class1', 'class2', 'class3') as $_seo_allow) {
+        // metid / pseudo_jump 是米拓伪静态的内部重写参数（每个详情页都会带），
+        // 必须放行；否则 /news/62.html、/product/33.html 等全会被误判成
+        // 「参数组合页」而输出 noindex，导致详情页永远不被搜索引擎收录。
+        foreach (array('lang', 'page', 'dpage', 'pageset', 'id', 'metid', 'pseudo_jump', 'class1', 'class2', 'class3') as $_seo_allow) {
             unset($_seo_query[$_seo_allow]);
         }
         if ($_seo_query) {
