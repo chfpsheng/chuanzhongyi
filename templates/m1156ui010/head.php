@@ -12,7 +12,7 @@ $_seo_title  = isset($data['page_title']) ? $data['page_title'] : '';
 $_seo_pdesc  = isset($data['page_description']) && $data['page_description'] ? $data['page_description'] : $_seo_desc;
 $_seo_cur    = $_seo_site . (isset($data['url']) ? str_replace('../', '', $data['url']) : '');
 // 机构对外信息：如需调整电话或社交账号主页，只改这里即可
-$_seo_tel    = '18026954495'; // 咨询电话（不需要对外展示时置为空字符串）
+$_seo_tel    = ''; // 咨询电话（不需要对外展示时置为空字符串）
 $_seo_sameas = array(         // 微信公众号主页 / 微博主页 / 其他官方主页，没有就留空数组
     // 'https://weibo.com/你的微博主页',
 );
@@ -57,7 +57,7 @@ if (strpos($_seo_can_mark, 'canonical') === false) {
 <?php
 // 已隐藏栏目（内容待补）：从导航/网站地图移除后，仍可能通过直接地址访问，这里补 noindex
 // 米拓栏目表 display=1 即不出现在导航与栏目循环；栏目ID 见后台「栏目管理」
-$_seo_hidden_columns = array(105, 109); // 105 医师团队、109 医馆环境
+$_seo_hidden_columns = array(105); // 105 医师团队（仍为模板 demo 数据，待真实医师图文替换后放开）；109 医馆环境已有内容，已放开
 $_seo_hide = !empty($data['noindex']);
 if (!$_seo_hide && !empty($data['classnow']) && in_array(intval($data['classnow']), $_seo_hidden_columns, true)) {
     $_seo_hide = true;

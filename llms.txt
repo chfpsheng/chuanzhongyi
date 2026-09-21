@@ -1,4 +1,4 @@
-# 四川中医馆（四川中医网）
+# 四川中医馆
 
 > 四川中医馆（四川中医网）是面向四川及成都地区的中医信息服务平台，收录特色中医馆、名老中医、中医活动与少儿中医研学资源，帮助用户查找可信赖的中医就医与养生参考信息。
 
@@ -6,26 +6,105 @@
 
 ## 主要栏目
 
-- [中医师名录](http://test.mb.mituo.cn/zhongyishi/)：四川名老中医与中医专家信息，含执业机构、擅长领域、参考挂号费
-- [中医活动](http://test.mb.mituo.cn/huodong/)：中医药文化服务、公益义诊、健康讲座与研学活动信息
-- [少儿中医](http://test.mb.mituo.cn/shaoerzhongyi/)：面向青少年的中医研学体验活动
-- [中医资讯](http://test.mb.mituo.cn/news/)：中医行业动态、中医养生与药食同源科普
-- [中医养生](http://test.mb.mituo.cn/news/news.php?class2=106)：四季调养、体质辨识、经络穴位保健
-- [药食同源](http://test.mb.mituo.cn/news/news.php?class2=107)：食材性味、食疗搭配与药膳做法
-- [关于我们](http://test.mb.mituo.cn/about/)：平台介绍、联系方式与信息收录说明
+- [中医师名录](https://www.chuanzhongyi.com/zhongyishi/)：四川名老中医与中医专家信息，含执业机构、擅长领域、参考挂号费
+- [中医馆](https://www.chuanzhongyi.com/product/)：四川及成都各区县的中医馆信息，含擅长项目、地址与出诊时间
+- [中医活动](https://www.chuanzhongyi.com/huodong/)：中医药文化服务、公益义诊、健康讲座等活动信息
+- [少儿中医](https://www.chuanzhongyi.com/shaoerzhongyi/)：面向青少年的中医研学体验活动
+- [中医资讯](https://www.chuanzhongyi.com/news/)：中医行业动态、中医养生与药食同源科普
+- [中医养生](https://www.chuanzhongyi.com/news/news.php?class2=106)：四季调养、体质辨识、经络穴位保健
+- [药食同源](https://www.chuanzhongyi.com/news/news.php?class2=107)：食材性味、食疗搭配与药膳做法
+- [关于我们](https://www.chuanzhongyi.com/about/show.php?id=111)：平台介绍、联系方式与信息收录说明
 
-## 已收录中医师
+## 已收录中医师（共 31 位）
 
-- 唐德厚：四川省名中医，四川省第二中医医院特聘针灸专家，四川省中医药信息学会副会长，成都市非物质文化遗产“唐氏芒针”第四代传承人，擅长针灸诊疗
-- 唐廷汉：主任医师，四川省名中医，资阳市和安岳县十大名中医，成都中医学院原兼职教授，内科专家，执业于四川省第二中医医院
+- [唐德厚](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=3)：成都中医药大学，执业于四川省第二中医医院，参考挂号费 ¥300
+- [唐廷汉](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=30)：执业于四川省第二中医医院，参考挂号费 ¥50
+- [金清](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=31)：成都中医药大学，执业于北京同仁堂总府路店，擅长从事临床工作30余年、对中医内、外
+- [汪剑](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=32)：执业于北京同仁堂总府路店
+- [杨帆](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=33)：成都中医药大学，执业于北京同仁堂总府路店，擅长内、儿科：心脑血管、呼吸
+- [尤敏](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=34)：执业于北京同仁堂总府路店，擅长长期从事中医临床工作、坚持辨证论治、坚持三因制宜
+- [张勇](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=35)：成都中医药大学，执业于北京同仁堂总府路店，擅长间质性肺炎、肺间质纤维化、支气管哮喘
+- [陈旭辉](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=36)：成都中医学院，执业于北京同仁堂总府路店，擅长感冒、发烧、咳嗽
+- [景荣忠](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=37)：成都中医药大学，执业于北京同仁堂总府路店，擅长老中青慢性病＜顽固性感冒咳嗽、气血虚失眠、肝阳上亢头昏脑胀
+- [李有文](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=38)：成都中医学院，执业于北京同仁堂总府路店，擅长感冒、咳嗽、哮喘
+- [吕天贵](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=39)：成都中医药大学，执业于北京同仁堂总府路店，擅长多种中医杂症、老年病、急慢性支气管炎
+- [宋永芳](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=40)：成都中医药大学，执业于北京同仁堂总府路店，擅长中西医结合治疗急慢性盆腔炎、多囊卵巢综合征、子宫内膜异位
+- [孙子期](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=41)：成都中医药大学，执业于北京同仁堂总府路店，擅长1、中医内科:（1）消化：胃痛、腹胀
+- [王大淳](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=42)：成都中医学院，执业于北京同仁堂总府路店，擅长四时感冒、鼻炎鼻窦炎、咽喉炎
+- [王贤琪](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=43)：成都中医药大学，执业于北京同仁堂总府路店，擅长顽固性失眠、自汗盗汗、感冒
+- [杨凤莲](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=44)：成都中医药大学，执业于北京同仁堂总府路店，擅长咳嗽、哮喘、急慢性支气管炎
+- [张仁益](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=45)：成都中医学院，执业于北京同仁堂总府路店，擅长急慢性胃炎、十二指肠粘膜炎、胃溃疡
+- [高锋](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=46)：成都中医药大学，执业于北京同仁堂总府路店，擅长内科疾病：感冒、咳嗽、胃炎
+- [于廷齐](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=47)：成都中医药大学，执业于北京同仁堂总府路店，擅长高血压、高血脂、消渴症
+- [覃茂林](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=48)：成都中医学院，执业于北京同仁堂总府路店，擅长治疗特点：擅长于以中医药针灸并举的方式治疗内科疾病
+- [李强](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=49)：成都中医药大学，执业于北京同仁堂总府路店，擅长特色技法： 包括粘连松解术、脊椎关节复位
+- [樊明山](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=50)：成都中医药大学，执业于北京同仁堂总府路店，擅长中医内、妇科疑难杂病的诊治、治未病
+- [黄凤书](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=51)：泸州医学院，执业于北京同仁堂总府路店，擅长妇科（痛经、闭经、月经不调
+- [唐华君](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=52)：四川中医药高等专科学校，执业于北京同仁堂总府路店，擅长运用六经辨证辨治内科、儿科、妇科
+- [魏绍蓉](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=53)：成都中医药大学，执业于北京同仁堂总府路店，擅长月经失调如月经量少、先后无定期、经前期紧张症
+- [范有斌](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=54)：成都中医药大学，执业于北京同仁堂总府路店，擅长内科：四时感冒、咳嗽、气管炎
+- [曾元静](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=55)：成都中医药大学，执业于北京同仁堂总府路店，擅长儿科：感冒、发热、咳嗽
+- [温颖静](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=56)：成都中医药大学，执业于北京同仁堂总府路店，擅长儿科、呼吸系统、消化系统
+- [万友洪](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=57)：成都中医药大学，执业于北京同仁堂总府路店，擅长运用中药内服、针灸、推拿
+- [付远忠](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=58)：执业于北京同仁堂总府路店，擅长各种内、妇科疾病、如眩晕
+- [萧荣粹](https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=59)：成都中医药大学，执业于北京同仁堂总府路店，擅长粉刺、湿疹、扁平疣
 
-## 已收录中医馆
+## 已收录中医馆（共 12 家）
 
-- 承启堂·佑健针灸馆：位于四川省成都市金牛区，开展中医针灸诊疗服务
+- [承启堂·佑健针灸馆](https://www.chuanzhongyi.com/product/showproduct.php?id=33)：位于成都市金牛区，擅长针灸，出诊时间8:30-22:00
+- [承启堂·蜀汉馆](https://www.chuanzhongyi.com/product/showproduct.php?id=40)：位于成都市金牛区，擅长中医内科、针灸、推拿，出诊时间8:30-22:00
+- [德仁堂中医馆](https://www.chuanzhongyi.com/product/showproduct.php?id=42)：位于成都市锦江区，擅长中药饮片、中成药、中医内科，出诊时间8:30-22:00
+- [殊德医馆](https://www.chuanzhongyi.com/product/showproduct.php?id=43)：位于成都市青羊区，擅长中医内科、针灸推拿、中医理疗，出诊时间8:30-22:00
+- [杏林春堂国医馆（连锁）](https://www.chuanzhongyi.com/product/showproduct.php?id=44)：位于成都市成华区，擅长中医内科、针灸、艾灸，出诊时间8:30-22:00
+- [至真堂中医馆（青羊/高新/成华馆）](https://www.chuanzhongyi.com/product/showproduct.php?id=45)：位于成都市青羊区，擅长中医内科、针灸、推拿，出诊时间8:30-22:00
+- [秉正堂中医馆（新乐路总店/西村店等）](https://www.chuanzhongyi.com/product/showproduct.php?id=46)：位于成都市青羊区，擅长中医调理、药食同源，出诊时间8:30-22:00
+- [承启堂中医馆（蜀汉/高新/大源等10+直营）](https://www.chuanzhongyi.com/product/showproduct.php?id=47)：位于成都市金牛区，擅长中药饮片、中医内科、针灸，出诊时间8:30-22:00
+- [同善堂国医馆（老字号）](https://www.chuanzhongyi.com/product/showproduct.php?id=48)：位于成都市武侯区，擅长中医诊疗、中药配方，出诊时间09:00-22:00（电信路店）
+- [卢火神扶阳中医馆](https://www.chuanzhongyi.com/product/showproduct.php?id=49)：位于成都市武侯区，擅长扶阳调理，出诊时间8:30-22:00
+- [北京同仁堂总府路店](https://www.chuanzhongyi.com/product/showproduct.php?id=50)：位于成都市锦江区，擅长中成药、参茸滋补、中医问诊，出诊时间8:30-22:00
+- [寇小儿中医馆碧云路店（总部）](https://www.chuanzhongyi.com/product/showproduct.php?id=55)：位于成都市武侯区，擅长中医儿科，出诊时间8:30-22:00
 
-## 已收录活动
+## 已收录中医活动（共 6 场）
 
-- 2026 年“中医药文化服务月”系列活动（一）：主题“岐黄传新韵 生活有良方”，时间与地点以主办方公告为准
+- [岐黄传新韵 生活有良方丨2026年“中医药文化服务月”系列活动（一）](https://www.chuanzhongyi.com/huodong/showactivity.php?id=1)：免费参与
+- [2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验](https://www.chuanzhongyi.com/huodong/showactivity.php?id=2)：2026-10-01 09:00:00 至 2026-10-07 17:00:00，地点成都市多家中医馆同步开展（详见各馆公告），免费参与
+- [冬令膏方节：体质辨识 + 个性化膏方定制（2026）](https://www.chuanzhongyi.com/huodong/showactivity.php?id=3)：2026-11-08 09:00:00 至 2026-12-20 17:00:00，地点成都市青羊区（具体地址以主办方公告为准），需报名，费用以公告为准
+- [2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理](https://www.chuanzhongyi.com/huodong/showactivity.php?id=4)：2026-12-21 08:30:00 至 2027-01-16 17:00:00，地点成都市多家中医馆同步开展（详见各馆公告），需报名，费用以公告为准
+- [八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）](https://www.chuanzhongyi.com/huodong/showactivity.php?id=5)：2026-10-10 07:30:00 至 2026-12-26 09:00:00，地点成都市青羊区人民公园（近正门广场，遇雨改期），免费参与
+- [中医药文化进社区：中药香囊手作 + 居家药膳课堂](https://www.chuanzhongyi.com/huodong/showactivity.php?id=6)：2026-10-25 14:00:00 至 2026-10-25 16:30:00，地点成都市武侯区社区服务中心（具体地址以公告为准），免费参与
+
+## 已收录少儿中医研学（共 6 期）
+
+- [少儿中医研学体验活动：识百草、做香囊、学八段锦](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=1)：2026-10-01 09:00:00 至 2026-10-01 17:00:00，地点成都市青羊区，免费参与
+- [少儿推拿公开课：感冒、积食、睡不安的家庭保健手法](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=2)：2026-10-17 10:00:00 至 2026-10-17 11:30:00，地点成都市青羊区（报名后通知具体地址），免费参与
+- [孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=3)：2026-10-24 14:00:00 至 2026-10-24 16:00:00，地点成都市武侯区（报名后通知具体地址），免费参与
+- [少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=4)：2026-11-07 15:00:00 至 2026-11-07 16:30:00，地点成都市高新区（报名后通知具体地址），免费参与
+- [亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=5)：2026-11-14 10:00:00 至 2026-11-14 11:30:00，地点成都市青羊区（报名后通知具体地址），免费参与
+- [青少年脊柱侧弯筛查与八段锦训练营（公益场）](https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=6)：2026-11-21 09:30:00 至 2026-11-21 11:30:00，地点成都市成华区（报名后通知具体地址），免费参与
+
+## 中医资讯（共 21 篇）
+
+- [在成都看中医怎么用医保？就诊流程、报销与常见疑问](https://www.chuanzhongyi.com/news/shownews.php?id=83)：在成都的中医馆就诊能否用医保、怎么走流程、哪些项目能报，是很多人关心的问题。本文梳理就诊流程、医保结算方式与常见疑问，并提示以官方与机构公示为准。
+- [中医适宜技术有哪些？推拿、艾灸、拔罐、刮痧、耳穴一次讲清](https://www.chuanzhongyi.com/news/shownews.php?id=82)：中医适宜技术是指安全有效、便于推广的中医特色疗法。本文科普推拿、艾灸、拔罐、刮痧、耳穴压豆五种常见技术的原理、适用情况与禁忌，帮助读者理性选择。
+- [感冒中成药怎么选？风寒、风热、暑湿的辨证选用要点](https://www.chuanzhongyi.com/news/shownews.php?id=81)：同样是感冒，风寒、风热、暑湿用药方向完全不同。本文用一张对照表讲清三者的辨识要点、常见中成药的选择思路，以及联合用药与特殊人群的注意事项。
+- [川贝炖雪梨与银耳百合羹：秋燥咳嗽的两道家常食疗](https://www.chuanzhongyi.com/news/shownews.php?id=80)：秋季干咳少痰、咽干声哑，多属燥邪伤肺。本文给出川贝炖雪梨与银耳百合羹两道家常食疗的做法、适用人群，以及哪些咳嗽不适合自行食疗。
+- [受寒了怎么办？姜枣茶、葱白水的家庭用法与禁忌](https://www.chuanzhongyi.com/news/shownews.php?id=79)：淋雨受凉后，姜枣茶、葱白水是民间最常用的家庭食疗方。本文说明两者的适用场景、做法与用量，并列出不适用人群与需要就医的情况。
+- [陈皮、山楂、麦芽：厨房里的消食化积三味](https://www.chuanzhongyi.com/news/shownews.php?id=78)：吃多了不消化，中医食疗里有三味最常用：陈皮理气、山楂消肉食、麦芽化米面。本文说明三者的性味特点、适用场景、家常做法与不宜人群。
+- [爱叹气、胸口闷、经前胀痛：中医说的肝郁该怎么疏解](https://www.chuanzhongyi.com/news/shownews.php?id=77)：肝主疏泄，情绪郁结最易导致肝气不舒。本文说明肝郁气滞的典型表现、常见影响（睡眠、消化、月经），并给出运动、呼吸、穴位与饮食四方面的疏解方法。
+- [脾胃是后天之本：脾虚的九个信号与日常调养清单](https://www.chuanzhongyi.com/news/shownews.php?id=76)：中医称脾胃为「后天之本」，脾虚是现代人最常见的体质偏颇之一。本文列出脾虚的九个常见信号、三类成因，以及一份可执行的饮食起居调养清单。
+- [睡不好别急着吃安神药：中医辨治失眠的四种常见证型](https://www.chuanzhongyi.com/news/shownews.php?id=75)：入睡困难、多梦易醒、早醒各不相同，中医对失眠的辨治也分证型。本文梳理心脾两虚、阴虚火旺、肝郁化火、痰热内扰四种常见证型的表现与调养思路，并给出非药物助眠方法。
+- [第一次看中医怎么准备？一份问诊清单让就诊更高效](https://www.chuanzhongyi.com/news/shownews.php?id=74)：中医讲究望闻问切，就诊前的准备直接影响辨证准确性。本文列出就诊当天的着装饮食注意、需要带的资料，以及一张症状时间线清单，帮第一次看中医的人少走弯路。
+- [煎药、代煎还是免煎颗粒？三种中药剂型的选用与保存](https://www.chuanzhongyi.com/news/shownews.php?id=73)：汤剂、代煎药液与免煎颗粒各有适用场景。本文对比三者的疗效特点、保存方式与携带便利度，并给出家庭自煎的器具选择、火候与特殊煎法要点。
+- [川药地图：川芎、川贝、天麻、黄连，四川道地药材怎么用](https://www.chuanzhongyi.com/news/shownews.php?id=72)：四川是中药资源大省，「川药」在全国药材版图中占有重要位置。本文梳理川芎、川贝母、天麻、黄连、附子等川产道地药材的产地、功效特点与日常使用注意。
+- [川味药膳两例：当归生姜羊肉汤与川芎白芷鱼头汤](https://www.chuanzhongyi.com/news/shownews.php?id=71)：四川气候潮湿，饮食尚辛温，药膳讲究温中祛湿。本文整理当归生姜羊肉汤与川芎白芷鱼头汤两道川派家常药膳的材料、做法与适宜人群，并说明不宜人群。
+- [枸杞红枣菊花茶怎么搭？四种体质的日常茶饮方案](https://www.chuanzhongyi.com/news/shownews.php?id=70)：同样一杯养生茶，不同体质喝了效果相反。本文按气虚、阳虚、阴虚、湿热四种常见体质，给出枸杞、红枣、菊花、陈皮等药食同源材料的日常搭配与用量建议。
+- [山药、薏米、莲子：健脾祛湿的家常药膳三宝](https://www.chuanzhongyi.com/news/shownews.php?id=69)：湿气重常表现为困倦、舌苔厚腻、大便黏滞。山药、薏米、莲子性味平和，是家庭常用的健脾祛湿食材。本文说明三者性味功用、两款经典做法与食用禁忌。
+- [久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案](https://www.chuanzhongyi.com/news/shownews.php?id=68)：长时间伏案带来的颈肩僵硬、腰背酸痛，多数与姿势和肌肉失衡有关。本文给出八段锦三式、常用穴位按揉方法与工位调整建议，帮久坐人群缓解不适、减少复发。
+- [三九贴不是人人都贴：适用人群、时间安排与注意事项](https://www.chuanzhongyi.com/news/shownews.php?id=67)：三九贴是「冬病冬治」的常用外治法，适合慢性咳喘、反复感冒、虚寒型关节痛等人群。本文介绍三九贴的适用与禁忌、时间节点、贴敷当天注意事项，以及最常见的三个误区。
+- [秋分过后怎么养？中医师的润燥三件套与起居清单](https://www.chuanzhongyi.com/news/shownews.php?id=66)：秋分后成都昼热夜凉、空气渐干，容易出现口干鼻燥、干咳少痰、皮肤发紧。本文从中医师视角给出润燥饮食三件套、起居作息调整与三类常见误区，帮你平稳过渡到深秋。
+- [秋季养生指南：科学贴秋膘](https://www.chuanzhongyi.com/news/shownews.php?id=62)：国家中医药管理局发布秋季养生指南，专家详解起居饮食调养、饮食调理原则及科学进补方法。秋季宜养阴润燥，科学'贴秋膘'需因人而异，推荐八段锦和太极拳锻炼。体质偏弱人…
+- [长夏养生重健脾祛湿，中医专家支招运动饮食](https://www.chuanzhongyi.com/news/shownews.php?id=59)：国家中医药管理局“长夏的中医药养生”专题发布会内容整理：长夏应脾，湿气易困脾胃。运动提倡“升阳保津，微汗即止”，可练八段锦；饮食宜清补，可用薏米、扁豆、赤小豆、…
+- [药食同源：食即是药，医养一体](https://www.chuanzhongyi.com/news/shownews.php?id=58)：药食同源：食即是药，医养一体。介绍中医“药食同源”理念的历史源流与日常饮食调理思路，帮助读者理解食物与药物的关系。
 
 ## 内容准则
 
@@ -40,5 +119,6 @@
 
 ## 其它
 
-- Sitemap: http://test.mb.mituo.cn/sitemap.xml
-- 联系方式：见 http://test.mb.mituo.cn/about1/ 联系我们页面
+- Sitemap: https://www.chuanzhongyi.com/sitemap.xml
+- 联系方式：见 https://www.chuanzhongyi.com/about1/show.php?id=118 联系我们页面
+- 最后更新：2026-09-20

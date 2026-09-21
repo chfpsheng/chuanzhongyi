@@ -11,3 +11,8 @@
 # 数据库备份：含全库结构与数据，本仓库为公开仓库，不纳入版本库
 /admin/databack/*.sql
 /admin/databack/*.db
+/_backup/
+
+# 临时/备份文件
+*.bak
+*.zip

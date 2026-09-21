@@ -64,7 +64,7 @@ $skipModule = array(0, 7, 8, 10, 11, 12);
 // 说明：isshow 只用于单页(module=1)的显示判断，不能作为收录过滤条件，
 // 否则会把「中医馆(104)」这类 isshow=0 的一级栏目及其全部内容排除在 sitemap 之外。
 // display=1 为已隐藏栏目（内容待补），不进 sitemap
-$r = $db->query("SELECT id,name,foldername,module,bigclass,display FROM {$pre}column WHERE lang='cn' ORDER BY no_order,id");
+$r = $db->query("SELECT id,name,foldername,module,bigclass,classtype,display FROM {$pre}column WHERE lang='cn' ORDER BY no_order,id");
 $columns = array();
 while ($x = $r->fetch_assoc()) {
     $columns[$x['id']] = $x;
@@ -80,9 +80,25 @@ foreach ($columns as $id => $c) {
         continue;
     }
     if ($c['module'] == 1) {
-        // 单页：about 及其子栏目统一使用所在目录的 show.php
-        $folder = $c['foldername'];
-        $add($domain . $folder . '/show.php?id=' . $id, '0.7');
+        // 单页/内容页：show.php?id= 只是跳转入口，规范地址是下面两种
+        //   classtype=2（内容页，如「联系我们」118）→ /{folder}/{id}.html
+        //   classtype=1（栏目页，如「关于我们」100）→ /{folder}/
+        // 有子栏目的（如「医馆信息」121）内容随子页面展示，单独收录会重复，跳过
+        $hasChild = false;
+        foreach ($columns as $cid2 => $c2) {
+            if (intval($c2['bigclass']) === intval($id)) {
+                $hasChild = true;
+                break;
+            }
+        }
+        if ($hasChild) {
+            continue;
+        }
+        if (intval($c['classtype']) === 2) {
+            $add($domain . $c['foldername'] . '/' . $id . '.html', '0.7');
+        } else {
+            $add($domain . $c['foldername'] . '/', '0.7');
+        }
     } else {
         $add($domain . $c['foldername'] . '/', '0.8');
     }
@@ -257,6 +273,8 @@ $robots .= "Disallow: /cache/\n";
 $robots .= "Disallow: /templates/\n";
 $robots .= "Disallow: /install/\n";
 $robots .= "Disallow: /config/\n";
+$robots .= "Disallow: /_backup/\n";
+$robots .= "Disallow: /tools/\n";
 $robots .= "Disallow: /*?lang=\n\n";
 $robots .= "# 站点地图\n";
 $robots .= 'Sitemap: ' . $domain . "sitemap.xml\n";

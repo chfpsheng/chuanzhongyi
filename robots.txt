@@ -9,7 +9,9 @@ Disallow: /cache/
 Disallow: /templates/
 Disallow: /install/
 Disallow: /config/
+Disallow: /_backup/
+Disallow: /tools/
 Disallow: /*?lang=
 
 # 站点地图
-Sitemap: http://www.chuanzhongyi.com/sitemap.xml
+Sitemap: https://www.chuanzhongyi.com/sitemap.xml
