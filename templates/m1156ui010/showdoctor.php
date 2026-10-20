@@ -8,6 +8,25 @@
  *   说明：已移除「同馆医师」Tab 与「在线预约」按钮
  */
 ?>
+<?php
+// 分享二维码：生成当前医师页绝对地址的 QR 图片，缓存到 upload/202610/qr-doctor-<id>.png（无公众号也能扫码分享）
+$_qr_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$_qr_id  = isset($data['id']) ? intval($data['id']) : 0;
+$_qr_rel = '';
+if ($_qr_id) {
+    $_qr_abs = PATH_WEB . 'upload/202610/qr-doctor-' . $_qr_id . '.png';
+    if (!file_exists($_qr_abs)) {
+        include_once PATH_WEB . 'app/system/include/class/phpqrcode/phpqrcode.php';
+        if (!is_dir(dirname($_qr_abs))) { @mkdir(dirname($_qr_abs), 0777, true); }
+        if (class_exists('QRcode')) {
+            QRcode::png($_qr_url, $_qr_abs, QR_ECLEVEL_L, 6, 2);
+        }
+    }
+    if (file_exists($_qr_abs)) {
+        $_qr_rel = '../upload/202610/qr-doctor-' . $_qr_id . '.png';
+    }
+}
+?>
 <include file="head.php" page="showdoctor" />
 <link rel="stylesheet" type="text/css" href="{$c.met_weburl}templates/m1156ui010/met_detail.css">
 <section class="met-detail-loc_main met-content animsition">
@@ -149,6 +168,62 @@
             </div>
           </div>
         </div>
+        <!-- 分享中医师：二维码 + 复制链接 + 微信内引导（无公众号也可用） -->
+        <style type="text/css">
+        .met-doctor-share{margin:24px 0 0 0;padding:18px 20px;background:#faf7f2;border:1px solid #efe6d6;border-radius:6px;}
+        .met-doctor-share h4{margin:0 0 14px 0;font-size:16px;color:#8a6d3b;border-left:4px solid #8a6d3b;padding-left:10px;}
+        .met-doctor-share .share-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+        .met-doctor-share .qr{flex:0 0 auto;}
+        .met-doctor-share .qr img{width:120px;height:120px;border:1px solid #e3d6bf;background:#fff;display:block;}
+        .met-doctor-share .tips{flex:1 1 240px;font-size:14px;line-height:1.9;color:#555;}
+        .met-doctor-share .tips .tip-web{display:none;color:#c0392b;font-weight:600;}
+        .met-doctor-share .btn-copy{display:inline-block;margin-top:8px;padding:7px 18px;background:#8a6d3b;color:#fff;border:0;border-radius:4px;cursor:pointer;font-size:14px;}
+        .met-doctor-share .btn-copy:hover{background:#73592f;}
+        .met-doctor-share #copyTip{margin-left:10px;color:#2e7d32;font-size:13px;}
+        </style>
+        <div class="met-doctor-share">
+          <h4>分享中医师</h4>
+          <div class="share-row">
+            <?php if ($_qr_rel) { ?>
+            <div class="qr"><img src="<?php echo $_qr_rel; ?>" alt="医师页二维码"></div>
+            <?php } ?>
+            <div class="tips">
+              <p class="tip-web">微信内打开：点击右上角 ··· → 分享给朋友 / 朋友圈</p>
+              <p class="tip-out">手机扫描上方二维码打开，或复制链接分享给好友。</p>
+              <button type="button" id="copyLinkBtn" class="btn-copy">复制链接</button><span id="copyTip"></span>
+            </div>
+          </div>
+        </div>
+        <script>
+        (function(){
+          var ua = navigator.userAgent || '';
+          var isWX = /MicroMessenger/i.test(ua);
+          var tw = document.querySelector('.met-doctor-share .tip-web');
+          var to = document.querySelector('.met-doctor-share .tip-out');
+          var qr = document.querySelector('.met-doctor-share .qr');
+          if (isWX) { if (to) to.style.display = 'none'; if (qr) qr.style.display = 'none'; }
+          else { if (tw) tw.style.display = 'none'; }
+          var btn = document.getElementById('copyLinkBtn');
+          if (!btn) return;
+          btn.addEventListener('click', function () {
+            var url = location.href;
+            var done = function () { var t = document.getElementById('copyTip'); if (t) t.textContent = '已复制链接'; };
+            var fail = function () { var t = document.getElementById('copyTip'); if (t) t.textContent = '复制失败，请手动复制'; };
+            var legacy = function () {
+              try {
+                var ta = document.createElement('textarea'); ta.value = url;
+                ta.style.position = 'fixed'; ta.style.top = '-9999px';
+                document.body.appendChild(ta); ta.focus(); ta.select();
+                var ok = document.execCommand('copy'); document.body.removeChild(ta);
+                ok ? done() : fail();
+              } catch (e) { fail(); }
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(url).then(done, legacy);
+            } else { legacy(); }
+          });
+        })();
+        </script>
       </div>
       <div class="met-detail-side col-lg-3 met-conx" m-id="noset">
         <div class="met-service">

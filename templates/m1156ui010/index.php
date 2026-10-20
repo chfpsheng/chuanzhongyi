@@ -7,4 +7,14 @@
 <ui name="news_list" style="met_m1156_7" id="6" />
 <ui name="case_list" style="met_m1156_7" id="7" />
 <ui name="feedback_list" style="met_m1156_7" id="8" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{$c.met_webname}",
+  "url": "{$_M['url']['web_site']}",
+  "logo": "{$_M['url']['web_site']}{$c.met_logo}"
+}
+</script>
+
 <include file="foot.php" />

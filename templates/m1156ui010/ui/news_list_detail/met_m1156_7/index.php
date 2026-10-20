@@ -72,6 +72,8 @@
 
           </if>
 
+          <div class="met-news-inlink">相关推荐：<a href="/product/" title="成都中医馆名录">成都中医馆</a></div>
+
           <div class="met-shownews-footer"><pagination /></div> 
 
         </div>

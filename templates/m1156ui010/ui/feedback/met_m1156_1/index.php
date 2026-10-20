@@ -2,15 +2,15 @@
 
 <section class="$uicss lazy" m-id="{$ui.mid}" m-type="nocontent"
 
-  <if value='$ui[bgimg] && !strstr($ui[bgimg],$c[met_agents_img])'>data-background="{$ui.bgimg}"</if>>
+  <if value='$ui["bgimg"] && !strstr($ui["bgimg"],$c["met_agents_img"])'>data-background="{$ui.bgimg}"</if>>
 
   <div class="container met-feedback" m-id='{$ui.mid}' m-type='feedback'>
 
     <div class="row">
 
-      <if value="$ui[title]">
+      <if value="$ui['title']">
 
-      <if value="$ui[title] neq 1">
+      <if value="$ui['title'] neq 1">
 
       <h1>{$ui.title}</h1>
 

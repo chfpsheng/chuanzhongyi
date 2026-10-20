@@ -263,8 +263,15 @@ class image
         }
 
         if ($image['error']) {
-            $image_path = $_M['url']['site'] . $this->default . $suf;
-            return $image_path;
+            // GD 无法解码原图（如渐进式 JPEG）时，回退显示原图本身（浏览器可正常读取），而非默认占位图
+            $orig = $this->image_path;
+            if (strpos($orig, '?') !== false) {
+                $orig = explode('?', $orig)[0];
+            }
+            if (is_file(PATH_WEB . $orig)) {
+                return $_M['url']['site'] . $orig . $suf;
+            }
+            return $_M['url']['site'] . $this->default . $suf;
         }
         return $_M['url']['site'] . $image['path'] . $suf;
     }

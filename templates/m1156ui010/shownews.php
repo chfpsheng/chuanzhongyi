@@ -1,13 +1,25 @@
 <?php defined('IN_MET') or exit('No permission'); ?>
 <?php
+/**
+ * 模板版本标记（改动本文件内容即可让前台模板编译缓存自动失效，无需后台“更新缓存”）
+ * 2026-10-13：修掉「推荐中医馆」区块输出的失效内链 ../product/56-.html
+ *            （26 个资讯页 × 6 处 = 156 处 404）。
+ *            原因：本段 SQL 用的是显式列清单，漏了 lang；get_content_url() 内部依赖 lang，
+ *            空 lang 时 url_add_lang() 在伪静态模式下会多拼一个孤立的 "-"。
+ *            其他调用点（showactivity / showshaoer / sidebar）用的是 SELECT *，
+ *            天然带 lang，所以没有这个问题。
+ *            改动：① SQL 补上 lang；② 对结果 URL 做一次兜底规范化。
+ */
 // 资讯详情页底部推荐中医馆：为资讯页补充指向核心内容（中医馆）的内链
 $_news_rel = array();
 if (!empty($data['id'])) {
-    $_news_rel = DB::get_all("SELECT id,title,imgurl,description,region_city,region_district,class1,addtime,filename,links,access FROM " . $_M['table']['product'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND class1=104 ORDER BY updatetime DESC, id DESC LIMIT 6");
+    $_news_rel = DB::get_all("SELECT id,title,imgurl,description,region_city,region_district,class1,addtime,filename,links,access,lang FROM " . $_M['table']['product'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND class1=104 ORDER BY updatetime DESC, id DESC LIMIT 6");
     foreach ((array)$_news_rel as $_nr_k => $_nr_v) {
         $_news_rel[$_nr_k]['original_addtime'] = $_nr_v['addtime'];
-        $_news_rel[$_nr_k]['url'] = load::mod_class('product/product_handle', 'new')->get_content_url($_news_rel[$_nr_k]);
-        $_news_rel[$_nr_k]['thumb'] = $_nr_v['imgurl'] ? str_replace('../', $_M['url']['web_site'], $_nr_v['imgurl']) : '';
+        // 兜底：伪静态 URL 里不应出现孤立的 "-"（如 ../product/56-.html）
+        $_news_rel[$_nr_k]['url'] = preg_replace('#(\d+)-\.html$#', '$1.html',
+            load::mod_class('product/product_handle', 'new')->get_content_url($_news_rel[$_nr_k]));
+        $_news_rel[$_nr_k]['thumb'] = $_nr_v['imgurl'] ? str_replace('../', $_M['url']['web_site'], $_nr_v['imgurl']) : '/upload/202610/moren_400.jpeg';
         $_news_rel[$_nr_k]['area'] = trim($_nr_v['region_city'] . $_nr_v['region_district']);
     }
 }

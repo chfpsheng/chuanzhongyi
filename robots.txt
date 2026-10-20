@@ -2,8 +2,37 @@
 User-agent: *
 Allow: /
 
+# 生成式 AI 搜索引擎爬虫：显式放行，便于读取站点内容与 llms.txt / llms-full.txt
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: omgilibot
+Allow: /
+
+# 面向 AI 的全文索引入口（llms.txt 标准扩展）
+LLMs-txt: /llms.txt
+
 # 后台与系统目录
 Disallow: /admin/
+Disallow: /zyadmin/
 Disallow: /app/
 Disallow: /cache/
 Disallow: /templates/

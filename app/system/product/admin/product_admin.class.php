@@ -255,7 +255,7 @@ class product_admin extends base_admin
         $list['auto_sent'] = 0;
         //中医馆结构化字段默认值
         $list['specialty'] = '';
-        $list['visit_time'] = '';
+        $list['visit_time'] = '9:00-22:00';
         $list['insurance'] = 2;
         $list['booking'] = '';
 
@@ -417,6 +417,8 @@ class product_admin extends base_admin
                 'class3' => 0,
                 'region_city' => $region['city'],
                 'region_district' => $region['district'],
+                // 出诊时间默认值（与后台新增表单默认值保持一致）
+                'visit_time' => '9:00-22:00',
                 'imgurl' => '',
                 'no_order' => 0,
                 'access' => 0,

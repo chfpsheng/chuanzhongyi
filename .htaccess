@@ -21,6 +21,28 @@ RewriteCond %{HTTP_HOST} ^(www\.)?chuanzhongyi\.com$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://www.chuanzhongyi.com%{REQUEST_URI} [R=301,L]
+
+# ============================================================
+# 死链 301 修复（Google Search Console 2026-10 报告的 404）
+# 注意：米拓后台重新生成伪静态时会覆盖本文件，届时需把本段重新加回
+# ============================================================
+# 旧版医师详情（id 对应中医师表）→ 医师模块详情页
+RewriteCond %{QUERY_STRING} ^id=([0-9]+)$
+RewriteRule ^about/show\.php$ /zhongyishi/showdoctor.php?id=%1 [R=301,L]
+
+# 已删除的中医馆(产品) id=44 → 中医馆列表
+RewriteCond %{QUERY_STRING} ^id=44$
+RewriteRule ^product/showproduct\.php$ /product/? [R=301,L]
+
+# 错误格式 URL（56-html）→ 正确详情页（id=56 秉正堂中医馆·新乐路总店）
+RewriteRule ^product/56-html/?$ /product/showproduct.php?lang=cn&id=56 [R=301,L]
+
+# 已删除的医馆环境图片 id=54 → 医馆环境列表
+RewriteRule ^img1/54\.html$ /img1/? [R=301,L]
+
+# 已删除的 news/region 栏目 → 按地区找医馆
+RewriteRule ^news/region/?$ /region/ [R=301,L]
+
 RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ 404.html [L]
 RewriteRule index\.php/\w+ 404.html [L]
 RewriteCond %{REQUEST_FILENAME} -f

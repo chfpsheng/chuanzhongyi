@@ -328,7 +328,8 @@ class thumb
             case 'image/pjpeg':
             case 'image/jpeg':
                 if (function_exists('imagejpeg')) {
-                    $re = imagejpeg($img_thumb, $thumbname, 100);
+                    // 优化：缩略图 JPEG 质量由 100 下调为 82（体积约降至 1/4，肉眼几乎无差异）
+                    $re = imagejpeg($img_thumb, $thumbname, 82);
                 } else {
                     return $this->error($_M['word']['upfileFail10']);
                 }

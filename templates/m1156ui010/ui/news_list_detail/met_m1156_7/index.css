@@ -71,4 +71,9 @@ $uicss .met-page.border-top1{border:none !important; padding:0 !important;}
 $uicss .met-page.border-top1 .container.p-t-30{padding:0 !important;}
 
 $uicss .page-link{color:$firstcolor$ !important; color:$titlecolor$ !important; color:$pagecolor$ !important; background:none !important; border-color:$bordercolor$;}
-$uicss .page-link:hover{color:$thirdcolor$ !important; color:$hovercolor$ !important; border-color:$thirdcolor$; border-color:$hovercolor$;}
+$uicss .page-link:hover{color:$thirdcolor$ !important; color:$hovercolor$ !important; border-color:$thirdcolor$; border-color:$hovercolor$;}
+
+/* 文章页内链：指向中医馆名录，强化「成都中医馆」内部权重 */
+$uicss .met-news-inlink{margin:15px 0; padding:10px 15px; background:$showcolor$; border-radius:4px; color:$secondcolor$; color:$desccolor$;}
+$uicss .met-news-inlink a{color:$firstcolor$; color:$titlecolor$; font-weight:700; text-decoration:none;}
+$uicss .met-news-inlink a:hover{color:$thirdcolor$; color:$hovercolor$; text-decoration:underline;}

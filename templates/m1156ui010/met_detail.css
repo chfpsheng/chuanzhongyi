@@ -303,3 +303,36 @@
 .met-yiguan-doctors-list li p.info{margin:0; font-size:13px; color:#999999}
 .met-yiguan-doctors-list li p.info span{margin:0 5px; display:inline-block}
 @media (max-width:767px){.met-yiguan-doctors-list li{width:50%}}
+
+/* ---------- 内容详情页头部信息卡片（中医活动 / 少儿中医 共用） ---------- */
+.met-shownews-header h1{font-weight:400;}
+.met-detail-subinfo{text-align:center;color:#999999;font-size:13px;margin:5px 0 22px;}
+.met-detail-subinfo span{margin:0 12px;display:inline-block;}
+.met-detail-subinfo i{margin-right:4px;}
+
+.met-detail-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 20px 0;}
+.detail-card{display:flex;align-items:flex-start;background:#faf8f5;border-radius:8px;padding:14px 16px;border-left:3px solid #8a6d3b;transition:.2s;}
+.detail-card:hover{background:#f5f0e8;}
+.detail-card-icon{width:36px;height:36px;line-height:36px;text-align:center;background:#ffffff;border-radius:50%;color:#8a6d3b;margin-right:12px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.detail-card-icon i{font-size:16px;}
+.detail-card-body{flex:1;min-width:0;}
+.detail-card-label{font-size:12px;color:#999999;margin-bottom:4px;}
+.detail-card-value{font-size:15px;color:#333333;font-weight:500;line-height:1.4;word-break:break-all;}
+.detail-card-value a{color:#8a6d3b;}
+.detail-card-value a:hover{color:#6b4f28;text-decoration:underline;}
+
+.met-detail-tags{margin:18px 0 8px;text-align:center;}
+.met-detail-tags > i{color:#999999;margin-right:8px;}
+.detail-tag{display:inline-block;background:#ffffff;border:1px solid #e0e0e0;color:#666666;padding:4px 12px;border-radius:20px;font-size:13px;margin:0 6px 6px 0;transition:.2s;}
+.detail-tag:hover{background:#8a6d3b;border-color:#8a6d3b;color:#ffffff;text-decoration:none;}
+
+/* 自定义参数（少儿中医等）：名称 + 值 的胶囊展示 */
+.met-detail-paras{margin:12px 0 8px;text-align:center;}
+.detail-para{display:inline-block;background:#faf8f5;border:1px solid #efe7dc;color:#555555;padding:4px 12px;border-radius:20px;font-size:13px;margin:0 6px 6px 0;}
+.detail-para b{font-weight:600;color:#8a6d3b;margin-right:4px;}
+
+@media (max-width:767px){
+.met-detail-cards{grid-template-columns:1fr;gap:10px;}
+.met-shownews-header h1{font-size:22px !important;}
+.met-detail-subinfo span{margin:0 8px 4px;}
+}

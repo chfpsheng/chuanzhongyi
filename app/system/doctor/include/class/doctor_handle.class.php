@@ -128,10 +128,18 @@ class doctor_handle extends base_handle
             );
         }
         if ($hospital) {
-            $faq[] = array(
-                'q' => $name . '医生属于哪家医院？',
-                'a' => $name . '医生所属医院为' . $hospital . '。',
-            );
+            // 只有当医生简介/描述中确实明确提及该医院时，才生成"属于哪家医院"问答，
+            // 避免从坐诊医馆等字段推断出未经验证的所属医院，防止编造。
+            $content_text = isset($content['content']) ? trim(preg_replace('/\s+/', ' ', html_entity_decode(strip_tags($content['content']), ENT_QUOTES, 'UTF-8'))) : '';
+            $hospital_plain = html_entity_decode($hospital, ENT_QUOTES, 'UTF-8');
+            $hospital_mentioned = mb_stripos($content_text, $hospital_plain, 0, 'UTF-8') !== false
+                                || mb_stripos($desc, $hospital_plain, 0, 'UTF-8') !== false;
+            if ($hospital_mentioned) {
+                $faq[] = array(
+                    'q' => $name . '医生属于哪家医院？',
+                    'a' => $name . '医生所属医院为' . $hospital . '。',
+                );
+            }
         }
         $faq[] = array(
             'q' => '怎么预约' . $name . '医生的号？',

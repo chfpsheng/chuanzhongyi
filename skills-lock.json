@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "nihaisha": {
+      "source": "chfpsheng/nihaisha-nishi-tcm",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "d0a6109ccdc7cfba0daaa1f538b32dce472cb3ee981d82553267913c6d208b06"
+    }
+  }
+}

@@ -240,6 +240,12 @@ class base_database extends database
             $order_sql .= $this->get_column_order($_order);
         }
 
+        // 中医馆列表（product 模块 / 栏目 104）：置顶 > 推荐 > 评分(0-10) > 最新
+        if ($this->module == 'product' && ($id == 104 || (isset($class123['class1']['id']) && $class123['class1']['id'] == 104))) {
+            $_score_sub = "(SELECT COALESCE(MAX(CAST(pl.info AS SIGNED)),0) FROM {$_M['table']['plist']} pl WHERE pl.listid={$this->table}.id AND pl.paraid=(SELECT pa.id FROM {$_M['table']['parameter']} pa WHERE pa.name='评分' AND pa.class1=104 AND pa.lang='" . $_M['lang'] . "' LIMIT 1) AND pl.lang='" . $_M['lang'] . "')";
+            $order_sql = ' ORDER BY top_ok DESC, com_ok DESC, ' . $_score_sub . ' DESC, updatetime DESC, id DESC ';
+        }
+
         //商城这里加插件，当前代码只作演示用，开发商城的时候，需要根据实际情况修改。
         $plugin_order = load::plugin('list_order', array('condition' => $cond));
         $sql .= $plugin_order ?: $order_sql;

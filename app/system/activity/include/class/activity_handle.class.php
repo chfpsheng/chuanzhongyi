@@ -21,13 +21,15 @@ class activity_handle extends base_handle
         $content = parent::one_para_handle($content);
 
         if ($content) {
-            //活动时间：起止时间都有时用 ~ 连接
+            //活动时间：只显示到「日」，不显示时分秒；起止同一天时只显示一个日期
             $start = !empty($content['start_time']) ? strtotime($content['start_time']) : 0;
             $end = !empty($content['end_time']) ? strtotime($content['end_time']) : 0;
-            $content['start_time_text'] = $start ? date('Y-m-d H:i', $start) : '';
-            $content['end_time_text'] = $end ? date('Y-m-d H:i', $end) : '';
+            $content['start_time_text'] = $start ? date('Y-m-d', $start) : '';
+            $content['end_time_text'] = $end ? date('Y-m-d', $end) : '';
             if ($start && $end) {
-                $content['activity_time'] = $content['start_time_text'] . ' ~ ' . $content['end_time_text'];
+                $content['activity_time'] = ($content['start_time_text'] === $content['end_time_text'])
+                    ? $content['start_time_text']
+                    : $content['start_time_text'] . ' ~ ' . $content['end_time_text'];
             } else {
                 $content['activity_time'] = $content['start_time_text'] ? $content['start_time_text'] : $content['end_time_text'];
             }

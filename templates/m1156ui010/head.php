@@ -1,3 +1,28 @@
+<?php
+// 医师页标题优化：若简介/正文含「名中医」等权威头衔，优先替换页面标题中的职称后缀。
+// 这样 <title>、搜索结果与结构化数据都会显示更权威的职称（如「四川省名中医」而非「主治医师」）。
+$_seo_honor = '';
+if (isset($data['module']) && intval($data['module']) === 14 && !empty($data['page_title'])) {
+    $_seo_honor_search = '';
+    if (!empty($data['page_description'])) {
+        $_seo_honor_search .= (string)$data['page_description'] . ' ';
+    }
+    if (!empty($data['description'])) {
+        $_seo_honor_search .= (string)$data['description'] . ' ';
+    }
+    if (!empty($data['content'])) {
+        $_seo_honor_search .= mb_substr(strip_tags((string)$data['content']), 0, 500, 'UTF-8');
+    }
+    if (preg_match('/([^\\s,，;；]{0,15}名中医)/u', $_seo_honor_search, $_m_honor)) {
+        $_seo_honor = $_m_honor[1];
+        if (preg_match('/^(.*?)[（(].*?[）)]$/u', $data['page_title'], $_m_title)) {
+            $data['page_title'] = $_m_title[1] . '（' . $_seo_honor . '）';
+        } else {
+            $data['page_title'] = $data['page_title'] . '（' . $_seo_honor . '）';
+        }
+    }
+}
+?>
 <met_meta page="$met_page" /><ui name="head_nav" style="met_m1156_7" id="1" />
 <ui name="banner" style="met_m1156_2" id="52" />
 <?php
@@ -10,12 +35,21 @@ $_seo_name   = isset($c['met_webname']) ? $c['met_webname'] : '';
 $_seo_desc   = isset($c['met_description']) ? $c['met_description'] : '';
 $_seo_title  = isset($data['page_title']) ? $data['page_title'] : '';
 $_seo_pdesc  = isset($data['page_description']) && $data['page_description'] ? $data['page_description'] : $_seo_desc;
-$_seo_cur    = $_seo_site . (isset($data['url']) ? str_replace('../', '', $data['url']) : '');
+// 统一规范为「站点根 + 带前导斜杠的路径」，避免 $data['url'] 缺前导斜杠时把 @id/url 拼成无效地址
+$_seo_cur    = rtrim($_seo_site, '/') . '/' . ltrim(str_replace('../', '', isset($data['url']) ? (string)$data['url'] : ''), '/');
 // 机构对外信息：如需调整电话或社交账号主页，只改这里即可
 $_seo_tel    = ''; // 咨询电话（不需要对外展示时置为空字符串）
-$_seo_sameas = array(         // 微信公众号主页 / 微博主页 / 其他官方主页，没有就留空数组
-    // 'https://weibo.com/你的微博主页',
-);
+// 平台官方主页（sameAs）：供搜索引擎与生成式引擎做实体消歧/引用。
+// 优先读取后台「页脚设置」已填的新浪微博主页；其余在下方数组手动维护真实 URL。
+// 没有就保持空数组（不影响其它结构化数据）。注意：不要编造不存在的 URL。
+$_seo_sameas = array();
+if (!empty($c['footinfo_sina']) && stripos((string)$c['footinfo_sina'], 'http') === 0) {
+    $_seo_sameas[] = (string)$c['footinfo_sina'];
+}
+// 手动补充示例（取消注释并替换为真实地址即可生效）：
+// $_seo_sameas[] = 'https://weibo.com/你的微博UID';
+// $_seo_sameas[] = 'https://www.douyin.com/user/你的抖音ID';
+// $_seo_sameas[] = 'https://www.qcc.com/web/search?key=四川中医馆';
 $_seo_img    = '';
 if (!empty($data['imgurl'])) {
     $_seo_img = $_seo_site . str_replace('../', '', $data['imgurl']);
@@ -29,6 +63,49 @@ $_seo_clean = function ($s) {
 $_seo_abs = function ($u) use ($_seo_site) {
     return $_seo_site . str_replace('../', '', (string)$u);
 };
+// 取产品参数值（参数管理里「地点/电话/官网/经纬度」等），用于 JSON-LD 真实字段填充
+$_seo_para = function ($n) use ($data) {
+    if (empty($data['para']) || !is_array($data['para'])) {
+        return '';
+    }
+    foreach ($data['para'] as $_seo_p) {
+        if (isset($_seo_p['name']) && (string)$_seo_p['name'] === (string)$n && isset($_seo_p['value'])) {
+            return trim((string)$_seo_p['value']);
+        }
+    }
+    return '';
+};
+
+// 产品详情页（中医馆，module=3）若未单独设置 SEO 描述，则用「擅长项目 + 地址 + 医保」动态生成，
+// 让大多数未手动优化描述的馆也拥有唯一、命中长尾意图的 meta / JSON-LD 描述，缓解 meta 雷同导致的低 CTR
+if (empty($data['page_description']) && !empty($data['module']) && intval($data['module']) === 3 && !empty($data['id'])) {
+    $_seo_spec = array();
+    if (!empty($data['specialty_list']) && is_array($data['specialty_list'])) {
+        foreach (array_slice($data['specialty_list'], 0, 6) as $_seo_sp) {
+            $_seo_sp = $_seo_clean($_seo_sp);
+            if ($_seo_sp !== '') {
+                $_seo_spec[] = $_seo_sp;
+            }
+        }
+    }
+    $_seo_addr = '';
+    if (!empty($data['para']) && is_array($data['para'])) {
+        foreach ($data['para'] as $_seo_p) {
+            if (!empty($_seo_p['name']) && $_seo_p['name'] === '地点' && !empty($_seo_p['value'])) {
+                $_seo_addr = $_seo_clean($_seo_p['value']);
+            }
+        }
+    }
+    $_seo_built = $_seo_clean($data['title']) . '是成都的中医诊疗机构';
+    if ($_seo_addr !== '') {
+        $_seo_built .= '，位于' . $_seo_addr;
+    }
+    if ($_seo_spec) {
+        $_seo_built .= '，擅长' . implode('、', $_seo_spec);
+    }
+    $_seo_built .= '。提供针灸、推拿、艾灸、拔罐及中医内科等调理服务，医保与收费以医馆现场公示为准，就诊前建议电话确认。';
+    $_seo_pdesc = $_seo_built;
+}
 ?>
 <?php
 // canonical：统一规范链接，避免 / 与 /index.php?lang=cn 等重复内容被分别收录
@@ -65,25 +142,20 @@ if (!$_seo_hide && !empty($data['classnow']) && in_array(intval($data['classnow'
 if (!$_seo_hide && !empty($data['class1']) && in_array(intval($data['class1']), $_seo_hidden_columns, true)) {
     $_seo_hide = true;
 }
-// 薄内容（正文不足 300 字）暂不参与索引，正文补全后自动放开
-if (!$_seo_hide && !empty($data['id'])) {
-    $_seo_plain = '';
-    if (!empty($data['content'])) {
-        $_seo_plain .= (string)$data['content'];
-    }
-    if (!empty($data['contents']) && is_array($data['contents'])) {
-        foreach ($data['contents'] as $_seo_c) {
-            if (!empty($_seo_c['content'])) {
-                $_seo_plain .= (string)$_seo_c['content'];
-            }
-        }
-    }
-    $_seo_plain = trim(strip_tags(html_entity_decode($_seo_plain, ENT_QUOTES, 'UTF-8')));
-    $_seo_plain_len = function_exists('mb_strlen') ? mb_strlen($_seo_plain, 'UTF-8') : strlen($_seo_plain);
-    if ($_seo_plain_len < 300) {
-        $_seo_hide = true;
-    }
-}
+// 薄内容控制：详情页（有 id 的正式内容页）一律允许收录，不再用固定字数门槛硬性 noindex，
+// 避免误伤商品/医师/资讯等核心页面；空内容页的质量判断交给搜索引擎本身。
+// 若确需排除真正空内容页，可放开下面注释并设极低阈值（如 <20 字）：
+// if (!$_seo_hide && !empty($data['id'])) {
+//     $_seo_plain = '';
+//     if (!empty($data['content'])) $_seo_plain .= (string)$data['content'];
+//     if (!empty($data['contents']) && is_array($data['contents'])) {
+//         foreach ($data['contents'] as $_seo_c) { if (!empty($_seo_c['content'])) $_seo_plain .= (string)$_seo_c['content']; }
+//     }
+//     $_seo_plain = preg_replace('/<!--met-rel-start-->.*?<!--met-rel-end-->/s', '', $_seo_plain);
+//     $_seo_plain = trim(strip_tags(html_entity_decode($_seo_plain, ENT_QUOTES, 'UTF-8')));
+//     $_seo_plain_len = function_exists('mb_strlen') ? mb_strlen($_seo_plain, 'UTF-8') : strlen($_seo_plain);
+//     if ($_seo_plain_len < 20) $_seo_hide = true;
+// }
 // 站内搜索页：结果由查询词动态生成，不参与索引
 if (!$_seo_hide && isset($_SERVER['REQUEST_URI']) && strpos((string)$_SERVER['REQUEST_URI'], '/search/') !== false) {
     $_seo_hide = true;
@@ -98,7 +170,7 @@ if (!$_seo_hide && empty($data['canonical'])) {
         // metid / pseudo_jump 是米拓伪静态的内部重写参数（每个详情页都会带），
         // 必须放行；否则 /news/62.html、/product/33.html 等全会被误判成
         // 「参数组合页」而输出 noindex，导致详情页永远不被搜索引擎收录。
-        foreach (array('lang', 'page', 'dpage', 'pageset', 'id', 'metid', 'pseudo_jump', 'class1', 'class2', 'class3') as $_seo_allow) {
+        foreach (array('lang', 'page', 'dpage', 'pageset', 'id', 'metid', 'pseudo_jump', 'class1', 'class2', 'class3', 'list') as $_seo_allow) {
             unset($_seo_query[$_seo_allow]);
         }
         if ($_seo_query) {
@@ -114,6 +186,15 @@ if ($_seo_hide) { ?>
 <meta name="twitter:description" content="<?php echo htmlspecialchars($_seo_clean($_seo_pdesc), ENT_QUOTES, 'UTF-8'); ?>" />
 <?php if ($_seo_img) { ?>
 <meta name="twitter:image" content="<?php echo htmlspecialchars($_seo_img, ENT_QUOTES, 'UTF-8'); ?>" />
+<?php } ?>
+<?php // Open Graph：微信/QQ/微博等分享卡片依赖 og: 抓取标题/描述/缩略图 ?>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<?php echo htmlspecialchars($_seo_title, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta property="og:description" content="<?php echo htmlspecialchars($_seo_clean($_seo_pdesc), ENT_QUOTES, 'UTF-8'); ?>" />
+<meta property="og:url" content="<?php echo htmlspecialchars($_seo_cur, ENT_QUOTES, 'UTF-8'); ?>" />
+<meta property="og:site_name" content="<?php echo htmlspecialchars($_seo_name, ENT_QUOTES, 'UTF-8'); ?>" />
+<?php if ($_seo_img) { ?>
+<meta property="og:image" content="<?php echo htmlspecialchars($_seo_img, ENT_QUOTES, 'UTF-8'); ?>" />
 <?php } ?>
 <?php
 $_seo_graph = array();
@@ -251,6 +332,11 @@ if ($_seo_is_detail) {
                 'medicalSpecialty' => '中医',
                 'knowsAbout'  => array('中医', '中医内科', '针灸', '推拿', '中药调理'),
             );
+            // 若简介含「名中医」等权威头衔，输出到 Physician 的 jobTitle，
+            // 供搜索引擎/AI 引擎识别医师等级，与页面标题保持一致。
+            if (!empty($_seo_honor)) {
+                $_seo_entity['jobTitle'] = $_seo_honor;
+            }
             //医师「擅长」长文本：拆成短语输出到 knowsAbout（过长或无有效短语时保留默认值）
             if (!empty($data['specialty_text'])) {
                 $_seo_spec_items = preg_split('/[、，,；;\/\|\n\r]+/u', (string)$data['specialty_text']);
@@ -283,6 +369,27 @@ if ($_seo_is_detail) {
             }
             break;
         case 15: // 中医活动
+            // 无排期（如活动综述、资讯型内容）：输出 Article，避免产出缺 startDate 的无效 Event
+            if (empty($data['start_time'])) {
+                $_seo_entity = array(
+                    '@type'            => 'Article',
+                    '@id'              => $_seo_cur . '#article',
+                    'headline'         => mb_substr($_seo_clean($data['title']), 0, 110),
+                    'url'              => $_seo_cur,
+                    'description'      => $_seo_clean($_seo_pdesc),
+                    'inLanguage'       => 'zh-CN',
+                    'author'           => array('@id' => $_seo_site . '#organization'),
+                    'publisher'        => array('@id' => $_seo_site . '#organization'),
+                    'mainEntityOfPage' => array('@id' => $_seo_cur . '#webpage'),
+                );
+                if (!empty($data['addtime'])) {
+                    $_seo_entity['datePublished'] = str_replace(' ', 'T', trim($data['addtime'])) . '+08:00';
+                }
+                if (!empty($data['updatetime'])) {
+                    $_seo_entity['dateModified'] = str_replace(' ', 'T', trim($data['updatetime'])) . '+08:00';
+                }
+                break;
+            }
             $_seo_entity = array(
                 '@type'       => 'Event',
                 '@id'         => $_seo_cur . '#event',
@@ -318,6 +425,7 @@ if ($_seo_is_detail) {
                 'description' => $_seo_clean($_seo_pdesc),
                 'knowsAbout'  => '中医',
             );
+            // 地址：国家/省/市/区 + 街道（街道来自参数「地点」，约 23 家馆已填）
             $_seo_addr = array('@type' => 'PostalAddress', 'addressCountry' => 'CN');
             if (!empty($data['region_city'])) {
                 $_seo_addr['addressRegion'] = $_seo_clean($data['region_city']);
@@ -325,8 +433,22 @@ if ($_seo_is_detail) {
             if (!empty($data['region_district'])) {
                 $_seo_addr['addressLocality'] = $_seo_clean($data['region_district']);
             }
+            $_seo_street = $_seo_para('地点');
+            if ($_seo_street !== '') {
+                $_seo_addr['streetAddress'] = $_seo_street;
+            }
             $_seo_entity['address'] = $_seo_addr;
-            // 结构化字段：擅长项目 / 出诊时间（营业时间）
+            // 电话（参数「电话」，约 16 家馆已填）
+            $_seo_tel = $_seo_para('电话');
+            if ($_seo_tel !== '') {
+                $_seo_entity['telephone'] = $_seo_tel;
+            }
+            // 服务区域（本地 GEO 信号）
+            $_seo_entity['areaServed'] = array(
+                array('@type' => 'City', 'name' => '成都市'),
+                array('@type' => 'State', 'name' => '四川省'),
+            );
+            // 结构化字段：擅长项目
             if (!empty($data['specialty_list']) && is_array($data['specialty_list'])) {
                 $_seo_spec = array();
                 foreach ($data['specialty_list'] as $_seo_sp) {
@@ -341,8 +463,46 @@ if ($_seo_is_detail) {
             } elseif (!empty($data['specialty_text'])) {
                 $_seo_entity['medicalSpecialty'] = $_seo_clean($data['specialty_text']);
             }
+            // 营业时间：把 "9:00-22:00" 转成标准 openingHoursSpecification（每日），
+            // 同时保留 openingHours 文本串以兼容旧解析器
             if (!empty($data['visit_time'])) {
-                $_seo_entity['openingHours'] = $_seo_clean($data['visit_time']);
+                $_seo_vt = $_seo_clean($data['visit_time']);
+                if (preg_match('/(\d{1,2}):?(\d{2})?\s*[-~至]\s*(\d{1,2}):?(\d{2})?/u', $_seo_vt, $_m)) {
+                    $_seo_o = sprintf('%02d:%02d', intval($_m[1]), intval($_m[2] ?: 0));
+                    $_seo_c = sprintf('%02d:%02d', intval($_m[3]), intval($_m[4] ?: 0));
+                    $_seo_entity['openingHoursSpecification'] = array(
+                        'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),
+                        'opens'     => $_seo_o,
+                        'closes'    => $_seo_c,
+                    );
+                    $_seo_entity['openingHours'] = 'Mo-Su ' . $_seo_o . '-' . $_seo_c;
+                } else {
+                    $_seo_entity['openingHours'] = $_seo_vt;
+                }
+            }
+            // 经纬度（参数「经纬度」，格式 "纬度,经度"；未填则不出 geo，避免编造坐标）
+            $_seo_geo = $_seo_para('经纬度');
+            if ($_seo_geo !== '' && preg_match('/([\d.]+)\s*,\s*([\d.]+)/', $_seo_geo, $_g)) {
+                $_seo_entity['geo'] = array(
+                    '@type'     => 'GeoCoordinates',
+                    'latitude'  => floatval($_g[1]),
+                    'longitude' => floatval($_g[2]),
+                );
+            }
+            // 官网（参数「官网」）作 sameAs，供搜索引擎与生成式引擎做实体消歧/引用；
+            // 与页面上的「官网」按钮同源，留空则不输出
+            $_seo_site_url = $_seo_para('官网');
+            if ($_seo_site_url === '' && !empty($data['para_url']) && is_array($data['para_url'])) {
+                foreach ($data['para_url'] as $_seo_pu) {
+                    if (empty($_seo_pu['value']) || empty($_seo_pu['name']) || strpos((string)$_seo_pu['name'], '官网') === false) {
+                        continue;
+                    }
+                    $_seo_site_url = trim($_seo_clean($_seo_pu['value']));
+                    break;
+                }
+            }
+            if ($_seo_site_url !== '' && stripos($_seo_site_url, 'http') === 0) {
+                $_seo_entity['sameAs'] = $_seo_site_url;
             }
             break;
         case 2: // 中医资讯
@@ -391,6 +551,36 @@ if ($_seo_is_detail) {
                 'inLanguage'  => 'zh-CN',
                 'provider'    => array('@id' => $_seo_site . '#organization'),
             );
+            // 有排期的输出「课程班次」：时间 + 地点，便于搜索引擎与生成式引擎识别为可报名活动
+            if (!empty($data['start_time'])) {
+                $_seo_inst = array(
+                    '@type'      => 'CourseInstance',
+                    'courseMode' => 'onsite',
+                    'startDate'  => $_seo_clean($data['start_time']),
+                );
+                if (!empty($data['end_time'])) {
+                    $_seo_inst['endDate'] = $_seo_clean($data['end_time']);
+                }
+                $_seo_loc = $_seo_clean(isset($data['location']) ? $data['location'] : '');
+                if ($_seo_loc === '' && !empty($data['region_city'])) {
+                    $_seo_loc = $_seo_clean($data['region_city'])
+                             . $_seo_clean(isset($data['region_district']) ? $data['region_district'] : '');
+                }
+                if ($_seo_loc !== '') {
+                    $_seo_addr = array('@type' => 'PostalAddress', 'addressCountry' => 'CN');
+                    if (!empty($data['region_city'])) {
+                        $_seo_addr['addressRegion'] = $_seo_clean($data['region_city']);
+                    }
+                    if (!empty($data['region_district'])) {
+                        $_seo_addr['addressLocality'] = $_seo_clean($data['region_district']);
+                    }
+                    $_seo_inst['location'] = array('@type' => 'Place', 'name' => $_seo_loc, 'address' => $_seo_addr);
+                }
+                $_seo_entity['hasCourseInstance'] = $_seo_inst;
+            }
+            if (isset($data['is_free'])) {
+                $_seo_entity['isAccessibleForFree'] = $data['is_free'] ? true : false;
+            }
             break;
     }
     if ($_seo_entity) {
@@ -480,6 +670,49 @@ if (!empty($data['para']) && is_array($data['para']) && !empty($data['faq_list']
                 $data['faq_list'][$_seo_k]['a'] = $_seo_ins_text;
             }
         }
+    }
+}
+
+// 医馆页：后台未配 FAQ 时，用真实参数（医保/营业时间/地址/电话）自动生成数据型 FAQ。
+// 这是 AI 问答引擎最易直接引用的结构化内容；后台若已配 faq_list 则优先用后台的。
+// 放在医保覆盖块之后，避免通用医保话术覆盖掉带馆名的答案。
+if ($_seo_module === 3 && empty($data['faq_list'])) {
+    $_seo_cf = array();
+    $_seo_cn = $_seo_clean($data['title']);
+    // 医保（与参数「支持医保」一致）
+    $_seo_med = '';
+    if (!empty($data['para']) && is_array($data['para'])) {
+        foreach ($data['para'] as $_seo_p) {
+            if (!empty($_seo_p['name']) && mb_strpos((string)$_seo_p['name'], '医保', 0, 'UTF-8') !== false) {
+                $_seo_med = trim(strip_tags((string)$_seo_p['value']));
+                break;
+            }
+        }
+    }
+    if ($_seo_med === '是' || $_seo_med === '支持') {
+        $_seo_cf[] = array('q' => $_seo_cn . '支持医保吗？', 'a' => $_seo_cn . '支持医保结算，可报销项目（饮片、针灸、推拿等）与门诊统筹比例以医馆现场公示及当地医保政策为准。');
+    } elseif ($_seo_med === '否' || $_seo_med === '不支持') {
+        $_seo_cf[] = array('q' => $_seo_cn . '支持医保吗？', 'a' => $_seo_cn . '暂不支持医保结算，就诊费用以自费为主，具体收费项目请以医馆现场公示为准。');
+    } else {
+        $_seo_cf[] = array('q' => '去' . $_seo_cn . '就诊能用医保吗？', 'a' => $_seo_cn . '的医保与门诊统筹信息以现场公示为准，是否可就地结算建议就诊前电话咨询确认。');
+    }
+    // 营业时间
+    if (!empty($data['visit_time'])) {
+        $_seo_cf[] = array('q' => $_seo_cn . '的营业时间是几点到几点？', 'a' => $_seo_cn . '的营业时间为' . $_seo_clean($data['visit_time']) . '，建议就诊前电话确认当天是否正常开诊。');
+    }
+    // 地址 / 电话
+    $_seo_addr_t = $_seo_para('地点');
+    $_seo_tel_t  = $_seo_para('电话');
+    if ($_seo_addr_t !== '' || $_seo_tel_t !== '') {
+        $_seo_a   = $_seo_addr_t !== '' ? '地址：' . $_seo_addr_t : '';
+        $_seo_t   = $_seo_tel_t !== '' ? '电话：' . $_seo_tel_t : '';
+        $_seo_sep = ($_seo_a !== '' && $_seo_t !== '') ? '；' : '';
+        $_seo_cf[] = array('q' => '怎么去' . $_seo_cn . '？', 'a' => $_seo_a . $_seo_sep . $_seo_t . '。建议前往前先电话确认。');
+    }
+    // 预约
+    $_seo_cf[] = array('q' => '去' . $_seo_cn . '需要预约吗？', 'a' => '建议提前电话预约，尤其是名老中医坐诊时段；具体排号与预约方式以医馆安排为准。');
+    if ($_seo_cf) {
+        $data['faq_list'] = $_seo_cf;
     }
 }
 

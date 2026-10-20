@@ -21,13 +21,15 @@ class shaoer_handle extends base_handle
         $content = parent::one_para_handle($content);
 
         if ($content) {
-            //活动时间：起止时间都有时用 ~ 连接
+            //活动时间：只显示到「日」，不显示时分秒；起止同一天时只显示一个日期
             $start = !empty($content['start_time']) ? strtotime($content['start_time']) : 0;
             $end = !empty($content['end_time']) ? strtotime($content['end_time']) : 0;
-            $content['start_time_text'] = $start ? date('Y-m-d H:i', $start) : '';
-            $content['end_time_text'] = $end ? date('Y-m-d H:i', $end) : '';
+            $content['start_time_text'] = $start ? date('Y-m-d', $start) : '';
+            $content['end_time_text'] = $end ? date('Y-m-d', $end) : '';
             if ($start && $end) {
-                $content['shaoer_time'] = $content['start_time_text'] . ' ~ ' . $content['end_time_text'];
+                $content['shaoer_time'] = ($content['start_time_text'] === $content['end_time_text'])
+                    ? $content['start_time_text']
+                    : $content['start_time_text'] . ' ~ ' . $content['end_time_text'];
             } else {
                 $content['shaoer_time'] = $content['start_time_text'] ? $content['start_time_text'] : $content['end_time_text'];
             }
@@ -99,9 +101,11 @@ class shaoer_handle extends base_handle
             );
         }
         if ($location || $region) {
+            // $location 通常已含「成都市XX区」，再拼 $region 会重复（与 activity_handle 保持一致：优先取 $location）
+            $addr = ($location !== '') ? $location : trim($region);
             $faq[] = array(
                 'q' => $title . '在哪里举办？',
-                'a' => $title . '举办地点为' . trim($region . ' ' . $location) . ($yiguan ? '，由' . $yiguan . '承办' : '') . '。出行前建议通过导航确认具体位置。',
+                'a' => $title . '举办地点为' . $addr . ($yiguan ? '，由' . $yiguan . '承办' : '') . '。出行前建议通过导航确认具体位置。',
             );
         }
         $faq[] = array(

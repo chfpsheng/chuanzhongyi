@@ -67,7 +67,7 @@ $_rg_count = count($_rg_breadcrumb);
 			<?php foreach ($_rg_list as $_rg_v) { ?>
 			<div class="region-card">
 				<a href="<?php echo htmlspecialchars($_rg_v['url'], ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars($_rg_v['title'], ENT_QUOTES, 'UTF-8'); ?>">
-					<div class="thumb" style="<?php echo $_rg_v['imgurl'] ? 'background-image:url(' . htmlspecialchars($_rg_v['imgurl'], ENT_QUOTES, 'UTF-8') . ');' : ''; ?>"></div>
+					<div class="thumb" style="<?php echo $_rg_v['imgurl'] ? 'background-image:url(' . htmlspecialchars($_rg_v['imgurl'], ENT_QUOTES, 'UTF-8') . ');' : 'background-image:url(/upload/202610/moren_400.jpeg);'; ?>"></div>
 					<div class="body">
 						<div class="name"><?php echo htmlspecialchars($_rg_v['title'], ENT_QUOTES, 'UTF-8'); ?></div>
 						<div class="desc"><?php echo htmlspecialchars($_rg_v['description'], ENT_QUOTES, 'UTF-8'); ?></div>
@@ -90,7 +90,7 @@ $_rg_count = count($_rg_breadcrumb);
 			<?php foreach ($_rg_list as $_rg_v) { ?>
 			<div class="region-card">
 				<a href="<?php echo htmlspecialchars($_rg_v['url'], ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars($_rg_v['title'], ENT_QUOTES, 'UTF-8'); ?>">
-					<div class="thumb" style="<?php echo $_rg_v['imgurl'] ? 'background-image:url(' . htmlspecialchars($_rg_v['imgurl'], ENT_QUOTES, 'UTF-8') . ');' : ''; ?>"></div>
+					<div class="thumb" style="<?php echo $_rg_v['imgurl'] ? 'background-image:url(' . htmlspecialchars($_rg_v['imgurl'], ENT_QUOTES, 'UTF-8') . ');' : 'background-image:url(/upload/202610/moren_400.jpeg);'; ?>"></div>
 					<div class="body">
 						<div class="name"><?php echo htmlspecialchars($_rg_v['title'], ENT_QUOTES, 'UTF-8'); ?></div>
 						<div class="desc"><?php echo htmlspecialchars($_rg_v['description'], ENT_QUOTES, 'UTF-8'); ?></div>

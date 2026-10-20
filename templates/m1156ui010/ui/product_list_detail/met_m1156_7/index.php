@@ -1,5 +1,24 @@
 <?php defined('IN_MET') or exit('No permission'); ?>
 
+<?php
+/**
+ * 中医馆（产品）详情页：隐藏系统自动追加的「在线询价」按钮（2026-10-13）
+ * 系统在链接型参数（type=10）列表 $data['para_url'] 末尾追加询价项，该项目的 id 固定为 0；
+ * 后台真实维护的链接型参数（如「官网」id=196）其 id 均大于 0，
+ * 故按 id 过滤即可只隐藏「在线询价」、保留官网等真实按钮；
+ * 过滤后若已无按钮，下方标准模式与时尚模式两处 para_url 区块会整体不输出。
+ */
+if (!empty($data['para_url']) && is_array($data['para_url'])) {
+
+    $data['para_url'] = array_values(array_filter($data['para_url'], function ($item) {
+
+        return !is_array($item) || !empty($item['id']);
+
+    }));
+
+}
+?>
+
 <if value="!$ui['has']['location']">  
 
 <section class="$uicss_main met-content animsition lazy" 
@@ -38,6 +57,7 @@
 
                 </span>
 
+<if value="$data['imgurl']">
                 <div class="shownews-container" id="met-imgs-slick">
 
                   <div class="shownews-wrapper">
@@ -81,6 +101,12 @@
                 </div>
 
                 </if>
+</if>
+<if value="!$data['imgurl']">
+                <div class="default-clinic-cover" style="text-align:center;padding:16px 0;">
+                  <img src="/upload/202610/moren.jpeg" alt="{$data.title}" style="width:100%;max-width:560px;height:auto;display:inline-block;" />
+                </div>
+</if>
 
                 <if value="$data['description']">
 
@@ -137,7 +163,12 @@
 
                     <if value="$para_url['value']">
 
-                    <a href="{$para_url.value}" class="linkbox btn btn-danger m-r-15" target="_blank">{$para_url.name}</a>
+                    <?php
+                    // 站外链接（如「官网」）加 rel="nofollow"；站内链接不加
+                    $_pu_href = (string)$para_url['value'];
+                    $_pu_rel  = (stripos($_pu_href, 'http') === 0 && strpos($_pu_href, $_M['url']['web_site']) !== 0) ? ' rel="nofollow"' : '';
+                    ?>
+                    <a href="{$para_url.value}" class="linkbox btn btn-danger m-r-15" target="_blank"<?php echo $_pu_rel; ?>>{$para_url.name}</a>
 
                     </if>
 
@@ -182,11 +213,13 @@
                           $met_rel_activity = DB::get_all("SELECT * FROM " . $_M['table']['activity'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND yiguan='" . $met_rel_id . "' ORDER BY start_time DESC, id DESC LIMIT 6");
                           foreach ((array)$met_rel_activity as $_rel_k => $_rel_v) {
                               $met_rel_activity[$_rel_k]['original_addtime'] = $_rel_v['addtime'];
+                              $met_rel_activity[$_rel_k]['start_date'] = $_rel_v['start_time'] ? date('Y-m-d', strtotime($_rel_v['start_time'])) : '';
                               $met_rel_activity[$_rel_k]['url'] = load::mod_class('activity/activity_handle', 'new')->get_content_url($met_rel_activity[$_rel_k]);
                           }
                           $met_rel_shaoer = DB::get_all("SELECT * FROM " . $_M['table']['shaoer'] . " WHERE lang='" . $_M['lang'] . "' AND recycle=0 AND displaytype!=-1 AND yiguan='" . $met_rel_id . "' ORDER BY start_time DESC, id DESC LIMIT 6");
                           foreach ((array)$met_rel_shaoer as $_rel_k => $_rel_v) {
                               $met_rel_shaoer[$_rel_k]['original_addtime'] = $_rel_v['addtime'];
+                              $met_rel_shaoer[$_rel_k]['start_date'] = $_rel_v['start_time'] ? date('Y-m-d', strtotime($_rel_v['start_time'])) : '';
                               $met_rel_shaoer[$_rel_k]['url'] = load::mod_class('shaoer/shaoer_handle', 'new')->get_content_url($met_rel_shaoer[$_rel_k]);
                           }
                       }
@@ -382,7 +415,7 @@
                             <list data="$met_rel_activity" name="$rel">
                             <li>
                               <a href="{$rel.url}" title="{$rel.title}">{$rel.title}</a>
-                              <span><if value="$rel['start_time']">{$rel.start_time}</if></span>
+                              <span><if value="$rel['start_date']">{$rel.start_date}</if></span>
                             </li>
                             </list>
                           </ul>
@@ -396,7 +429,7 @@
                             <list data="$met_rel_shaoer" name="$rel">
                             <li>
                               <a href="{$rel.url}" title="{$rel.title}">{$rel.title}</a>
-                              <span><if value="$rel['start_time']">{$rel.start_time}</if></span>
+                              <span><if value="$rel['start_date']">{$rel.start_date}</if></span>
                             </li>
                             </list>
                           </ul>
@@ -438,7 +471,7 @@
 
           </div>
 
-          <if value="$ui['hitsok']">
+          <if value="0">
 
           <div class="met-showproduct-foot">
 
@@ -508,7 +541,12 @@
 
                         <if value="$para_url['value']">
 
-                        <a href="{$para_url.value}" class="linkbox btn btn-danger" target="_blank">{$para_url.name}</a>
+                        <?php
+                        // 站外链接（如「官网」）加 rel="nofollow"；站内链接不加
+                        $_pu_href = (string)$para_url['value'];
+                        $_pu_rel  = (stripos($_pu_href, 'http') === 0 && strpos($_pu_href, $_M['url']['web_site']) !== 0) ? ' rel="nofollow"' : '';
+                        ?>
+                        <a href="{$para_url.value}" class="linkbox btn btn-danger" target="_blank"<?php echo $_pu_rel; ?>>{$para_url.name}</a>
 
                         </if>
 
@@ -681,6 +719,109 @@
             </div>
 
             </if>
+
+            <div class="product-org-intro">
+              <h3>{$data.title} 机构概况</h3>
+              <p>{$data.title}是位于<list data="$data['para']" name="$s"><if value="$s['name'] eq '地点'">{$s.value}</if></list>的中医诊疗机构，<if value="$data['specialty_list']">以<list data="$data['specialty_list']" name="$sp">{$sp}</list>等中医特色项目见长，</if>提供针灸、推拿、艾灸、拔罐及中医内科等诊疗与调理服务。{$data.description}</p>
+              <ul class="org-meta">
+                <li><span>地址：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '地点'">{$s.value}</if></list></li>
+                <li><span>电话：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '电话'">{$s.value}</if></list></li>
+                <li><span>成立时间：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '成立时间'">{$s.value}</if></list></li>
+                <li><span>医保：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '医保'">{$s.value}</if></list></li>
+                <li><span>官网：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '官网'"><a href="{$s.value}" target="_blank" rel="nofollow">{$s.value}</a></if></list></li>
+                <li><span>收费：</span>具体项目与价目以医馆现场公示为准，就诊前可电话咨询确认。</li>
+              </ul>
+            </div>
+
+            <div class="product-detail-faq">
+              <h2>{$data.title} 常见问题</h2>
+              <dl>
+                <dt>{$data.title} 地址在哪里？怎么去？</dt>
+                <dd>本馆详细地址见页面上方信息，建议出行前电话确认营业与出诊时间，可导航前往。</dd>
+                <dt>{$data.title} 支持医保吗？</dt>
+                <dd>是否支持医保以本馆现场公示为准，就诊前建议先电话核实，避免跑空。</dd>
+                <dt>{$data.title} 怎么预约挂号？</dt>
+                <dd>可通过页面提供的官网或电话联系本馆，部分馆支持到馆挂号；具体预约方式以本馆安排为准。</dd>
+                <dt>{$data.title} 擅长 / 主治什么？</dt>
+                <dd><if value="$data['specialty_list']">本馆擅长<list data="$data['specialty_list']" name="$sp">{$sp}</list>等中医特色项目，</if>具体诊疗范围以医馆实际出诊科目为准，建议就诊前电话确认当日可看的病种与坐诊医师。</dd>
+                <dt>{$data.title} 怎么收费？有价目表吗？</dt>
+                <dd>中医馆多为按项目收费（挂号、针灸、推拿、饮片等），具体价目以医馆现场公示为准；部分项目可走医保或门诊统筹，报销比例各馆不同，建议就诊前电话咨询。</dd>
+                <dt>{$data.title} 口碑怎么样？值得去吗？</dt>
+                <dd>选中医馆可重点看医师资质、是否有名老中医坐诊、擅长方向是否匹配您的诉求，以及评价与收费是否透明。本馆的地址、电话、医保与擅长信息已在页面标注，便于您提前核对与电话确认。</dd>
+              </dl>
+            </div>
+
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{$data.title} 地址在哪里？怎么去？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本馆详细地址见页面上方信息，建议出行前电话确认营业与出诊时间，可导航前往。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{$data.title} 支持医保吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是否支持医保以本馆现场公示为准，就诊前建议先电话核实，避免跑空。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{$data.title} 怎么预约挂号？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可通过页面提供的官网或电话联系本馆，部分馆支持到馆挂号；具体预约方式以本馆安排为准。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{$data.title} 擅长 / 主治什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本馆以针灸、推拿、艾灸、拔罐及中医内科调理为特色，具体诊疗范围以医馆实际出诊科目为准，建议就诊前电话确认当日可看的病种与坐诊医师。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{$data.title} 怎么收费？有价目表吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中医馆多为按项目收费（挂号、针灸、推拿、饮片等），具体价目以医馆现场公示为准；部分项目可走医保或门诊统筹，报销比例各馆不同，建议就诊前电话咨询。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{$data.title} 口碑怎么样？值得去吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "选择中医馆可重点看医师资质、是否有名老中医坐诊、擅长方向是否匹配诉求，以及评价与收费是否透明。本馆的地址、电话、医保与擅长信息已在页面标注，便于提前核对与电话确认。"
+      }
+    }
+  ]
+}
+            </script>
+
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["MedicalOrganization","LocalBusiness"],
+  "name": "{$data.title}",
+  "url": "{$data.url}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "成都",
+    "streetAddress": "<list data='$data[para]' name='$s'><if value="$s[name] eq '地点'">{$s.value}</if></list>"
+  },
+  "telephone": "<list data='$data[para]' name='$s'><if value="$s[name] eq '电话'">{$s.value}</if></list>"
+}
+            </script>
 
           </div> 
 
