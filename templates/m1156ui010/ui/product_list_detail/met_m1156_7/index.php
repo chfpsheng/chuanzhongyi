@@ -29,7 +29,7 @@ if (!empty($data['para_url']) && is_array($data['para_url'])) {
 
     <div class="row">
 
-      <div class="<if value='$ui["has"]["sidebar"]'>col-lg-9<else/>col-lg-12</if> met-cons">
+      <div class="<if value='$ui["has"]["sidebar"]'>col-lg-9<else/>col-lg-12</if> met-cons" role="main">
 
 </if> 
 

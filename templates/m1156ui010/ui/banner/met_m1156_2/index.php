@@ -88,7 +88,7 @@
 
             <li class="pc <if value='$v.height'>height</if>">
 
-              <img <if value="!$v['_first']">data-</if>src="<if value='!$v["height"]'>{$v.img_path}<else/>{$v.img_path|thumb:0,$v['height']}</if>" <if value='$v.height'>height="{$v.height}"</if> alt="{$v.img_title}">
+              <img <if value="!$v['_first']">data-</if>src="<if value='!$v["height"]'>{$v.img_path}<else/>{$v.img_path|thumb:0,$v['height']}</if>" <if value='$v.height'>height="{$v.height}"</if> <if value="$v['_first']">fetchpriority="high"</if> alt="{$v.img_title}">
 
             </li>
 

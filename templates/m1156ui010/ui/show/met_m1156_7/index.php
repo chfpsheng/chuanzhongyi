@@ -4,7 +4,7 @@
   data-background="<if value='$ui["bgok"]'>{$ui.bgimg}</if>">
   <div class="container">
     <div class="row">
-      <div class="<if value='$ui["has"]["sidebar"]'>col-lg-9<else/>col-lg-12</if> met-cons">
+      <div class="<if value='$ui["has"]["sidebar"]'>col-lg-9<else/>col-lg-12</if> met-cons" role="main">
 </if> 
 
         <div class="$uicss" m-id="{$ui.mid}">  

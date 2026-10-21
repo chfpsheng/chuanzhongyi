@@ -27,8 +27,8 @@ Allow: /
 User-agent: omgilibot
 Allow: /
 
-# 面向 AI 的全文索引入口（llms.txt 标准扩展）
-LLMs-txt: /llms.txt
+# 面向 AI 的全文索引入口（llms.txt 标准扩展；百度不支持 LLMs-txt 指令，注释掉避免 robots 报错）
+# LLMs-txt: /llms.txt
 
 # 后台与系统目录
 Disallow: /admin/

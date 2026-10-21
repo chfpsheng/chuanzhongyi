@@ -64,7 +64,7 @@ $og_image=$url["web_site"].str_replace("../","",$data["imgurl"]?$data["imgurl"]:
 <meta name="renderer" content="webkit">
 <meta http-equiv="Content-Language" content="{$content_lang}"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,minimal-ui">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui">
 <meta name="format-detection" content="telephone=no">
 <title>{$data.page_title}</title>
 <meta name="description" content="{$data.page_description}">
@@ -79,17 +79,7 @@ $og_image=$url["web_site"].str_replace("../","",$data["imgurl"]?$data["imgurl"]:
 <?php if($data["access_code"]){ ?>
 <meta name="access_code" content="{$data.access_code}">
 <?php } ?>
-<link rel="alternate" hreflang="x-default" href="{$_M["url"]["web_site"]}" />
-<?php
-foreach ($_M["langlist"]["web"] as $key => $value) {
-    if($value["useok"]){
-        $value["rel_url"] = $_M["url"]["web_site"]."index.php?lang=".$value["lang"];
-?>
-<link rel="alternate" hreflang="{$value["lang"]}" href="{$value["rel_url"]}">
-<?php
-    }
-}
-?>
+<?php /* 中文单语言站：移除无效 hreflang（hreflang=cn 非标准，且 ?lang= 被 robots 屏蔽，百度报无效） */ ?>
 <link href="{$url.site}favicon.ico?{$favicon_filemtime}" rel="shortcut icon" type="image/x-icon">
 <?php
 if(!$c["disable_cssjs"]){

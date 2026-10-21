@@ -4,7 +4,7 @@
 
 <if value="$ui['top_ok']">
 
-<header role="heading">
+<header>
 
   <div class="head-box">
 
@@ -24,7 +24,7 @@
 
             <hr>
 
-            <a <if value="$m['columnimg']&&!strstr($m['columnimg'],str_replace('../','',$c['met_agents_img']))">href="javascript:void(0);" data-id="{$m.id}"<else/>href="{$m.url}" rel="nofollow" target="_blank"</if>>
+            <a <if value="$m['columnimg']&&!strstr($m['columnimg'],str_replace('../','',$c['met_agents_img']))">href="{$m.url}" data-id="{$m.id}"<else/>href="{$m.url}" rel="nofollow" target="_blank"</if>>
 
               <i class="{$m.icon}"></i>
 
