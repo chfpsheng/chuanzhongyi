@@ -42,5 +42,12 @@ Disallow: /_backup/
 Disallow: /tools/
 Disallow: /*?lang=
 
+# 低价值系统/模板目录（非内容页，避免被爬取收录）
+Disallow: /member/
+Disallow: /search/
+Disallow: /img1/
+Disallow: /icon/
+Disallow: /sitemap/
+
 # 站点地图
 Sitemap: https://www.chuanzhongyi.com/sitemap.xml
