@@ -9,11 +9,12 @@
                     <h1 class="product-list-title">{$data.name}</h1>
                 </div>
                 <div class="met-img" m-id="noset">
-                    <ul class="blocks-100 blocks-xs-2 blocks-md-2 blocks-lg-3 blocks-xlg-3 met-page-ajax met-pager-ajax met-grid" id="met-grid" data-scale="{$c.met_doctorimg_y}x{$c.met_doctorimg_x}">
+                    <!-- 头像裁切固定为竖版 800x1000：中医师为自定义模块，后台“列表页缩略图尺寸”无入口可改 -->
+                    <ul class="blocks-100 blocks-xs-2 blocks-md-2 blocks-lg-3 blocks-xlg-3 met-page-ajax met-pager-ajax met-grid" id="met-grid" data-scale="1000x800">
                         <tag action="doctor.list" num="$c['met_doctor_list']">
                         <li class="parent-slide shown page1">
                             <a href="{$v.url}" title="{$v.title}" {$g.urlnew}>
-                                <span><img src="{$v.imgurl|thumb:$c['met_doctorimg_x'],$c['met_doctorimg_y']}" alt="{$v.title}"></span>
+                                <span><img src="{$v.imgurl|thumb:800,1000}" alt="{$v.title}"></span>
                                 <h4 class="on">{$v.title}</h4>
                             </a>
                         </li>
