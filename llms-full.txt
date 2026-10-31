@@ -2,7 +2,7 @@
 
 > 本文件是 llms.txt 的全文 companion，包含站点各页面完整正文，供生成式 AI 引擎（ChatGPT / Claude / 豆包 / 文心等）直接摄取与引用。
 > 站点简介：四川中医馆（四川中医网）收录四川及成都地区特色中医馆、名老中医与中医活动信息，提供中医养生、药食同源科普与少儿中医研学活动介绍，帮助用户查找可信赖的中医就医与养生资源。
-> 生成时间：2026-10-18 04:57
+> 生成时间：2026-10-31 00:00
 > 配套索引：https://www.chuanzhongyi.com/llms.txt ｜ Sitemap: https://www.chuanzhongyi.com/sitemap.xml
 
 内容准则：本站中医养生与药食同源内容仅作科普参考，不构成诊疗建议；身体不适请及时到正规医疗机构就诊。
@@ -10,7 +10,7 @@
 # 中医资讯（共 34 条）
 
 ## 成都中医馆规模十大排名（按门店网络与综合影响力整理）
-URL: https://www.chuanzhongyi.com/news/96.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=96
 
 成都没有官方发布的“中医馆十大排名”。本文按门店网络、坐诊医师规模、专科与饮片实力、品牌历史等公开信息，综合梳理成都规模与口碑靠前的十家中医馆与连锁品牌，供就近就医参考（综合整理，非官方排名，就诊前以机构公示为准）。
 
@@ -43,7 +43,7 @@ URL: https://www.chuanzhongyi.com/news/96.html
 本文为公开信息整理，不构成医疗建议；具体诊疗请遵医嘱。
 
 ## 承启堂中医馆怎么样？品牌实力与成都分店一览
-URL: https://www.chuanzhongyi.com/news/95.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=95
 
 承启堂是2012年创立于成都的新派中医连锁品牌，目前在青羊、高新、蜀汉路等多个区域设有近20家分馆，汇聚百余名专家长期坐诊；下面从品牌背景、文化内涵与成都分店布局三方面做一份客观参考。
 
@@ -126,7 +126,7 @@ URL: https://www.chuanzhongyi.com/news/95.html
 如果你还想了解更多成都中医馆信息，可以继续浏览成都中医馆列表，对比选择最适合自己的那一家。
 
 ## 我心目中的好中医
-URL: https://www.chuanzhongyi.com/news/94.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=94
 
 好中医未必名气最大，但一定医术精湛且重“德”：能从舌脉读出身体来龙去脉，不开贵药、不恐吓患者，并耐心把病情讲明白——这是值得托付的标准。
 
@@ -159,7 +159,7 @@ URL: https://www.chuanzhongyi.com/news/94.html
 说到底，我心目中的好中医，是技术上有把握、做人上有分寸、诊断上肯花心、处方上敢精简、待人上有温度的那个大夫。这样的中医，遇上了是福气，也值得我们用脚投票、用口碑把他留住。
 
 ## 解郁花泡水功效多
-URL: https://www.chuanzhongyi.com/news/93.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=93
 
 藏红花（又称解郁花）性甘平、归心肝经，能活血化瘀、凉血解毒、解郁安神，适合情绪压抑与瘀滞者，但用量宜小、孕妇禁用，日常可少量泡水。
 
@@ -188,7 +188,7 @@ URL: https://www.chuanzhongyi.com/news/93.html
 本文根据中国中医药网发布内容整理。
 
 ## 山茱萸：滋补肝肾，收敛固涩的良药
-URL: https://www.chuanzhongyi.com/news/92.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=92
 
 山茱萸酸涩微温、归肝肾经，长于滋补肝肾、收敛固涩，是六味地黄丸等经典方的重要组成，亦可用于药膳，文中介绍来源、采收与适用方向。
 
@@ -217,7 +217,7 @@ URL: https://www.chuanzhongyi.com/news/92.html
 本文根据中国中医药网发布内容整理。
 
 ## 养阴仙草石斛：秋日养生佳品
-URL: https://www.chuanzhongyi.com/news/91.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=91
 
 铁皮石斛被誉为“养阴仙草”，性微寒、生津护正，适合秋季干燥与虚火旺盛时滋阴润燥，可入茶、入膳或打粉，文中介绍品种、采收与日常用法。
 
@@ -246,7 +246,7 @@ URL: https://www.chuanzhongyi.com/news/91.html
 本文根据中国中医药网发布内容整理。
 
 ## 寒露养生：药膳助你补脾益肺
-URL: https://www.chuanzhongyi.com/news/90.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=90
 
 寒露燥邪袭人、气温下降，药膳以滋阴润燥、补脾益肺为方向，可选用百合、银耳、山药、莲子等食材搭配，帮助安稳度秋，文中附应季药膳建议。
 
@@ -275,7 +275,7 @@ URL: https://www.chuanzhongyi.com/news/90.html
 本文根据中国中医药网发布内容整理。
 
 ## 健脾祛湿，告别黏马桶烦恼
-URL: https://www.chuanzhongyi.com/news/89.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=89
 
 大便黏马桶常与脾虚湿盛有关，单纯通便无效，调理应从健脾化湿入手，配合饮食忌生冷油腻、适度运动，文中给出湿气自判与日常调养方法。
 
@@ -304,7 +304,7 @@ URL: https://www.chuanzhongyi.com/news/89.html
 本文根据中国中医药网发布内容整理。
 
 ## 自制橘皮泡水不等于陈皮
-URL: https://www.chuanzhongyi.com/news/88.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=88
 
 自制晒干的橘皮不等于药用陈皮，不宜直接泡水代茶饮：二者在陈化工艺与药效上差异明显，自制橘皮还可能存在农药残留、挥发油过多与霉变风险。
 
@@ -341,7 +341,7 @@ URL: https://www.chuanzhongyi.com/news/88.html
 标签相近：寒露食养有方、暑期带娃出行三关
 
 ## 寒露食养有方
-URL: https://www.chuanzhongyi.com/news/87.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=87
 
 寒露时节燥邪盛行、天气转寒，食养以滋阴润肺、温中健脾为主，宜多吃百合、银耳、雪梨、玉竹、莲藕、麦冬等食材，以增强抵抗力、缓解秋燥。
 
@@ -378,7 +378,7 @@ URL: https://www.chuanzhongyi.com/news/87.html
 标签相近：自制橘皮泡水不等于陈皮
 
 ## 暑期带娃出行三关
-URL: https://www.chuanzhongyi.com/news/86.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=86
 
 暑期带娃出行重在防暑护阳、顾护脾胃：异地第一顿先喝温粥适应、喝水以温水淡茶为宜、海鲜配生姜紫苏解寒毒，并留意积食与蚊虫等三关。
 
@@ -415,7 +415,7 @@ URL: https://www.chuanzhongyi.com/news/86.html
 标签相近：自制橘皮泡水不等于陈皮
 
 ## 夏日腹泻中医应对有方
-URL: https://www.chuanzhongyi.com/news/85.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=85
 
 夏季腹泻多因寒湿或湿热困脾，中医需先辨寒热虚实：寒湿型可用藿香正气散或生姜陈皮苍术煮水，湿热型宜清热利湿，同时注意饮食清淡、避免贪凉。
 
@@ -452,7 +452,7 @@ URL: https://www.chuanzhongyi.com/news/85.html
 标签相近：自制橘皮泡水不等于陈皮
 
 ## 中医调护助远离过敏性鼻炎
-URL: https://www.chuanzhongyi.com/news/84.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=84
 
 中医将过敏性鼻炎归为“鼻鼽”，主张内调脏腑、外通鼻窍，儿童可用小儿推拿、穴位贴敷、耳穴压豆等外治法缓解症状、减少复发，并配合日常防护。
 
@@ -489,7 +489,7 @@ URL: https://www.chuanzhongyi.com/news/84.html
 标签相近：自制橘皮泡水不等于陈皮
 
 ## 在成都看中医怎么用医保？就诊流程、报销与常见疑问
-URL: https://www.chuanzhongyi.com/news/83.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=83
 
 在成都看中医能否用医保，关键看机构是否为医保定点：只有在医保定点的中医馆或医院才能联网结算，符合目录的治疗性项目（如部分针灸、推拿）一般可按政策报销，保健养生类通常自费；具体报销范围与比例以就诊机构和当地医保部门公示为准。
 
@@ -530,7 +530,7 @@ URL: https://www.chuanzhongyi.com/news/83.html
 相关资讯：中医适宜技术有哪些？推拿、艾灸、拔罐、刮痧、耳穴一次讲清、感冒中成药怎么选？风寒、风热、暑湿的辨证选用要点、第一次看中医怎么准备？一份问诊清单让就诊更高效
 
 ## 中医适宜技术有哪些？推拿、艾灸、拔罐、刮痧、耳穴一次讲清
-URL: https://www.chuanzhongyi.com/news/82.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=82
 
 中医适宜技术是指安全有效、成本低、便于基层推广的中医特色外治法，常见的有推拿、艾灸、拔罐、刮痧、耳穴压豆等五种；它们各有适应范围与明确禁忌，并非人人适用、随时可做，下面逐一说明。
 
@@ -567,7 +567,7 @@ URL: https://www.chuanzhongyi.com/news/82.html
 标签相近：川药地图：川芎、川贝、天麻、黄连，四川道地药材怎么用
 
 ## 感冒中成药怎么选？风寒、风热、暑湿的辨证选用要点
-URL: https://www.chuanzhongyi.com/news/81.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=81
 
 感冒中成药须辨证选用：风寒用辛温解表类（如感冒清热），风热用辛凉解毒类（如银翘、桑菊），暑湿另有对应，辨错方向反而会拖长病程。
 
@@ -608,7 +608,7 @@ URL: https://www.chuanzhongyi.com/news/81.html
 相关资讯：中医适宜技术有哪些？推拿、艾灸、拔罐、刮痧、耳穴一次讲清、在成都看中医怎么用医保？就诊流程、报销与常见疑问、第一次看中医怎么准备？一份问诊清单让就诊更高效
 
 ## 川贝炖雪梨与银耳百合羹：秋燥咳嗽的两道家常食疗
-URL: https://www.chuanzhongyi.com/news/80.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=80
 
 秋燥干咳少痰、咽干音哑，调养方向是“润”而非镇咳：川贝炖雪梨与银耳百合羹是两道家常食疗，分别适合阴虚燥咳与肺燥津伤，文中附材料与做法。
 
@@ -657,7 +657,7 @@ URL: https://www.chuanzhongyi.com/news/80.html
 标签相近：川味药膳两例：当归生姜羊肉汤与川芎白芷鱼头汤、山药、薏米、莲子：健脾祛湿的家常药膳三宝
 
 ## 受寒了怎么办？姜枣茶、葱白水的家庭用法与禁忌
-URL: https://www.chuanzhongyi.com/news/79.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=79
 
 淋雨吹风等风寒初起，可用姜枣茶、葱白水辛温解表，但前提是辨清风寒（怕冷无汗、清涕白痰）而非风热（咽痛黄痰），用反了反而加重。
 
@@ -702,7 +702,7 @@ URL: https://www.chuanzhongyi.com/news/79.html
 标签相近：枸杞红枣菊花茶怎么搭？四种体质的日常茶饮方案、山药、薏米、莲子：健脾祛湿的家常药膳三宝
 
 ## 陈皮、山楂、麦芽：厨房里的消食化积三味
-URL: https://www.chuanzhongyi.com/news/78.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=78
 
 陈皮、山楂、麦芽是厨房里消食化积的三味药食同源食材：陈皮理气健脾、山楂消肉食油腻、麦芽消食和胃，各有专攻，聚餐积食后可对症使用。
 
@@ -747,7 +747,7 @@ URL: https://www.chuanzhongyi.com/news/78.html
 标签相近：山药、薏米、莲子：健脾祛湿的家常药膳三宝、脾胃是后天之本：脾虚的九个信号与日常调养清单
 
 ## 爱叹气、胸口闷、经前胀痛：中医说的肝郁该怎么疏解
-URL: https://www.chuanzhongyi.com/news/77.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=77
 
 肝郁气滞是门诊常见证型，表现为爱叹气、胸胁胀闷、梅核气、经前乳房胀痛等，调护以疏肝理气为主，配合情绪调节、运动与食疗，并避免久郁化火。
 
@@ -792,7 +792,7 @@ URL: https://www.chuanzhongyi.com/news/77.html
 相关资讯：脾胃是后天之本：脾虚的九个信号与日常调养清单、睡不好别急着吃安神药：中医辨治失眠的四种常见证型、中医调护助远离过敏性鼻炎
 
 ## 脾胃是后天之本：脾虚的九个信号与日常调养清单
-URL: https://www.chuanzhongyi.com/news/76.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=76
 
 脾虚常见九个信号（困倦、腹胀、便溏、齿痕舌、面色萎黄、易浮肿等），根源多在脾失运化；日常调养以健脾祛湿、规律饮食与适度运动为主，文末附清单。
 
@@ -851,7 +851,7 @@ URL: https://www.chuanzhongyi.com/news/76.html
 标签相近：陈皮、山楂、麦芽：厨房里的消食化积三味
 
 ## 睡不好别急着吃安神药：中医辨治失眠的四种常见证型
-URL: https://www.chuanzhongyi.com/news/75.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=75
 
 中医治失眠先辨证型，常见有心脾两虚、阴虚火旺等四种，证型不同调法迥异，不宜急于吃安神药；文中给出各型辨识要点与对应食疗思路。
 
@@ -888,7 +888,7 @@ URL: https://www.chuanzhongyi.com/news/75.html
 相关资讯：脾胃是后天之本：脾虚的九个信号与日常调养清单、爱叹气、胸口闷、经前胀痛：中医说的肝郁该怎么疏解、久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案
 
 ## 第一次看中医怎么准备？一份问诊清单让就诊更高效
-URL: https://www.chuanzhongyi.com/news/74.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=74
 
 第一次看中医，建议提前整理好症状时间线、带齐既往病历与正在服用的药物清单，并就诊当天避免化妆、刮舌苔、喝咖啡浓茶和剧烈运动，以免影响舌象与脉象判断；下面这份清单帮你把关键信息一次给足。
 
@@ -927,7 +927,7 @@ URL: https://www.chuanzhongyi.com/news/74.html
 标签相近：在成都看中医怎么用医保？就诊流程、报销与常见疑问
 
 ## 煎药、代煎还是免煎颗粒？三种中药剂型的选用与保存
-URL: https://www.chuanzhongyi.com/news/73.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=73
 
 中药三种常见剂型各有取舍：自煎汤剂吸收快、可灵活调整先煎后下，适合急症与需频繁调方者；代煎省时省力，适合上班族与慢病长期服药者；免煎颗粒开水冲服、携带方便，适合出差旅行，价格略高。
 
@@ -958,7 +958,7 @@ URL: https://www.chuanzhongyi.com/news/73.html
 相关资讯：川药地图：川芎、川贝、天麻、黄连，四川道地药材怎么用、第一次看中医怎么准备？一份问诊清单让就诊更高效、感冒中成药怎么选？风寒、风热、暑湿的辨证选用要点
 
 ## 川药地图：川芎、川贝、天麻、黄连，四川道地药材怎么用
-URL: https://www.chuanzhongyi.com/news/72.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=72
 
 四川道地药材素有“无川药不成方”之说，本文梳理川芎、川贝母、天麻、黄连等代表性川药的产区、性味与临床用法，帮助日常合理用药膳与养生。
 
@@ -995,7 +995,7 @@ URL: https://www.chuanzhongyi.com/news/72.html
 标签相近：川味药膳两例：当归生姜羊肉汤与川芎白芷鱼头汤、中医适宜技术有哪些？推拿、艾灸、拔罐、刮痧、耳穴一次讲清
 
 ## 川味药膳两例：当归生姜羊肉汤与川芎白芷鱼头汤
-URL: https://www.chuanzhongyi.com/news/71.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=71
 
 这里介绍两道在家就能做的川派药膳——温中散寒的当归生姜羊肉汤与散风止痛的川芎白芷鱼头汤，分别对应冬令畏寒与头风头痛，并附家常做法与注意。
 
@@ -1036,7 +1036,7 @@ URL: https://www.chuanzhongyi.com/news/71.html
 标签相近：川贝炖雪梨与银耳百合羹：秋燥咳嗽的两道家常食疗、川药地图：川芎、川贝、天麻、黄连，四川道地药材怎么用
 
 ## 枸杞红枣菊花茶怎么搭？四种体质的日常茶饮方案
-URL: https://www.chuanzhongyi.com/news/70.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=70
 
 枸杞红枣菊花茶等养生茶饮需按体质搭配：气虚用黄芪红枣枸杞、阳虚用生姜红枣桂圆，其余体质亦有对应思路，选错方向补品反成负担。
 
@@ -1071,7 +1071,7 @@ URL: https://www.chuanzhongyi.com/news/70.html
 标签相近：受寒了怎么办？姜枣茶、葱白水的家庭用法与禁忌、川贝炖雪梨与银耳百合羹：秋燥咳嗽的两道家常食疗
 
 ## 山药、薏米、莲子：健脾祛湿的家常药膳三宝
-URL: https://www.chuanzhongyi.com/news/69.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=69
 
 山药、薏米、莲子是家常健脾祛湿的三味药食同源食材：山药平补脾肺肾，薏米利水渗湿（脾胃偏寒者宜用炒薏米），莲子健脾固涩，可蒸食、煮粥或炖汤。
 
@@ -1110,7 +1110,7 @@ URL: https://www.chuanzhongyi.com/news/69.html
 标签相近：川贝炖雪梨与银耳百合羹：秋燥咳嗽的两道家常食疗、长夏养生重健脾祛湿，中医专家支招运动饮食
 
 ## 久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案
-URL: https://www.chuanzhongyi.com/news/68.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=68
 
 多数久坐族的颈肩腰腿痛并非椎间盘大问题，而是姿势性肌肉紧张、循环变差（中医称“不通则痛”），可通过八段锦与穴位自我保健明显改善，文中有工位边就能练的三式。
 
@@ -1153,7 +1153,7 @@ URL: https://www.chuanzhongyi.com/news/68.html
 标签相近：长夏养生重健脾祛湿，中医专家支招运动饮食
 
 ## 三九贴不是人人都贴：适用人群、时间安排与注意事项
-URL: https://www.chuanzhongyi.com/news/67.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=67
 
 三九贴是“冬病冬治”的辛温穴位敷贴，适合慢性咳喘、遇冷加重的痛症、怕风易感冒等虚寒人群，但实热、皮肤破损、孕妇及部分特殊人群不宜，需按疗程与注意事项进行。
 
@@ -1196,7 +1196,7 @@ URL: https://www.chuanzhongyi.com/news/67.html
 相关资讯：秋分过后怎么养？中医师的润燥三件套与起居清单、久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案、秋季养生指南：科学贴秋膘
 
 ## 秋分过后怎么养？中医师的润燥三件套与起居清单
-URL: https://www.chuanzhongyi.com/news/66.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=66
 
 秋分后燥邪易伤肺津，调养以“润”为主：饮食多吃百合、银耳、梨等滋阴润肺之物，起居注意早晚添衣、保持湿度，并参考文中的润燥起居清单。
 
@@ -1235,7 +1235,7 @@ URL: https://www.chuanzhongyi.com/news/66.html
 相关资讯：三九贴不是人人都贴：适用人群、时间安排与注意事项、久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案、秋季养生指南：科学贴秋膘
 
 ## 秋季养生指南：科学贴秋膘
-URL: https://www.chuanzhongyi.com/news/62.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=62
 
 秋季养生应顺应时节、早睡早起、滋阴润燥，科学贴秋膘需因人而异：多吃梨、银耳、百合等柔润食物，减少辛辣燥热，配合八段锦、太极拳等舒缓运动。
 
@@ -1272,7 +1272,7 @@ URL: https://www.chuanzhongyi.com/news/62.html
 相关资讯：长夏养生重健脾祛湿，中医专家支招运动饮食、秋分过后怎么养？中医师的润燥三件套与起居清单、三九贴不是人人都贴：适用人群、时间安排与注意事项
 
 ## 长夏养生重健脾祛湿，中医专家支招运动饮食
-URL: https://www.chuanzhongyi.com/news/59.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=59
 
 长夏与脾相应、湿气易困脾胃，养生重点是健脾祛湿：避免贪凉饮冷与过食生冷油腻，起居宜适当晚睡早起、午间小憩、居室通风除湿，并配合运动与饮食调养。
 
@@ -1315,7 +1315,7 @@ URL: https://www.chuanzhongyi.com/news/59.html
 标签相近：久坐族的颈肩腰腿痛：八段锦与穴位自我保健方案、山药、薏米、莲子：健脾祛湿的家常药膳三宝
 
 ## 药食同源：食即是药，医养一体
-URL: https://www.chuanzhongyi.com/news/58.html
+URL: https://www.chuanzhongyi.com/news/shownews.php?id=58
 
 药食同源指许多物质既可作为日常食物又可入药，现代被列入“按照传统既是食品又是中药材的物质目录”（共106种），如山药、生姜、枸杞，既能上餐桌也能入经方。
 
@@ -1342,7 +1342,7 @@ URL: https://www.chuanzhongyi.com/news/58.html
 # 中医馆（共 32 条）
 
 ## 承启堂·佑健针灸馆
-URL: https://www.chuanzhongyi.com/product/33.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=33
 
 品牌简介
 
@@ -1373,7 +1373,7 @@ URL: https://www.chuanzhongyi.com/product/33.html
 其它中医馆：德仁堂中医馆、殊德医馆
 
 ## 承启堂·蜀汉馆
-URL: https://www.chuanzhongyi.com/product/40.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=40
 
 品牌简介
 
@@ -1400,7 +1400,7 @@ URL: https://www.chuanzhongyi.com/product/40.html
 其它中医馆：德仁堂中医馆、殊德医馆
 
 ## 德仁堂中医馆
-URL: https://www.chuanzhongyi.com/product/42.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=42
 
 德仁堂中医馆是成都知名的中华老字号中医连锁机构，历史可追溯至1924年（前身为达仁堂成都分号，1948年更名为德仁堂）。旗下汇集成都同仁堂（1740年）、泰三堂、久真堂、保生堂等多个百年品牌，拥有省级非物质文化遗产中药炮制技法，形成了医药连锁、中医馆与中药饮片一体的经营体系，在成都设有数十家门店。
 
@@ -1421,7 +1421,7 @@ URL: https://www.chuanzhongyi.com/product/42.html
 其它中医馆：殊德医馆、承启堂·蜀汉馆
 
 ## 殊德医馆
-URL: https://www.chuanzhongyi.com/product/43.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=43
 
 殊德医馆是成都青羊殊德中西医门诊有限公司旗下品牌。殊德医馆是由四川省第二中医院、四川省中医药科学院中医研究所、四川省中医药科学院针灸经络研究所联盟的医馆，坐落于成都市文殊坊白云寺街60号，建筑面积5000平米，秉承“众病悉除、身心安乐”的理念，本着让中医成为一种生活方式的愿望。着力打造本朴自然宁静舒适就医环境，以及厚重传统的文化底蕴，为客户提供身心兼冶的医疗健康方案。
 “殊德”寓意“出众的品德”，致力于“弘扬中医文化，推动名医传承”，汇集了医术高超、医德高尚的国内，省内知名中医专家，以中医传承为基线，中西结合相兼容，开展健康医疗服务。殊德医馆由殊德名医中心，中西体检中心，中医理疗中心，殊德口腔中心，殊德制药中心等五大中心组成，为客户提供基于全生命周期的医疗健康服务。
@@ -1445,7 +1445,7 @@ URL: https://www.chuanzhongyi.com/product/43.html
 其它中医馆：德仁堂中医馆、承启堂·蜀汉馆
 
 ## 至真堂中医馆（青羊馆）
-URL: https://www.chuanzhongyi.com/product/45.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=45
 
 成都至真堂健康管理有限公司成立于2015年,公司总部位于成都青羊区光华北三路，地铁4号线中坝B出口。 现有医疗技术、行政管理、培训教育在职人员近百人，拥有兼职专家教授50余人,现开设有至真堂中医门诊部青羊店、高新店、成华店。共计运营面积近5000平方米。 公司依托成都中医药大学、四川省中医院的专家团队为技术支撑,与成都中医药大学附属医院针灸学校开展校企合作。馆内提供中药代煎、免煎颗粒与膏方定制等服务，并支持全川21市州异地医保结算。
 
@@ -1464,7 +1464,7 @@ URL: https://www.chuanzhongyi.com/product/45.html
 其它中医馆：秉正堂中医馆(新光天地店)、承启堂高新馆
 
 ## 秉正堂中医馆(新光天地店)
-URL: https://www.chuanzhongyi.com/product/46.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=46
 
  
 
@@ -1508,7 +1508,7 @@ URL: https://www.chuanzhongyi.com/product/46.html
 其它中医馆：至真堂中医馆（青羊馆）、承启堂高新馆
 
 ## 承启堂高新馆
-URL: https://www.chuanzhongyi.com/product/47.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=47
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有10余家直营中医馆的连锁机构，坐诊医师超过百名，其中国务院政府特殊津贴专家、四川省名中医等高水平专家长期出诊。医馆自建彭州中心药房以把控饮片品质，曾连续三年获评医馆界心医奖，在成都设有蜀汉、高新、大源等多个馆区。
 
@@ -1527,7 +1527,7 @@ URL: https://www.chuanzhongyi.com/product/47.html
 其它中医馆：秉正堂中医馆(新光天地店)、同善堂国医馆（老字号）
 
 ## 同善堂国医馆（老字号）
-URL: https://www.chuanzhongyi.com/product/48.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=48
 
 同善堂国医馆是成都老字号药堂品牌，采用医+药结合的经营方式，既提供中医诊疗，也保留传统药堂的配方抓药服务。医馆设有武侯祠横街店与电信路店，其中武侯祠店毗邻景区，电信路店靠近华西坝，电信路店营业时间至22:00，方便下班后就诊。
 
@@ -1546,7 +1546,7 @@ URL: https://www.chuanzhongyi.com/product/48.html
 其它中医馆：承启堂高新馆、秉正堂中医馆(新光天地店)
 
 ## 卢火神扶阳中医馆
-URL: https://www.chuanzhongyi.com/product/49.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=49
 
 卢火神扶阳中医馆是扶阳流派（卢铸之—卢崇汉一脉）的传习馆，位于武侯区丽都路，地铁科园站A1口可达。卢崇汉为成都中医药大学教授、扶阳学派领军人物，医馆以扶阳学术思想的临床实践见长。需要注意的是，卢老号初诊费用较高且限号，需提前预约。
 
@@ -1567,7 +1567,7 @@ URL: https://www.chuanzhongyi.com/product/49.html
 其它中医馆：北京同仁堂总府路店、承启堂高新馆
 
 ## 北京同仁堂总府路店
-URL: https://www.chuanzhongyi.com/product/50.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=50
 
 北京同仁堂成都知嘛店‌是同仁堂健康药业集团旗下新零售品牌同仁堂知嘛健康在西南地区的首店，位于成都市锦江区总府路14号，在这里您将会体验到传统的东方文化与现代时尚生活融合一体的新潮养生方式。
 
@@ -1600,7 +1600,7 @@ URL: https://www.chuanzhongyi.com/product/50.html
 其它中医馆：卢火神扶阳中医馆
 
 ## 寇小儿中医馆碧云路店（总部）
-URL: https://www.chuanzhongyi.com/product/55.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=55
 
 成都市寇小儿中医馆是一家使用传统中药专治小儿感冒、咳嗽、高热、泄泻、麻疹、食积、虫积、疳积等各种小儿疾病；兼治内、妇科及疑难杂症的中医馆。寇小儿第四代传人寇煜光祖籍四川绵竹，自幼随曾祖父学习中医理论，熟读《内》、《难》等各家名着。四十年代中期，在成都创立“仁和堂”而闻名遐迩。从四十年代起至今，慕名求医者骆绎不绝，享誉蓉城，被蓉城市民誉为“寇小儿”。
 
@@ -1617,7 +1617,7 @@ URL: https://www.chuanzhongyi.com/product/55.html
 其它中医馆：秉正堂中医馆(新乐路总店)、承启堂青羊馆
 
 ## 秉正堂中医馆(新乐路总店)
-URL: https://www.chuanzhongyi.com/product/56.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=56
 
  
 
@@ -1663,7 +1663,7 @@ URL: https://www.chuanzhongyi.com/product/56.html
 其它中医馆：寇小儿中医馆碧云路店（总部）、承启堂青羊馆
 
 ## 承启堂青羊馆
-URL: https://www.chuanzhongyi.com/product/57.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=57
 
 品牌简介
 
@@ -1692,7 +1692,7 @@ URL: https://www.chuanzhongyi.com/product/57.html
 同区域医馆：至真堂中医馆（青羊馆）、殊德医馆
 
 ## 正安中医悠方店
-URL: https://www.chuanzhongyi.com/product/58.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=58
 
 正安中医悠方店（原宽窄巷子店）位于成都高新区交子大道300号悠方购物中心4楼428商铺，地处成都金融城核心板块，连接主城区与天府新区。正安中医由知名媒体人梁冬联合创办，倡导「大夫只收取诊金、医药分离」的诊疗模式，成都店于2014年创立，从宽窄巷子起步，现迁至城南悠方购物中心。
 
@@ -1713,7 +1713,7 @@ URL: https://www.chuanzhongyi.com/product/58.html
 同区域医馆：秉正堂中医馆(新乐路总店)、承启堂高新馆
 
 ## 承志中医馆
-URL: https://www.chuanzhongyi.com/product/59.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=59
 
 成都承志中医馆位于青羊区清江西路8号，是一家以中医内科、针灸推拿、中药调理与亚健康干预为日常特色的社区中医机构。馆内由具执业资质的中医师坐诊，围绕脾胃不和、失眠焦虑、慢性疲劳、颈肩腰腿不适等常见问题，提供辨证论治、因人制宜的个性化方案。
 
@@ -1726,7 +1726,7 @@ URL: https://www.chuanzhongyi.com/product/59.html
 承志中医馆适合长期伏案、作息紊乱、体质偏虚的人群作为日常调理之选，也欢迎希望用中医方式改善睡眠、消化与慢性不适的市民到馆咨询。馆方重视每一次问诊的质量，先问清证候、再定方案，力求让调理可感知、可坚持。对于亚健康，医师通常先辨明是气血、阴阳还是脏腑失调，再决定针灸、推拿或汤剂的组合，避免盲目进补或过度治疗。
 
 ## 荣泰堂中医馆
-URL: https://www.chuanzhongyi.com/product/60.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=60
 
 成都荣泰堂中医馆位于成华区二环路东二段434-442号一层，是一家集中医诊疗、中药饮片与名医馆于一体的中医机构。馆内邀省市级名老中医定期坐诊，兼顾常见病调理与慢性病的长期管理，是城东居民就近看中医的便利选择。
 
@@ -1741,7 +1741,7 @@ URL: https://www.chuanzhongyi.com/product/60.html
 荣泰堂位于城东二环沿线，凭方便的区位与规范的饮片服务，成为不少附近居民长期调理的首选。馆方建议慢病患者建立连续就诊记录，便于医师追踪体质变化、优化后续方案。
 
 ## 御德堂中医馆
-URL: https://www.chuanzhongyi.com/product/61.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=61
 
 成都御德堂中医馆位于青羊区顺城大街308号，是一家以中医肿瘤、内科、妇科、儿科为重点的中医机构，汇聚多名具高级职称的名老中医坐诊。馆内既承接疑难慢病的中医辅助调理，也服务日常常见病与体质调养。
 
@@ -1756,7 +1756,7 @@ URL: https://www.chuanzhongyi.com/product/61.html
 御德堂以严谨的辨证与名老中医资源见长，适合希望在中医框架内获得系统调理的市民。到馆前梳理好症状时间线与用药史，有助于首诊更高效地辨证定方。对于肿瘤及慢病调理，馆方强调与您的主治医生保持沟通，避免方案冲突。
 
 ## 厚德中医馆
-URL: https://www.chuanzhongyi.com/product/62.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=62
 
 厚德中医馆是一家立足成都的中医诊疗机构，秉承传统中医“辨证论治、整体观念”的核心理念，开展中医内科、针灸推拿、中药调理、亚健康干预等常见服务。
 
@@ -1767,7 +1767,7 @@ URL: https://www.chuanzhongyi.com/product/62.html
 我们重视每一位患者的就医体验，坚持以人为本、因病施治，努力让传统中医更好地服务于现代人的健康生活。
 
 ## 正道中医馆
-URL: https://www.chuanzhongyi.com/product/63.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=63
 
 成都正道中医馆位于武侯区棕树东街1号附6号，是一家以谭氏中医为传承的中医机构，日常以妇科、不孕不育、肠胃肝胆、慢性病调理与中医理疗为特色。馆内由具资质的中医师坐诊，强调辨证与守正。
 
@@ -1782,7 +1782,7 @@ URL: https://www.chuanzhongyi.com/product/63.html
 正道中医馆立足武侯社区，把谭氏中医的辨证思路落到妇科、胃肠等日常病种上，强调调养结合的可持续性，适合愿意配合作息调整的慢病人群长期跟进。
 
 ## 万华堂中医馆
-URL: https://www.chuanzhongyi.com/product/65.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=65
 
 成都万华堂中医馆位于温江区花沐里温泉大健康城（科兴路东段525号），由成都万华大药房连锁打造，是一家集中医问诊、理疗康养、本草茶饮与中医药手工体验于一体的新型中医馆。馆内构建诊、疗、药、养、饮一体化的健康空间。
 
@@ -1797,7 +1797,7 @@ URL: https://www.chuanzhongyi.com/product/65.html
 万华堂以健康城为载体，把看病、养生、体验串成一条线，降低了中医的门槛，也让家庭式的轻养生有了落脚点。周末到访建议提前致电预约，体验更从容。亲子家庭可在同一空间完成问诊与体验，省时省心。
 
 ## 颐寿堂中医馆
-URL: https://www.chuanzhongyi.com/product/66.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=66
 
 成都颐寿堂中医馆位于成华区双庆路99号附181号，是一家以中医内科、肿瘤调理为特色的社区中医机构。馆内由具资质的中医师坐诊，服务周边居民的日常诊疗与慢病长期管理。
 
@@ -1812,7 +1812,7 @@ URL: https://www.chuanzhongyi.com/product/66.html
 颐寿堂扎根成华社区，以稳妥、规范的服务承接中老年居民的慢病随访，重视用药安全与生活方式协同，是周边居民就近中医调理的踏实选择，尤其适合需要长期、连续照护的慢性病患者。
 
 ## 养和堂中医馆
-URL: https://www.chuanzhongyi.com/product/67.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=67
 
 成都养和堂中医馆位于青羊区琴台路165号，是一家省市医保定点的中医机构，以中医内科、脾胃调理、针灸推拿、妇科与儿科为特色。馆内由具执业资质的中医师坐诊，服务周边社区与到访琴台路一带的市民。
 
@@ -1827,7 +1827,7 @@ URL: https://www.chuanzhongyi.com/product/67.html
 养和堂坐拥琴台路的人文环境与医保定点资质，便捷与专业兼具，对脾胃、妇儿等常见病提供温和而连续的中医照护，适合家庭就近长期调理与日常养生咨询。
 
 ## 松源堂中医馆
-URL: https://www.chuanzhongyi.com/product/70.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=70
 
 成都松源堂中医诊所位于武侯区太平园东二街72号1层，是一家扎根社区的中医诊所，以中医诊所服务、中医调理、健康咨询与针灸推拿为主要业务。馆内由具资质的中医师提供基础诊疗与日常调养。
 
@@ -1842,7 +1842,7 @@ URL: https://www.chuanzhongyi.com/product/70.html
 松源堂以小而近的社区诊所形态，承接周边居民的基础中医需求，主张小病早理、慢病跟管，让中医服务真正融入街坊的日常健康管理，是社区里随到随诊的便捷选择。街坊邻里的小毛病、老毛病，都能在这里得到就近而温和的中医回应。
 
 ## 同神堂中医馆
-URL: https://www.chuanzhongyi.com/product/73.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=73
 
 成都同神堂中医馆位于武侯区晋阳路518号，其前身为创立于1884年的同神堂中医馆，是一家兼具历史底蕴与中西医结合特色的中医机构。馆内设中医内科、中医妇科、中医男科与针灸理疗等方向。
 
@@ -1857,7 +1857,7 @@ URL: https://www.chuanzhongyi.com/product/73.html
 同神堂背负百年招牌又拥抱中西医结合，既守正也创新，对妇科、男科与慢性疼痛提供可解释、可追踪的综合方案，适合追求规范与透明、希望理清调理逻辑的患者长期就诊。
 
 ## 承启堂·大源馆
-URL: https://www.chuanzhongyi.com/product/75.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=75
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1870,7 +1870,7 @@ URL: https://www.chuanzhongyi.com/product/75.html
 无论是上班族的疲劳调理、老人的慢病管理，还是家庭的日常养生，大源馆都以就近、规范、温和的中医服务，成为天府二街周边居民看中医的便利选择。
 
 ## 承启堂·成华馆
-URL: https://www.chuanzhongyi.com/product/76.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=76
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1885,7 +1885,7 @@ URL: https://www.chuanzhongyi.com/product/76.html
 成华馆以亲民、就近、规范的服务定位，让中医融入街坊的日常健康管理，是城东家庭看病与节气养生的便利选择。
 
 ## 承启堂·省医馆
-URL: https://www.chuanzhongyi.com/product/77.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=77
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1900,7 +1900,7 @@ URL: https://www.chuanzhongyi.com/product/77.html
 省医馆延续承启堂“名医+良药”的办馆思路，让居民在熟悉的中医氛围中，获得规范、连续的中医健康服务。
 
 ## 承启堂·九里晴川馆
-URL: https://www.chuanzhongyi.com/product/78.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=78
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1917,7 +1917,7 @@ URL: https://www.chuanzhongyi.com/product/78.html
 九里晴川馆持续优化就诊流程，开通电话与到馆双通道预约，让新区居民看中医更省心。
 
 ## 【儿太医】·绿地468馆
-URL: https://www.chuanzhongyi.com/product/79.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=79
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆的新派中医连锁机构；其旗下儿科品牌「儿太医」专注小儿推拿与儿科中医调理，以温和、无痛、易配合的中医方式服务儿童群体。
 
@@ -1932,7 +1932,7 @@ URL: https://www.chuanzhongyi.com/product/79.html
 绿地468馆注重就诊体验，馆内动线清晰、候诊舒适，并以通俗的方式向家长讲解孩子的体质特点与居家调理要点，让中医育儿更易懂、可坚持，也便于在家庭日常中持续落实。
 
 ## 【儿太医】·武侯新城馆
-URL: https://www.chuanzhongyi.com/product/80.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=80
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆的新派中医连锁机构；其旗下儿科品牌「儿太医」专注小儿推拿与儿科中医调理，以温和、无痛、易配合的中医方式服务儿童群体。
 
@@ -1949,7 +1949,7 @@ URL: https://www.chuanzhongyi.com/product/80.html
 武侯新城馆环境温馨、分诊清晰，设有适合儿童的候诊与调理空间，让看病不再是孩子的负担。
 
 ## 承启堂·龙湖西宸馆
-URL: https://www.chuanzhongyi.com/product/82.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=82
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1964,7 +1964,7 @@ URL: https://www.chuanzhongyi.com/product/82.html
 龙湖西宸馆兼顾商圈快节奏与社区慢生活，提供午间与周末弹性就诊安排，方便上班族与家庭错峰看中医，提升就医便利度。
 
 ## 承启堂·宜宾馆
-URL: https://www.chuanzhongyi.com/product/83.html
+URL: https://www.chuanzhongyi.com/product/showproduct.php?id=83
 
 承启堂中医馆于2012年立春创立于成都，现已发展为拥有近20家大中型连锁医馆、百余名专家（含国务院政府特殊津贴专家、四川省名中医）长期坐诊的新派中医连锁机构，累计守护超500万用户，并入选“中国社会办中医100强”。各馆共享承启堂统一的辨证体系与自建彭州中心药房，药材质量可控、服务标准一致。
 
@@ -1981,7 +1981,7 @@ URL: https://www.chuanzhongyi.com/product/83.html
 # 中医师（共 70 条）
 
 ## 唐德厚
-URL: https://www.chuanzhongyi.com/zhongyishi/3.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=3
 
 九三学社成员，四川省名中医，四川省第二中医医院特聘针灸专家，四川省中医药信息学会副会长，成都市非遗“唐氏芒针”第四代传承人，从事中医、骨伤、正脊、针灸临床工作40余年，建党100周年100名“弘扬红色精神 传承中国国粹—大国医者”荣誉勋章获得者、中国民族卫生协会康复专委会专家委员。医药发明一项，发表论文多篇，其中《喘复康丸治疗慢性支气管哮喘》一文荣获世界名医论坛优秀论文奖，并载入《世界名医论坛杂志》。科研课题“唐氏芒针”疗法在治疗神经系统疾病方面的优势研究”,荣获国家卫生健康委“十三五”规划全国重点课题一等奖。2022年3月，被中国管理科学院商学院入选中国科学家论坛“十四五”中医药传专承与创新“岐黄医学”人才计划，被授予为岐黄医学专家、中医药首席科学家荣誉称号。笃信“疗效是检验医学、医术的标准”，曾受邀为多名国家领导人诊治，并受到一致好评。
 
@@ -1994,7 +1994,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/3.html
 坐诊医馆：德仁堂中医馆
 
 ## 唐廷汉
-URL: https://www.chuanzhongyi.com/zhongyishi/30.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=30
 
 一、荣誉： 
 
@@ -2021,7 +2021,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/30.html
 坐诊医馆：承启堂·蜀汉馆、殊德医馆
 
 ## 金清
-URL: https://www.chuanzhongyi.com/zhongyishi/31.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=31
 
 国家执业医师，四川首届十大名中医杨介宾关门弟子。出身于中医世家，幼承庭训，博学强记。早年跟随叔父临证医学，熟读医典。经县卫生局考试、考核，以优异成绩获行医证。19岁即悬壶乡里，积累了丰富的民间乡野奇医绝技。后考入成都中医药大学，学习深造，师从多位名医，深得学院派基础理论知识与临床的真谛。
 
@@ -2040,7 +2040,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/31.html
 专长相近：景荣忠医生、宋永芳医生
 
 ## 汪剑
-URL: https://www.chuanzhongyi.com/zhongyishi/32.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=32
 
 汪剑，中医师，现于北京同仁堂成都知嘛店（同仁堂知嘛健康西南首店）（北京同仁堂总府路店）坐诊。该店位于成都市锦江区总府路14号成都棋院1、2、3层，其中三楼为新式中医馆，汇聚川、渝两地知名医学专家与教授，提供中医问诊及“一人一方”健康管理方案，并设药房可代煎并邮寄到家。
 
@@ -2059,7 +2059,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/32.html
 专长相近：唐廷汉医生、景荣忠医生
 
 ## 杨帆
-URL: https://www.chuanzhongyi.com/zhongyishi/33.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=33
 
 毕业于成都中医药大学五年制中西医临床医学专业，自十八岁学医起，一直跟随姨夫成都中医药大学教授，博士生导师，四川省中医学术技术带头人----宋兴，学习中医内、外、妇、儿科。学术思想深受宋兴教授影响，严格强调“整体观”及“辨证论治”，强调理法重于方药等学术思想。
 
@@ -2078,7 +2078,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/33.html
 专长相近：景荣忠医生、王大淳医生
 
 ## 尤敏
-URL: https://www.chuanzhongyi.com/zhongyishi/34.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=34
 
 出身中医世家 主治医师 巴蜀伤寒学派传人，师从伤寒名家傅元谋教授、脾胃专家谭万初教授。
 
@@ -2097,7 +2097,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/34.html
 专长相近：景荣忠医生、王大淳医生
 
 ## 张勇
-URL: https://www.chuanzhongyi.com/zhongyishi/35.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=35
 
 “榜样中国·我心目中的四川十大名医”，毕业于成都中医药大学，中华中医药学会内科委员会委员，全国名老中医学术经验师承导师，四川省名中医，四川省杰出青年中医，成都市十佳医务工作者，四川省政协委员，有深厚的中医功底及丰富的临床经验，在专业杂志上发表学术论文二十余篇。经常为省、市领导、港澳台同胞及国际友人诊病。曾两次受邀赴瑞士日内瓦为患“肺间质纤维化”的沙特阿拉伯王室成员治病，深受好评。经常受邀赴北京、上海、广州等全国十余个省市为患者诊病，国家级及省市新闻单位均作过专访报道。
 
@@ -2116,7 +2116,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/35.html
 专长相近：徐泊涛医生、徐智勇医生
 
 ## 陈旭辉
-URL: https://www.chuanzhongyi.com/zhongyishi/36.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=36
 
 毕业于成都中医学院。曾师从著名中医专家张谷才等人。在各级医刊上登载论文10余篇。临床30余年中，对内、妇、儿科、男科、皮肤科的常见、多发病的调理有深入研究。
 
@@ -2135,7 +2135,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/36.html
 专长相近：李有文医生、杨凤莲医生
 
 ## 景荣忠
-URL: https://www.chuanzhongyi.com/zhongyishi/37.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=37
 
 毕业于成都中医药大学临床医学科，中医世家；中国中西结合协会会员，原成都市第一人民医院三门诊部主任。中医临床工作48年，发表中西结合研究性学术论文48篇载入省丶市丶国家级论文集及中国名医大典。
 
@@ -2154,7 +2154,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/37.html
 专长相近：尤敏医生、王大淳医生
 
 ## 李有文
-URL: https://www.chuanzhongyi.com/zhongyishi/38.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=38
 
 1964年毕业于成都中医学院医疗系。从事临床及教育工作60多年。精通中医经典著作，对常见病、多发病辨证准确、用药精当、见解独到。治疗法则、遣方用药，师古而不泥于古。
 
@@ -2173,7 +2173,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/38.html
 专长相近：杨凤莲医生、徐泊涛医生
 
 ## 吕天贵
-URL: https://www.chuanzhongyi.com/zhongyishi/39.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=39
 
 毕业于成都中医药大学，从事中医教学、临床工作近40年。曾师从多位省市级中医专家。现为四川省中医药学会温病学（感染病学）专业委员会委员。
 
@@ -2192,7 +2192,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/39.html
 专长相近：陈旭辉医生、张勇医生
 
 ## 宋永芳
-URL: https://www.chuanzhongyi.com/zhongyishi/40.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=40
 
 毕业于成都中医药大学，从事中医教学及中医临床工作30余年。撰写在省市刊物发表多篇论文，其《益气养血在临床中的运用》参加东南亚学术会并发表。曾师从于著名妇科专家缪东初。
 
@@ -2211,7 +2211,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/40.html
 专长相近：王大淳医生、景荣忠医生
 
 ## 孙子期
-URL: https://www.chuanzhongyi.com/zhongyishi/41.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=41
 
 毕业于成都中医药大学，七年制中医内科学硕士。熟读中医传统经典，广泛学习各家经验，临床推崇仲景学说，主张辨证论治，治病求本。擅长传统经方治疗内科杂病，擅用黄帝内经及古典针灸，采用“调气、调血、调筋经”之法疏导人体经脉，针药结合以恢复机体平衡状态。
 
@@ -2230,7 +2230,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/41.html
 专长相近：范有斌医生、景荣忠医生
 
 ## 王大淳
-URL: https://www.chuanzhongyi.com/zhongyishi/42.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=42
 
 研究员硕士生导师毕业于成都中医学院。60余年的教学和临床研究积了丰富的经验，专攻中医内科、妇科、儿科等内科病病的治疗。
 
@@ -2249,7 +2249,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/42.html
 专长相近：景荣忠医生、尤敏医生
 
 ## 王贤琪
-URL: https://www.chuanzhongyi.com/zhongyishi/43.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=43
 
 出生中医世家，幼承庭训，得家父真传。毕业于成都中医药大学，从事中医临床工作40余年至今。对常见多发病方面积累了丰富的临床治疗经验。
 
@@ -2268,7 +2268,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/43.html
 专长相近：高锋医生、覃茂林医生
 
 ## 杨凤莲
-URL: https://www.chuanzhongyi.com/zhongyishi/44.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=44
 
 毕业于成都中医药大学。在华西医科大学从医36年。
 
@@ -2287,7 +2287,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/44.html
 专长相近：李有文医生、陈旭辉医生
 
 ## 张仁益
-URL: https://www.chuanzhongyi.com/zhongyishi/45.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=45
 
 毕业于成都中医学院，中华医学会会员。从事中医临床工作40余年，发表医学论文10余篇，多次参加全国中医学术研讨会。对常见病、多发病及多种疑难杂症病有较为丰富的临床经验。
 
@@ -2306,7 +2306,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/45.html
 专长相近：于廷齐医生、吕天贵医生
 
 ## 高锋
-URL: https://www.chuanzhongyi.com/zhongyishi/46.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=46
 
 毕业于成都中医药大学，从事中医临床近20年，曾跟随全国名老中医李孔定及川内诸名家学习，读博期间师从全国著名中医学家宋兴教授，对中医学有独到见解。擅于运用中医辨证论治，针药并用治疗内、外、妇、儿各科病症。
 
@@ -2325,7 +2325,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/46.html
 专长相近：刘尧钦医生、王贤琪医生
 
 ## 于廷齐
-URL: https://www.chuanzhongyi.com/zhongyishi/47.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=47
 
 毕业于成都中医药大学。
 
@@ -2344,7 +2344,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/47.html
 专长相近：李晟华医生、李强医生
 
 ## 覃茂林
-URL: https://www.chuanzhongyi.com/zhongyishi/48.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=48
 
 毕业于成都中医学院。临床工作30余年。曾任中国针炙学会成都学会委员。在医学刊物及国外医学刊物上发表论文20余篇。在从医期间还带教数批奥地利留学生。
 
@@ -2363,7 +2363,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/48.html
 专长相近：王贤琪医生、陈薏凤医生
 
 ## 李强
-URL: https://www.chuanzhongyi.com/zhongyishi/49.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=49
 
 中医世家第四代，毕业于成都中医药大学，中学时即随外祖父学习中医骨科，大学期间亦随明师学艺、博采众长。师从多位骨推拿专家，在成都中医附院及他院从事对椎间盘突出症及其他骨伤病、风湿关节炎的研制工作计近二十年，经验丰富，方法独特，以手法整复为辅助以针灸中药、颠覆性理念和方法。非物质文化遗产“曾氏骨科”传承人。
 
@@ -2382,7 +2382,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/49.html
 专长相近：万友洪医生、范有斌医生
 
 ## 樊明山
-URL: https://www.chuanzhongyi.com/zhongyishi/50.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=50
 
 毕业于成都中医药大学。从事中医内科、妇科、医学美容临床诊疗工作32年；2007年以国际传统医学防治肿瘤协作组专家身份在印尼从事肿瘤防治临床工作4年。多次到新加坡、马来西亚参加学术会议和讲学，发表交流学术论文二十多篇。
 
@@ -2401,7 +2401,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/50.html
 专长相近：付远忠医生、覃湘斌医生
 
 ## 黄凤书
-URL: https://www.chuanzhongyi.com/zhongyishi/51.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=51
 
 就读于泸州医学院。毕业后留校任教并在其附属医院担任临床诊治工作直至2007年退休。曾于中医药大学进修，师承于杨家林教授、程尊英教授。尤擅长诊治经、带、胎、产及妇科杂病，对内科、儿科常见病多发并亦有诸多独到诊疗方法。
 
@@ -2420,7 +2420,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/51.html
 专长相近：曾元静医生、王大淳医生
 
 ## 唐华君
-URL: https://www.chuanzhongyi.com/zhongyishi/52.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=52
 
 毕业于四川中医药高等专科学校中医专业，曾在绵阳市中医院进修，跟师绵阳市十大名中医之一皮兴鸥。从事中医临床诊疗工作10余年，多次荣获“优秀医师奖”，2021年度全国互联网+中医医疗百强榜入围，2023年度互联网中医平台白金医生、荣誉理事。坚持读书诊病紧密结合，白天临证夜间读书，勤求古训，博览群书，刻苦钻研，以医会友入医道，一心只在三指间。精研中医经典理论，推崇入伤寒出温病的寒温统一辨证思想，临证强调辨证与辨病相结合，提倡专病专方专药，积累了丰富的临床经验。
 
@@ -2439,7 +2439,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/52.html
 专长相近：高锋医生、刘尧钦医生
 
 ## 魏绍蓉
-URL: https://www.chuanzhongyi.com/zhongyishi/53.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=53
 
 毕业于成都中医药大学，曾在成都市妇幼保健院从事中医妇科临床工作近40年。近10余年，跟随中医不孕不育名家周开达主任医师，与周从容医师同一诊室，从事中医治疗不孕不育的临床工作，在治疗妇科常见病，多发病等中医杂症方面积累了丰富的临床经验。
 
@@ -2458,7 +2458,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/53.html
 专长相近：曾元静医生、樊明山医生
 
 ## 范有斌
-URL: https://www.chuanzhongyi.com/zhongyishi/54.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=54
 
 毕业于成都中医药大学,从事临床中药工作46年，师承多位内外医学名家，博采众家之长，习研中医理论，擅长中医临床内科、针灸、推拿、及康复理疗法。临病师古不泯古，中西融汇，坚持辨病与辩证相结合，针与药结合，内治与外治结合。自研的“梅花针加复方白龙须药液”治疗颈肩腰腿痛，曾获“部队科技进步奖”。
 
@@ -2477,7 +2477,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/54.html
 专长相近：万友洪医生、王勇医生
 
 ## 曾元静
-URL: https://www.chuanzhongyi.com/zhongyishi/55.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=55
 
 毕业于成都中医药大学，出生于中医世家，为家中第五代中医，师从傅元谋教授、刘扬教授，博士师从宋兴教授，为其关门弟子。自幼耳濡目染，融家传中医与各家所长于一炉。对儿科、妇科常见病，多发病的治疗积累了丰富的经验。
 
@@ -2496,7 +2496,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/55.html
 专长相近：黄凤书医生、刘金铜医生
 
 ## 温颖静
-URL: https://www.chuanzhongyi.com/zhongyishi/56.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=56
 
 毕业于成都中医药大学，出生中医世家，幼承家学，师从成都、上海两地数位名老中医教授，在十余年临床工作中积累了扎实的中医施治经验。重视四诊合参，组方运用灵活，用药精准。强调中医治疗疾病，以辩证为核心，注重整体观，精研历代医籍，善于结合历代医家临床经验治疗内、外、妇、儿等各科疾病。
 
@@ -2515,7 +2515,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/56.html
 专长相近：周雪梅医生、陈伟津医生
 
 ## 万友洪
-URL: https://www.chuanzhongyi.com/zhongyishi/57.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=57
 
 毕业于成都中医药大学，临床工作近二十年，先后跟随多名名医。
 
@@ -2534,7 +2534,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/57.html
 专长相近：范有斌医生、李强医生
 
 ## 付远忠
-URL: https://www.chuanzhongyi.com/zhongyishi/58.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=58
 
 成都市中医学会理事，内妇儿专委会副主任委员，成都中医药大学兼职教授。从事中西医结合内科40余年。
 
@@ -2553,7 +2553,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/58.html
 专长相近：刘金铜医生、刘尧钦医生
 
 ## 萧荣粹
-URL: https://www.chuanzhongyi.com/zhongyishi/59.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=59
 
 毕业于成都中医药大学。毕业后成为成都市名医牟玉书主任医师的亲传弟子及大徒弟，并成为国家级第二批师带徒继承人及关门徒弟。
 
@@ -2572,7 +2572,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/59.html
 专长相近：刘尧钦医生、唐华君医生
 
 ## 刘金铜
-URL: https://www.chuanzhongyi.com/zhongyishi/60.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=60
 
 中医硕士，习医药、研易经，辅以八卦五行辨症，运用汤药、针灸、点穴正骨、经络导引相结合治疗儿科（增高、益智、早熟、过敏体质），妇科（不孕、减脂、塑形 、月子病），颈肩腰椎病，失眠，心慌，精力不济，腹泻，免疫力低，畏风怕冷等疑难杂症。亦擅长医易结合膳食改变体质，调理精气神，治疗身心疾病。
 
@@ -2591,7 +2591,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/60.html
 专长相近：王大淳医生、景荣忠医生
 
 ## 徐泊涛
-URL: https://www.chuanzhongyi.com/zhongyishi/61.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=61
 
 自幼浸染中医之韵，随国医大师张磊十载研习。精研《黄帝内经》，洞恶身疾心病之源，身心同调，针灸、正骨、汤药、静坐、导引综合于临床。平素喜静默，体悟经筋导引，强身健体，妙手仁心。
 
@@ -2620,7 +2620,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/61.html
 专长相近：徐智勇医生、张涛医生
 
 ## 刘尧钦
-URL: https://www.chuanzhongyi.com/zhongyishi/62.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=62
 
 台湾台北人。2005年跟随倪海厦医师学习，成为人纪班倪海厦医师亲授学生，并于汉唐经方中医诊所工作近五年，专攻内科、针灸。针灸门派为古典针灸学派，擅用内经五行经络配穴，辅以灵龟八法、子午流注等法；用药处方以经方为宗，神农本草经加减应用。
 
@@ -2639,7 +2639,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/62.html
 专长相近：高锋医生、付远忠医生
 
 ## 王勇
-URL: https://www.chuanzhongyi.com/zhongyishi/63.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=63
 
 中医硕士，杨氏太极第七代传人。曾就职于四川省骨科医院，2008年北京奥运会国家队随队医生。临床经验丰富，手法、针灸、汤药并用，长于脉诊及经络诊病，擅用传统功法教学改善体质。擅治骨伤科疾病，如颈椎病、肩周炎、腰痛症、膝关节退行性骨关节炎,各种运动损伤（网球肘、急性腰扭伤、腱鞘炎、半月板损伤、疲劳性骨膜炎），身心疾病（抑郁焦虑、失眠等），小儿抽动症及青少年情志问题，脑梗、中风后遗症等老年常见病，脾胃调理（胃炎、胆囊炎、十二指肠溃疡等)，外感疾病（感冒、咳嗽、鼻炎等）等各类内科杂病，办公室综合征,各种亚健康状态及节气养生保健。
 
@@ -2656,7 +2656,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/63.html
 专长相近：刘金铜医生、王敬义医生
 
 ## 张涛
-URL: https://www.chuanzhongyi.com/zhongyishi/64.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=64
 
 师承中医骨科明医史梦龙大夫、徐国洪大夫。博采众长，结合多年临床经验，擅长各类骨伤疾病（颈椎病、腰椎病、各类脊柱相关疾病、髋膝踝相关疾病、运动损伤等）和亚健康调理。推崇将中医骨伤和运动康复相结合，进而增强体质、加速病体康复过程，以期形神合一。
 
@@ -2675,7 +2675,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/64.html
 专长相近：徐泊涛医生、徐智勇医生
 
 ## 周雪梅
-URL: https://www.chuanzhongyi.com/zhongyishi/65.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=65
 
 毕业于成都中医药大学。先后从事针灸推拿专业以及中医基础理论中医养生专业研究。研究生师从夏丽娜教授，并长期跟师爷中医养生大家马烈光教授学习。擅长传统针灸，杵针，七星灸，刮痧拔罐等外治疗法，提倡针药合治。擅治儿科:小儿脾胃养护，积食，纳差，发热，咳嗽，腹泻等；妇科:痛经，月经不调，宫寒，妇科炎症，备孕调理，孕期安胎，产后调养，抗衰美颜，气血调理等；呼吸系统:感冒，顽固性咳嗽，过敏性鼻炎，气管炎，支气管炎，哮喘，以及虚寒体质，脾虚体质，气血两虚体质等的调养，亚健康人群调理等。
 
@@ -2692,7 +2692,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/65.html
 专长相近：赵婉娟医生、梁盈盈医生
 
 ## 陈伟津
-URL: https://www.chuanzhongyi.com/zhongyishi/66.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=66
 
 毕业于福建中医药大学，五行针灸师，擅治各类情志病（焦虑、抑郁、恐惧），睡眠问题（入睡困难、眠浅、易醒、多梦、起夜），过敏（红肿、瘙痒、皮癣、水疱），过敏性鼻炎（鼻塞、流涕、眼痒、鼻痒），中医美容（面部松弛下垂、皱纹、肥胖、痤疮、夏季减重），妇科（卵巢早衰、月经不调、痛经、乳腺结节、带下、剖腹产疤痕），儿童近视调控，儿童长高调理等问题的治疗。
 
@@ -2709,7 +2709,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/66.html
 专长相近：徐智勇医生、刘尧钦医生
 
 ## 王敬义
-URL: https://www.chuanzhongyi.com/zhongyishi/67.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=67
 
 从医三十余年，脉诊精准，独树一帜。著有《脉论：二十年后方为医》、《中医脉诊点位新探图文详解》等著作。擅治心脑血管疾病（高血脂、冠心病、心肌炎、脑动脉硬化、脑梗塞），肾脏疾病（肾结石、肾炎、尿毒症），妇科（乳腺增生、子宫肌瘤、盆腔炎），男女不孕症，前列腺炎等。儿科常见病（呼吸道感染、过敏性哮喘、消化系统、心肌炎等）。擅用药物帮助患者减轻放化疗的副作用。
 
@@ -2726,7 +2726,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/67.html
 专长相近：王勇医生、刘尧钦医生
 
 ## 刘加平
-URL: https://www.chuanzhongyi.com/zhongyishi/68.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=68
 
 四川泸州人，因病结缘中医二十余年，拜入西南名医“扶正派”当代传承者李时昌先生门下，同时研习儒、释、道、易，勤学好思，学有大成，对中医整体观念和辨证论治具有深刻的认识与独到的见解，临床运用与理论知识俱佳。著有《经方修习日记》,《大国崛起说中医》等著作，泸州市"非常中医讲坛"特聘讲师。擅治：睡眠情志调理(失眠、焦虑、忧郁症、熬夜虚劳)，呼吸系统(鼻炎、支气管炎、肺炎、哮喘、肺部结节、肺癌调理)，脾胃疾病（胃炎、胃溃疡、消化不良、厌食等），妇科HPV感染，不孕不育，产前产后调理，男科疾病，肾病（肾病综合征、肾衰、肾虚、阳痿早泄、尿毒症早期、肾结石），心脑血管疾病（肺心病、冠心病、先兆中风、中风后遗症等），风湿、痛风、反复性口腔溃疡，肥胖三高调理，各类疑难杂症，儿科常见病，以及肿瘤（肝癌、食道癌、乳腺癌、肺癌）的康复治疗与术后调理等。
 
@@ -2743,7 +2743,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/68.html
 专长相近：孟庆芳医生、赵婉娟医生
 
 ## 徐智勇
-URL: https://www.chuanzhongyi.com/zhongyishi/69.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=69
 
 中医学硕士，以中医五运六气理论指导临床，针灸、揉腹、中药并用，治疗疾病，调理体质，预防疾病。擅治脾胃病（肠胃炎、消化不良、腹胀、腹泻等），体质调理（免疫力低下，畏寒怕冷，反复感冒，精力差，易疲倦，自汗，盗汗，失眠多梦，耳鸣，脱发，湿疹痤疮，术后康复，慢性病调理等），各种痛症（颈肩腰腿痛，偏头痛等），以及心慌、心悸等心脑血管问题，肺部疾病、内分泌失调以及进行成人儿童个性化体质调理。
 
@@ -2760,7 +2760,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/69.html
 专长相近：徐泊涛医生、陈伟津医生
 
 ## 赵婉娟
-URL: https://www.chuanzhongyi.com/zhongyishi/70.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=70
 
 从医五十余载，家学渊源，临床讲究施治求本、法简效捷。对内、妇、儿科常见病及疑难杂症有较好的疗效。擅治小儿发烧、咳嗽、腹泻、湿疹，妇科（月经病、妇科炎症），心脑血管系统（冠心病、脑血栓等），呼吸系统（支气管炎、肺气肿），消化系统（胆、胃疾病）等方面疾病。尤擅用膏方调理气血虚弱、肾气亏虚及亚健康人群。
 
@@ -2777,7 +2777,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/70.html
 专长相近：梁盈盈医生、周雪梅医生
 
 ## 李晟华
-URL: https://www.chuanzhongyi.com/zhongyishi/71.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=71
 
 中医硕士，毕业于北京中医药大学，擅长针灸。广参明师，勤求不辍，博采众长，一寓于针。临床主张“治病求本”——把握动态的整体，即能执简驭繁，临纷繁病症而不乱。对眼病（飞蚊症、干眼症、眼痒、眼痛、溢泪症、糖尿病视网膜病变、目眨、睑跳、巩膜黄染、视物模糊、结膜炎、角膜炎、复视、老花眼、甲亢眼突）、心脑血管疾病（高血压、高血脂、冠心病、心肌炎、脑动脉硬化、脑梗塞），痛症（落枕、痛经、足跟痛、偏头痛、三叉神经痛）、耳鸣、甲状腺结节、乳腺疾病（乳腺增生、乳腺炎、纤维瘤、奶水不退、乳房发育不良、男性乳房发育、乳腺癌）、新冠康复（咳嗽、肺炎、咽喉不适、乏力、嗅觉味觉听力下降、视力模糊、记忆力减退、心脏受损、腰痛等）、癌症术前及各类疑难杂症有丰富的经验和独到的疗效。
 
@@ -2794,7 +2794,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/71.html
 专长相近：于廷齐医生、杨盛宇医生
 
 ## 史梦龙
-URL: https://www.chuanzhongyi.com/zhongyishi/72.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=72
 
 中医世家，师承北京正骨专家王伟，长期随国家体操队、跳水队、羽毛球队进行运动员伤病预防与诊疗。擅治脊柱及骨关节相关疾病，如颈椎病、肩周炎、腰椎间盘突出症、膝关节炎等。尤擅脊柱小关节紊乱，脊柱侧弯的手法整复。
 
@@ -2811,7 +2811,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/72.html
 专长相近：杨盛宇医生、徐智勇医生
 
 ## 梁盈盈
-URL: https://www.chuanzhongyi.com/zhongyishi/73.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=73
 
 中医硕士，精于运用脉法诊查与治疗疾病，长年跟随多位名老中医学习，先后于川贵各大三甲医院深造，临床经验丰富。擅治:儿科：反复感冒、咳嗽，过敏及慢性鼻炎，腺样体肥大，荨麻疹，湿疹，厌食，便秘，身高发育不良，多动症，抽动症等；
 
@@ -2834,7 +2834,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/73.html
 专长相近：赵婉娟医生、周雪梅医生
 
 ## 杨盛宇
-URL: https://www.chuanzhongyi.com/zhongyishi/74.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=74
 
 副主任医师
 
@@ -2887,7 +2887,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/74.html
 专长相近：李柏青医生、徐智勇医生
 
 ## 宋淼磊
-URL: https://www.chuanzhongyi.com/zhongyishi/75.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=75
 
 中医世家，从事儿科临床工作三十余年，擅长外治手法，临床以张席珍流派和河东流派小儿推拿为主，辩证精准、手法轻柔，以调理小儿脾胃疾病和新生儿疾患著称，对少儿亚健康体质等各种常见病能手到病除，尤对少儿呼吸系统疾病（疱疹性咽峡炎、化脓性扁桃体炎、腺样体肥大、鼻炎、大扁桃、支气管肺炎等）有独到之处。推拿配合马氏温灸擅调小儿抽动症、早熟、少儿助长。临床注重少儿体质禀赋调理，提倡未病先防、四季养生、二十四节气保健。
 
@@ -2904,7 +2904,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/75.html
 专长相近：孟晓露医生、赵婉娟医生
 
 ## 李洲博
-URL: https://www.chuanzhongyi.com/zhongyishi/76.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=76
 
 医学世家,主治中医师,大娘巾妇科第16代传承人,四川省中西医结合消化专委会青年委员。
 
@@ -2937,7 +2937,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/76.html
 专长相近：余新平医生、马明医生
 
 ## 史俊峰
-URL: https://www.chuanzhongyi.com/zhongyishi/77.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=77
 
 从事中医临床三十余年，家学渊源，三晋妇科传人。擅治妇科，如：月经不调、痛经、胎前产后疾病、子宫肌瘤、卵巢囊肿、男女不孕不育、习惯性流产等多种妇科疾病。同时对多种内、外科疾病的治疗也有较好的疗效。
 
@@ -2954,7 +2954,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/77.html
 专长相近：王敬义医生、邓雪梅医生
 
 ## 余新平
-URL: https://www.chuanzhongyi.com/zhongyishi/78.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=78
 
 北京中医药大学中医与台湾交通大学信息管理双硕士。幼时深受传统文化熏染，少时学习易经与紫微斗数等天人合一思想，曾跟随台湾国术和伤科世家谢茂灿老师学习少林拳法，并启蒙针灸。后至北中医系统研读中医，期间继续跟随师叔谢茂源(台湾北京两地名医)深入学习伤科手法与妇科心法、同时跟随台湾董针传人曾天德老师学承董氏奇穴与十四正经结合等心法。 
 
@@ -2975,7 +2975,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/78.html
 专长相近：严洁医生、梁盈盈医生
 
 ## 邓雪梅
-URL: https://www.chuanzhongyi.com/zhongyishi/79.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=79
 
 中山大学硕士，专攻中西医结合妇科方向，先后于广州、成都及英国伦敦公立医院及专业诊所行医十余载。师从全国著名三晋妇科传承人，致力钻研心法、脉药及针灸手法，调神调形调气血三者兼顾。擅长妇科（月经失调、痛经、阴道炎、子宫肌瘤、更年期综合征、乳腺增生），产科（胎位不正、产后汗证、乳汁不足、产后体寒、产后脱发、体形恢复、人流术后恢复、备孕），脾胃疾病、亚健康等疾病的诊治。
 
@@ -2992,7 +2992,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/79.html
 专长相近：严洁医生、覃湘斌医生
 
 ## 陈虹静
-URL: https://www.chuanzhongyi.com/zhongyishi/80.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=80
 
 传统中医，注重身心同调，擅以传统针灸、艾灸治疗疾病。犹擅五行针灸调理脏腑经气，治疗内科（胃肠疾病，眩晕，咳嗽），妇科（痛经，月经紊乱，闭经，产后抑郁）疾病。气化针法结合刺血疗法治疗痛症（头痛，肩颈疼痛，背痛，腰痛，膝盖痛，各种扭伤）。
 
@@ -3009,7 +3009,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/80.html
 专长相近：吴艳梅医生、陈薏凤医生
 
 ## 马明
-URL: https://www.chuanzhongyi.com/zhongyishi/81.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=81
 
 蒲氏中医第五代传人，毕业于成都中医药大学，从医近四十年。师承蒲氏中医四世传人蒲志孝，跟习于治咳喘病名老中医周焯然与中医妇科专家李长衍，博采众长，融会贯通。治病遵传统中医理法，重辨证论治。擅治:呼吸系统（慢支炎，肺气肿，肺心病，支气管哮喘，慢性鼻炎，鼻窦炎，过敏性鼻炎，慢性咽炎），脾胃（慢性胃炎，胃十二指肠溃疡，慢性肠炎，结肠炎，顽固性腹泻），肾脏疾病（肾结石、肾炎、慢性肾功衰、尿毒症），皮肤病（湿疹、痤疮、荨麻疹、皮炎、黄褐斑、白癜风等），妇科常见病（月经问题，带下病，不孕不育症，乳腺增生等），儿科常见病（感冒，咳嗽气喘，腹泻，厌食，小儿生长发育迟缓），疑难杂症（甲亢、桥本氏甲状腺炎、顽固性失眠、肝胆疾病，颈肩腰腿疼痛，痛风，前列腺问题，长期失眠等），肿瘤结节调理（甲状腺结节，乳腺结节，肺结节，肺癌，胃癌，食道癌，乳腺癌等）。
 
@@ -3026,7 +3026,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/81.html
 专长相近：李洲博医生、陈伟津医生
 
 ## 严洁
-URL: https://www.chuanzhongyi.com/zhongyishi/82.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=82
 
 中医学硕士，主治医师，经筋美颜团队讲师。毕业于北京中医药大学，曾任北京中医药大学针灸推拿学院讲师。峨眉医学十四代弟子，中国传统文化促进会中医药文化传承委员会峨眉医学部副主任。非物质文化遗产峨眉食物药饵疗法代表性学术传人。北京体元书院特聘文化导师。擅长运用六经辨证体系，采用中药、针灸、手法结合的复合疗法，治疗外感疾病、脾胃疾病、女性月经失调性疾病、内分泌紊乱性疾病及代谢失调性疾病。擅长运用经筋美颜体系的针灸手法改善肌肤衰老状态。
 
@@ -3045,7 +3045,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/82.html
 专长相近：邓雪梅医生、余新平医生
 
 ## 覃湘斌
-URL: https://www.chuanzhongyi.com/zhongyishi/83.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=83
 
 秉承中医整体观，身心同调。擅用无痛针灸、手工悬灸、点穴导引、铜板刮痧等多种方式综合治疗脏腑经络，全方位提升个人体质。
 
@@ -3064,7 +3064,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/83.html
 专长相近：邓雪梅医生、赵婉娟（膏方）医生
 
 ## 吴艳梅
-URL: https://www.chuanzhongyi.com/zhongyishi/84.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=84
 
 针灸主治医师，毕业于成都中医药大学，原就职于华西医院康复科，学承中医大家，潜心歧黄，善用五行针灸、古典针灸、韵律按摩、艾灸、中成药、代茶饮等进行疾病的治疗和调理，重视生活方式的指导及心身健康的整体调治。擅治：情志类疾病（失眠、焦虑、心理疏导、情绪低落），女性养护（肝气不舒、气血调理、生活状态调整），亲子关系疏导（学龄前、青春期心理健康引导），胸闷气短、头晕头痛、高压人群解压。
 
@@ -3081,7 +3081,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/84.html
 专长相近：陈虹静医生、万友洪医生
 
 ## 陈康
-URL: https://www.chuanzhongyi.com/zhongyishi/85.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=85
 
 中医主治医师，研习融合多个流派手法，受林杰老师中医思想影响，提倡以筋带骨，安全有效，尽量无痛的手法理念；治疗擅从神气形入手，通过正骨，理筋，点穴，针灸等方式治疗各种痛症和内科杂病。
 
@@ -3106,7 +3106,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/85.html
 专长相近：刘欢医生、李柏青医生
 
 ## 鲁法庭
-URL: https://www.chuanzhongyi.com/zhongyishi/86.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=86
 
 中医博士，师从多位名老中医，临床精于辨证，遣方用药，依理有法。擅长调治呼吸系统（过敏性鼻炎、鼻窦炎、哮喘），胃肠疾病（慢性胃肠炎、胃溃疡、消化不良），皮肤病（湿疹、荨麻疹、皮肤过敏），妇科（孕前、产后调理、痛经、更年期综合症）、儿科常见病。
 
@@ -3123,7 +3123,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/86.html
 专长相近：梁盈盈医生、赵婉娟医生
 
 ## 李柏青
-URL: https://www.chuanzhongyi.com/zhongyishi/87.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=87
 
 中医执业医师，新西兰注册针灸师。
 
@@ -3144,7 +3144,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/87.html
 专长相近：杨盛宇医生、刘欢医生
 
 ## 罗泓闵
-URL: https://www.chuanzhongyi.com/zhongyishi/88.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=88
 
 出身中医世家，广州中医药大学在读博士、世界中医药学会联合会养生专业委员会理事。先后师从中医脉诊专家王敬义教授、台湾国医张步桃胞弟张书陆先生、广州中医药大学第一附属医院内分泌科主任刘敏教授等中医名家。融汇众长，兼具经方智慧与现代科研思维。其脉法精准，擅长以经方为主、针灸和食疗调理为辅的治疗方式，针对性改善中医内科疾病。尤擅胃痛、胃胀、泄泻等脾胃相关疾患。
 
@@ -3161,7 +3161,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/88.html
 专长相近：刘欢医生、曲利炜医生
 
 ## 金钊
-URL: https://www.chuanzhongyi.com/zhongyishi/89.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=89
 
 五代祖传中医，中医学博士，曾赴美讲学，理法方药丝丝入扣，疗效显著。擅治内、外、妇、儿疾病，尤擅治疗免疫系统（白塞氏病、S.L.E），消化系统（溃疡性结肠炎、直肠炎），口腔粘膜病变（复发性口疮），儿科（久咳不愈、厌食、发育不良），妇科（不孕症、多囊卵巢综合症、更年期综合症）。
 
@@ -3178,7 +3178,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/89.html
 专长相近：鲁法庭医生、孟庆芳医生
 
 ## 孟庆芳
-URL: https://www.chuanzhongyi.com/zhongyishi/92.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=92
 
 主治医师，从业十余年。跟随宋淼磊老师学习小儿推拿，同时长期跟诊中医内科名家。 临床主张“外治之理即内治之理”，调整阴阳，扶正祛邪。擅用小儿推拿与汤药治疗各类儿科、内科疾病。
 
@@ -3197,7 +3197,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/92.html
 专长相近：刘加平医生、金钊医生
 
 ## 冯媛
-URL: https://www.chuanzhongyi.com/zhongyishi/93.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=93
 
 成都中医药大学硕士，峨眉丹道与传统医道嫡系传承者，行医二十载，精研岐黄奥义，融诸家精髓于临床，以针灸、中药、古法导引三维一体辨证施治，诊疗风格轻柔精准、标本兼顾，痛感极低。
 
@@ -3224,7 +3224,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/93.html
 专长相近：黄莉蓉医生、徐智勇医生
 
 ## 曲利炜
-URL: https://www.chuanzhongyi.com/zhongyishi/94.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=94
 
 医药双修，广拜名师，临床处方重视脾胃，擅用风药。擅治消化系统（习惯性腹泻、消化不良、呕吐泛酸），妇科（闭经痛经、月经紊乱、产后调理、更年期综合症），疲劳综合症（头晕头痛、胸闷心悸、心律不齐），青春痘，湿疹，亚健康调理。
 
@@ -3241,7 +3241,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/94.html
 专长相近：刘欢医生、罗泓闵医生
 
 ## 徐鹏
-URL: https://www.chuanzhongyi.com/zhongyishi/95.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=95
 
 从医二十余载，深耕临床医学与中医经典理论，系统研习心理学知识，将现代医学诊疗技术、中医辨证施治与营养干预相结合，注重身心同治，以精炼配伍的经方为特色。
 
@@ -3260,7 +3260,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/95.html
 专长相近：金钊医生、刘加平医生
 
 ## 陈薏凤
-URL: https://www.chuanzhongyi.com/zhongyishi/97.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=97
 
 针灸学硕士，主治医师。毕业于成都中医药大学，四川省名中医罗玲传承工作室，川派灸疗工作室，四川省针灸学会医学美容专业委员会秘书，四川省针灸学会会员，长期从事中医临床工作，擅于将传统治疗方案与现代保健理念相融合，针·灸·药结合内外同调。
 
@@ -3277,7 +3277,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/97.html
 专长相近：金钊医生、陈虹静医生
 
 ## 高智
-URL: https://www.chuanzhongyi.com/zhongyishi/98.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=98
 
 执业医师，毕业于成都中医药大学，中医学专业。少年时受舅舅影响，中医启蒙于成都中医药大学儿科李建保教授。师承国家级名老中医陈潮祖教授学术传承人——中医纵横派创始人叶明军医师。推崇“辨证论治，一人一方”的中医整体观。对传统中医充满热爱，曾跟随多位名医学习，对中医临床理论有较深入研究，并结合现代医学的诊疗方法，融汇新知，在临证中不断思考。
 
@@ -3294,7 +3294,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/98.html
 专长相近：黄莉蓉医生、孟晓露医生
 
 ## 蔡晏波
-URL: https://www.chuanzhongyi.com/zhongyishi/99.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=99
 
 中华中医学会专家委员，医学硕士，中医主治医师，中医特色医疗研究员，2010年在北京协和医院研修，2015年入编《中医疑难病名医榜》。
 
@@ -3313,7 +3313,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/99.html
 专长相近：罗泓闵医生、覃湘斌医生
 
 ## 黄莉蓉
-URL: https://www.chuanzhongyi.com/zhongyishi/100.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=100
 
 四川省康复医学会教育分会委员；中国妇幼保健协会会员；四川省针灸协会会员；中华中医药学会妇科分会会员。
 
@@ -3332,7 +3332,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/100.html
 专长相近：冯媛医生、金钊医生
 
 ## 孟晓露
-URL: https://www.chuanzhongyi.com/zhongyishi/101.html
+URL: https://www.chuanzhongyi.com/zhongyishi/showdoctor.php?id=101
 
 1983年毕业于成都中医药大学医学系；四川省儿童哮喘联盟委员；中华医学会四川省儿科专委会呼吸学组委员；四川省医药专家评审库成员；华西附二院中医科一级专家。
 
@@ -3353,7 +3353,7 @@ URL: https://www.chuanzhongyi.com/zhongyishi/101.html
 # 中医活动（共 6 条）
 
 ## 岐黄传新韵 生活有良方丨2026年“中医药文化服务月”系列活动（一）
-URL: https://www.chuanzhongyi.com/huodong/1.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=1
 
 近期，按照国家中医药局相关要求，我省国家、省级中医药文化宣传教育基地及各市（州）以“岐黄传新韵 生活有良方”为主题，通过中医义诊、科普讲座、展览展示、参观体验、旅游研学等形式，开展2026年“中医药文化服务月”活动，持续推进中医药文化传承创新发展，不断提升群众的中医药文化活动参与度和获得感。
 
@@ -3428,7 +3428,7 @@ URL: https://www.chuanzhongyi.com/huodong/1.html
 其它中医活动：2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验、冬令膏方节：体质辨识 + 个性化膏方定制（2026）、2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理、八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）
 
 ## 2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验
-URL: https://www.chuanzhongyi.com/huodong/2.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=2
 
 为方便市民在秋季了解自身体质、获得中医健康指导，成都多家中医馆将于 2026 年 10 月 1 日至 7 日联合举办公益义诊周。活动以「未病先防、既病防变」为主题，把中医体质辨识与适宜技术体验送到社区周边。
 
@@ -3459,7 +3459,7 @@ URL: https://www.chuanzhongyi.com/huodong/2.html
 其它中医活动：岐黄传新韵 生活有良方丨2026年“中医药文化服务月”系列活动（一）、冬令膏方节：体质辨识 + 个性化膏方定制（2026）、2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理、八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）
 
 ## 冬令膏方节：体质辨识 + 个性化膏方定制（2026）
-URL: https://www.chuanzhongyi.com/huodong/3.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=3
 
 民间有「冬令进补，来春打虎」的说法。冬季人体阳气内藏、食欲转好，是服用膏方调理的黄金时段。膏方不是简单的「补品叠加」，而是根据个人体质与病史，经辨证后组方、多次煎煮浓缩、加入胶类与糖类收膏而成的个体化剂型。
 
@@ -3490,7 +3490,7 @@ URL: https://www.chuanzhongyi.com/huodong/3.html
 其它中医活动：2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验、2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理、岐黄传新韵 生活有良方丨2026年“中医药文化服务月”系列活动（一）、八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）
 
 ## 2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理
-URL: https://www.chuanzhongyi.com/huodong/4.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=4
 
 「夏养三伏、冬补三九」。三九是一年中最冷的时段，也是阳气最弱、寒邪最盛的时候。三九贴把辛温散寒的中药研末调糊，敷贴于特定穴位，通过经络传导与药物渗透温阳散寒，是中医「冬病冬治」的代表性外治法。
 
@@ -3527,7 +3527,7 @@ URL: https://www.chuanzhongyi.com/huodong/4.html
 其它中医活动：冬令膏方节：体质辨识 + 个性化膏方定制（2026）、八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）、2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验、中医药文化进社区：中药香囊手作 + 居家药膳课堂
 
 ## 八段锦公益晨练课堂：每周六清晨的 45 分钟（2026 秋季场）
-URL: https://www.chuanzhongyi.com/huodong/5.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=5
 
 八段锦是中国流传最广的中医导引术之一，八式动作柔和连贯，对场地和器械几乎没有要求，被不少中医专家推荐为中老年人日常锻炼的首选。2026 年秋季场公益晨练课堂将在人民公园开课。
 
@@ -3562,7 +3562,7 @@ URL: https://www.chuanzhongyi.com/huodong/5.html
 其它中医活动：2026—2027 三九贴敷贴季：慢性咳喘、虚寒关节痛的冬令调理、中医药文化进社区：中药香囊手作 + 居家药膳课堂、冬令膏方节：体质辨识 + 个性化膏方定制（2026）、2026 成都中医馆秋季公益义诊周：体质辨识、慢病咨询与适宜技术体验
 
 ## 中医药文化进社区：中药香囊手作 + 居家药膳课堂
-URL: https://www.chuanzhongyi.com/huodong/6.html
+URL: https://www.chuanzhongyi.com/huodong/showactivity.php?id=6
 
 把中医药知识和动手体验一起搬进社区，是「中医药文化服务月」系列活动中最受欢迎的形式之一。本场活动面向社区居民，尤其是中老年朋友与带娃家庭，安排了辨识药材、手作香囊、药膳讲解三个环节。
 
@@ -3593,7 +3593,7 @@ URL: https://www.chuanzhongyi.com/huodong/6.html
 # 少儿中医研学（共 13 条）
 
 ## 少儿中医研学体验活动：识百草、做香囊、学八段锦
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/1.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=1
 
 面向 7~14 岁青少年的中医药文化研学体验活动，在成都市青羊区的中医馆内开展。活动以「看得见、闻得到、摸得着」的方式，把课本里的中医知识变成一次可以动手参与的实践课，让孩子在半天时间里认识中药、了解节气养生，感受传统中医药文化的趣味。
 
@@ -3624,7 +3624,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/1.html
 其它少儿中医活动：少儿推拿公开课：感冒、积食、睡不安的家庭保健手法、孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂、少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动、亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊
 
 ## 少儿推拿公开课：感冒、积食、睡不安的家庭保健手法
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/2.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=2
 
 孩子发烧咳嗽，家长最怕的是反复跑医院；其实在正规诊疗之外，一些简单的推拿手法可以在家中作为日常保健使用。本课程面向 0—12 岁孩子的家长，由执业中医师讲解并现场示范，重点是把安全、可操作的手法教到位。
 
@@ -3655,7 +3655,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/2.html
 其它少儿中医活动：少儿中医研学体验活动：识百草、做香囊、学八段锦、孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂、少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动、亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊
 
 ## 孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/3.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=3
 
 「吃不下、吃了不消化、睡觉翻来覆去」——这是中医儿科门诊里家长最常描述的三个问题。很多时候，问题不在孩子吃得少，而在脾胃运化跟不上。本课堂把辨识方法和家庭调护一次讲清。
 
@@ -3690,7 +3690,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/3.html
 其它少儿中医活动：少儿推拿公开课：感冒、积食、睡不安的家庭保健手法、少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动、少儿中医研学体验活动：识百草、做香囊、学八段锦、亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊
 
 ## 少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/4.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=4
 
 我国儿童青少年近视率居高不下，防控的关键在「早」和「日常」。中医把视物模糊、眼干易疲劳归为「目倦」「能近怯远」，认为与肝肾不足、气血不能上荣于目，以及久视伤血有关。本课堂把中医适宜技术与现代用眼卫生结合起来讲。
 
@@ -3719,7 +3719,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/4.html
 其它少儿中医活动：孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂、亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊、少儿推拿公开课：感冒、积食、睡不安的家庭保健手法、青少年脊柱侧弯筛查与八段锦训练营（公益场）
 
 ## 亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/5.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=5
 
 香囊是中国人最古老的「随身药箱」之一。端午佩香囊的习俗流传千年，里面装的不是香料那么简单——艾叶、藿香、丁香、白芷、石菖蒲，都是中医常用的芳香化湿、避秽化浊之品。让孩子亲手做一枚，是认识中药最直观的方式。
 
@@ -3754,7 +3754,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/5.html
 其它少儿中医活动：少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动、青少年脊柱侧弯筛查与八段锦训练营（公益场）、孩子厌食、积食怎么办？中医儿科的辨识与家庭调护课堂、儿童春季助长：小儿推拿、食疗与睡眠怎么用才有效
 
 ## 青少年脊柱侧弯筛查与八段锦训练营（公益场）
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/6.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=6
 
 书包越来越重、屏幕时间越来越长，青少年的体态问题逐年增多。脊柱侧弯在早期往往不痛不痒，却可能随着生长发育悄悄加重。早发现、早干预，是成本最低的方案。
 
@@ -3783,7 +3783,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/6.html
 其它少儿中医活动：亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊、儿童春季助长：小儿推拿、食疗与睡眠怎么用才有效、少儿近视防控公益课堂：耳穴压豆、用眼卫生与户外运动、小儿感冒别急着用药：风寒、风热的辨别与家庭护理
 
 ## 儿童春季助长：小儿推拿、食疗与睡眠怎么用才有效
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/7.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=7
 
 每年春季，门诊里问「怎么让孩子长得高一点」的家长都会多起来。中医讲「春主生发」，春季阳气升发，确是儿童生长发育较快的时段，但助长不是靠某一种补品或某一次推拿，而是睡眠、饮食、运动与情绪的长期配合。
 
@@ -3850,7 +3850,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/7.html
 其它少儿中医活动：青少年脊柱侧弯筛查与八段锦训练营（公益场）、小儿感冒别急着用药：风寒、风热的辨别与家庭护理、亲子中药香囊手作课：认识艾叶藿香，做一枚自己的防疫香囊、孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路
 
 ## 小儿感冒别急着用药：风寒、风热的辨别与家庭护理
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/8.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=8
 
 孩子一发烧，家长最常问的是「吃什么药好得更快」。但中医处理感冒的第一步不是用药，而是辨寒热——辨错了方向，护理方式会南辕北辙。
 
@@ -3913,7 +3913,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/8.html
 其它少儿中医活动：儿童春季助长：小儿推拿、食疗与睡眠怎么用才有效、孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路、青少年脊柱侧弯筛查与八段锦训练营（公益场）、少儿体质辨识：孩子常见的体质类型与调护方向
 
 ## 孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/9.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=9
 
 门诊里常见这样的孩子：早上起来连打十几个喷嚏，鼻塞得张嘴呼吸，夜里睡不踏实，眼下发青；或者四肢屈侧反复起湿疹，一抓就破。家长往往以为是「抵抗力差」，四处找「增强免疫力」的办法。
 
@@ -3976,7 +3976,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/9.html
 其它少儿中医活动：小儿感冒别急着用药：风寒、风热的辨别与家庭护理、少儿体质辨识：孩子常见的体质类型与调护方向、儿童春季助长：小儿推拿、食疗与睡眠怎么用才有效、儿童药膳与药食同源：适合孩子的家常食疗方
 
 ## 少儿体质辨识：孩子常见的体质类型与调护方向
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/10.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=10
 
 给孩子做「体质辨识」这两年很流行。需要说清楚的是：体质是相对稳定的个体特征，不是疾病诊断；辨识的意义在于指导日常调护，而不是给孩子贴标签。
 
@@ -4035,7 +4035,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/10.html
 其它少儿中医活动：孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路、儿童药膳与药食同源：适合孩子的家常食疗方、小儿感冒别急着用药：风寒、风热的辨别与家庭护理、行走的课堂·小药师研学公益活动
 
 ## 儿童药膳与药食同源：适合孩子的家常食疗方
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/11.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=11
 
 「药食同源」的意思是：有些东西既是食物也是药材。但给孩子做药膳，有三条底线必须守住——平和、少量、长期，而不是追求立竿见影。
 一、三条基本原则
@@ -4095,7 +4095,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/11.html
 其它少儿中医活动：少儿体质辨识：孩子常见的体质类型与调护方向、行走的课堂·小药师研学公益活动、孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路、小儿感冒别急着用药：风寒、风热的辨别与家庭护理
 
 ## 行走的课堂·小药师研学公益活动
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/12.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=12
 
 10月7日，一场别开生面的「行走的课堂·小药师研学公益活动」在成都殊德医馆温馨开展。活动由成都格兴公益事业发展中心主办，殊德医馆、心田花开文化艺术培训学校成都分校联合承办，四川省健康促进基金会、四川省教育基金会提供指导。上下午两场共吸引 40 组学生家庭全程参与，让孩子们在沉浸式、趣味性的实践体验中，零距离感受中医药文化的博大精深。
 
@@ -4151,7 +4151,7 @@ URL: https://www.chuanzhongyi.com/shaoerzhongyi/12.html
 其它少儿中医活动：儿童药膳与药食同源：适合孩子的家常食疗方、少儿体质辨识：孩子常见的体质类型与调护方向、孩子反复鼻塞、湿疹？儿童过敏体质的中医调理思路、小儿感冒别急着用药：风寒、风热的辨别与家庭护理
 
 ## “小小中医馆”藏着育儿经
-URL: https://www.chuanzhongyi.com/shaoerzhongyi/13.html
+URL: https://www.chuanzhongyi.com/shaoerzhongyi/showshaoer.php?id=13
 
 清明识艾草，立夏“尝三鲜”，秋分“润肺食”，立冬“防冻耳”……在四川省成都市实验小学附属幼儿园，有一处精心打造的“小小中医馆”。
 
