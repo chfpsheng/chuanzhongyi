@@ -5,6 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 met-cons">
+                <div class="product-list-head">
+                    <h1 class="product-list-title">{$data.name}</h1>
+                </div>
                 <div class="met-img" m-id="noset">
                     <ul class="blocks-100 blocks-xs-2 blocks-md-2 blocks-lg-3 blocks-xlg-3 met-page-ajax met-pager-ajax met-grid" id="met-grid" data-scale="{$c.met_shaoerimg_y}x{$c.met_shaoerimg_x}">
                         <tag action="shaoer.list" num="$c['met_shaoer_list']">

@@ -7,7 +7,11 @@
       <div class="<if value='$ui["has"]["sidebar"]'>col-lg-9<else/>col-lg-12</if> met-cons">
 </if>
 
-        <div class="$uicss met-news-list news-lists" m-id="{$ui.mid}">
+        <div class="$uicss met-news-list news-lists" m-id="{$ui.mid}">
+
+          <div class="product-list-head">
+            <h1 class="product-list-title">{$data.name}</h1>
+          </div>
           <if value="$ui['headlines'] && !$data['page'] && $ui['listtype'] neq 3">
           <div class="news-headlines">
             <div class="news-wrapper">
