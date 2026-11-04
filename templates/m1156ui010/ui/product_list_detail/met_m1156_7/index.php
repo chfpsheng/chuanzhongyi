@@ -143,7 +143,7 @@ if (!empty($data['para_url']) && is_array($data['para_url'])) {
 
                   <list data="$data['para']" name="$val">
 
-                  <if value="!($val['_index'] lt $ui['paranum'])">
+                  <if value="!($val['_index'] lt $ui['paranum']) && $val['value']">
 
                   <li>{$val.name} : {$val.value}</li>
 

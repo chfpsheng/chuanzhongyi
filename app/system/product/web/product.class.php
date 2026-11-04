@@ -14,6 +14,54 @@ class product extends news
         parent::__construct();
     }
 
+    /**
+     * 判断当前是否为「院内制剂」栏目（目录名 yuanneizhiji）。
+     * 兼容两种情况：
+     *   1) 列表/详情页正好命中 yuanneizhiji 栏目本身；
+     *   2) 当前栏目是 yuanneizhiji 的子栏目（取顶级栏目目录名判断）。
+     */
+    private function is_yuanneizhiji()
+    {
+        global $_M;
+        // 0) 终极兜底：请求路径本身含栏目目录名（覆盖栏目目录入口 /yuanneizhiji/、/yuanneizhiji/index.php 等路由）
+        if (!empty($_SERVER['REQUEST_URI']) && stripos($_SERVER['REQUEST_URI'], 'yuanneizhiji') !== false) {
+            return true;
+        }
+        // 1) 目录名：input 与原始 form 都查（input 可能在部分流程中尚未填充）
+        foreach (array($this->input['folder_name'], $_M['form']['folder_name']) as $fn) {
+            if (!empty($fn) && $fn == 'yuanneizhiji') {
+                return true;
+            }
+        }
+        // 2) 伪静态列表页：metid 直接是栏目目录名/静态页名
+        if (!empty($_M['form']['metid']) && $_M['form']['metid'] == 'yuanneizhiji') {
+            return true;
+        }
+        // 3) 栏目 id 反查：input 与 form 的 class1/2/3 任一命中即视为该栏目
+        foreach (array('class1', 'class2', 'class3') as $k) {
+            foreach (array($this->input[$k], $_M['form'][$k]) as $cid) {
+                if (!empty($cid) && is_numeric($cid)) {
+                    $col = $_M['class']['column_label']->get_column_id($cid);
+                    if ($col && $col['foldername'] == 'yuanneizhiji') {
+                        return true;
+                    }
+                }
+            }
+        }
+        // 4) 详情页：仅带 id（无 classN），由产品 id 反查所属栏目
+        if (!empty($this->input['id']) && is_numeric($this->input['id'])) {
+            $pid = (int)$this->input['id'];
+            $prod = DB::get_one("SELECT class1 FROM {$_M['table']['product']} WHERE id='{$pid}' AND lang='{$_M['lang']}'");
+            if ($prod && $prod['class1']) {
+                $col = $_M['class']['column_label']->get_column_id($prod['class1']);
+                if ($col && $col['foldername'] == 'yuanneizhiji') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public function doproduct()
     {
         global $_M;
@@ -24,8 +72,16 @@ class product extends news
             $_M['config']['met_productimg_y'] = $this->input['thumb_list_y'];
             $_M['config']['met_product_list'] = $this->input['list_length'];
 
-            $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
-            $this->view('product', $this->input);
+            // 院内制剂不走伪静态重定向（其栏目目录名会生成不可解析的伪静态地址）；其余栏目保持原逻辑
+            if (!$this->is_yuanneizhiji()) {
+                $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
+            }
+            // 院内制剂栏目使用独立模板；其余产品栏目（如中医馆）仍走 product.php
+            if ($this->is_yuanneizhiji()) {
+                $this->view('yuanneizhiji', $this->input);
+            } else {
+                $this->view('product', $this->input);
+            }
         } else {
             $this->doshowproduct();
         }
@@ -42,11 +98,21 @@ class product extends news
         $shop_plugin_file = PATH_ALL_APP . 'shop/plugin/plugin_shop.class.php';
         if ($_M['config']['shopv2_open'] && file_exists($shop_plugin_file)) {
             define('MET_SHOP_PARA', 1);
-            $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
+            if (!$this->is_yuanneizhiji()) {
+                $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
+            }
             load::plugin('doproduct_show', 0, $this->input);
         } else {
-            $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
-            $this->view('showproduct', $this->input);
+            // 院内制剂不走伪静态重定向（避免跳到不可解析的 /yuanneizhiji/{id}.html）
+            if (!$this->is_yuanneizhiji()) {
+                $_M['class']['handle']->redirectUrl($this->input); //伪静态时动态链接跳转
+            }
+            // 院内制剂详情使用独立模板；其余产品栏目仍走 showproduct.php
+            if ($this->is_yuanneizhiji()) {
+                $this->view('showyuanneizhiji', $this->input);
+            } else {
+                $this->view('showproduct', $this->input);
+            }
         }
     }
 }
