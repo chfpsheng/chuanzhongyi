@@ -10,6 +10,15 @@
  *
  * 头像比例固定竖版 800x1000（data-scale 高x宽 = 1000x800），避免头部被裁。
  */
+if (empty($data['page_title']) || $data['page_title'] === '院内制剂-四川中医馆') {
+    $data['page_title'] = '院内制剂_四川医院自制药说明（仅限院内处方使用）-四川中医馆';
+}
+if (empty($data['page_description'])) {
+    $data['page_description'] = '四川医院院内制剂科普：燥湿止痒洗液、金槐痔瘘合剂、海棠合剂、复方菌灵芝合剂、紫草油、六合丹、参苓胃炎合剂等。院内制剂仅限配制医院内部凭处方使用，不得在市场上或网上销售，本页不提供购买、代购或在线下单服务。';
+}
+if (empty($data['page_keywords'])) {
+    $data['page_keywords'] = '院内制剂,医院自制药,四川院内制剂,成都院内制剂,燥湿止痒洗液,金槐痔瘘合剂,海棠合剂,复方菌灵芝合剂,紫草油,六合丹,参苓胃炎合剂';
+}
 ?>
 <include file="head.php" page="yuanneizhiji"/>
 <style type="text/css">
@@ -45,7 +54,7 @@
     </div>
     <div class="yz-banner">院内制剂（医院自制药）仅限配制医院内部凭处方使用，不得在市场上或网上对外销售；本页仅作科普，不提供购买、代购或在线下单服务，需到院就诊由医生开具。</div>
     <ul class="yz-grid">
-        <tag action="product.list" cid="144" num="12">
+        <tag action="product.list" cid="$data['classnow']" num="12">
         <li class="yz-card">
             <a href="/yuanneizhiji/showproduct.php?id={$v.id}" title="{$v.title}" {$g.urlnew}>
                 <span class="pic"><img src="{$v.imgurl|thumb:640,800}" alt="{$v.title}"></span>

@@ -8,6 +8,7 @@
 </if> 
 
         <div class="$uicss" m-id="{$ui.mid}">  
+          <h1 class="show-page-title">{$data.name}</h1>
           <div class="met-editor lazyload clearfix">
             <div class="editorlightgallery">{$data.content}</div>
           </div> 

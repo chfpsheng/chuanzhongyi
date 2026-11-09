@@ -106,43 +106,7 @@
 
       <a href="{$c.index_url}" class="navbar-brand navbar-logo vertical-align" title="{$c.met_webname}">
 
-        <if value="$data['classnow'] eq 10001">
-
-            <h1 hidden>{$c.met_webname}</h1>
-
-            <else/>
-
-            <h3 hidden>{$c.met_webname}</h3>
-
-        </if>
-
-        <if value="($data['classnow'] neq 10001&&!$data['id'])||$data['module'] eq 1">
-
-            <if value="$data['module'] eq 3">
-            <div hidden>成都中医馆名录</div>
-            <else/>
-            <h1 hidden>{$data.name}</h1>
-            </if>
-
-            <if value="$data['classtype'] neq 1">
-
-                <tag action="category" type="current" cid="$data['class1']">
-
-                    <h2 hidden>{$m.name}</h2>
-
-                </tag>
-
-            </if>
-
-            <else/>
-
-            <if value="!$data['id']&&$data['classnow'] neq 10001">
-
-                <h1 hidden>{$data.name}</h1>
-
-            </if>
-
-        </if>
+        <span class="sr-only">{$c.met_webname}</span>
 
         <div class="vertical-align-middle">
 

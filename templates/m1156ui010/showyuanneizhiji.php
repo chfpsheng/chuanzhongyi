@@ -10,6 +10,14 @@
  *           详情页遍历 {$data.para} 渲染，且仅显示已填写（非空）的参数，
  *           因此不会与中医馆的产品参数互相串显。
  */
+if (empty($data['page_description'])) {
+    $__yz_desc = !empty($data['description']) ? $data['description'] : (!empty($data['content']) ? $data['content'] : '');
+    $__yz_desc = trim(preg_replace('/\s+/u', ' ', strip_tags((string)$__yz_desc)));
+    if (function_exists('mb_substr')) {
+        $__yz_desc = mb_substr($__yz_desc, 0, 110, 'UTF-8');
+    }
+    $data['page_description'] = $__yz_desc . ($__yz_desc !== '' ? '。' : '') . '院内制剂仅限医院内部凭处方使用，不对外销售。';
+}
 ?>
 <include file="head.php" page="showyuanneizhiji"/>
 <link rel="stylesheet" type="text/css" href="{$c.met_weburl}templates/m1156ui010/met_detail.css">
@@ -26,6 +34,12 @@
 .yz-archive li:last-child{border-bottom:0;}
 .yz-archive .k{flex:0 0 110px;color:#8a6d3b;font-weight:600;}
 .yz-archive .v{flex:1 1 auto;color:#555;}
+.yz-faq{margin:18px 0 0 0;padding:16px 18px;background:#faf7f2;border:1px solid #efe6d6;border-radius:6px;}
+.yz-faq h4{margin:0 0 12px 0;font-size:16px;color:#8a6d3b;border-left:4px solid #8a6d3b;padding-left:10px;}
+.yz-faq .faq-item{margin-bottom:14px;}
+.yz-faq .faq-item:last-child{margin-bottom:0;}
+.yz-faq h5{margin:0 0 6px 0;font-size:15px;font-weight:600;color:#333;}
+.yz-faq p{margin:0;font-size:14px;line-height:1.8;color:#666;}
 </style>
 <section class="met-detail-loc_main met-content animsition">
   <div class="container">
@@ -93,6 +107,17 @@
                             <div class="editorlightgallery">{$data.content}</div>
                           </div>
                         </div>
+                        <if value="$data['faq_list']">
+                        <div class="yz-faq">
+                          <h4>常见问题</h4>
+                          <list data="$data['faq_list']" name="$faq">
+                          <div class="faq-item">
+                            <h5>{$faq.q}</h5>
+                            <p>{$faq.a}</p>
+                          </div>
+                          </list>
+                        </div>
+                        </if>
                         <div class="yz-detail-banner">合规声明：院内制剂仅限配制医院内部凭处方使用，不得对外销售或代购。如需使用，请前往对应医院就诊，由医生评估后开具处方。本页面仅作科普，不构成任何用药建议。</div>
                         <div class="showproduct-pager"><pagination /></div>
                       </div>
@@ -108,7 +133,7 @@
         <div class="met-service">
           <h3>相关院内制剂</h3>
           <ul>
-            <tag action="list" cid="144" num="4">
+            <tag action="list" cid="$data['class1']" num="4">
             <li>
               <a href="/yuanneizhiji/showproduct.php?id={$v.id}" title="{$v.title}" {$g.urlnew}>
                 <span><img src="{$v.imgurl|thumb:300,300}" alt="{$v.title}"></span>

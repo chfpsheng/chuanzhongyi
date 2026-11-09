@@ -4,7 +4,7 @@
 <section class="$uicss lazy {$ui.bgfull}" m-id="{$ui.mid}" data-title="{$ui.bgtitle}" 
   data-background="<if value='$ui["bgok"]'>{$ui.bgimg}</if>">
   <div class="container">
-    <div class="title-box"><h2>{$ui.title}</h2><p>{$ui.description}</p></div>
+    <div class="title-box"><if value="$data['classnow'] eq 10001"><h1 class="h2">{$ui.title}</h1><else/><h2>{$ui.title}</h2></if><p>{$ui.description}</p></div>
     <div class="row">
       <div class="service-box swiper-container-horizontal">
         <ul class="service-wraper" > 

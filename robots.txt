@@ -47,7 +47,8 @@ Disallow: /member/
 Disallow: /search/
 Disallow: /img1/
 Disallow: /icon/
-Disallow: /sitemap/
+Disallow: /hits/
+Disallow: /online/
 
 # 站点地图
 Sitemap: https://www.chuanzhongyi.com/sitemap.xml

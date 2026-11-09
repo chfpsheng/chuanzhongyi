@@ -242,7 +242,56 @@ class seo_label
                 );
             }
         }
-        return $sitemaplist;
+
+        // 地区聚合页（自定义 region 模块，栏目循环发现不到）
+        if ($lang == $_M['config']['met_index_type']) {
+            $site_url = !empty($_M['url']['web_site']) ? $_M['url']['web_site'] : (rtrim($index_url, '/') . '/');
+            $region_rows = DB::get_all("SELECT region_city, region_district, COUNT(*) AS total FROM {$_M['table']['product']} WHERE lang = '{$lang}' AND recycle = 0 AND displaytype = 1 AND region_city <> '' GROUP BY region_city, region_district");
+            if ($region_rows) {
+                $city_total = array();
+                foreach ($region_rows as $row) {
+                    $city = $row['region_city'];
+                    $city_total[$city] = isset($city_total[$city]) ? $city_total[$city] + intval($row['total']) : intval($row['total']);
+                }
+                $sitemaplist[] = array(
+                    'updatetime' => date($_M['config']['met_listtime']),
+                    'title' => '中医馆地区分布',
+                    'url' => $site_url . 'region/',
+                );
+                foreach ($city_total as $city => $total) {
+                    if ($total < 2) {
+                        continue;
+                    }
+                    $sitemaplist[] = array(
+                        'updatetime' => date($_M['config']['met_listtime']),
+                        'title' => $city . '中医馆',
+                        'url' => $site_url . 'region/?city=' . rawurlencode($city),
+                    );
+                    foreach ($region_rows as $row) {
+                        if ($row['region_city'] !== $city || $row['region_district'] === '' || intval($row['total']) < 2) {
+                            continue;
+                        }
+                        $sitemaplist[] = array(
+                            'updatetime' => date($_M['config']['met_listtime']),
+                            'title' => $city . $row['region_district'] . '中医馆',
+                            'url' => $site_url . 'region/?city=' . rawurlencode($city) . '&district=' . rawurlencode($row['region_district']),
+                        );
+                    }
+                }
+            }
+        }
+
+        $unique = array();
+        $seen = array();
+        foreach ($sitemaplist as $item) {
+            $key = $this->normalize_sitemap_url($item['url']);
+            if (isset($seen[$key])) {
+                continue;
+            }
+            $seen[$key] = true;
+            $unique[] = $item;
+        }
+        return $unique;
     }
 
     /**
@@ -314,7 +363,8 @@ class seo_label
         foreach ($sitemaplist as $val) {
             if (++$count > $max_items) break;
             $update_time = date("Y-m-d", strtotime($val['updatetime']));
-            $html .= "<li><a href='{$val['url']}' title=\"{$val['title']}\" target='_blank'>{$val['title']}</a><span>{$update_time}</span></li>\n";
+            $item_url = $this->normalize_sitemap_url($val['url']);
+            $html .= "<li><a href='{$item_url}' title=\"{$val['title']}\" target='_blank'>{$val['title']}</a><span>{$update_time}</span></li>\n";
         }
         $html .= "</ul>\n</body>";
 
@@ -375,7 +425,7 @@ class seo_label
         foreach ($items as $val) {
             if (++$count > $max_items) break;
 
-            $url = $this->escape_xml($val['url']);
+            $url = $this->escape_xml($this->normalize_sitemap_url($val['url']));
             $update_time = date("Y-m-d", strtotime($val['updatetime']));
             $priority = $val['priority'] ?: '0.5';
 
@@ -391,7 +441,7 @@ class seo_label
         if ($_M['config']['met_webhtm'] || $_M['config']['met_pseudo']) {
             $tags = $this->get_tags_data();
             foreach ($tags as $val) {
-                $url = $this->escape_xml($val['url']);
+                $url = $this->escape_xml($this->normalize_sitemap_url($val['url']));
                 $xml .= "<url>\n";
                 $xml .= "<loc>{$url}</loc>\n";
                 $xml .= "<priority>0.5</priority>\n";
@@ -430,7 +480,7 @@ class seo_label
         $count = 0;
         foreach ($sitemaplist as $val) {
             if (++$count > $max_items) break;
-            $txt .= str_replace(['..html', '..htm'], ['.html', '.htm'], $val['url']) . "\r\n";
+            $txt .= str_replace(['..html', '..htm'], ['.html', '.htm'], $this->normalize_sitemap_url($val['url'])) . "\r\n";
         }
 
         if ($_M['config']['met_webhtm'] || $_M['config']['met_pseudo']) {
@@ -478,6 +528,45 @@ class seo_label
             $filename .= "_{$_M['lang']}";
         }
         return PATH_WEB . $filename . '.' . $type;
+    }
+
+    /**
+     * 统一站点地图 URL：目录型地址补尾斜杠，避免 /product 这类 301 地址进入 sitemap。
+     */
+    private function normalize_sitemap_url($url)
+    {
+        $url = str_replace(array('../', './'), '', (string)$url);
+        $parts = parse_url($url);
+        if ($parts === false) {
+            return $url;
+        }
+        if (empty($parts['path'])) {
+            if (empty($parts['host'])) {
+                return $url;
+            }
+            $parts['path'] = '/';
+        }
+        if (substr($parts['path'], -1) !== '/' && pathinfo($parts['path'], PATHINFO_EXTENSION) === '') {
+            $parts['path'] .= '/';
+        }
+        $normalized = '';
+        if (!empty($parts['scheme'])) {
+            $normalized .= $parts['scheme'] . '://';
+        }
+        if (!empty($parts['host'])) {
+            $normalized .= $parts['host'];
+        }
+        if (!empty($parts['port'])) {
+            $normalized .= ':' . $parts['port'];
+        }
+        $normalized .= $parts['path'];
+        if (isset($parts['query'])) {
+            $normalized .= '?' . $parts['query'];
+        }
+        if (isset($parts['fragment'])) {
+            $normalized .= '#' . $parts['fragment'];
+        }
+        return $normalized;
     }
 
     /**

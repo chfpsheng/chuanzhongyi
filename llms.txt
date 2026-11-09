@@ -1,6 +1,6 @@
 # 四川中医馆
 
-> 四川中医馆（四川中医网）是面向四川及成都地区的中医信息服务平台，收录特色中医馆、名老中医、中医活动与少儿中医研学资源，帮助用户查找可信赖的中医就医与养生参考信息。
+> 四川中医馆（四川中医网）是面向四川及成都地区的中医信息服务平台，收录特色中医馆、名老中医、医院院内制剂、中医活动与少儿中医研学资源，帮助用户查找可信赖的中医就医与养生参考信息。
 
 本站以“可查证、可追溯”为原则整理中医馆与中医师信息；所有医疗相关内容仅作健康科普参考，不能替代执业医师的诊断与处方。
 
@@ -8,6 +8,7 @@
 
 - [中医师名录](https://www.chuanzhongyi.com/zhongyishi/)：四川名老中医与中医专家信息，含执业机构、擅长领域、参考挂号费
 - [中医馆](https://www.chuanzhongyi.com/product/)：四川及成都各区县的中医馆信息，含擅长项目、地址与出诊时间
+- [院内制剂](https://www.chuanzhongyi.com/yuanneizhiji/)：四川医院院内制剂科普，含来源医院、功效方向与合规说明（仅限配制医院内部凭处方使用）
 - [中医活动](https://www.chuanzhongyi.com/huodong/)：中医药文化服务、公益义诊、健康讲座等活动信息
 - [少儿中医](https://www.chuanzhongyi.com/shaoerzhongyi/)：面向青少年的中医研学体验活动
 - [中医资讯](https://www.chuanzhongyi.com/news/)：中医行业动态、中医养生与药食同源科普
@@ -154,6 +155,34 @@
 - [承启堂·龙湖西宸馆](https://www.chuanzhongyi.com/product/showproduct.php?id=82)：位于成都市金牛区，擅长中医内科、针灸、推拿，出诊时间9:00-22:00
 - [承启堂·宜宾馆](https://www.chuanzhongyi.com/product/showproduct.php?id=83)：位于宜宾市叙州区，擅长中医内科、针灸、推拿，出诊时间9:00-22:00
 
+## 已收录院内制剂（共 9 种，更新于 2026-11-09）
+
+> 院内制剂是医疗机构根据本单位临床需要配制、经批准仅限本机构内部使用的制剂，须由医生评估后开具处方，不得在市场上或网上销售。本节仅作科普，不提供购买、代购或在线下单服务。
+
+- [六合丹](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=86)：华西医院外用经典院内制剂。清热解毒、逐瘀消肿，用于疮疡初起红肿热痛、皮肤未破者。
+- [紫草油](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=87)：华西医院外用油剂院内制剂。凉血活血、解毒透疹，用于湿疹、水火烫伤、疮疹等。
+- [复方菌灵芝合剂](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=88)：华西医院院内制剂。用于神经衰弱所致的失眠症。
+- [海棠合剂](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=89)：华西医院口服院内制剂。清热解毒、祛风除湿，用于银屑病、红斑狼疮等免疫相关性皮肤病。
+- [金槐痔瘘合剂](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=90)：华西医院口服院内制剂。清热解毒、凉血止血，用于痔疮、出血、疼痛。
+- [燥湿止痒洗液](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=91)：华西医院外用洗剂院内制剂。清热解毒、燥湿止痒，用于肛周湿疹、痔疮肿痛、皮肤瘙痒等。
+- [益坎胶囊](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=98)：成都中医药大学附属医院（四川省中医医院）院内制剂。养血、活血、益精。用于阳痿、早泄。
+- [强精片](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=105)：成都中医药大学附属医院（四川省中医医院）院内制剂。益气、补肾、强精。用于男性不育；精子数量少，活动力弱；死精、无精。
+- [香连金黄散](https://www.chuanzhongyi.com/yuanneizhiji/showproduct.php?id=106)：成都中医药大学附属医院（四川省中医医院）院内制剂。清热解毒，消肿止痛。用于热毒引起的红肿疼痛及未溃烂的疮疡。
+
+## 地区聚合页（按市/区县查找中医馆）
+
+- [中医馆地区分布](https://www.chuanzhongyi.com/region/)：按四川省各市/州及区/县汇总中医馆名录，可按地区逐级筛选。
+- [成都中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82)：成都市各区县中医馆汇总，可按区县查看地址与擅长项目。
+- [成都市双流区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E5%8F%8C%E6%B5%81%E5%8C%BA)
+- [成都市成华区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E6%88%90%E5%8D%8E%E5%8C%BA)
+- [成都市武侯区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E6%AD%A6%E4%BE%AF%E5%8C%BA)
+- [成都市温江区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E6%B8%A9%E6%B1%9F%E5%8C%BA)
+- [成都市金牛区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E9%87%91%E7%89%9B%E5%8C%BA)
+- [成都市锦江区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E9%94%A6%E6%B1%9F%E5%8C%BA)
+- [成都市青羊区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E9%9D%92%E7%BE%8A%E5%8C%BA)
+- [成都市高新区中医馆](https://www.chuanzhongyi.com/region/?city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E9%AB%98%E6%96%B0%E5%8C%BA)
+- [宜宾市叙州区中医馆](https://www.chuanzhongyi.com/region/?city=%E5%AE%9C%E5%AE%BE%E5%B8%82&district=%E5%8F%99%E5%B7%9E%E5%8C%BA)
+
 ## 已收录中医活动（共 6 场）
 
 - [岐黄传新韵 生活有良方丨2026年“中医药文化服务月”系列活动（一）](https://www.chuanzhongyi.com/huodong/showactivity.php?id=1)：地点四川省各市（州）及国家、省级中医药文化宣传教育基地，免费参与
@@ -225,11 +254,11 @@
 
 ## 结构化数据
 
-- 站点、栏目、中医师（Physician）、中医馆（MedicalClinic）、活动（Event）、资讯（Article）等页面均提供 schema.org JSON-LD 结构化数据
+- 站点、栏目、中医师（Physician）、中医馆（MedicalClinic）、院内制剂（MedicalEntity / MedicalWebPage）、活动（Event）、资讯（Article）、地区聚合页（CollectionPage + ItemList）等页面均提供 schema.org JSON-LD 结构化数据
 
 ## 其它
 
 - Sitemap: https://www.chuanzhongyi.com/sitemap.xml
 - 全文版（llms-full.txt，含各页面完整正文，供生成式 AI 引擎直接摄取与引用）：https://www.chuanzhongyi.com/llms-full.txt
 - 联系方式：见 https://www.chuanzhongyi.com/about1/show.php?id=118 联系我们页面
-- 最后更新：2026-10-31
+- 最后更新：2026-11-09

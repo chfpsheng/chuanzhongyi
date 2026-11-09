@@ -119,15 +119,57 @@ if (strpos($_seo_can_mark, 'canonical') === false) {
         echo '<link rel="canonical" href="' . htmlspecialchars($_seo_can_abs, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
     } else {
         $_seo_can = isset($data['url']) ? str_replace('../', '', (string)$data['url']) : '';
-        if ($_seo_can === '' || strpos($_seo_can, 'index.php') !== false) {
+        if ($_seo_can === '' || $_seo_can === './' || strpos($_seo_can, 'index.php') !== false) {
             $_seo_can = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '/';
         }
-        if (strpos($_seo_can, '?') !== false && strpos($_seo_can, 'id=') === false) {
-            $_seo_can = strtok($_seo_can, '?');
+        // 拆出路径与查询串：保留分页（page/dpage）、子栏目（class2/class3）、详情（id）等有意义参数，
+        // 仅丢弃米拓内部重写参数，避免 ?page=2 被归一成第 1 页。
+        $_seo_can_path  = $_seo_can;
+        $_seo_can_query = '';
+        if (strpos($_seo_can, '?') !== false) {
+            list($_seo_can_path, $_seo_can_query) = explode('?', $_seo_can, 2);
         }
-        $_seo_can = str_replace('index.php', '', $_seo_can);
-        $_seo_can = '/' . ltrim($_seo_can, '/');
-        echo '<link rel="canonical" href="' . htmlspecialchars(rtrim($_seo_site, '/') . $_seo_can, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
+        $_seo_can_keep = array();
+        $_seo_can_q = array();
+        if ($_seo_can_query !== '') {
+            parse_str($_seo_can_query, $_seo_can_q);
+        }
+        // 子栏目/分页等参数可能只在请求串里（$data['url'] 只到 news.php），需要补回。
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            $_seo_req_qs = parse_url((string)$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+            if ($_seo_req_qs) {
+                parse_str($_seo_req_qs, $_seo_req_q);
+                foreach (array('class1', 'class2', 'class3', 'page', 'dpage') as $_seo_keep_key) {
+                    if (!isset($_seo_can_q[$_seo_keep_key]) && isset($_seo_req_q[$_seo_keep_key]) && $_seo_req_q[$_seo_keep_key] !== '') {
+                        $_seo_can_q[$_seo_keep_key] = $_seo_req_q[$_seo_keep_key];
+                    }
+                }
+                // 动态详情页才补 id；伪静态 .html 无需再挂 id
+                if (empty($_seo_can_q['id']) && !empty($_seo_req_q['id']) && pathinfo($_seo_can_path, PATHINFO_EXTENSION) === 'php') {
+                    $_seo_can_q['id'] = $_seo_req_q['id'];
+                }
+            }
+        }
+        foreach (array('lang', 'metid', 'pseudo_jump', 'pageset') as $_seo_drop) {
+            unset($_seo_can_q[$_seo_drop]);
+        }
+        if (isset($_seo_can_q['page']) && intval($_seo_can_q['page']) <= 1) {
+            unset($_seo_can_q['page']);
+        }
+        if (isset($_seo_can_q['dpage']) && intval($_seo_can_q['dpage']) <= 1) {
+            unset($_seo_can_q['dpage']);
+        }
+        $_seo_can_keep = $_seo_can_q;
+        $_seo_can_path = str_replace('index.php', '', $_seo_can_path);
+        $_seo_can_path = '/' . ltrim($_seo_can_path, '/');
+        // 目录型地址补尾斜杠（与站点 301 后的最终 URL 保持一致）
+        if ($_seo_can_path !== '/' && substr($_seo_can_path, -1) !== '/' && pathinfo($_seo_can_path, PATHINFO_EXTENSION) === '') {
+            $_seo_can_path .= '/';
+        }
+        if ($_seo_can_keep) {
+            $_seo_can_path .= '?' . http_build_query($_seo_can_keep);
+        }
+        echo '<link rel="canonical" href="' . htmlspecialchars(rtrim($_seo_site, '/') . $_seo_can_path, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
     }
 }
 ?>
@@ -263,6 +305,19 @@ if (!empty($data['classnow']) && $data['classnow'] != 10001) {
         $_seo_col = array();
     }
 }
+// 院内制剂：产品模块下的独立栏目（目录名 yuanneizhiji），结构化数据与 FAQ 需与中医馆区分
+$_seo_is_yuanneizhiji = false;
+if (!empty($_seo_col['foldername']) && $_seo_col['foldername'] === 'yuanneizhiji') {
+    $_seo_is_yuanneizhiji = true;
+}
+foreach (array('class1', 'class2', 'class3', 'classnow') as $_seo_cid_key) {
+    if (!empty($data[$_seo_cid_key]) && intval($data[$_seo_cid_key]) === 144) {
+        $_seo_is_yuanneizhiji = true;
+    }
+}
+if (!empty($_SERVER['REQUEST_URI']) && stripos((string)$_SERVER['REQUEST_URI'], 'yuanneizhiji') !== false) {
+    $_seo_is_yuanneizhiji = true;
+}
 if (!empty($_seo_col['name'])) {
     if (!empty($_seo_col['bigclass'])) {
         try {
@@ -316,6 +371,10 @@ $_seo_page   = array(
 );
 if (!empty($_seo_col['name'])) {
     $_seo_page['about'] = array('@type' => 'Thing', 'name' => $_seo_col['name']);
+}
+if ($_seo_is_detail && $_seo_is_yuanneizhiji) {
+    $_seo_page['@type'] = 'MedicalWebPage';
+    $_seo_page['audience'] = array('@type' => 'Patient');
 }
 
 // 详情页实体：按模块输出对应类型，便于搜索引擎与生成式引擎识别
@@ -416,7 +475,26 @@ if ($_seo_is_detail) {
                 $_seo_entity['isAccessibleForFree'] = $data['is_free'] ? true : false;
             }
             break;
-        case 3: // 中医馆
+        case 3: // 产品模块：中医馆或院内制剂
+            if ($_seo_is_yuanneizhiji) {
+                // 院内制剂是药品/制剂科普页，不是诊疗机构，不能输出 MedicalClinic（营业时间/地址/医保）。
+                $_seo_entity = array(
+                    '@type'       => 'MedicalEntity',
+                    '@id'         => $_seo_cur . '#medicalentity',
+                    'name'        => $_seo_clean($data['title']),
+                    'url'         => $_seo_cur,
+                    'description' => $_seo_clean($_seo_pdesc),
+                    'audience'    => array('@type' => 'Patient'),
+                    'inLanguage'  => 'zh-CN',
+                );
+                if (!empty($data['addtime'])) {
+                    $_seo_entity['datePublished'] = str_replace(' ', 'T', trim($data['addtime'])) . '+08:00';
+                }
+                if (!empty($data['updatetime'])) {
+                    $_seo_entity['dateModified'] = str_replace(' ', 'T', trim($data['updatetime'])) . '+08:00';
+                }
+                break;
+            }
             $_seo_entity = array(
                 '@type'       => 'MedicalClinic',
                 '@id'         => $_seo_cur . '#clinic',
@@ -676,7 +754,7 @@ if (!empty($data['para']) && is_array($data['para']) && !empty($data['faq_list']
 // 医馆页：后台未配 FAQ 时，用真实参数（医保/营业时间/地址/电话）自动生成数据型 FAQ。
 // 这是 AI 问答引擎最易直接引用的结构化内容；后台若已配 faq_list 则优先用后台的。
 // 放在医保覆盖块之后，避免通用医保话术覆盖掉带馆名的答案。
-if ($_seo_module === 3 && empty($data['faq_list'])) {
+if ($_seo_module === 3 && empty($_seo_is_yuanneizhiji) && empty($data['faq_list'])) {
     $_seo_cf = array();
     $_seo_cn = $_seo_clean($data['title']);
     // 医保（与参数「支持医保」一致）
@@ -714,6 +792,29 @@ if ($_seo_module === 3 && empty($data['faq_list'])) {
     if ($_seo_cf) {
         $data['faq_list'] = $_seo_cf;
     }
+}
+
+// 院内制剂 FAQ：不复用医馆的医保/预约/地址话术，改为合规与用药说明
+if ($_seo_module === 3 && $_seo_is_yuanneizhiji && empty($data['faq_list'])) {
+    $_seo_cn = $_seo_clean($data['title']);
+    $data['faq_list'] = array(
+        array(
+            'q' => $_seo_cn . '可以在网上购买吗？',
+            'a' => '不可以。院内制剂仅限配制医院内部凭处方使用，不得在市场上或网上销售；本页仅作科普，不提供购买、代购或在线下单服务。',
+        ),
+        array(
+            'q' => $_seo_cn . '需要处方吗？',
+            'a' => '需要。院内制剂须由医生根据病情评估后开具处方，在配制医院内部使用，请勿自行购买或使用。',
+        ),
+        array(
+            'q' => $_seo_cn . '在哪里可以开到？',
+            'a' => '请前往配制该制剂的医院就诊，由医生评估后开具；具体科室、适用人群与用法用量以医院和医生说明为准。',
+        ),
+        array(
+            'q' => $_seo_cn . '使用前需要注意什么？',
+            'a' => '使用前请仔细阅读说明书并遵医嘱；孕妇、儿童、过敏体质及合并用药人群应先咨询医生。如出现不适，请及时停药并就医。',
+        ),
+    );
 }
 
 // 详情页 FAQ（中医馆 / 中医师）：由对应模块的 handle 生成，AI 搜索最易直接引用
