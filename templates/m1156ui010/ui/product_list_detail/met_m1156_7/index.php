@@ -725,6 +725,9 @@ if (!empty($data['para_url']) && is_array($data['para_url'])) {
               <p>{$data.title}是位于<list data="$data['para']" name="$s"><if value="$s['name'] eq '地点'">{$s.value}</if></list>的中医诊疗机构，<if value="$data['specialty_list']">以<list data="$data['specialty_list']" name="$sp">{$sp}</list>等中医特色项目见长，</if>提供针灸、推拿、艾灸、拔罐及中医内科等诊疗与调理服务。{$data.description}</p>
               <ul class="org-meta">
                 <li><span>地址：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '地点'">{$s.value}</if></list></li>
+                <?php if (!empty($data['region_district'])) { ?>
+                <li><span>所在区域：</span><a href="<?php echo htmlspecialchars($_M['url']['web_site'] . 'region/?city=' . rawurlencode(trim((string)$data['region_city'])) . '&district=' . rawurlencode(trim((string)$data['region_district'])), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars(trim((string)$data['region_city']) . trim((string)$data['region_district']), ENT_QUOTES, 'UTF-8'); ?>中医馆</a></li>
+                <?php } ?>
                 <li><span>电话：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '电话'">{$s.value}</if></list></li>
                 <li><span>成立时间：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '成立时间'">{$s.value}</if></list></li>
                 <li><span>医保：</span><list data="$data['para']" name="$s"><if value="$s['name'] eq '医保'">{$s.value}</if></list></li>

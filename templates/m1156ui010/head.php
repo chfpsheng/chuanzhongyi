@@ -198,8 +198,9 @@ if (!$_seo_hide && !empty($data['class1']) && in_array(intval($data['class1']), 
 //     $_seo_plain_len = function_exists('mb_strlen') ? mb_strlen($_seo_plain, 'UTF-8') : strlen($_seo_plain);
 //     if ($_seo_plain_len < 20) $_seo_hide = true;
 // }
-// 站内搜索页：结果由查询词动态生成，不参与索引
-if (!$_seo_hide && isset($_SERVER['REQUEST_URI']) && strpos((string)$_SERVER['REQUEST_URI'], '/search/') !== false) {
+// 站内搜索页、标签聚合页：内容由查询生成或仅链接聚合，不参与索引
+$_seo_uri = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '';
+if (!$_seo_hide && $_seo_uri !== '' && (strpos($_seo_uri, '/search/') !== false || strpos($_seo_uri, '/tags/') !== false)) {
     $_seo_hide = true;
 }
 // 参数筛选页 / 标签聚合页：参数组合无限、内容高度重复，统一 noindex
@@ -496,20 +497,21 @@ if ($_seo_is_detail) {
                 break;
             }
             $_seo_entity = array(
-                '@type'       => 'MedicalClinic',
+                '@type'       => array('MedicalClinic', 'LocalBusiness'),
                 '@id'         => $_seo_cur . '#clinic',
                 'name'        => $_seo_clean($data['title']),
                 'url'         => $_seo_cur,
                 'description' => $_seo_clean($_seo_pdesc),
                 'knowsAbout'  => '中医',
             );
-            // 地址：国家/省/市/区 + 街道（街道来自参数「地点」，约 23 家馆已填）
-            $_seo_addr = array('@type' => 'PostalAddress', 'addressCountry' => 'CN');
-            if (!empty($data['region_city'])) {
-                $_seo_addr['addressRegion'] = $_seo_clean($data['region_city']);
-            }
-            if (!empty($data['region_district'])) {
-                $_seo_addr['addressLocality'] = $_seo_clean($data['region_district']);
+            // 地址：省/市/区 + 街道（街道来自参数「地点」，约 23 家馆已填）
+            // 注意 region_city 存的是地级市（如「成都市」「宜宾市」），
+            // 省固定为四川；市与区县合并进 addressLocality，符合中文地址层级。
+            $_seo_addr = array('@type' => 'PostalAddress', 'addressCountry' => 'CN', 'addressRegion' => '四川省');
+            $_seo_city = !empty($data['region_city']) ? $_seo_clean($data['region_city']) : '';
+            $_seo_district = !empty($data['region_district']) ? $_seo_clean($data['region_district']) : '';
+            if ($_seo_city !== '' || $_seo_district !== '') {
+                $_seo_addr['addressLocality'] = $_seo_city . $_seo_district;
             }
             $_seo_street = $_seo_para('地点');
             if ($_seo_street !== '') {
@@ -521,11 +523,16 @@ if ($_seo_is_detail) {
             if ($_seo_tel !== '') {
                 $_seo_entity['telephone'] = $_seo_tel;
             }
-            // 服务区域（本地 GEO 信号）
-            $_seo_entity['areaServed'] = array(
-                array('@type' => 'City', 'name' => '成都市'),
-                array('@type' => 'State', 'name' => '四川省'),
-            );
+            // 服务区域（本地 GEO 信号）：按医馆实际所在城市/区县输出，不写死成都
+            $_seo_area = array();
+            if ($_seo_city !== '') {
+                $_seo_area[] = array('@type' => 'City', 'name' => $_seo_city);
+            }
+            if ($_seo_district !== '') {
+                $_seo_area[] = array('@type' => 'AdministrativeArea', 'name' => $_seo_district);
+            }
+            $_seo_area[] = array('@type' => 'State', 'name' => '四川省');
+            $_seo_entity['areaServed'] = $_seo_area;
             // 结构化字段：擅长项目
             if (!empty($data['specialty_list']) && is_array($data['specialty_list'])) {
                 $_seo_spec = array();
