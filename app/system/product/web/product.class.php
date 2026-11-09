@@ -90,6 +90,18 @@ class product extends news
     public function doshowproduct()
     {
         global $_M;
+        // 修复：/product/showproduct.php?lang=cn&id=X 全部 404（lang 参数 + 院内制剂栏目路径不匹配）。
+        // 在 showpage()（会按栏目路径校验并 404）之前做 301 跳转，避免死链（书签/外链/Google 旧链接），
+        // 同时把 ?lang=cn 的重复 URL 收敛到规范 ?id= 形态。
+        $yz_id = isset($this->input['id']) ? (int)$this->input['id'] : 0;
+        $yz_has_lang = isset($_GET['lang']) || (isset($_SERVER['QUERY_STRING']) && stripos($_SERVER['QUERY_STRING'], 'lang=') !== false);
+        $yz_is = $this->is_yuanneizhiji();
+        if ($yz_id > 0 && ($yz_has_lang || ($yz_is && stripos($_SERVER['REQUEST_URI'], '/product/') !== false))) {
+            $yz_base = $yz_is ? '/yuanneizhiji/showproduct.php' : '/product/showproduct.php';
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: ' . $yz_base . '?id=' . $yz_id);
+            exit;
+        }
         $this->showpage('product');
         //详情页缩略图尺寸
         $_M['config']['met_productdetail_x'] = $this->input['thumb_detail_x'];

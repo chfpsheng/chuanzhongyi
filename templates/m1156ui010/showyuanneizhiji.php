@@ -14,6 +14,10 @@
 <include file="head.php" page="showyuanneizhiji"/>
 <link rel="stylesheet" type="text/css" href="{$c.met_weburl}templates/m1156ui010/met_detail.css">
 <style type="text/css">
+/* 修复：同列表页，主题给 .met-cons 设 float:right 导致内容区不占文档流高度、
+   页脚(position:relative,深色)被提上来盖住内容。改为 float:left 让栅格正常并把页脚推下去，
+   z-index/background 双保险确保内容画在页脚之上 */
+.met-cons{position:relative;z-index:1;float:left;background:#fff;}
 .yz-detail-banner{margin:0 0 18px 0;padding:12px 16px;background:#faf7f2;border:1px solid #efe6d6;border-left:4px solid #8a6d3b;border-radius:4px;color:#7a5c2e;font-size:14px;line-height:1.8;}
 .yz-archive{margin:18px 0 0 0;padding:16px 18px;background:#faf7f2;border:1px solid #efe6d6;border-radius:6px;}
 .yz-archive h4{margin:0 0 12px 0;font-size:16px;color:#8a6d3b;border-left:4px solid #8a6d3b;padding-left:10px;}
@@ -32,7 +36,12 @@
             <div class="row">
               <ol class="breadcrumb m-b-0">
                 <li><a href="{$c.index_url}" title="{$word.home}" {$g.urlnew}><i class="icon wb-home" aria-hidden="true"></i> {$word.home}</a></li>
-                <li><a href="{$c.index_url}" title="{$data.title}">{$data.title}</a></li>
+                <location>
+                <if value="$v">
+                <li><a href="{$v.url}" title="{$v.name}">{$v.name}</a></li>
+                </if>
+                </location>
+                <li class="active">{$data.title}</li>
               </ol>
             </div>
           </div>
@@ -101,7 +110,7 @@
           <ul>
             <tag action="list" cid="144" num="4">
             <li>
-              <a href="/product/showproduct.php?lang=cn&id={$v.id}" title="{$v.title}" {$g.urlnew}>
+              <a href="/yuanneizhiji/showproduct.php?id={$v.id}" title="{$v.title}" {$g.urlnew}>
                 <span><img src="{$v.imgurl|thumb:300,300}" alt="{$v.title}"></span>
                 <h6>{$v.title}</h6>
               </a>

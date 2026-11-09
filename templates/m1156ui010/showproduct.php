@@ -17,6 +17,17 @@
  */
 ?>
 <include file="head.php" page="showproduct"/>
+<?php
+/**
+ * 2026-11-08：详情正文强制正常换行。
+ * 部分产品正文是从其它编辑器粘贴进来的，每段 <span>/<h1> 带了内联
+ * `text-wrap-mode: nowrap`（等于 white-space:nowrap，禁止换行），导致长段
+ * 文字变成一整行撑破容器。用 !important 覆盖内联样式，恢复自动换行。
+ */
+?>
+<style type="text/css">
+.met-editor, .met-editor *{ text-wrap-mode: wrap !important; white-space: normal !important; word-break: normal !important; }
+</style>
 <ui name="location" style="met_m1156_7" id="32" />
 <ui name="product_list_detail" style="met_m1156_7" id="33" />
 <ui name="sidebar" style="met_m1156_7" id="34" />
