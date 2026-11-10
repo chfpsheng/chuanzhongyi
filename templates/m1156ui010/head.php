@@ -801,27 +801,120 @@ if ($_seo_module === 3 && empty($_seo_is_yuanneizhiji) && empty($data['faq_list'
     }
 }
 
-// 院内制剂 FAQ：不复用医馆的医保/预约/地址话术，改为合规与用药说明
-if ($_seo_module === 3 && $_seo_is_yuanneizhiji && empty($data['faq_list'])) {
+// 院内制剂 FAQ：不复用医馆的医保/预约/地址话术，
+// 按制剂档案（功能主治/用法用量/规格/所属医院/注意事项）逐条生成；字段缺失则跳过，不编造。
+if ($_seo_is_detail && $_seo_module === 3 && $_seo_is_yuanneizhiji && empty($data['faq_list'])) {
     $_seo_cn = $_seo_clean($data['title']);
-    $data['faq_list'] = array(
-        array(
-            'q' => $_seo_cn . '可以在网上购买吗？',
-            'a' => '不可以。院内制剂仅限配制医院内部凭处方使用，不得在市场上或网上销售；本页仅作科普，不提供购买、代购或在线下单服务。',
-        ),
-        array(
-            'q' => $_seo_cn . '需要处方吗？',
-            'a' => '需要。院内制剂须由医生根据病情评估后开具处方，在配制医院内部使用，请勿自行购买或使用。',
-        ),
-        array(
+    // 按关键词匹配参数名，兼容「功能主治」「主治功效」等命名差异；命中首个非空值即返回
+    $_seo_yz_get = function ($keys) use ($data, $_seo_clean) {
+        if (empty($data['para']) || !is_array($data['para'])) {
+            return '';
+        }
+        foreach ((array)$keys as $_seo_key) {
+            foreach ($data['para'] as $_seo_p) {
+                if (empty($_seo_p['name']) || empty($_seo_p['value'])) {
+                    continue;
+                }
+                if (mb_strpos($_seo_clean($_seo_p['name']), $_seo_key, 0, 'UTF-8') !== false) {
+                    return $_seo_clean($_seo_p['value']);
+                }
+            }
+        }
+        return '';
+    };
+    // 正文作为参数缺失时的回退来源：从「【功能主治】」小节或「功能主治：」行提取
+    $_seo_yz_text = '';
+    if (!empty($data['content'])) {
+        $_seo_yz_text = html_entity_decode(strip_tags((string)$data['content']), ENT_QUOTES, 'UTF-8');
+        $_seo_yz_text = trim(preg_replace('/\s+/u', ' ', $_seo_yz_text));
+    }
+    $_seo_yz_section = function ($label) use ($_seo_yz_text) {
+        if ($_seo_yz_text === '') {
+            return '';
+        }
+        $re_list = array(
+            '/【\s*' . preg_quote($label, '/') . '\s*】\s*(.{2,300}?)(?=【|$)/u',
+            '/(?:^|[。；;\s])' . preg_quote($label, '/') . '\s*[：:]\s*(.{2,300}?)(?=(?:功能主治|用法用量|规格|注意事项|禁忌|成分|性状|贮藏|备注|【)|$)/u',
+        );
+        foreach ($re_list as $re) {
+            if (preg_match($re, $_seo_yz_text, $_seo_m)) {
+                $v = trim($_seo_m[1]);
+                return function_exists('mb_substr') ? mb_substr($v, 0, 240, 'UTF-8') : substr($v, 0, 240);
+            }
+        }
+        return '';
+    };
+    // 参数优先，缺失时回退到正文小节
+    $_seo_yz_value = function ($keys) use ($_seo_yz_get, $_seo_yz_section) {
+        $v = $_seo_yz_get($keys);
+        if ($v !== '') {
+            return $v;
+        }
+        foreach ((array)$keys as $k) {
+            $v = $_seo_yz_section($k);
+            if ($v !== '') {
+                return $v;
+            }
+        }
+        return '';
+    };
+    $_seo_yz_effect = $_seo_yz_value(array('功能主治', '主治', '功效'));
+    $_seo_yz_usage  = $_seo_yz_value(array('用法用量', '用法', '用量'));
+    $_seo_yz_spec   = $_seo_yz_value(array('规格'));
+    // 所属医院只认明确字段名，避免误匹配「医院等级」等参数
+    $_seo_yz_hosp   = $_seo_yz_get(array('所属医院', '配制单位', '配制医院'));
+    if ($_seo_yz_hosp === '') {
+        $_seo_yz_hosp = $_seo_yz_section('所属医院');
+    }
+    $_seo_yz_note   = $_seo_yz_value(array('注意事项', '禁忌'));
+    // 统一句末标点，避免参数值自带标点时出现「。。」
+    $_seo_yz_p = function ($s) {
+        $s = rtrim((string)$s, "。；;，,\. \t\n\r");
+        return $s === '' ? '' : $s . '。';
+    };
+
+    $_seo_yzf = array();
+    if ($_seo_yz_effect !== '') {
+        $_seo_yzf[] = array(
+            'q' => $_seo_cn . '有什么功效？主治什么？',
+            'a' => '根据制剂说明，' . $_seo_cn . '的功能主治为：' . $_seo_yz_p($_seo_yz_effect) . '是否适用需由医生面诊判断，请勿自行用药。',
+        );
+    }
+    if ($_seo_yz_usage !== '') {
+        $_seo_yzf[] = array(
+            'q' => $_seo_cn . '怎么用？用法用量是多少？',
+            'a' => '说明用法为：' . $_seo_yz_p($_seo_yz_usage) . '具体剂量与疗程请遵医嘱，不可自行增减。',
+        );
+    }
+    if ($_seo_yz_spec !== '') {
+        $_seo_yzf[] = array(
+            'q' => $_seo_cn . '的规格是什么？',
+            'a' => $_seo_cn . '的规格为' . $_seo_yz_spec . '，实际包装以医院药房发放为准。',
+        );
+    }
+    if ($_seo_yz_hosp !== '') {
+        $_seo_yzf[] = array(
+            'q' => $_seo_cn . '是哪家医院的院内制剂？在哪里能开到？',
+            'a' => $_seo_cn . '由' . $_seo_yz_hosp . '配制，仅限该院内部凭处方使用，请前往该院相应科室就诊，由医生评估后开具。',
+        );
+    } else {
+        $_seo_yzf[] = array(
             'q' => $_seo_cn . '在哪里可以开到？',
             'a' => '请前往配制该制剂的医院就诊，由医生评估后开具；具体科室、适用人群与用法用量以医院和医生说明为准。',
-        ),
-        array(
-            'q' => $_seo_cn . '使用前需要注意什么？',
-            'a' => '使用前请仔细阅读说明书并遵医嘱；孕妇、儿童、过敏体质及合并用药人群应先咨询医生。如出现不适，请及时停药并就医。',
-        ),
+        );
+    }
+    if ($_seo_yz_note !== '') {
+        $_seo_yzf[] = array(
+            'q' => '使用' . $_seo_cn . '需要注意什么？',
+            'a' => $_seo_yz_p($_seo_yz_note) . '使用前请仔细阅读说明书并遵医嘱，如出现不适请及时停药并就医。',
+        );
+    }
+    $_seo_yzf[] = array(
+        'q' => $_seo_cn . '可以在网上购买或代购吗？',
+        'a' => '不可以。院内制剂仅限配制医院内部凭处方使用，不得在市场上或网上销售；本页仅作科普，不提供购买、代购或在线下单服务。',
     );
+    // 最多 6 条（功效/用法/规格/医院/注意/合规），不截断合规提示
+    $data['faq_list'] = $_seo_yzf;
 }
 
 // 详情页 FAQ（中医馆 / 中医师）：由对应模块的 handle 生成，AI 搜索最易直接引用

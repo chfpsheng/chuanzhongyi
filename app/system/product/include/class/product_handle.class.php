@@ -39,7 +39,10 @@ class product_handle extends base_handle
             // 图片 alt：医馆名 + 所在区县（SEO/无障碍），列表页与详情页共用
             $content['img_alt'] = $this->build_img_alt($content);
             // 详情页 FAQ：供前台展示与 head.php 输出 FAQPage 结构化数据
-            $content['faq_list'] = $this->build_faq($content);
+            // 院内制剂不是诊疗机构，不生成医馆 FAQ（由模板按制剂档案生成）
+            if (!$this->is_yuanneizhiji($content)) {
+                $content['faq_list'] = $this->build_faq($content);
+            }
         }
 
         return $content;
@@ -82,6 +85,33 @@ class product_handle extends base_handle
         }
 
         return $content;
+    }
+
+    /**
+     * 是否为「院内制剂」栏目内容（产品模块下的独立栏目，目录名 yuanneizhiji）
+     * 栏目 ID 只查一次并缓存，避免列表页逐条查询
+     */
+    protected static $yuanneizhiji_column_ids = null;
+
+    protected function is_yuanneizhiji($content = array())
+    {
+        global $_M;
+        if (self::$yuanneizhiji_column_ids === null) {
+            self::$yuanneizhiji_column_ids = array();
+            $rows = DB::get_all("SELECT id FROM {$_M['table']['column']} WHERE lang = '{$_M['lang']}' AND foldername = 'yuanneizhiji'");
+            foreach ((array)$rows as $row) {
+                self::$yuanneizhiji_column_ids[] = intval($row['id']);
+            }
+        }
+        if (!self::$yuanneizhiji_column_ids) {
+            return false;
+        }
+        foreach (array('class1', 'class2', 'class3') as $key) {
+            if (!empty($content[$key]) && in_array(intval($content[$key]), self::$yuanneizhiji_column_ids, true)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
