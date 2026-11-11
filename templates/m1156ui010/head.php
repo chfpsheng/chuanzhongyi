@@ -96,7 +96,14 @@ if (empty($data['page_description']) && !empty($data['module']) && intval($data[
             }
         }
     }
-    $_seo_built = $_seo_clean($data['title']) . '是成都的中医诊疗机构';
+    $_seo_region = '';
+    if (!empty($data['region_city'])) {
+        $_seo_region = $_seo_clean($data['region_city']);
+        if (!empty($data['region_district'])) {
+            $_seo_region .= $_seo_clean($data['region_district']);
+        }
+    }
+    $_seo_built = $_seo_clean($data['title']) . '是' . ($_seo_region !== '' ? $_seo_region : '四川') . '的中医诊疗机构';
     if ($_seo_addr !== '') {
         $_seo_built .= '，位于' . $_seo_addr;
     }
@@ -231,11 +238,24 @@ if ($_seo_hide) { ?>
 <meta name="twitter:image" content="<?php echo htmlspecialchars($_seo_img, ENT_QUOTES, 'UTF-8'); ?>" />
 <?php } ?>
 <?php // Open Graph：微信/QQ/微博等分享卡片依赖 og: 抓取标题/描述/缩略图 ?>
-<meta property="og:type" content="website" />
+<?php
+// 详情页用 article，便于分享卡片与聚合器识别为内容页；列表/首页保持 website
+$_seo_og_type = 'website';
+if (!empty($data['id']) && !empty($data['module']) && in_array(intval($data['module']), array(2, 3, 14, 15, 16))) {
+    $_seo_og_type = 'article';
+}
+?>
+<meta property="og:type" content="<?php echo $_seo_og_type; ?>" />
 <meta property="og:title" content="<?php echo htmlspecialchars($_seo_title, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta property="og:description" content="<?php echo htmlspecialchars($_seo_clean($_seo_pdesc), ENT_QUOTES, 'UTF-8'); ?>" />
 <meta property="og:url" content="<?php echo htmlspecialchars($_seo_cur, ENT_QUOTES, 'UTF-8'); ?>" />
 <meta property="og:site_name" content="<?php echo htmlspecialchars($_seo_name, ENT_QUOTES, 'UTF-8'); ?>" />
+<?php if ($_seo_og_type === 'article' && !empty($data['addtime'])) { ?>
+<meta property="article:published_time" content="<?php echo htmlspecialchars(str_replace(' ', 'T', trim($data['addtime'])) . '+08:00', ENT_QUOTES, 'UTF-8'); ?>" />
+<?php } ?>
+<?php if ($_seo_og_type === 'article' && !empty($data['updatetime'])) { ?>
+<meta property="article:modified_time" content="<?php echo htmlspecialchars(str_replace(' ', 'T', trim($data['updatetime'])) . '+08:00', ENT_QUOTES, 'UTF-8'); ?>" />
+<?php } ?>
 <?php if ($_seo_img) { ?>
 <meta property="og:image" content="<?php echo htmlspecialchars($_seo_img, ENT_QUOTES, 'UTF-8'); ?>" />
 <?php } ?>

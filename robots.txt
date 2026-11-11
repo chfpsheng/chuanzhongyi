@@ -44,6 +44,9 @@ Disallow: /*?lang=
 
 # 模板目录只放行前台合并后的样式/脚本缓存（页面渲染必需，禁止抓取会影响收录评估）
 Allow: /templates/m1156ui010/cache/
+# 站点根 cache 目录只放行语言包/脚本资源（如 /cache/lang_json_cn.js，页面 JS 渲染依赖）
+Allow: /cache/*.js
+Allow: /cache/*.css
 
 # 低价值系统/模板目录（非内容页，避免被爬取收录）
 Disallow: /member/
